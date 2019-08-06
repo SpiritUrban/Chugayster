@@ -13,7 +13,7 @@ const routes: Routes = [
   //   loadChildren: './@modules/@authentication/@authentication.module#AuthenticationModule',
   // },
   {
-    path: 'login',
+    path: 'auth',
     loadChildren: () => import('./@modules/@authentication/@authentication.module').then(mod => mod.AuthenticationModule)
   },
   { path: 'about-us', component: AboutUsComponent },
