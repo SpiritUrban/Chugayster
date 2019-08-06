@@ -8,6 +8,14 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
+  // {
+  //   path: 'login',
+  //   loadChildren: './@modules/@authentication/@authentication.module#AuthenticationModule',
+  // },
+  {
+    path: 'login',
+    loadChildren: () => import('./@modules/@authentication/@authentication.module').then(mod => mod.AuthenticationModule)
+  },
   { path: 'about-us', component: AboutUsComponent },
   // { path: 'auth', component: AuthComponent },
   { path: 'p404', component: P404Component },

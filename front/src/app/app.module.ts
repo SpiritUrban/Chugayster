@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// @modules
 import { AppRoutingModule } from './app-routing.module';
+import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
+
 import { AppComponent } from './root/app.component';
 
 // pages
@@ -20,7 +23,8 @@ import { NavComponent } from './components/general/nav/nav.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AuthenticationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

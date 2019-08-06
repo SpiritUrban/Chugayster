@@ -4,4 +4,4 @@ const appState = {
     }
   };
 
- export default appState ;
+ export default appState;
