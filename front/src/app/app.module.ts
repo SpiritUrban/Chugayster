@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 // @modules
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './root/app.component';
 
@@ -12,6 +13,8 @@ import { MainComponent } from './pages/main/main.component';
 import { P404Component } from './pages/p404/p404.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { NavComponent } from './components/general/nav/nav.component';
+
+import { ApiService } from './services/api.service';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,10 @@ import { NavComponent } from './components/general/nav/nav.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule
+    AuthenticationModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
