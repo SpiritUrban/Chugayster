@@ -3,10 +3,12 @@
     transition: .5s
 
 .prepare
-    overflow: hidden
+    overflow: visible
     display: block
     @media screen and (max-width: 992px)
         height: 0
+        overflow: hidden
+        
 
 .opening
     @media screen and (max-width: 992px)
@@ -17,3 +19,8 @@
 
 .collapsing
     height: 0    
+
+
+.dropdown-menu
+    @media (min-width: 992px)
+        position: absolute
