@@ -11,6 +11,12 @@ import { ApiService } from '../../services/api.service'
 
 export class MainComponent implements OnInit {
 
+  model = {
+    left: true,
+    middle: false,
+    right: false
+  };
+
   constructor(
     private api: ApiService
   ) { }
