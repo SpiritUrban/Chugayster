@@ -16,6 +16,10 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./@modules/@authentication/@authentication.module').then(mod => mod.AuthenticationModule)
   },
+  {
+    path: 'dev',
+    loadChildren: () => import('./@modules/@developer-guide/@developer-guide.module').then(mod => mod.DeveloperGuideModule)
+  },
   { path: 'about-us', component: AboutUsComponent },
   // { path: 'auth', component: AuthComponent },
   { path: 'p404', component: P404Component },

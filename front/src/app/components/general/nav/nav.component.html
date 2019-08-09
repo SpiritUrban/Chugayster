@@ -32,19 +32,35 @@
                     <a class="dropdown-item" routerLink="/default" >Default</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" routerLink="/about-us" >About</a>
+
                     <a class="dropdown-item" routerLink="/auth/help" >auth/Help</a>
                     <a class="dropdown-item" routerLink="/auth/login" >auth/Login</a>
                     <a class="dropdown-item" routerLink="/auth/register" >auth/Register</a>
+
                     <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                    <a class="dropdown-item" routerLink="/" ></a>
-                   
                 </div>
             </li>
+
+            <!-- developer-guide -->
+            <li 
+                class="nav-item dropdown"
+                (click)="drop2 = !drop2"
+                [ngClass]=" drop2 ? 'show': '' "
+            >
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Dev-guide
+                    <span class="caret"></span></a>
+                <div 
+                    class="dropdown-menu" 
+                    aria-labelledby="themes"
+                    [ngClass]=" drop2 ? 'show': '' "
+                >
+                    <a class="dropdown-item" routerLink="/dev/forms" >Forms</a>
+                    <a class="dropdown-item" routerLink="/" ></a>
+                    <a class="dropdown-item" routerLink="/" ></a>
+                    <a class="dropdown-item" routerLink="/" ></a>
+
+                </div>
+            </li>            
 
             <!-- Features -->
             <li class="nav-item">
