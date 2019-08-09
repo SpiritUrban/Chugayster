@@ -23,13 +23,13 @@ export class NavComponent implements OnInit {
       ?
       steps([
         [0, _ => this.navbarCollapse = 'navbar-collapse collapsing prepare'],
-        [10, _ => this.navbarCollapse = 'navbar-collapse opening prepare'],
+        [20, _ => this.navbarCollapse = 'navbar-collapse opening prepare'],
         [500, _ => this.navbarCollapse = 'navbar-collapse opened prepare'],
       ])
       :
       steps([
         [0, _ => this.navbarCollapse = 'navbar-collapse opening prepare'],
-        [10, _ => this.navbarCollapse = 'navbar-collapse  prepare'],
+        [70, _ => this.navbarCollapse = 'navbar-collapse  prepare'],
       ])      
       // this.navbarCollapse = 'navbar-collapse  prepare'
   }
