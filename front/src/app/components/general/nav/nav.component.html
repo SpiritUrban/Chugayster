@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" href="#">Navbar</a>
@@ -11,9 +10,56 @@
     <div id="navbarColor02" [ngClass]="navbarCollapse">
 
         <ul class="navbar-nav mr-auto">
+
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+
+            <li class="nav-item ">
+                <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle
+                        dropdown</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                        <button ngbDropdownItem>Action - 1</button>
+                        <button ngbDropdownItem>Another Action</button>
+                        <button ngbDropdownItem>Something else is here</button>
+                    </div>
+                </div>
+            </li>
+
+
+
+            <li class="nav-item dropdown show">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Themes
+                    <span class="caret"></span></a>
+                <div class="dropdown-menu show" aria-labelledby="themes">
+                    <a class="dropdown-item" href="../default/">Default</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="../cerulean/">Cerulean</a>
+                    <a class="dropdown-item" href="../cosmo/">Cosmo</a>
+                    <a class="dropdown-item" href="../cyborg/">Cyborg</a>
+                    <a class="dropdown-item" href="../darkly/">Darkly</a>
+                    <a class="dropdown-item" href="../flatly/">Flatly</a>
+                    <a class="dropdown-item" href="../journal/">Journal</a>
+                    <a class="dropdown-item" href="../litera/">Litera</a>
+                    <a class="dropdown-item" href="../lumen/">Lumen</a>
+                    <a class="dropdown-item" href="../lux/">Lux</a>
+                    <a class="dropdown-item" href="../materia/">Materia</a>
+                    <a class="dropdown-item" href="../minty/">Minty</a>
+                    <a class="dropdown-item" href="../pulse/">Pulse</a>
+                    <a class="dropdown-item" href="../sandstone/">Sandstone</a>
+                    <a class="dropdown-item" href="../simplex/">Simplex</a>
+                    <a class="dropdown-item" href="../sketchy/">Sketchy</a>
+                    <a class="dropdown-item" href="../slate/">Slate</a>
+                    <a class="dropdown-item" href="../solar/">Solar</a>
+                    <a class="dropdown-item" href="../spacelab/">Spacelab</a>
+                    <a class="dropdown-item" href="../superhero/">Superhero</a>
+                    <a class="dropdown-item" href="../united/">United</a>
+                    <a class="dropdown-item" href="../yeti/">Yeti</a>
+                </div>
+            </li>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Features</a>
             </li>
