@@ -2,9 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 // @modules
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './root/app.component';
 
@@ -25,10 +27,12 @@ import { ApiService } from './services/api.service';
     NavComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
