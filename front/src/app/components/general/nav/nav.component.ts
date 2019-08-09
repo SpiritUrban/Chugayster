@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { delay } from 'q';
+import { log, steps } from '../../../my_modules/stuff';
+
 
 @Component({
   selector: 'app-nav',
@@ -22,23 +23,27 @@ export class NavComponent implements OnInit {
   ngOnInit() {
   }
 
-  steps(lot) {
-    lot.map(one => setTimeout(one[1], one[0]))
-  }
-
-  
   navToggle() {
     // open/close
     this.navbarOpen = !this.navbarOpen
 
-    if (!this.navbarOpen) {
-      this.navbarCollapse = 'navbar-collapse  prepare'
-    } else {
-      this.steps([
+    // open ?
+    this.navbarOpen ?
+      steps([
         [0, _ => this.navbarCollapse = 'navbar-collapse collapsing prepare'],
         [10, _ => this.navbarCollapse = 'navbar-collapse opening prepare'],
-      ])
-    }
+      ]) 
+      :
+      this.navbarCollapse = 'navbar-collapse  prepare'
+
+    // if (!this.navbarOpen) {
+    //   this.navbarCollapse = 'navbar-collapse  prepare'
+    // } else {
+    //   this.steps([
+    //     [0, _ => this.navbarCollapse = 'navbar-collapse collapsing prepare'],
+    //     [10, _ => this.navbarCollapse = 'navbar-collapse opening prepare'],
+    //   ])
+    // }
 
   }
 }
