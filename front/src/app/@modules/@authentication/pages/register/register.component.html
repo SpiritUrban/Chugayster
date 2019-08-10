@@ -16,22 +16,36 @@
       </div>
     </div>
 
-    <!-- password -->
-    <div class="form-group">
-      <label for="2">Password</label>
-      <input type="password" class="form-control" id="2" placeholder="Password">
 
-      <!-- examples -->
-      <br>
-      <label for="0">Examples</label>
-      <input type="text" value="correct value" class="form-control is-valid">
-      <br>
-      <input type="text" value="wrong value" class="form-control is-invalid">
-      <!-- + -->
-      <div class="valid-feedback">Success! You've done it.</div>
-      <div class="invalid-feedback">Sorry, that username's taken. Try another?</div>
+    <!-- both -->
+    <fieldset formGroupName="passwords">
 
-    </div>
+      <!-- password -->
+      <div class="form-group">
+        <label for="2">Password</label>
+        <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
+        <!-- checking -->
+        <div *ngIf="!userForm.controls.passwords.controls.pwd.valid && userForm.controls.passwords.controls.pwd.dirty"
+          class="alert alert-danger">
+          <span>Password length must be betwen 6 - 20</span>
+        </div>
+      </div>
+
+      <!-- confirm password -->
+      <div class="form-group">
+        <label for="3">Password confirmation</label>
+        <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
+          placeholder="Confirm Password">
+        <small class="form-text text-muted">Password must be ...</small>
+        <!-- checking -->
+        <div
+          *ngIf="!userForm.controls.passwords.controls.confirm.valid && userForm.controls.passwords.controls.confirm.dirty"
+          class="alert alert-danger">
+          <span>Password length must be betwen 6 - 20</span>
+        </div>
+        <div *ngIf="userForm.controls.passwords.errors && userForm.controls.passwords.controls.confirm.dirty" class="alert alert-danger"> Passwords are not equal </div>
+      </div>
+    </fieldset>
 
     <div class="form-group">
       <i class="mdi mdi-file-document-box-check"></i>
