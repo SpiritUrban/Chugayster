@@ -38,12 +38,31 @@
           placeholder="Confirm Password">
         <small class="form-text text-muted">Password must be ...</small>
         <!-- checking -->
-        <div
+        <!-- <div
           *ngIf="!userForm.controls.passwords.controls.confirm.valid && userForm.controls.passwords.controls.confirm.dirty"
           class="alert alert-danger">
           <span>Password length must be betwen 6 - 20</span>
         </div>
-        <div *ngIf="userForm.controls.passwords.errors && userForm.controls.passwords.controls.confirm.dirty" class="alert alert-danger"> Passwords are not equal </div>
+        <div *ngIf="userForm.controls.passwords.errors && userForm.controls.passwords.controls.confirm.dirty"
+          class="alert alert-danger"> Passwords are not equal </div> -->
+
+        <!-- checking2 -->
+        <div *ngIf="confirm.invalid && (confirm.dirty || confirm.touched)" class="alert alert-danger">
+
+          <div *ngIf="confirm.errors.required">
+            Confirm Password is required.
+          </div>  
+
+          <div *ngIf="confirm.errors.minlength">
+            Password must be at least 6 characters long.
+          </div>
+
+          <div *ngIf="confirm.errors.maxlength">
+              Password must be shorter 20 characters long.
+            </div>          
+
+        </div>
+
       </div>
     </fieldset>
 

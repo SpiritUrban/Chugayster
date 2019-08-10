@@ -102,4 +102,5 @@ export class RegisterComponent implements OnInit {
     // userForm.controls.passwords.errors.custom
   }
 
+  get confirm() { return this.userForm.get('passwords.confirm'); }
 }
