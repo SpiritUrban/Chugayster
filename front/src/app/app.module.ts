@@ -6,7 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './root/app.component';
 
@@ -32,6 +33,7 @@ import { ApiService } from './services/api.service';
     AppRoutingModule,
     AuthenticationModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   providers: [ApiService],

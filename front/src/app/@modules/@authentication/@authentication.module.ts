@@ -6,11 +6,14 @@ import { HelpComponent } from './pages/help/help.component';
 
 import { AuthenticationRoutingModule } from './@authentication-routing.module'
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, HelpComponent],
   imports: [
     CommonModule,
-    AuthenticationRoutingModule
+    AuthenticationRoutingModule,
+    FormsModule, ReactiveFormsModule
   ],
   exports: [LoginComponent, RegisterComponent, HelpComponent]
 })
