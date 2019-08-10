@@ -7,25 +7,23 @@
 
     <!-- email -->
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input formControlName="email" name="email" type="email" class="form-control"  aria-describedby="emailHelp"
-        placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
+      <label for="1">Email address</label>
+      <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
+      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <!-- checking -->
       <div *ngIf="!userForm.controls.email.valid && !userForm.controls.email.pristine" class="alert alert-danger">
-          <span *ngIf="userForm.controls.email.errors.custom">
-            Incorrect email
-          </span>
-        </div>
+        <span *ngIf="userForm.controls.email.errors.custom"> Incorrect email </span>
+      </div>
     </div>
 
     <!-- password -->
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      <label for="2">Password</label>
+      <input type="password" class="form-control" id="2" placeholder="Password">
 
       <!-- examples -->
       <br>
+      <label for="0">Examples</label>
       <input type="text" value="correct value" class="form-control is-valid">
       <br>
       <input type="text" value="wrong value" class="form-control is-invalid">

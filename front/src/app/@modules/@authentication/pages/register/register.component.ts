@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
+import { log } from '../../../../my_modules/stuff';
 
 
 @Component({
@@ -91,7 +92,16 @@ export class RegisterComponent implements OnInit {
   }
 
 
-ngOnInit() {
-}
+  ngOnInit() {
+    setInterval(this.logForm.bind(this), 2000)
+  }
+
+  logForm() {
+    const userData = {
+      email: this.userForm.controls.email.value,
+      password: this.userForm.controls.password.value
+    }
+    log(userData)
+  }
 
 }
