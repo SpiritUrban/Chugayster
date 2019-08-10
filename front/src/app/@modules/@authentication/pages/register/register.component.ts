@@ -102,5 +102,15 @@ export class RegisterComponent implements OnInit {
     // userForm.controls.passwords.errors.custom
   }
 
+  get email() { return this.userForm.get('email'); }
+
+  get pwd() { return this.userForm.get('passwords.pwd'); }
+
   get confirm() { return this.userForm.get('passwords.confirm'); }
+
+
+
+  // need make: email, pwd    <--------------------- !!!
+
+  
 }
