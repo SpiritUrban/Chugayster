@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  //check email
+  // check email
   private mailValidator(): ValidatorFn {
     const pattern: RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return (control: AbstractControl): { [key: string]: any } => {
@@ -76,33 +76,23 @@ export class RegisterComponent implements OnInit {
     };
   }
 
-  //check password
+  // check password
   private passwordConfirm(): ValidatorFn {
     return (group: FormGroup) => (!(group.dirty || group.touched))
       ? { custom: 'Something going wrong' }
       : null
   }
 
-  //check password equal
-  private passwordsAreEqual(): ValidatorFn {
-    return (group: FormGroup): { [key: string]: any } => {
-      if (!(group.dirty || group.touched) || group.get('pwd').value === group.get('confirm').value) return null;
-      return { custom: 'Passwords are not equal' }; //=> this.userForm.controls.passwords.errors.custom
+
+  // check items equal
+  private itemsAreEqual(itemName, first, second): ValidatorFn {
+    const x = { custom: { msg: `${itemName} are not equal` } }
+    return (group: FormGroup) => {
+      const isEqual = group.get(first).value === group.get(second).value;
+      return isEqual ? null : x // x => this.userForm.controls.passwords.errors.custom
     };
   }
 
-  //check password equal
-  private itemsAreEqual(itemName, first, second): ValidatorFn {
-    return (group: FormGroup): { [key: string]: any } => {
-      const isEqual = group.get(first).value === group.get(second).value
-      if ( isEqual ) return null;
-      return { 
-        custom: { 
-          msg: `${itemName} are not equal` 
-        } 
-      }; //=> this.userForm.controls.passwords.errors.custom
-    };
-  }
 
   ngOnInit() {
     setInterval(this.logForm.bind(this), 2000)
