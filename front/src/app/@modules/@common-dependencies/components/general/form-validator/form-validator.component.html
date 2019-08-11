@@ -20,9 +20,9 @@
     <div *ngIf="it.errors.maxlength">
         Must be shorter {{it.errors.maxlength.requiredLength}} characters long.
     </div>
-    
+
     <!-- email validator -->
-    <div *ngIf="it.errors.mailValidator">
+    <div *ngIf="it.errors.mailValidator && it.value.length > 0">
         {{it.errors.mailValidator.msg}}
     </div>
 

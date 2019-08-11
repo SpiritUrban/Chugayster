@@ -5,12 +5,13 @@
   <!-- Register Form -->
   <form [formGroup]="userForm">
 
+
     <!-- email -->
     <div class="form-group">
       <label for="1">Email address</label>
       <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-      <!-- checking -->
+      <!-- validation -->
       <app-form-validator [it]="email"></app-form-validator>
     </div>
 
@@ -22,7 +23,7 @@
       <div class="form-group">
         <label for="2">Password</label>
         <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
-        <!-- checking 1 -->
+        <!-- validation -->
         <app-form-validator [it]="pwd"></app-form-validator>
       </div>
 
@@ -32,15 +33,17 @@
         <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
           placeholder="Confirm Password">
         <small class="form-text text-muted">Password must be ...</small>
-        <!-- checking 2 -->
+        <!-- validation -->
         <app-form-validator [it]="confirm"></app-form-validator>
       </div>
 
-      <!-- common checking 3 -->
+
+      <!-- mix validation: confirm, passwords -->
       <!-- equal -->
       <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
         {{passwords.errors.itemsAreEqual.msg}}
       </div>
+
 
     </fieldset>
 

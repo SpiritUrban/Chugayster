@@ -109,6 +109,7 @@ export class RegisterComponent implements OnInit {
       password2: this.userForm.controls.passwords.controls.confirm.value
     }
     log('0', userData)
+    log('0', this.userForm)
     log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {itemsAreEqual: msg: {"Passwords are not equal"}}
     log('3', this.userForm.controls.passwords.controls.confirm.errors) // ... 'it'.errors -> {minlength: {…}}
   }
