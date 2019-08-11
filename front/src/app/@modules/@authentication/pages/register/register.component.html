@@ -25,10 +25,7 @@
         <label for="2">Password</label>
         <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
         <!-- checking -->
-        <div *ngIf="!userForm.controls.passwords.controls.pwd.valid && userForm.controls.passwords.controls.pwd.dirty"
-          class="alert alert-danger">
-          <span>Password length must be betwen 6 - 20</span>
-        </div>
+        <app-form-validator [it]="pwd"></app-form-validator>
       </div>
 
       <!-- confirm password -->
@@ -37,25 +34,17 @@
         <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
           placeholder="Confirm Password">
         <small class="form-text text-muted">Password must be ...</small>
-
-
         <!-- checking2 -->
         <app-form-validator [it]="confirm"></app-form-validator>
-
-
-
-        <!-- checking3 -->
-        <div *ngIf=" (confirm.dirty || confirm.touched)">
-          <!-- equal -->
-          <div *ngIf="passwords.errors && passwords.errors.custom" class="alert alert-danger">
-            Passwords must be equal.
-          </div>
-        </div>
-
-
       </div>
 
-
+      <!-- common checking3 -->
+      <div *ngIf=" (confirm.dirty || confirm.touched)">
+        <!-- equal -->
+        <div *ngIf="passwords.errors && passwords.errors.custom" class="alert alert-danger">
+          Passwords must be equal.
+        </div>
+      </div>
 
     </fieldset>
 
