@@ -5,25 +5,16 @@ import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
 import { log, getUrlQueryes } from '../../../../my_modules/stuff';
 
-
-// let mode = new ActivatedRoute
-// let m = mode.snapshot//.queryParams["mode"];
-// alert(m)
-// log(location.search)
-
-
-const parsedQueries: any = getUrlQueryes()
-
-const mode = parsedQueries.mode ? parsedQueries.mode : 'empty'
-
-log('result: ', mode)
-
+// change component mode 
+const queries: any = getUrlQueryes()
+const mode = queries.mode ? queries.mode : 'empty'
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
 })
+
 export class RegisterComponent implements OnInit {
 
   userForm: any; //FormGroup;
