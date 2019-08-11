@@ -41,27 +41,21 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(20),
-      // this.passwordConfirm()
+      // this.someCustom()
     ];
 
     this.userForm = this.formBuilder.group({
       'email': [this.user.email, [Validators.required, Validators.minLength(5), this.mailValidator()]],
-      // 'password': [this.user.password, [Validators.required, this.passwordConfirm()]],
-      // 'firstName': [this.user.firstName, [Validators.required, Validators.minLength(3)]],
+      // 'firstName': [this.user.firstName, [Validators.required, Validators.minLength(3), this.someCustom()]],
       // 'lastName': [this.user.lastName, [Validators.required]],
-      //'password1': [this.user.password, [Validators.required,Validators.minLength(3),this.passwordsAreEqual()]],
-
+      // 'role': [this.user.role, [Validators.required]],
+      // 'notes': [this.user.notes, [Validators.maxLength(45)]]      
       'passwords': this.formBuilder.group({
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
       }, {
-          // validator: this.passwordsAreEqual(),
           validator: this.itemsAreEqual('Passwords', 'pwd', 'confirm')
-        }),
-
-      //'password2': [this.user.password, [Validators.required,Validators.minLength(3),this.passwordsAreEqual()]],
-      // 'role': [this.user.role, [Validators.required]],
-      // 'notes': [this.user.notes, [Validators.maxLength(45)]]
+        })
     });
   }
 
@@ -74,13 +68,6 @@ export class RegisterComponent implements OnInit {
         ? null
         : { custom: `Invalid email` };
     };
-  }
-
-  // check password
-  private passwordConfirm(): ValidatorFn {
-    return (group: FormGroup) => (!(group.dirty || group.touched))
-      ? { custom: 'Something going wrong' }
-      : null
   }
 
 
@@ -103,23 +90,18 @@ export class RegisterComponent implements OnInit {
       email: this.userForm.controls.email.value,
       password1: this.userForm.controls.passwords.controls.pwd.value,
       password2: this.userForm.controls.passwords.controls.confirm.value
-
     }
-    log(userData)
-    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {custom: "Passwords are not equal"}
-    // log('2', this.userForm.controls.passwords.controls.pwd.errors)
+    log('0', userData)
+    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {custom: msg: {"Passwords are not equal"}}
     log('3', this.userForm.controls.passwords.controls.confirm.errors) // ... 'it'.errors -> {minlength: {…}}
-
-    // userForm.controls.passwords.errors.custom
   }
-
 
   get email() { return this.userForm.get('email'); }
   get passwords() { return this.userForm.get('passwords'); }
   get pwd() { return this.userForm.get('passwords.pwd'); }
   get confirm() { return this.userForm.get('passwords.confirm'); }
 
-  // need make: email, pwd    <--------------------- !!!
 
+  // need make: email, pwd    <--------------------- !!!
 
 }
