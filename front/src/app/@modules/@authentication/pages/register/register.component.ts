@@ -54,7 +54,10 @@ export class RegisterComponent implements OnInit {
       'passwords': this.formBuilder.group({
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
-      }, { validator: this.passwordsAreEqual() }),
+      }, {
+          // validator: this.passwordsAreEqual(),
+          validator: this.itemsAreEqual('Passwords', 'pwd', 'confirm')
+        }),
 
       //'password2': [this.user.password, [Validators.required,Validators.minLength(3),this.passwordsAreEqual()]],
       // 'role': [this.user.role, [Validators.required]],
@@ -88,6 +91,18 @@ export class RegisterComponent implements OnInit {
     };
   }
 
+  //check password equal
+  private itemsAreEqual(itemName, first, second): ValidatorFn {
+    return (group: FormGroup): { [key: string]: any } => {
+      const isEqual = group.get(first).value === group.get(second).value
+      if ( isEqual ) return null;
+      return { 
+        custom: { 
+          msg: `${itemName} are not equal` 
+        } 
+      }; //=> this.userForm.controls.passwords.errors.custom
+    };
+  }
 
   ngOnInit() {
     setInterval(this.logForm.bind(this), 2000)

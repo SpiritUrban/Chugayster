@@ -10,10 +10,22 @@
       <label for="1">Email address</label>
       <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+
       <!-- checking -->
       <div *ngIf="!userForm.controls.email.valid && !userForm.controls.email.pristine" class="alert alert-danger">
         <span *ngIf="userForm.controls.email.errors.custom"> Incorrect email </span>
       </div>
+
+      <div *ngIf=" (email.dirty || email.touched)">111
+        <!-- equal -->
+        <div *ngIf="email.errors.custom" class="alert alert-danger">
+          Incorrect email 2
+        </div>
+      </div>
+
+      <app-form-validator [it]="email"></app-form-validator>
+
+
     </div>
 
 
@@ -24,7 +36,7 @@
       <div class="form-group">
         <label for="2">Password</label>
         <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
-        <!-- checking -->
+        <!-- checking 1 -->
         <app-form-validator [it]="pwd"></app-form-validator>
       </div>
 
@@ -34,15 +46,16 @@
         <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
           placeholder="Confirm Password">
         <small class="form-text text-muted">Password must be ...</small>
-        <!-- checking2 -->
+        <!-- checking 2 -->
         <app-form-validator [it]="confirm"></app-form-validator>
       </div>
 
-      <!-- common checking3 -->
+      <!-- common checking 3 -->
       <div *ngIf=" (confirm.dirty || confirm.touched)">
         <!-- equal -->
         <div *ngIf="passwords.errors && passwords.errors.custom" class="alert alert-danger">
-          Passwords must be equal.
+          {{passwords.errors.custom.msg}}
+          <!-- Passwords must be equal.222 -->
         </div>
       </div>
 
