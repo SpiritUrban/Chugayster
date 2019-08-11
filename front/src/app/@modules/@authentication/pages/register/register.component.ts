@@ -12,7 +12,7 @@ import { log } from '../../../../my_modules/stuff';
 })
 export class RegisterComponent implements OnInit {
 
-  userForm: FormGroup;
+  userForm: any; //FormGroup;
 
   roles: Array<string> = [
     'Guest',
@@ -97,12 +97,16 @@ export class RegisterComponent implements OnInit {
 
     }
     log(userData)
-    log(this.userForm.controls.passwords.errors)
-    log(this.userForm.controls.passwords.controls.pwd.errors)
+    log('1', this.userForm.controls.passwords.errors)
+    log('2', this.userForm.controls.passwords.controls.pwd.errors)
+    log('3', this.userForm.controls.passwords.errors)
+
     // userForm.controls.passwords.errors.custom
   }
 
   get email() { return this.userForm.get('email'); }
+
+  get passwords() { return this.userForm.get('passwords'); }
 
   get pwd() { return this.userForm.get('passwords.pwd'); }
 
@@ -112,5 +116,5 @@ export class RegisterComponent implements OnInit {
 
   // need make: email, pwd    <--------------------- !!!
 
-  
+
 }

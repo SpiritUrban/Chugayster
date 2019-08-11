@@ -1,0 +1,5 @@
+*** Generate @Module vith Routing:
+ng generate module @modules/@common-dependencies --routing
+
+*** Generate Component in him:
+ng generate component @modules/@common-dependencies/components/general/form-validator

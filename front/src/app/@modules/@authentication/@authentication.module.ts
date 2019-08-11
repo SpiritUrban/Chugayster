@@ -8,12 +8,16 @@ import { AuthenticationRoutingModule } from './@authentication-routing.module'
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@common-dependencies.module'
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, HelpComponent],
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
-    FormsModule, ReactiveFormsModule
+    FormsModule, 
+    ReactiveFormsModule,
+    CommonDependenciesModule
   ],
   exports: [LoginComponent, RegisterComponent, HelpComponent]
 })

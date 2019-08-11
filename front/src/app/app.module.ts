@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 // @modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
+// import { AuthenticationModule } from './@modules/@authentication/@authentication.module'
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-
+import { CommonDependenciesModule } from './@modules/@common-dependencies/@common-dependencies.module'
 
 import { AppComponent } from './root/app.component';
 
@@ -31,7 +31,8 @@ import { ApiService } from './services/api.service';
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    AuthenticationModule,
+    // AuthenticationModule,
+    CommonDependenciesModule,
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule
