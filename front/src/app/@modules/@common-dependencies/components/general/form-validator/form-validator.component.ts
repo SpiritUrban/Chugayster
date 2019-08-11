@@ -13,7 +13,7 @@ export class FormValidatorComponent implements OnInit {
   }
 
   ngOnInit() {
-    setInterval(_=> console.log('>>>', this.it), 1000 )
+    // setInterval(_=> console.log('>>>', this.it), 1000 )
   }
 
 }

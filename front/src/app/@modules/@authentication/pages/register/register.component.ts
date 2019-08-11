@@ -67,13 +67,17 @@ export class RegisterComponent implements OnInit {
     const pattern: RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return (control: AbstractControl): { [key: string]: any } => {
       if (!(control.dirty || control.touched)) return null
-      else return pattern.test(control.value) ? null : { custom: `Invalid email` };
+      else return pattern.test(control.value)
+        ? null
+        : { custom: `Invalid email` };
     };
   }
 
   //check password
   private passwordConfirm(): ValidatorFn {
-    return (group: FormGroup) => (!(group.dirty || group.touched)) ? { custom: 'Something going wrong' } : null
+    return (group: FormGroup) => (!(group.dirty || group.touched))
+      ? { custom: 'Something going wrong' }
+      : null
   }
 
   //check password equal
@@ -97,22 +101,18 @@ export class RegisterComponent implements OnInit {
 
     }
     log(userData)
-    log('1', this.userForm.controls.passwords.errors)
-    log('2', this.userForm.controls.passwords.controls.pwd.errors)
-    log('3', this.userForm.controls.passwords.errors)
+    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {custom: "Passwords are not equal"}
+    // log('2', this.userForm.controls.passwords.controls.pwd.errors)
+    log('3', this.userForm.controls.passwords.controls.confirm.errors) // ... 'it'.errors -> {minlength: {…}}
 
     // userForm.controls.passwords.errors.custom
   }
 
+
   get email() { return this.userForm.get('email'); }
-
   get passwords() { return this.userForm.get('passwords'); }
-
   get pwd() { return this.userForm.get('passwords.pwd'); }
-
   get confirm() { return this.userForm.get('passwords.confirm'); }
-
-
 
   // need make: email, pwd    <--------------------- !!!
 
