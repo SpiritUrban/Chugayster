@@ -2,17 +2,28 @@
 
 <h1>{{state}}</h1>
 <!-- checking2 -->
+
 <div *ngIf="it.invalid && (it.dirty || it.touched)" class="alert alert-danger">
+    <!-- <div *ngIf="it.invalid && !it.pristine" class="alert alert-danger"> -->
+
     <!-- required -->
     <div *ngIf="it.errors.required">
         Is required.
     </div>
+
     <!-- min -->
     <div *ngIf="it.errors.minlength">
-        Password must be at least {{it.errors.minlength.requiredLength}} characters long.
+        Must be at least {{it.errors.minlength.requiredLength}} characters long.
     </div>
+
     <!-- max -->
     <div *ngIf="it.errors.maxlength">
-        Password must be shorter {{it.errors.maxlength.requiredLength}} characters long.
+        Must be shorter {{it.errors.maxlength.requiredLength}} characters long.
     </div>
+    
+    <!-- email validator -->
+    <div *ngIf="it.errors.mailValidator">
+        {{it.errors.mailValidator.msg}}
+    </div>
+
 </div>

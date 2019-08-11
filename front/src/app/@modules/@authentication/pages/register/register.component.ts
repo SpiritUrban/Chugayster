@@ -61,24 +61,41 @@ export class RegisterComponent implements OnInit {
 
   // check email
   private mailValidator(): ValidatorFn {
+    const x = { mailValidator: { msg: `Incorrect email` } }
     const pattern: RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return (control: AbstractControl): { [key: string]: any } => {
-      if (!(control.dirty || control.touched)) return null
-      else return pattern.test(control.value)
-        ? null
-        : { custom: `Invalid email` };
+      const isValide = pattern.test(control.value);
+      return isValide ? null : x;
     };
   }
 
-
   // check items equal
   private itemsAreEqual(itemName, first, second): ValidatorFn {
-    const x = { custom: { msg: `${itemName} are not equal` } }
+    const x = { itemsAreEqual: { msg: `${itemName} are not equal` } }
     return (group: FormGroup) => {
       const isEqual = group.get(first).value === group.get(second).value;
       return isEqual ? null : x // x => this.userForm.controls.passwords.errors.custom
     };
   }
+
+
+  d(isSome, isValide) {
+    return isSome
+      ? 'a'
+      : isValide
+        ? 'b'
+        : 'c'
+  }
+
+  d2(isSome, isValide) {
+    return (
+      isSome ? 'a'
+        : isValide ? 'b'
+          : 'c'
+    )
+  }
+
+
 
 
   ngOnInit() {
@@ -92,7 +109,7 @@ export class RegisterComponent implements OnInit {
       password2: this.userForm.controls.passwords.controls.confirm.value
     }
     log('0', userData)
-    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {custom: msg: {"Passwords are not equal"}}
+    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {itemsAreEqual: msg: {"Passwords are not equal"}}
     log('3', this.userForm.controls.passwords.controls.confirm.errors) // ... 'it'.errors -> {minlength: {…}}
   }
 

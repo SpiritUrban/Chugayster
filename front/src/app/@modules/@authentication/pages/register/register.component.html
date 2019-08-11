@@ -10,22 +10,8 @@
       <label for="1">Email address</label>
       <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
       <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-
       <!-- checking -->
-      <div *ngIf="!userForm.controls.email.valid && !userForm.controls.email.pristine" class="alert alert-danger">
-        <span *ngIf="userForm.controls.email.errors.custom"> Incorrect email </span>
-      </div>
-
-      <div *ngIf=" (email.dirty || email.touched)">111
-        <!-- equal -->
-        <div *ngIf="email.errors.custom" class="alert alert-danger">
-          Incorrect email 2
-        </div>
-      </div>
-
       <app-form-validator [it]="email"></app-form-validator>
-
-
     </div>
 
 
@@ -51,12 +37,9 @@
       </div>
 
       <!-- common checking 3 -->
-      <div *ngIf=" (confirm.dirty || confirm.touched)">
-        <!-- equal -->
-        <div *ngIf="passwords.errors && passwords.errors.custom" class="alert alert-danger">
-          {{passwords.errors.custom.msg}}
-          <!-- Passwords must be equal.222 -->
-        </div>
+      <!-- equal -->
+      <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
+        {{passwords.errors.itemsAreEqual.msg}}
       </div>
 
     </fieldset>
