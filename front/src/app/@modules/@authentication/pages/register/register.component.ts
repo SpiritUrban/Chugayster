@@ -20,15 +20,12 @@ function parseQuery(queryString) {
   return query;
 }
 
+const getUrlQueryes = () => parseQuery(location.search)
 
-const queries: any = location.search
-log('queries: ', queries)
-
-const parsedQueries: any = parseQuery(queries)
-log('parsed queries: ', parsedQueries)
-
+const parsedQueries: any = getUrlQueryes()
 
 const mode = parsedQueries.mode ? parsedQueries.mode : 'empty'
+
 log('result: ', mode)
 
 
