@@ -1,8 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
 import { log } from '../../../../my_modules/stuff';
+
+
+// let mode = new ActivatedRoute
+// let m = mode.snapshot//.queryParams["mode"];
+// alert(m)
+// log(location.search)
+function parseQuery(queryString) {
+  var query = {};
+  var pairs = (queryString[0] === '?' ? queryString.substr(1) : queryString).split('&');
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split('=');
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+  }
+  return query;
+}
+
+
+const queries: any = location.search
+log('queries: ', queries)
+
+const parsedQueries: any =  parseQuery(queries)
+log('parsed queries: ', parsedQueries)
+
+
+const mode = parsedQueries.mode ? parsedQueries.mode : 'empty'
+log('result: ', mode)
 
 
 @Component({
@@ -34,6 +61,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
+    private route: ActivatedRoute
     // private api: ApiService
   ) {
 
@@ -99,7 +127,16 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    setInterval(this.logForm.bind(this), 2000)
+    // setInterval(this.logForm.bind(this), 2000)
+
+    let mode = this.route.snapshot.queryParams["mode"];
+    log(mode)
+
+    this.route.queryParams
+      .subscribe(params => {
+        console.log(params); // {order: "popular"}
+
+      });
   }
 
   logForm() {

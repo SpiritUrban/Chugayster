@@ -1,10 +1,20 @@
+Mode:
+<!-- <a [routerLink]="['/auth/register']" [queryParams]="{ mode: 'default'}">Default</a>
+<a [routerLink]="['/auth/register']" [queryParams]="{ mode: 'custom'}">Custom</a> -->
+
+&nbsp;
+<a href="/auth/register?mode=default">Default</a>
+&nbsp;
+<a href="/auth/register?mode=custom">Custom</a>
+
+
+
 <div class="jumbotron limit">
-  <h2>Welcome to Registration!</h2>
-  <h3>Please Sign Up</h3>
+
+  <h3 class="title">Registration</h3>
 
   <!-- Register Form -->
   <form [formGroup]="userForm">
-
 
     <!-- email -->
     <div class="form-group">
@@ -32,7 +42,7 @@
         <label for="3">Password confirmation</label>
         <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
           placeholder="Confirm Password">
-        <small class="form-text text-muted">Password must be ...</small>
+        <small class="form-text text-muted">Password must be at 6 to 20 characters long.</small>
         <!-- validation -->
         <app-form-validator [it]="confirm"></app-form-validator>
       </div>
