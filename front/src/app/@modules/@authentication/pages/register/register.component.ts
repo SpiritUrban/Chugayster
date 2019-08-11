@@ -24,7 +24,7 @@ function parseQuery(queryString) {
 const queries: any = location.search
 log('queries: ', queries)
 
-const parsedQueries: any =  parseQuery(queries)
+const parsedQueries: any = parseQuery(queries)
 log('parsed queries: ', parsedQueries)
 
 
@@ -35,7 +35,7 @@ log('result: ', mode)
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass']
+  styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
 })
 export class RegisterComponent implements OnInit {
 
