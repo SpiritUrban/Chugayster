@@ -9,10 +9,10 @@
     </div>
     <!-- min -->
     <div *ngIf="it.errors.minlength">
-        Password must be at least 6 characters long.
+        Password must be at least {{it.errors.minlength.requiredLength}} characters long.
     </div>
     <!-- max -->
     <div *ngIf="it.errors.maxlength">
-        Password must be shorter 20 characters long.
+        Password must be shorter {{it.errors.maxlength.requiredLength}} characters long.
     </div>
 </div>
