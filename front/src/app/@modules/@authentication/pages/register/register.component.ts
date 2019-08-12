@@ -4,9 +4,9 @@ import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, Valid
 import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
 import { log, getUrlQueryes } from '../../../../my_modules/stuff';
-
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 
+declare var require: any;
 
 // change component mode 
 const queries: any = getUrlQueryes()
@@ -15,10 +15,11 @@ const mode = queries.mode ? queries.mode : 'empty'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  // __webpack_require__("")
-  // styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
-  styleUrls: ['./register.component-alternative.sass']
-
+  styleUrls: [
+    mode == 'custom'
+      ? require('./register.component-alternative.sass')
+      : require('./register.component.sass')
+  ]
 })
 
 export class RegisterComponent implements OnInit {
