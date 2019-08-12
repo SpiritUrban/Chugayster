@@ -8,6 +8,8 @@ import { log, steps } from '../../../my_modules/stuff';
 })
 export class NavComponent implements OnInit {
   navbarOpen: boolean = false;
+  drop1: boolean = false;
+  drop2: boolean = false;
   navbarCollapse: string = 'navbar-collapse prepare';
 
   constructor() { }

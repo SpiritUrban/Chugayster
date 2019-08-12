@@ -15,6 +15,7 @@ const mode = queries.mode ? queries.mode : 'empty'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
+  // __webpack_require__("")
   // styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
   styleUrls: ['./register.component-alternative.sass']
 
