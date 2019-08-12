@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CommonDependenciesRoutingModule } from './@common-dependencies-routing.module';
 import { FormValidatorComponent } from './components/general/form-validator/form-validator.component';
 
+import { ValidatorService } from './services/validator.service';
+
 
 @NgModule({
   declarations: [FormValidatorComponent],
@@ -11,6 +13,10 @@ import { FormValidatorComponent } from './components/general/form-validator/form
     CommonModule,
     CommonDependenciesRoutingModule
   ],
-  exports: [FormValidatorComponent]
+  providers: [ValidatorService],
+  exports: [
+    FormValidatorComponent, 
+    // ValidatorService -- !!! it's not need !!!
+  ]
 })
 export class CommonDependenciesModule { }

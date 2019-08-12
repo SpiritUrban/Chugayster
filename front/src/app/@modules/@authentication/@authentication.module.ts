@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@common-dependencies.module'
 
+import { ValidatorService } from '../../@modules/@common-dependencies/services/validator.service';
+
+
 @NgModule({
   declarations: [LoginComponent, RegisterComponent, HelpComponent],
   imports: [
@@ -19,6 +22,7 @@ import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@c
     ReactiveFormsModule,
     CommonDependenciesModule
   ],
+  providers: [ValidatorService],
   exports: [LoginComponent, RegisterComponent, HelpComponent]
 })
 export class AuthenticationModule { }

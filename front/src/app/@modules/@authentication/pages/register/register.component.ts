@@ -5,6 +5,9 @@ import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
 import { log, getUrlQueryes } from '../../../../my_modules/stuff';
 
+import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
+
+
 // change component mode 
 const queries: any = getUrlQueryes()
 const mode = queries.mode ? queries.mode : 'empty'
@@ -12,7 +15,9 @@ const mode = queries.mode ? queries.mode : 'empty'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
+  // styleUrls: [mode == 'custom' ? require('./register.component-alternative.sass') : require('./register.component.sass')]
+  styleUrls: ['./register.component-alternative.sass']
+
 })
 
 export class RegisterComponent implements OnInit {
@@ -39,7 +44,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private validator: ValidatorService
     // private api: ApiService
   ) {
 
@@ -51,7 +57,7 @@ export class RegisterComponent implements OnInit {
     ];
 
     this.userForm = this.formBuilder.group({
-      'email': [this.user.email, [Validators.required, Validators.minLength(5), this.mailValidator()]],
+      'email': [this.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
       // 'firstName': [this.user.firstName, [Validators.required, Validators.minLength(3), this.someCustom()]],
       // 'lastName': [this.user.lastName, [Validators.required]],
       // 'role': [this.user.role, [Validators.required]],
@@ -60,51 +66,15 @@ export class RegisterComponent implements OnInit {
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
       }, {
-          validator: this.itemsAreEqual('Passwords', 'pwd', 'confirm')
+          validator: this.validator.itemsAreEqual('Passwords', 'pwd', 'confirm')
         })
     });
   }
 
-  // check email
-  private mailValidator(): ValidatorFn {
-    const x = { mailValidator: { msg: `Incorrect email` } }
-    const pattern: RegExp = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return (control: AbstractControl): { [key: string]: any } => {
-      const isValide = pattern.test(control.value);
-      return isValide ? null : x;
-    };
-  }
-
-  // check items equal
-  private itemsAreEqual(itemName, first, second): ValidatorFn {
-    const x = { itemsAreEqual: { msg: `${itemName} are not equal` } }
-    return (group: FormGroup) => {
-      const isEqual = group.get(first).value === group.get(second).value;
-      return isEqual ? null : x // x => this.userForm.controls.passwords.errors.custom
-    };
-  }
-
-
-  d(isSome, isValide) {
-    return isSome
-      ? 'a'
-      : isValide
-        ? 'b'
-        : 'c'
-  }
-
-  d2(isSome, isValide) {
-    return (
-      isSome ? 'a'
-        : isValide ? 'b'
-          : 'c'
-    )
-  }
-
-
-
 
   ngOnInit() {
+    // alert( this.validator.test() )
+
     // setInterval(this.logForm.bind(this), 2000)
 
     let mode = this.route.snapshot.queryParams["mode"];
