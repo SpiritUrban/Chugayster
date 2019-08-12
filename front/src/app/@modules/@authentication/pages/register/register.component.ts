@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 // import { ApiService } from '../../services/api.service';
-import { log, getUrlQueryes } from '../../../../my_modules/stuff';
+import { log, getUrlQueries } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import { registerState } from './register.state'
 declare var require: any;
 
 // change component mode 
-const queries: any = getUrlQueryes()
+const queries: any = getUrlQueries()
 const mode = queries.mode ? queries.mode : 'empty'
 
 @Component({

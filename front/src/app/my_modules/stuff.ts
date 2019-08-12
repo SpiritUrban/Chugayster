@@ -18,7 +18,7 @@ const parseQuery = (queryString) => {
     return query;
 };
 
-const getUrlQueryes = () => parseQuery(location.search);
+const getUrlQueries = () => parseQuery(location.search);
 
 
-export { log, steps, parseQuery, getUrlQueryes };
+export { log, steps, parseQuery, getUrlQueries };
