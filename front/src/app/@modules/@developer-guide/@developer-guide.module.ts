@@ -7,11 +7,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidatorService } from '../../@modules/@common-dependencies/services/validator.service';
 
 // import { FormValidatorComponent } from '../../@modules/@common-dependencies/components/general/form-validator/form-validator.component';
-import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@common-dependencies.module'
+import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@common-dependencies.module';
+import { UrlQueriesComponent } from './pages/url-queries/url-queries.component'
 
 
 @NgModule({
-  declarations: [FormsComponent, 
+  declarations: [FormsComponent, UrlQueriesComponent, 
     // FormValidatorComponent // no!
   ],
   imports: [
