@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 // import { ApiService } from '../../services/api.service';
 import { log, getUrlQueries } from '../../../../my_modules/stuff';
@@ -29,7 +28,6 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private validator: ValidatorService
     // private api: ApiService
   ) {
@@ -38,7 +36,6 @@ export class RegisterComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(20),
-      // this.someCustom()
     ];
 
     this.userForm = this.formBuilder.group({
@@ -56,13 +53,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     // example !!!
     // setInterval(this.logForm.bind(this), 2000)
-
-    // example
-    let mode = this.route.snapshot.queryParams["mode"];
-    log(mode)
-
-    // example
-    this.route.queryParams.subscribe(log);
   }
 
   logForm() {
