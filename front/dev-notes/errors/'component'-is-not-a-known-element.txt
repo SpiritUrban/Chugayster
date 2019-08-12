@@ -1,0 +1,7 @@
+These are the 5 steps I perform when I got such an error.
+
+Are you sure the name is correct? (also check the selector defined in the component)
+Declare the component in a module?
+If it is in another module, export the component?
+If it is in another module, import that module?  <--- !!!
+Restart the cli?

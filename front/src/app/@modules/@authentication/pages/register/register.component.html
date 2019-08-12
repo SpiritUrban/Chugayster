@@ -25,7 +25,6 @@ Mode:
       <app-form-validator [it]="email"></app-form-validator>
     </div>
 
-
     <!-- both -->
     <fieldset formGroupName="passwords">
 
@@ -47,13 +46,11 @@ Mode:
         <app-form-validator [it]="confirm"></app-form-validator>
       </div>
 
-
       <!-- mix validation: confirm, passwords -->
       <!-- equal -->
       <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
         {{passwords.errors.itemsAreEqual.msg}}
       </div>
-
 
     </fieldset>
 

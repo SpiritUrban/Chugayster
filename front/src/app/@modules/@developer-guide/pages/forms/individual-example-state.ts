@@ -1,11 +1,11 @@
 import { User } from '../../../@common-dependencies/interfaces/user';
 
-interface RegisterState {
+interface IndividualExampleState {
     user: User;
     roles: Array<string> // <----------------- not yet implemented !!!
 }
 
-var registerState: RegisterState = {
+var individualExampleState: IndividualExampleState = {
     user: {
         firstName: '',
         lastName: '',
@@ -24,4 +24,4 @@ var registerState: RegisterState = {
     ]
 };
 
-export { registerState };
+export { individualExampleState };

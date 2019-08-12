@@ -1,43 +1,78 @@
 <div class="jumbotron limit">
-  <h2>Welcome to Registration!</h2>
-  <h3>Please Sign Up</h3>
 
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-        placeholder="Enter email">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-
-      <div class="alert alert-danger">
-        Incorrect email
+    <h3 class="title">Registration</h3>
+  
+    <!-- Register Form -->
+    <form [formGroup]="userForm">
+  
+      <!-- email -->
+      <div class="form-group">
+        <label for="1">Email address</label>
+        <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <!-- validation -->
+        <app-form-validator [it]="email"></app-form-validator>
       </div>
-
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-
-    <div class="form-group ">
+  
+      <!-- both -->
+      <fieldset formGroupName="passwords">
+  
+        <!-- password -->
+        <div class="form-group">
+          <label for="2">Password</label>
+          <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
+          <!-- validation -->
+          <app-form-validator [it]="pwd"></app-form-validator>
+        </div>
+  
+        <!-- confirm password -->
+        <div class="form-group">
+          <label for="3">Password confirmation</label>
+          <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
+            placeholder="Confirm Password">
+          <small class="form-text text-muted">Password must be at 6 to 20 characters long.</small>
+          <!-- validation -->
+          <app-form-validator [it]="confirm"></app-form-validator>
+        </div>
+  
+        <!-- mix validation: confirm, passwords -->
+        <!-- equal -->
+        <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
+          {{passwords.errors.itemsAreEqual.msg}}
+        </div>
+  
+      </fieldset>
+  
+      <div class="form-group">
+        <i class="mdi mdi-file-document-box-check"></i>
+        <a class="alert-link" href=""> Conditions Document</a>
+      </div>
+  
+      <div class="form-group ">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
           <label class="custom-control-label" for="customCheck1">I agree with conditions</label>
         </div>
       </div>
-      
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+  </div>
+  
 
 
-  <hr>
+  <!-- text -->
+  <div class="limit">
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
+      content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  </div>
 
+
+
+<!-- other fields -->
+<div class="jumbotron limit">
 
   <div class="form-group">
     <fieldset disabled="">

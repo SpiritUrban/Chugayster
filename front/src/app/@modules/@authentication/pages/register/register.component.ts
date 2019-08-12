@@ -42,10 +42,6 @@ export class RegisterComponent implements OnInit {
 
     this.userForm = this.formBuilder.group({
       'email': [this.st.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
-      // 'firstName': [this.st.user.firstName, [Validators.required, Validators.minLength(3), this.someCustom()]],
-      // 'lastName': [this.st.user.lastName, [Validators.required]],
-      // 'role': [this.user.st.role, [Validators.required]],
-      // 'notes': [this.user.st.notes, [Validators.maxLength(45)]]      
       'passwords': this.formBuilder.group({
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
@@ -75,9 +71,6 @@ export class RegisterComponent implements OnInit {
       password2: this.userForm.controls.passwords.controls.confirm.value
     }
     log('0', userData)
-    log('0', this.userForm)
-    log('1', this.userForm.controls.passwords.errors) // .................... 'it'.errors -> {itemsAreEqual: msg: {"Passwords are not equal"}}
-    log('3', this.userForm.controls.passwords.controls.confirm.errors) // ... 'it'.errors -> {minlength: {…}}
   }
 
   get email() { return this.userForm.get('email'); }
