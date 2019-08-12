@@ -73,18 +73,15 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
-    // alert( this.validator.test() )
-
+    // example !!!
     // setInterval(this.logForm.bind(this), 2000)
 
+    // example
     let mode = this.route.snapshot.queryParams["mode"];
     log(mode)
 
-    this.route.queryParams
-      .subscribe(params => {
-        console.log(params); // {order: "popular"}
-
-      });
+    // example
+    this.route.queryParams.subscribe(log);
   }
 
   logForm() {
@@ -103,8 +100,4 @@ export class RegisterComponent implements OnInit {
   get passwords() { return this.userForm.get('passwords'); }
   get pwd() { return this.userForm.get('passwords.pwd'); }
   get confirm() { return this.userForm.get('passwords.confirm'); }
-
-
-  // need make: email, pwd    <--------------------- !!!
-
 }
