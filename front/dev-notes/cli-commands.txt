@@ -1,8 +1,15 @@
 *** Generate @Module vith Routing:
 ng generate module @modules/@common-dependencies --routing
 
+
+::: IN COMMON DEPENDENCIES
 *** Generate Component in him:
 ng generate component @modules/@common-dependencies/components/general/form-validator
 
 *** Generate Service:
 ng generate service @modules/@common-dependencies/services/validator
+
+
+::: IN DEVELOPER GUIDE
+*** Generate Page
+ng generate component @modules/@developer-guide/pages/***
