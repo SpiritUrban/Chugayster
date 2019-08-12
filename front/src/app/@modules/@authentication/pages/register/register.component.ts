@@ -16,8 +16,9 @@ const mode = queries.mode ? queries.mode : 'empty'
   templateUrl: './register.component.html',
   styleUrls: [
     mode == 'custom'
-      ? require('./register.component-alternative.sass')
-      : require('./register.component.sass')
+      ? require('./register.component-alternative.sass') // <---| not works for (ng build -prod)
+      : require('./register.component.sass') // <---------------| can be used for (ng build): just for stage of development
+    // './register.component-alternative.sass'
   ]
 })
 

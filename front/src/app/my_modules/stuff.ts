@@ -2,7 +2,7 @@ const log = console.log;
 
 const steps = (lot) => {
     lot.map(one => setTimeout(one[1], one[0]))
-}
+};
 
 //////////////////////////////////////////////////////////////////////////////////////////
 //                                    work with URL                                     //
@@ -16,9 +16,9 @@ const parseQuery = (queryString) => {
         query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
     }
     return query;
-}
+};
 
-const getUrlQueryes = () => parseQuery(location.search)
+const getUrlQueryes = () => parseQuery(location.search);
 
 
 export { log, steps, parseQuery, getUrlQueryes };
