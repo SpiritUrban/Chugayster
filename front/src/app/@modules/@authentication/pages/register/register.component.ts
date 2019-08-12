@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
-import { User } from '../../interfaces/user';
 // import { ApiService } from '../../services/api.service';
 import { log, getUrlQueryes } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
-
+import { registerState } from './register.state'
 declare var require: any;
 
 // change component mode 
@@ -25,24 +24,7 @@ const mode = queries.mode ? queries.mode : 'empty'
 export class RegisterComponent implements OnInit {
 
   userForm: any; //FormGroup;
-
-  roles: Array<string> = [
-    'Guest',
-    'Admin',
-    'Owner',
-    'Operator'
-  ];
-
-  user: User = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    password1: '',
-    password2: '',
-    role: 'Guest',
-    notes: null
-  };
+  st = registerState;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -59,11 +41,11 @@ export class RegisterComponent implements OnInit {
     ];
 
     this.userForm = this.formBuilder.group({
-      'email': [this.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
-      // 'firstName': [this.user.firstName, [Validators.required, Validators.minLength(3), this.someCustom()]],
-      // 'lastName': [this.user.lastName, [Validators.required]],
-      // 'role': [this.user.role, [Validators.required]],
-      // 'notes': [this.user.notes, [Validators.maxLength(45)]]      
+      'email': [this.st.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
+      // 'firstName': [this.st.user.firstName, [Validators.required, Validators.minLength(3), this.someCustom()]],
+      // 'lastName': [this.st.user.lastName, [Validators.required]],
+      // 'role': [this.user.st.role, [Validators.required]],
+      // 'notes': [this.user.st.notes, [Validators.maxLength(45)]]      
       'passwords': this.formBuilder.group({
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
