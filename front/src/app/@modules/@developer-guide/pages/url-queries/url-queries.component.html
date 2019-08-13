@@ -1,1 +1,9 @@
-<p>url-queries works!</p>
+<h1>Exaples: working with Queries</h1>
+
+Mode:
+
+&nbsp; <a [routerLink]="['/auth/register']" [queryParams]="{ mode: 'default'}">Default</a>
+&nbsp; <a [routerLink]="['/auth/register']" [queryParams]="{ mode: 'custom'}">Custom</a>
+
+&nbsp; <a href="/auth/register?mode=default">Default</a>
+&nbsp; <a href="/auth/register?mode=custom">Custom</a>
