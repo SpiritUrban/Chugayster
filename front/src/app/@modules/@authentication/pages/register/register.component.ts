@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, Valid
 import { log, getUrlQueries } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import { registerState } from './register.state'
+import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
+
 declare var require: any;
 
 // change component mode 
@@ -28,8 +30,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private validator: ValidatorService
-    // private api: ApiService
+    private validator: ValidatorService,
+    private api: ApiService
   ) {
 
     const pwdValidators: ValidatorFn[] = [
@@ -50,9 +52,11 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+  async ngOnInit() {
     // example !!!
     // setInterval(this.logForm.bind(this), 2000)
+
+    log( await this.api.test() )
   }
 
   logForm() {

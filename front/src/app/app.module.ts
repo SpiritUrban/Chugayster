@@ -17,7 +17,9 @@ import { P404Component } from './pages/p404/p404.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { NavComponent } from './components/general/nav/nav.component';
 
-import { ApiService } from './services/api.service';
+// services
+import { ApiService } from './@modules/@common-dependencies/services/api.service'
+
 
 @NgModule({
   declarations: [

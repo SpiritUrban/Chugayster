@@ -5,6 +5,7 @@ import { CommonDependenciesRoutingModule } from './@common-dependencies-routing.
 import { FormValidatorComponent } from './components/general/form-validator/form-validator.component';
 
 import { ValidatorService } from './services/validator.service';
+import { ApiService } from './services/api.service'
 
 
 @NgModule({
@@ -13,7 +14,10 @@ import { ValidatorService } from './services/validator.service';
     CommonModule,
     CommonDependenciesRoutingModule
   ],
-  providers: [ValidatorService],
+  providers: [
+    ValidatorService,
+    ApiService
+  ],
   exports: [
     FormValidatorComponent, 
     // ValidatorService -- !!! it's not need !!!

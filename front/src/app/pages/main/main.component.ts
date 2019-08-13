@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import  state  from '../../app-state';
 import { log } from '../../my_modules/stuff';
-import { ApiService } from '../../services/api.service'
+import { ApiService } from '../../@modules/@common-dependencies/services/api.service'
+
 
 @Component({
   selector: 'app-main',
@@ -24,6 +25,7 @@ export class MainComponent implements OnInit {
   async ngOnInit() {
     state.nav.msg += 1
     log(state.nav.msg)
+    
     const fromGit = await this.api.test()
     log(fromGit)
   }
