@@ -8,11 +8,12 @@ import { ValidatorService } from '../../@modules/@common-dependencies/services/v
 
 // import { FormValidatorComponent } from '../../@modules/@common-dependencies/components/general/form-validator/form-validator.component';
 import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@common-dependencies.module';
-import { UrlQueriesComponent } from './pages/url-queries/url-queries.component'
+import { UrlQueriesComponent } from './pages/url-queries/url-queries.component';
+import { AnyComponent } from './pages/any/any.component'
 
 
 @NgModule({
-  declarations: [FormsComponent, UrlQueriesComponent, 
+  declarations: [FormsComponent, UrlQueriesComponent, AnyComponent, 
     // FormValidatorComponent // no!
   ],
   imports: [
