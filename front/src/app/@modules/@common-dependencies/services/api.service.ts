@@ -17,4 +17,6 @@ export class ApiService {
   test(){
     return this.http.get('https://api.github.com/users').toPromise()
   }
+
+  register = (userData) => this.http.post('http://localhost:3000/register', userData, httpOptions).toPromise()
 }

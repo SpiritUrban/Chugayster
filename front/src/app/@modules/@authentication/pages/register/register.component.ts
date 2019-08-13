@@ -33,7 +33,6 @@ export class RegisterComponent implements OnInit {
     private validator: ValidatorService,
     private api: ApiService
   ) {
-
     const pwdValidators: ValidatorFn[] = [
       Validators.required,
       Validators.minLength(6),
@@ -51,23 +50,31 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-
   async ngOnInit() {
     // example !!!
     // setInterval(this.logForm.bind(this), 2000)
 
-    log( await this.api.test() )
+    // api test
+    // log( await this.api.test() )
   }
 
   logForm() {
-    const userData = {
+    log('userData: ', this.userData)
+  }
+
+  async onSubmit(){
+    await this.api.register(this.userData) 
+  }
+
+  get userData () {
+    return {
       email: this.userForm.controls.email.value,
       password1: this.userForm.controls.passwords.controls.pwd.value,
       password2: this.userForm.controls.passwords.controls.confirm.value
     }
-    log('0', userData)
   }
 
+  // for elements of form 
   get email() { return this.userForm.get('email'); }
   get passwords() { return this.userForm.get('passwords'); }
   get pwd() { return this.userForm.get('passwords.pwd'); }

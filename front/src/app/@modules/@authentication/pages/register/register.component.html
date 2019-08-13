@@ -9,7 +9,7 @@ Mode:
   <h3 class="title">Registration</h3>
 
   <!-- Register Form -->
-  <form [formGroup]="userForm">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
     <!-- email -->
     <div class="form-group">
