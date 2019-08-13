@@ -14,9 +14,8 @@ export class ApiService {
     private http: HttpClient
   ) { }
 
-  test(){
-    return this.http.get('https://api.github.com/users').toPromise()
-  }
+  test = () => this.http.get('https://api.github.com/users').toPromise();
+  
+  register = (userData) => this.http.post('http://localhost:3000/register', userData, httpOptions).toPromise();
 
-  register = (userData) => this.http.post('http://localhost:3000/register', userData, httpOptions).toPromise()
 }

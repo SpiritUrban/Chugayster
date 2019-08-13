@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
-// import { ApiService } from '../../services/api.service';
 import { log, getUrlQueries } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import { registerState } from './register.state'
@@ -33,12 +32,14 @@ export class RegisterComponent implements OnInit {
     private validator: ValidatorService,
     private api: ApiService
   ) {
+    // group of validators (for next usage)
     const pwdValidators: ValidatorFn[] = [
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(20),
     ];
 
+    // build 'userForm' essence
     this.userForm = this.formBuilder.group({
       'email': [this.st.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
       'passwords': this.formBuilder.group({
@@ -62,10 +63,12 @@ export class RegisterComponent implements OnInit {
     log('userData: ', this.userData)
   }
 
+  // when user pressed (submit/register)
   async onSubmit(){
     await this.api.register(this.userData) 
   }
 
+  // gathering the structure 'userData' from 'userForm'
   get userData () {
     return {
       email: this.userForm.controls.email.value,
