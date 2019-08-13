@@ -9,7 +9,7 @@
 
 
 
-* 1)  Move 'pages' to @common-dependencies ...  ✔
+* 1)  Move 'pages, components, services' to @common-dependencies ...  ✔
 *
 * 13.08.2019
 *

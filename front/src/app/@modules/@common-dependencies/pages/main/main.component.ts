@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import  state  from '../../app-state';
-import { log } from '../../my_modules/stuff';
-import { ApiService } from '../../@modules/@common-dependencies/services/api.service'
+import  state  from '../../../../app-state';
+import { log } from '../../../../my_modules/stuff';
+import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
 
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { log, steps } from '../../../my_modules/stuff';
+import { log, steps } from '../../../../../my_modules/stuff';
 
 @Component({
   selector: 'app-nav',
