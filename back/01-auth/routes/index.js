@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.end('The AUTH API. Port: 49001. Endpoints: /reg, /log')
 });
 
 module.exports = router;
