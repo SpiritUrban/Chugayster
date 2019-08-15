@@ -3,14 +3,29 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon server.js"
   },
   "dependencies": {
+    "colors": "^1.3.3",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
     "express": "~4.16.1",
+    "express-session": "^1.16.2",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.24.0",
+    "mongoose": "^5.6.9",
+    "morgan": "~1.9.1",
+    "nodemailer": "^6.3.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^3.0.0",
+    "passport-github2": "^0.1.11",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-instagram": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4",
+    "sha1": "^1.1.1",
+    "uuid": "^3.3.2"
   }
 }
