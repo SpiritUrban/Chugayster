@@ -23,6 +23,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 app.use(session({
+  // ------------------------------------------------------------------- old
+  secret: 'my_precious',
+  name: 'cookie_name',
+  //store: sessionStore, // connect-mongo session store
+  proxy: true,
+  resave: true,
+  saveUninitialized: true,
+  // ------------------------------------------------------------------- new
   name: 'session',
   keys: ['key1', 'key2'],
   cookie: {

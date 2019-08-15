@@ -71,6 +71,3 @@ apiEnsureAuthenticated = async (req, res, next) => {
     if (req.isAuthenticated()) return next();
     res.json('not logged')
 }
-
-
-// module.exports = router;

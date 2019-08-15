@@ -3,12 +3,6 @@ var router = express.Router();
 const lib = require('./lib')
 
 
-// router.get('/', function(req, res, next) {
-//   res.end('The AUTH API. Port: 49001. Endpoints: /reg, /log')
-// });
-
-// module.exports = router;
-
 module.exports = function (app) {
   app.use(router);
 

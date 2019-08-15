@@ -94,11 +94,11 @@ router.all('/*', async (req, res, next) => {
     log(req.url.info, '\n')
 
     const url = req._parsedUrl.pathname;
-    let chatName = url.slice(1, url.length);
-    if (chatName == '') chatName = 'root';
+    // let chatName = url.slice(1, url.length);
+    // if (chatName == '') chatName = 'root';
 
-    const chat = await Chat.findOne({ name: chatName })
-    req.chat = chat;
+    // const chat = await Chat.findOne({ name: chatName })
+    // req.chat = chat;
 
     let authenticated = req.isAuthenticated()
     // setTimeout(() => {
@@ -142,6 +142,13 @@ router.get('/*', (req, res, next) => {
 router.post('/*', (req, res, next) => {
     if (!req.body) res.json({ code: 401, msg: 'No Body' });
     next();
+});
+
+
+
+// HOME
+router.get('/', function(req, res, next) {
+  res.end('The AUTH API. Port: 49001. Endpoints: /reg, /log')
 });
 
 
@@ -261,76 +268,4 @@ router.get('/pages/auth/restore-password', async (req, res) => {
 });
 
 
-// router.all(['/lessons', '/lessons/*'], async (req, res) => {
-//     let ep = req.url.substr(1);
-//     const end = url_end(req);
-
-//     if (ep == 'lessons') ep = 'lessons/_lessons'
-//     else ep += '/' + end //---------------- for double path
-//     res.render(ep, commonInfo(req))
-// });
-
-
-// categiry page + childrens (folder component + page
-[
-    'lessons',
-    'materials'
-].map(category => {
-    router.all([`/${category}`, `/${category}/*`], async (req, res) => {
-        let ep = req.url.substr(1); // ....................................... endpoint without '/'
-        const end = url_end(req); // ......................................... rest of url
-        if (ep == category) ep = `${category}/_${category}` //................ main page ?
-        else ep += '/' + end //............................................... for double path
-        log('\n\n ep: ', ep)
-        res.render(ep, commonInfo(req))
-    })
-})
-
-// lessons/course-JavaScript-2020/001-Intro/001-Intro
-// original
-// /lessons/course-JavaScript-2020/001-Intro
-
-router.all(['/constructs', '/constructs/*'], async (req, res) => {
-    let ep = req.url.substr(1);
-    const end = url_end(req);
-
-    if (ep == 'constructs') ep = 'constructs/_constructs'
-    else ep += '/' + end //---------------- for double path
-    res.render(ep, commonInfo(req))
-})
-
-
-router.all(['/draft', '/draft/*'], async (req, res) => {
-    let ep = req.url.substr(1);
-    if (ep == 'draft') ep = 'draft/draft'
-    res.render(ep, commonInfo(req))
-})
-
-
-router.all(['/programs', '/programs/*'], async (req, res, next) => {
-    let ep = req.url.substr(1);
-    if (ep == 'programs') ep = 'programs/_programs'
-    res.render(ep, commonInfo(req))
-})
-
-
 module.exports = router;
-
-
-
-// router.all('/pages/*', async (req, res, next) => {
-//     let ep = req.url
-//     log('\n pages + ::::::::::::::::::::::::::::::::::::::::::::::::'.help)
-//     log(req.url.info, '\n')
-//     log(req.url)
-//     //
-//     common = {
-//         test: 'ok',
-//         chat: req.chat,
-//         user: req.user
-//     }
-//     if (ep == '/') ep = '/pages'
-//     log('to render - '.info, 'pages' + ep)
-//     res.render('pages' + ep, common)
-//     next()
-// })
