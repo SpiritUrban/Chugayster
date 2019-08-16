@@ -21,8 +21,8 @@ module.exports = async (req, res, next) => {
         if (!email) return error('custom', req, res, 409, 'Email required!')
         if (!password) return error('custom', req, res, 409, 'Password required!')
         // if (!username) return error('custom', req, res, 409, 'Username required!')
-        // if (!first_name)  error('custom', req, res, 409, '***')
-        // if (!last_name)  error('custom', req, res, 409, '***')
+        // if (!first_name) return error('custom', req, res, 409, 'first_name required!')
+        // if (!last_name) return error('custom', req, res, 409, 'last_name required!')
 
 
         let userByEmail = await User.findOne({ email: email }).exec()
@@ -86,6 +86,7 @@ async function createNewUser(email, password, username, first_name, last_name) {
         log('\n', 'u'.info, '\n', u, '\n')
         let x = await u.save()
         log('RESULT DB:', x)
+        
         // send mail for verification
         mails.send_mail_verification(u._id)
 
@@ -102,7 +103,6 @@ async function createNewUser(email, password, username, first_name, last_name) {
         //     + new Date(), 
         // )
     } catch (error) {
-        log('!!!!!!!!!!!!!@@@@@@@@@@@', error)
         throw error
     }
 
