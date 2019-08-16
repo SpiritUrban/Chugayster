@@ -78,7 +78,7 @@ export class RegisterComponent implements OnInit {
   get userData () {
     return {
       email: this.userForm.controls.email.value,
-      password1: this.userForm.controls.passwords.controls.pwd.value,
+      password: this.userForm.controls.passwords.controls.pwd.value,
       password2: this.userForm.controls.passwords.controls.confirm.value
     }
   }
