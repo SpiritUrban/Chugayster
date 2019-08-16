@@ -8,7 +8,7 @@ module.exports = function (app) {
 
   // use routes
   [
-    ['/',              './root'],
+    // ['/',              './root'],
     ['/api/auth',      './auth'],
   ]
   .map(path => app.use(path[0], require(path[1])));

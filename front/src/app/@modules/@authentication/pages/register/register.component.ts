@@ -65,7 +65,13 @@ export class RegisterComponent implements OnInit {
 
   // when user pressed (submit/register)
   async onSubmit(){
-    await this.api.register(this.userData) 
+    try {
+      const answer = await this.api.register(this.userData) 
+      log('answer: ', answer)  
+    } catch (error) {
+      log('HttpErrorResponse: ', error)
+    }
+
   }
 
   // gathering the structure 'userData' from 'userForm'

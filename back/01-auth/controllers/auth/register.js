@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
         let first_name = req.body.first_name
         let last_name = req.body.last_name
 
-        log('BODY : '.info, '\n', req.body, '\n')
+        log('*BODY : '.info, '\n', req.body, '\n')
 
         let userByEmail = await User.findOne({ email: email }).exec()
         if (userByEmail !== null) error('custom', req, res, 409, 'Email already exists!')
