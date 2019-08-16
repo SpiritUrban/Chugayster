@@ -1,8 +1,15 @@
 import { User } from '../../../@common-dependencies/interfaces/user';
 
+interface extraAlert {
+    show: Boolean;
+    title: String;
+    body: String;
+}
+
 interface RegisterState {
     user: User;
-    roles: Array<string> // <----------------- not yet implemented !!!
+    roles: Array<string>; // <----------------- not yet implemented !!!
+    alert: extraAlert;
 }
 
 var registerState: RegisterState = {
@@ -21,7 +28,12 @@ var registerState: RegisterState = {
         'Admin',
         'Owner',
         'Operator'
-    ]
+    ],
+    alert: {
+        show: true,
+        title: '',
+        body: ''
+    }
 };
 
 export { registerState };
