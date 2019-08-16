@@ -18,6 +18,7 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 // components
 import { NavComponent } from './components/general/nav/nav.component';
 import { FormValidatorComponent } from './components/general/form-validator/form-validator.component';
+import { ExtraAlertComponent } from './components/general/extra-alert/extra-alert.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormValidatorComponent } from './components/general/form-validator/form
     AboutUsComponent,
     // components
     NavComponent,
-    FormValidatorComponent
+    FormValidatorComponent,
+    ExtraAlertComponent
   ],
   imports: [
     NgbModule,
@@ -44,6 +46,7 @@ import { FormValidatorComponent } from './components/general/form-validator/form
   ],
   exports: [
     FormValidatorComponent, 
+    ExtraAlertComponent
     // ValidatorService -- !!! it's not need !!!
   ]
 })
