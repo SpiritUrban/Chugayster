@@ -63,11 +63,18 @@ export class RegisterComponent implements OnInit {
     log('userData: ', this.userData)
   }
 
+  my_alert(userMsg, devMsg){
+    alert(userMsg)
+    alert(devMsg)
+  }
+
   // when user pressed (submit/register)
-  async onSubmit(){
+  async onSubmit() {
     try {
-      const answer = await this.api.register(this.userData) 
-      log('answer: ', answer)  
+      const answer: any = await this.api.register(this.userData)
+      log('answer: ', answer)
+      if (answer.err) this.my_alert(answer.msg2, answer.err); // showing of error
+      if (answer.success) alert('User was created!'); // showing of error
     } catch (error) {
       log('HttpErrorResponse: ', error)
     }
@@ -75,7 +82,7 @@ export class RegisterComponent implements OnInit {
   }
 
   // gathering the structure 'userData' from 'userForm'
-  get userData () {
+  get userData() {
     return {
       email: this.userForm.controls.email.value,
       password: this.userForm.controls.passwords.controls.pwd.value,
