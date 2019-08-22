@@ -7,9 +7,23 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <div class="modal-body">
           <p>{{st.body}}</p>
+          <p>{{st.bodyDev}}</p>
         </div>
+
+
+        <!-- * -->
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-3">
+          <ngb-panel title="Dev msg">
+            <ng-template ngbPanelContent>
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+<!-- *         -->
+
         <div class="modal-footer">
           <button (click)="close()" type="button" class="btn btn-primary">Save changes</button>
           <button (click)="close()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

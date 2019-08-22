@@ -4,6 +4,7 @@ interface extraAlert {
     show: Boolean;
     title: String;
     body: String;
+    bodyDev: String;
 }
 
 interface RegisterState {
@@ -31,8 +32,9 @@ var registerState: RegisterState = {
     ],
     alert: {
         show: true,
-        title: '',
-        body: ''
+        title: 'About',
+        body: 'Some wrong or good',
+        bodyDev: 'Tech details'
     }
 };
 
