@@ -1,3 +1,41 @@
 <app-nav></app-nav> 
 
-<p>about-us works!</p>
+<!-- <div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0">Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="#" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+</div> -->
+<br>
+<br>
+
+<div class="card border-secondary mb-3 mx-auto">
+    <div class="card-body">
+      <h4 class="card-title text-center">About Us!</h4>
+      <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>    
+    </div>
+</div>
+<br>
+<br>
+<div 
+    *ngFor = "let bro of team;"
+    class="person-card"
+>
+    <div class="person-card__portrait">
+        <img [src]="bro.img" alt="">
+    </div>
+    <div class="person-card__info">
+        <h3>{{bro.name}}</h3>
+        <p>{{bro.text}}</p>
+        <a [routerLink]="['/engineer', bro.name]" type="button" class="btn btn-success">Look more detail<i class="mdi mdi-arrow-right"></i></a>
+    </div>
+</div>
+<br>
+<br>
+<div class="card border-secondary mb-3 mx-auto">
+        <div class="card-body">
+          <h4 class="card-title text-center">We are the Great Team!</h4>
+          <p class="card-text text-center">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+</div>

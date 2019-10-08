@@ -14,6 +14,7 @@ import { ValidatorService } from './services/validator.service';
 import { MainComponent } from './pages/main/main.component';
 import { P404Component } from './pages/p404/p404.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { MemberComponent } from './pages/member/member.component';
 
 // components
 import { NavComponent } from './components/general/nav/nav.component';
@@ -30,7 +31,8 @@ import { ExtraAlertComponent } from './components/general/extra-alert/extra-aler
     // components
     NavComponent,
     FormValidatorComponent,
-    ExtraAlertComponent
+    ExtraAlertComponent,
+    MemberComponent
   ],
   imports: [
     NgbModule,
