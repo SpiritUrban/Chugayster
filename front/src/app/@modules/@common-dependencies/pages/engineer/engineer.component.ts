@@ -3,11 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import team from '../../data/team';
 
 @Component({
-  selector: 'app-member',
-  templateUrl: './member.component.html',
-  styleUrls: ['./member.component.sass']
+  selector: 'app-engineer',
+  templateUrl: './engineer.component.html',
+  styleUrls: ['./engineer.component.sass']
 })
-export class MemberComponent implements OnInit {
+export class EngineerComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute
