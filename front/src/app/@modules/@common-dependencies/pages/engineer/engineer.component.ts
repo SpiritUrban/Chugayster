@@ -9,14 +9,28 @@ import team from '../../data/team';
 })
 export class EngineerComponent implements OnInit {
 
+  engineer = this.getEngineer();
+
   constructor(
     private route: ActivatedRoute
     ) { } 
 
   ngOnInit() {
+    
+  }
+
+  getEngineer() {
     let name = this.route.snapshot.paramMap.get('name');
-    let engineer = team.filter( engineer => engineer.name == name )
-    console.log(name, engineer);
+    let engineer = team.filter( engineer => engineer.name == name );
+    return engineer[0];
+  }
+
+  numToArr(num) {
+    let arr = [];
+    for (let i = 0; i < num; i++) {
+      arr.push(i);
+    }
+    return arr;
   }
 
 }

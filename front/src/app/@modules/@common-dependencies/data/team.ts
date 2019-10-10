@@ -2,7 +2,29 @@ const team = [
     {
       img: "https://www.dccomics.com/sites/default/files/Char_GetToKnow_Batman80_5ca54cb83a27a6.53173051.png",
       name: "engineer-1",
-      text: "some important information about an engineer#1"
+      text: "some important information about an engineer#1",
+      skills: [
+        {
+          type: 'HTML',
+          level: '72',
+          description: 'bla bla bla'
+        },
+        {
+          type: 'CSS',
+          level: '62',
+          description: 'bla bla bla'
+        },
+        {
+          type: 'JS',
+          level: '52',
+          description: 'bla bla bla'
+        },
+        {
+          type: 'NodeJS',
+          level: '52',
+          description: 'bla bla bla'
+        },
+      ]
     },
     {
       img: "https://www.dccomics.com/sites/default/files/gettoknow_atom_55f21e39aa2288.78318196.png",
