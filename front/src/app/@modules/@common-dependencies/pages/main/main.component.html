@@ -1,14 +1,18 @@
-<app-nav></app-nav> 
+<app-nav></app-nav>
 
-<p>main works!</p>
+<div class="container main">
 
+    <div class="row">
+        <div class="col">
+            <a href="https://ng-bootstrap.github.io/#/components/dropdown/examples">
+                <small>The example component of "Angular powered Bootstrap" - "Dropdown"</small>
+            </a>
+        </div>
+    </div>
 
+    <hr>
 
-
-
-
-
-<div class="row">
+    <div class="row">
         <div class="col">
             <div ngbDropdown class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
@@ -19,7 +23,11 @@
                 </div>
             </div>
         </div>
-    
+    </div>
+
+    <hr>
+
+    <div class="row">
         <div class="col text-right">
             <div ngbDropdown placement="top-right" class="d-inline-block">
                 <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Toggle dropup</button>
@@ -31,33 +39,34 @@
             </div>
         </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="btn-group btn-group-toggle">
-        <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
-        </label>
-        <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="model.middle"> Middle
-        </label>
-        <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="model.right"> Right
-        </label>
-    </div>
+
     <hr>
-    
-    
+
+    <div class="row">
+        <a href="https://ng-bootstrap.github.io/#/components/buttons/examples">
+            <small>The example component of "Angular powered Bootstrap" - "Checkbox buttons"</small>
+        </a>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="btn-group btn-group-toggle">
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="model.left"> Left (pre-checked)
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="model.middle"> Middle
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="model.right"> Right
+            </label>
+        </div>
+    </div>
+
+    <hr>
+
+
     <pre>{{model | json}}</pre>
-    
-    
-    
-    
-    
-    
+
+</div><!-- main -->
