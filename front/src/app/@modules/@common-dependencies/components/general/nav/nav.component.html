@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-    <a class="navbar-brand" routerLink="/main">Navbar</a>
+    <a class="navbar-brand" routerLink="/main">Logo</a>
 
     <button class="navbar-toggler collapsed" (click)="navToggle()">
         <span class="navbar-toggler-icon"></span>
@@ -16,23 +16,22 @@
                 <a class="nav-link" routerLink="/main">Home <span class="sr-only">(current)</span></a>
             </li>
 
-            <!-- lot -->
+            <!-- pages -->
             <li 
                 class="nav-item dropdown"
                 (click)="drop1 = !drop1"
                 [ngClass]=" drop1 ? 'show': '' "
             >
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Themes
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Pages
                     <span class="caret"></span></a>
                 <div 
                     class="dropdown-menu" 
                     aria-labelledby="themes"
                     [ngClass]=" drop1 ? 'show': '' "
                 >
-                    <a class="dropdown-item" routerLink="/default" >Default</a>
+                    <a class="dropdown-item" routerLink="/main" >Home</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" routerLink="/about-us" >About</a>
-
                     <a class="dropdown-item" routerLink="/auth/help" >auth/Help</a>
                     <a class="dropdown-item" routerLink="/auth/login" >auth/Login</a>
                     <a class="dropdown-item" routerLink="/auth/register" >auth/Register</a>
@@ -63,14 +62,14 @@
             </li>            
 
             <!-- Features -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" routerLink="/features">Features</a>
-            </li>
+            </li> -->
 
             <!-- Pricing -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link" routerLink="/pricing">Pricing</a>
-            </li>
+            </li> -->
 
             <!-- About -->
             <li class="nav-item">
