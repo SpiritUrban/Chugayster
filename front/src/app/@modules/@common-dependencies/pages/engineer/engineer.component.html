@@ -1,0 +1,59 @@
+<app-nav></app-nav> 
+<br>
+<div class="wrap">
+  <div class="about">
+      <div class="member-img">
+          <img [src]="engineer.img" alt="">
+      </div>
+      <div class="test">
+          <h3>{{ engineer.name }}</h3>
+
+        <div class="right">
+          <div 
+           class="skill"
+           *ngFor = "let skill of engineer.skills"
+          >
+            <div class="type">
+              <span>{{ skill.type }}</span> 
+            </div>
+            <div class="level">
+                <div 
+                class="progressBar"
+                *ngFor = "let point of numToArr(skill.level)"
+                  >
+            </div>
+                - {{ skill.level}}%
+            </div>
+          </div>
+        </div>
+        <div class="icons">
+          <a class="iconBtn mdi mdi-linkedin-box"></a>
+          <a class="iconBtn mdi mdi-github-box"></a>
+        </div>
+      </div>
+  </div>
+  <div class="member-info">
+      <h4>{{ engineer.chapter }}</h4>
+      <p>{{ engineer.past }}</p>
+      <p>{{ engineer.present }}</p>
+      <p>{{ engineer.future }}</p>
+  </div>
+  <br>
+  <div>
+    <ngb-tabset 
+    (click) = "highlight()"
+    class = "nav-fill"
+    >
+      <ngb-tab
+      *ngFor = "let codeExample of codeExamples"  
+      >   
+        <ng-template ngbTabTitle> {{ codeExample.title }} </ng-template>
+        <ng-template ngbTabContent>
+          <app-show-code [code]="codeExample.content" [language]="codeExample.language"></app-show-code>
+        </ng-template>
+       </ngb-tab>
+    </ngb-tabset> 
+  </div>
+  <br>
+</div>
+<app-footer></app-footer> 

@@ -9,16 +9,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // services
 import { ApiService } from './services/api.service';
 import { ValidatorService } from './services/validator.service';
+import { HighlightService } from './services/highlight.service';
 
 // pages
 import { MainComponent } from './pages/main/main.component';
 import { P404Component } from './pages/p404/p404.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { EngineerComponent } from './pages/engineer/engineer.component';
 
 // components
 import { NavComponent } from './components/general/nav/nav.component';
 import { FormValidatorComponent } from './components/general/form-validator/form-validator.component';
 import { ExtraAlertComponent } from './components/general/extra-alert/extra-alert.component';
+import { ShowCodeComponent } from './components/special/show-code/show-code.component';
+import { FooterComponent } from './components/general/footer/footer.component';
 
 
 @NgModule({
@@ -30,7 +34,10 @@ import { ExtraAlertComponent } from './components/general/extra-alert/extra-aler
     // components
     NavComponent,
     FormValidatorComponent,
-    ExtraAlertComponent
+    ExtraAlertComponent,
+    EngineerComponent,
+    ShowCodeComponent,
+    FooterComponent
   ],
   imports: [
     NgbModule,
@@ -42,7 +49,8 @@ import { ExtraAlertComponent } from './components/general/extra-alert/extra-aler
   providers: [
     // services
     ValidatorService,
-    ApiService
+    ApiService,
+    HighlightService
   ],
   exports: [
     FormValidatorComponent, 

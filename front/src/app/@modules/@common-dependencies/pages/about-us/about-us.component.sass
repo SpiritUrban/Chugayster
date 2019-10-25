@@ -1,0 +1,30 @@
+.person-card
+    margin: 0 5em 10em 5em
+    display: flex
+    flex-direction: row
+    justify-content: space-around 
+    align-items: center
+
+.person-card:nth-child(even)
+  flex-direction: row-reverse
+
+.person-card__portrait
+  width: 35%
+  img
+      width: 100%
+      display: block
+
+.person-card__info
+  width: 60%
+  display: flex
+  flex-direction: column 
+  align-items: center   
+
+.mdi-arrow-right
+  font-size: 1.5em
+  padding-left: .5em
+
+.btn-success
+  font-size: 1.1em
+  display: flex
+  align-items: center
