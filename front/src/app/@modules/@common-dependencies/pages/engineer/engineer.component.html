@@ -1,43 +1,59 @@
+<app-nav></app-nav> 
+<br>
 <div class="wrap">
   <div class="about">
       <div class="member-img">
           <img [src]="engineer.img" alt="">
       </div>
-      <div class="right">
-        <div 
-         class="skill"
-         *ngFor = "let skill of engineer.skills"
-        >
-          <div class="type">
-            <span>{{ skill.type }}</span> 
+      <div class="test">
+          <h3>{{ engineer.name }}</h3>
+
+        <div class="right">
+          <div 
+           class="skill"
+           *ngFor = "let skill of engineer.skills"
+          >
+            <div class="type">
+              <span>{{ skill.type }}</span> 
+            </div>
+            <div class="level">
+                <div 
+                class="progressBar"
+                *ngFor = "let point of numToArr(skill.level)"
+                  >
+            </div>
+                - {{ skill.level}}%
+            </div>
           </div>
-          <div class="level">
-              <span 
-              class="point"
-              *ngFor = "let point of numToArr(skill.level)"
-                >
-                .
-              </span>
-              <span>{{ skill.level}}%</span>
-          </div>
+        </div>
+        <div class="icons">
+          <a class="iconBtn mdi mdi-linkedin-box"></a>
+          <a class="iconBtn mdi mdi-github-box"></a>
         </div>
       </div>
   </div>
-    <div class="member-info">
-      <h3>{{ engineer.name }}</h3>
-      <h4>{{ engineer.text}}</h4>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores esse impedit ea molestiae. Maxime nobis repellat explicabo inventore facere, totam dignissimos eligendi nisi architecto asperiores dolor qui laboriosam repudiandae vel!
-      Eligendi quisquam accusantium hic, aliquam ut iure ipsum et officia eius quae. Aliquam suscipit dicta numquam iure sed consequatur quo ipsam, molestiae, quia, quasi error. Sunt sequi omnis soluta mollitia?
-      Autem vitae magni laudantium sapiente earum excepturi tenetur quia accusamus unde, fugiat consequatur incidunt dicta porro ad nulla a? Ea iure aspernatur, ex qui doloremque nulla tempore distinctio ut. Iste!</p>
-      <code>
-              import log  from '../../../../my_modules/stuff';<br>
-              @Component(<br>
-                selector: 'app-about-us',<br>
-                templateUrl: './about-us.component.html',<br>
-                selector: 'app-about-us',<br>
-                templateUrl: './about-us.component.html',<br>
-                styleUrls: ['./about-us.component.sass'])<br>
-      </code>
-      <button type="button" class="btn btn-success">Look github<i class="mdi mdi-arrow-right"></i></button>
-      <br>
+  <div class="member-info">
+      <h4>{{ engineer.chapter }}</h4>
+      <p>{{ engineer.past }}</p>
+      <p>{{ engineer.present }}</p>
+      <p>{{ engineer.future }}</p>
+  </div>
+  <br>
+  <div>
+    <ngb-tabset 
+    (click) = "highlight()"
+    class = "nav-fill"
+    >
+      <ngb-tab
+      *ngFor = "let codeExample of codeExamples"  
+      >   
+        <ng-template ngbTabTitle> {{ codeExample.title }} </ng-template>
+        <ng-template ngbTabContent>
+          <app-show-code [code]="codeExample.content" [language]="codeExample.language"></app-show-code>
+        </ng-template>
+       </ngb-tab>
+    </ngb-tabset> 
+  </div>
+  <br>
 </div>
+<app-footer></app-footer> 
