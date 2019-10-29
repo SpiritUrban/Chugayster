@@ -1,7 +1,44 @@
 .big-logo
     transition: 1s
-    width: 40%
-    transform: translateX(-5%)
+    width: 25%
+    // transform: translateX(-5%)
+    margin-top: 1.5em
+    margin-right: 5em
     opacity: .8
     &:hover
         opacity: 1
+
+.hero
+    z-index: -1
+    background: linear-gradient(200deg, #fbff00, #f58442)
+    // display: flex
+    // flex-direction: column
+    // justify-content: center
+    // align-items: center
+    position: absolute
+    width: 100%
+    min-height: 480px
+    height: 40em 
+    transform: skewY(8deg)
+    transform-origin: 100% center
+    // padding: 48px 48px 32px
+    overflow: hidden
+    left: 0
+    top: -10em   
+
+.hero-text-color
+    color: #000
+    h1 
+        margin-bottom: .5em
+    h4
+        margin-bottom: 1em
+    
+.btn-start
+    background: #fff
+    padding: .5em 1em
+    border-radius: 2em
+    font-size: 1.2em
+    cursor: pointer
+    font-weight: 600
+    &:hover
+        box-shadow: .2em .4em .5em .2em rgba(0,0,0,0.3)
