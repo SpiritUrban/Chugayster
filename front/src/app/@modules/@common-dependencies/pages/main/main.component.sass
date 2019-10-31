@@ -1,32 +1,50 @@
 .big-logo
-    transition: 1s
-    width: 25%
-    // transform: translateX(-5%)
-    margin-top: 1.5em
     margin-right: 5em
-    opacity: .8
-    &:hover
-        opacity: 1
+    width: 15em
+
+.hero-logo
+    display: flex
+    align-items: center
+    transform: translateY(-3em)
 
 .hero
     z-index: -1
     background: linear-gradient(200deg, #fbff00, #f58442)
-    // display: flex
-    // flex-direction: column
-    // justify-content: center
-    // align-items: center
     position: absolute
     width: 100%
-    min-height: 480px
-    height: 40em 
-    transform: skewY(8deg)
+    height: 36em
+    transform: skewY(-8deg)
     transform-origin: 100% center
-    // padding: 48px 48px 32px
     overflow: hidden
-    left: 0
-    top: -10em   
+    right: 0
+    top: -15em
+
+.hero-main
+    height: 100vh   
+    display: flex
+    flex-direction: column
+    justify-content: space-around   
+    align-items: center
+ 
+.hero-description
+    margin-top: -10em
+    display: flex
+    align-items: center
+    justify-content: center
+    h4 
+        display: inline-block
+        text-align: left  
+        padding-left: 1em
+        line-height: 1.2em
+    i
+        font-size: 5.95em
+        color: white
+        opacity: .5
+        
 
 .hero-text-color
+    display: flex
+    flex-direction: column
     color: #000
     h1 
         margin-bottom: .5em
@@ -42,3 +60,7 @@
     font-weight: 600
     &:hover
         box-shadow: .2em .4em .5em .2em rgba(0,0,0,0.3)
+
+.expample
+    display: flex
+    align-items: center
