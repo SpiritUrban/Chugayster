@@ -1,0 +1,68 @@
+extends layout
+
+block content
+  include includes/header.pug           
+
+  main
+    h1 stream for
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+    
+    //- section#content
+    p.description
+      | List of games submitted to the 
+
+      br
+      br
+      button#videoButton - Start Video webRTC -
+      hr
+
+      video#video1(controls)
+      video#video2(controls)
+      video#video3(controls)
+      video#videoRemote(controls)
+
+
+      div(style="display: flex; flex-direction: row;")
+        button.save Save         
+        a#link(href="") Link
+        button.snap Snap
+
+      canvas#canvas2
+
+      img#img1
+
+
+
+      canvas#canvas1
+
+ 
+
+      //- pre.line-numbers
+      //-   code.language-css
+      //-     |  .example {
+      //-     |      font-family: Georgia, Times, serif;
+      //-     |      color: #555;
+      //-     |      text-align: center;
+      //-     |  }
+
+      //- pre.line-numbers
+      //-   code.language-js
+      //-     |  [].map((el)=>{
+      //-     |     console.log(el)
+      //-     |  })
+
+  include includes/footer.pug
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js')
+  script(src='js/lib/prism.js')
+  script(src='js/stream/stream.js', type= 'module')
+
+  
+
+  //- script(src='js/lib/socket.io/lib/socket.js')
+
+
+
+

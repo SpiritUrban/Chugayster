@@ -1,0 +1,47 @@
+.danger-tool
+    br
+    p
+    | The Danger Tool !!!
+    p
+        details(id="danger-tool" class="card")
+            summary.c 
+                span.o6 This is a 
+                | panel for developing and testing. 
+                span.o6 Bro.
+            br
+            form()
+                .col-6
+            .form-group(style="text-align:center; color: orange;")
+                h4 Ctrl+Shift+Delete -- Clean Cache
+                a(href="./api/danger/show-users") Show users
+                button(id="ping-btn") Ping
+                button(id="del-all-users-btn") Delete All Users
+                button(id="get-all-users-btn") Get All Users
+                button(id="send-test-mail-btn") Send Test Mail
+
+
+
+                //- button(id="login-btn") Save
+                //- button(id="login-btn") Save
+script(src='js/_danger/danger.js', type= 'module')    
+
+    
+
+                    //-     label( for="username" ) Username:
+                    //-     .freeze-field( id="username"  name="username") #{user.username}
+                    //- .form-group
+                    //-     label( for="email" ) Email:
+                    //-     .freeze-field( id="email" type="text", name="email") #{user.email}               
+                    //- .col-6
+                    //-     .form-group
+                    //-         label( for="status" ) Status:
+                    //-         .freeze-field( id="status" type="text", name="status") #{user.status || 'none'}
+                    //-     .form-group
+                    //-         label( for="first_name" ) First name:
+                    //-         input( id="first_name" type="text", name="first_name" value=user.first_name)
+                    //-     .form-group
+                    //-         label( for="last_name" ) Last name:
+                    //-         input( id="last_name" type="text", name="last_name" value=user.last_name)                                                         
+                    //- .form-group
+                    //-     button(id="login-btn") Save
+                     //- a.btn.c(href="/api/auth/facebook") Login via Facebook 

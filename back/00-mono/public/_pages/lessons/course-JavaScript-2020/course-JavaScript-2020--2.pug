@@ -1,0 +1,331 @@
+extends ../../layout
+block content
+  include ../../includes/header.pug
+  include css.pug
+  include mixin.pug
+
+  mixin paging()
+    br
+    h2.c
+      a.c(href='/lessons/course-JavaScript-2020') < Preview 
+      span.o4 | 
+      | Block 2 
+      //- span.o4 | 
+      //- a.c(href='/lessons/course-JavaScript-2020--3') Next >
+
+
+  //- Main --------------------------------------------------------------------------------------------
+  main
+    include parts/slogan
+    +paging()
+    section.limit-2.space
+
+
+      //- Lesson 20 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(20, 'The announcement of the next series of videos. Psychological observation and analysis', 'Анонс наступної серії відео. Психологічні спостереження та аналіз')
+        hr
+        .c
+          br
+          div Useful observations for learning. Analysis of processes and prospects.
+          div.o4 Корисні спостереження для навчання. Аналіз процесів і перспектив.
+          br
+          +iframe('zduw8CPQg_8')
+        br
+        br
+
+
+      //- Lesson 21 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(21, 'We write the game "Snake"', 'Пишемо гру "Змійка"')
+        hr
+        .c
+          +code_on_github()
+          br
+          h3 ... 1 ...
+          +iframe('Olq1nAIn2Co')
+          br
+          h3 ... 2 ...
+          +iframe('cy2FkXHVNjw')
+          br
+          h3 ... 3 ...
+          +iframe('bmKOxOl5SZc')
+          br
+          h3 ... 4 ...
+          +iframe('QSQG2OX76AI')
+          br
+          h3 ... 5 ...
+          +iframe('zsXo7gbn7TE')
+          br
+          h3 ... 6 ...
+          +iframe('CFsgcRzloec')
+        br
+        br
+
+
+      //- Lesson 22 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(22, 'Methods', 'Методи')
+        hr
+        .c
+          +code_on_github()
+          br
+          div An overview of standard methods in general, comprehension and recommendations
+          div.o4 Додатковий огляд стандартних методів в цілому, осмислення та рекомендації
+          br
+          +iframe('XgSwSzvEIOM')
+        br
+        br
+
+
+      //- Lesson 23 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(23, 'We write the game "Crosses of the Nile"', 'Пишемо гру "Хрестики Нолики"')
+        hr
+        .c
+          +code_on_github()
+          br
+          h3 ... 1 ...
+          +iframe('-TxUglbPozs')
+          br
+          h3 ... 2 ...
+          +iframe('InPw8hrVTGY')
+          br
+          h3 ... 3 ...
+          +iframe('3SX86cxcqkU')
+        br
+        br
+
+
+      //-  ------------------------------------------------------------------------------------
+      br
+      details
+        +summary('-', 'Presentation of the next training block', 'Презентація наступного навчального блоку')
+        hr
+        .c
+          +code_on_github()
+          br
+          div The first level of training has been completed! Next, we connect to work on the projects framework Angular - write a smaller code but we get even faster result. And enjoy the process!
+          div.o4 Перший рівень навчання пройдено! Далі підключаємо до роботи над проектами фреймворк Angular - пишемо меньше коду але отримуэмо ще швидший результат. І насолоджуємось процесом!
+          br
+          +iframe('XgSwSzvEIOM')
+        br
+        br
+
+
+      //- Lesson 24 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(24, 'OOP (Object Oriented Programming)', 'ООП (Об\'єктно Орієнтоване Програмування)')
+        hr
+        .c
+          +code_on_github()
+          br
+          div and Classes
+          div.o4 і Класи
+          br
+          +iframe('HUEbC-7i2Uk')
+        br
+        br
+
+
+      //- Lesson 25 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(25, 'Sermon - "Technology No. 1"', 'Проповідь - "Технологія №1"')
+        hr
+        .c
+          +code_on_github()
+          br
+          div Work with your psyche.
+          div.o4 Робота з своєю психікою.
+          br
+          +iframe('ORYIhpQVlNg')
+        br
+        br
+
+
+      //------------------------------------------------------------------------------------------------
+      br
+      hr
+
+
+      //- Lesson 26 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(26, 'Angular 7: Getting Started', 'Ангулар 7: Початок роботи')
+        hr
+        .c
+          +code_on_github()
+          //- br
+          //- div 
+          //- div.o4 
+          br
+          +iframe('SjL3csrXJ9s')
+        br
+        br
+      
+
+      //- Lesson 27 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(27, 'Angular 7: Foundations', 'Ангулар 7: Основи')
+        hr
+        .c
+          +code_on_github()
+          //- br
+          //- div 
+          //- div.o4 
+          br
+          +iframe('2E77zAQjl9E')
+        br
+        br
+
+
+      //- Lesson 28 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(28, 'Angular 7: Sprite', 'Ангулар 7: Спрайти')
+        hr
+        .c
+          +code_on_github()
+          br
+          div Game on the Angular. Sprite.
+          div.o4 Гра на Ангулар. Спрайти.
+          br
+          +iframe('t01laBFGHRU')
+        br
+        br
+
+
+      //- Lesson 29 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(29, 'Angular 7: Map', 'Ангулар 7: Мапа')
+        hr
+        .c
+          +code_on_github()
+          br
+          div Game on the Angular. Map.
+          div.o4 Гра на Ангулар. Мапа.
+          br
+          +iframe('DizGpYO-OdY')
+        br
+        br
+
+
+      //- Lesson 30 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(30, 'Angular 7: Character', 'Ангулар 7: Персонаж')
+        hr
+        .c
+          +code_on_github()
+          br
+          div Game on the Angular. Character.
+          div.o4 Гра на Ангулар. Персонаж.
+          br
+          +iframe('bJST9EWIp5A')
+        br
+        br
+
+
+      //- Lesson 31 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(31, 'Angular 7: Refactoring, ... rest, bind, jump, movement control', 'Ангулар 7: Рефакторинг, ...rest, bind, стрибок, контроль пересування')
+        hr
+        .c
+          +code_on_github()
+          br
+          div 
+            | Refactoring / organizing code. 
+            br
+            | The solution is based on the operator "... rest". 
+            br
+            | Using the bind () method (contextual transfer). 
+            br
+            | Realization of the jump. 
+            br
+            | Realization of control of movement (non-passage through solid objects)
+            br
+            br
+          div.o4 
+            | Рефакторинг / організація коду. 
+            br 
+            | Рішення на основі оператору "...rest". 
+            br
+            | Використання методу "bind()" (передача контексту). 
+            br 
+            | Реалізаця стрибка.
+            br
+            | Реалізація контролю пересування (непроходження через тверді предмети)
+          br
+          +iframe('EsdtsJca_Jw')
+        br
+        br
+
+
+      //- Lesson 32 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(32, 'Angular 7: Debugging, jump, "try/catch"', 'Ангулар 7: Дебагінг, стрибок, "try/catch"')
+        hr
+        .c
+          +code_on_github()
+          br
+          div 
+            | Several situations of debugging.
+            br
+            | Refinement of the jump.
+            br
+            | Construction of the interception of the error "try{} catch(err){}".
+            br
+            br
+          div.o4 
+            | Кілька ситуацій дебагінгу.
+            br 
+            | Допрацювання стрибка.
+            br
+            | Конструкція перехоплення помилки "try{} catch(err){}".
+          br
+          +iframe('gNhCSYTvE5M')
+        br
+        br
+
+
+      //- Lesson 33 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(33, 'Angular 7: Refactoring 2', 'Ангулар 7: Refactoring 2')
+        hr
+        .c
+          +code_on_github()
+          br
+          div 
+            | Refactoring (optimization, improvement) of the code. 
+            br
+            | Refinement of the jump.
+            br
+            | Comparison: if, ternary, swich / case.
+            br
+            br
+          div.o4 
+            | Рефакторинг (оптимізація, вдосконалення) коду.
+            br 
+            | Application of a ternary operator of choice.
+            br
+            | Порівняння: "if", "ternary", "swich/case".
+          br
+          +iframe('7YLS1S-mdT4')
+        br
+        br
+
+
+
+    +paging()
+    include parts/bottom

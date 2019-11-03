@@ -1,0 +1,31 @@
+extends ../../layout
+
+block content
+  include ../../includes/header.pug           
+
+  main
+    h1 mail erify for 
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+    
+    section.limit-2.space
+      br
+
+      //
+      // if verified
+      //
+      if success
+        h3.c
+          | Пошту підтверджено. | Mail verified.
+      if !success
+        h3.c
+          | Пошту не підтверджено | The mail has not been verified 
+
+
+
+  include ../../includes/footer.pug
+
+  //- script(src='js/lib/prism.js')  
+
+

@@ -1,0 +1,33 @@
+extends ../layout
+block content
+  include ../includes/header.pug           
+  main
+  
+    h1.t(data-en="hot"  data-ua="..." )
+    
+    section.limit-2.space
+
+      button( onclick='responsiveVoice.speak("Hello World");',   value='🔊 Play' ) Hello World
+
+      p
+        //- google translator
+        a(href='https://translate.google.com/?client=firefox-b-d&um=1&ie=UTF-8&hl=ru&client=tw-ob#view=home&op=translate&sl=en&tl=uk' target="_blank")
+          button.img-btn(style="background-image: url(/img/hot/translator.png)" ) translator
+        
+
+
+      //- p
+      //-   br
+      //-   a(href='/hot/some') some
+
+
+
+
+
+
+  include ../includes/footer.pug
+  script(src='js/lib/responsivevoice.js', defer='')
+
+
+
+

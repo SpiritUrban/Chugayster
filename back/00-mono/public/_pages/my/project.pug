@@ -1,0 +1,82 @@
+extends ../layout
+block content
+  include ../includes/header.pug           
+  main
+  
+    h1.t(data-en="my project"  data-ua="..." )
+
+      //- span.o4 for 
+      //-   a(href='') freedom 
+      //-   | & 
+      //-   a(href='') power !
+
+    
+    section.limit-2.space
+      br
+      br
+
+
+      p
+        | window.parent.caches.delete("call")   ᑞᑞ
+
+
+      br
+      hr
+      br
+
+
+      p
+        a(href='/img/my/project/fb.jpg' target="_blank")
+          img.w50(src="/img/my/project/fb.jpg")
+        br
+        br
+        a(href='https://developers.facebook.com/apps/305560030024538/fb-login/settings/' target="_blank") to this
+        br
+        a(href='https://developers.facebook.com/apps/455174914848353/fb-login/settings/' target="_blank") to app 2    
+        br
+        a(href='https://developers.facebook.com/apps/' target="_blank") them root
+            
+
+      br
+      hr
+      br
+
+
+      p
+        span My VDS hostName - http://240205-vds-shadespiritenator.gmhost.pp.ua/ 
+        br
+        a(href='http://240205-vds-shadespiritenator.gmhost.pp.ua/' target="_blank") ---> to VDS
+
+
+      br
+      hr
+      br
+
+
+      p
+        a(href='/img/my/project/VMmanager.png' target="_blank") 
+          img.w50(src="/img/my/project/VMmanager.png")
+        br      
+        span Зовнішня панель керування сервером
+        a(href='https://vds.gmhost.com.ua/vmmgr' target="_blank") ---> to VM manager
+        br
+        span І сам онлайн Термінал
+        a(href='https://vds.gmhost.com.ua/vmmgr?elid=17113&func=novnc&sfrom=loginform%2C%20loginform%2C%20loginform%2C%20loginform%2C%20loginform%2C%20loginform%2C%20loginform%2C%20loginform%2C%20loginform&sfrom=loginform' target="_blank") ---> to Terminal
+        
+
+      br
+      hr
+      br        
+        
+
+        
+
+
+
+
+
+  include ../includes/footer.pug
+
+
+
+

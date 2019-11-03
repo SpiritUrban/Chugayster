@@ -1,0 +1,216 @@
+extends ../../../../layout
+block content
+  include ../../../../includes/header.pug
+
+  // !!! ???
+  include ../../css.pug
+  // !!! ???
+  include ../../mixin.pug
+
+  mixin paging()
+    br
+    h2.c
+      a.c(href='/lessons/course-JavaScript-2020') < Preview 
+      span.o4 | 
+      | Block 2 
+      //- span.o4 | 
+      //- a.c(href='/lessons/course-JavaScript-2020--3') Next >
+
+
+  //- Main --------------------------------------------------------------------------------------------
+  main
+    //include parts/slogan
+    br
+    br
+    h1 Intro
+    +paging()
+    section.limit-2.space
+
+
+      //- Version UA ------------------------------------------------------------------------------------
+      br
+      details
+        +summary('UA', 'Intro (Ukrainian version)', 'Вступ (Українська версія)')
+        hr
+        .some
+          br
+
+          h4.c Про курс
+          p Даний курс працює наступним чином - ти отримуєш каркас практичних знань, які реально використовуються у професійній розробці. Ці практики і знання є витяжкою з мого практичного робочого процесу. Я подаю знання від найпростіших і базових основ і до більш складних, але так що це дозволяє тобі відразу писати код. І що далі ти проходиш цей курс, то ти отримуєш здатність вирішувати все ширший діапазон задач і на більш професійному рівні, тобто писати все якісніший код, що дозволяє успішно розробляти все більш складні програми.
+          br
+          +iframe('jYN5Jz2qPys')
+          br
+          p Також цей курс є органічним входженням в матеріали, які я розробляю і збираю. Це професійні напрацювання: готові рішення, блоки коду, модулі.
+          br
+          p Діапазон максимальної оптимальності даного курсу знаходиться в межах 2015 до 2021 року. Це означає що знання з даного курсу підходять як для підтримки і розвитку проектів які написані з 2015 року і актуальні для написання проектів до 2021 року. У майбутньому, коли курс дещо застаріє, я планую його оновити і вдосконалити, але зміни в будь якому разі будуть лише частковими, тому тобі буде легко оновити знання на основі знайомої і звичної для тебе навчальної системи.
+          br
+          p На момент створення цього курсу (2019 рік) даний стек технологій являється дуже перспективним і затребуваним. Також є тенденція до подальшого збільшення актуальності цих технологій. Коли я вибирав технології на які було б варто зробити ставку,  я приділив значний час для аналізу перспективності даних технологій і аналізу тенденцій.  І в кінці кінців дійшов до вибору між Java і JavaScript. (Між мобільною розробкою і веб-розробкою) (Хоча вже на 2019 рік джаваскрипт в значній мірі захопив і мобільну розробку. Отже мій вибір виявився двічі правильним).
+          br
+          p Що стосується захоплення позицій мовою JavaScript, то наразі ми спостерігаємо перехід великої частини популярних програм на джаваскрипт. Наприклад Skype і багато інших. Всесвітньо відома компанія Netflix переводить частину своїх серверів на node.js (Для бізнесу це також актуально тому що бізнес отримує з цього свої вигоди).
+          br
+
+          h4.c Про себе
+          br
+          p А тепер кілька слів про себе і про те чому мій курс має високу якість і ефективність.
+          br
+          p По-перше Я професійний Full-stack javascript розробник. Основне моє позиціонування у веб технологіях це MEAN stack: Mongodb, Express.js,  Angular,  Node.js. Окрім того що я маю значний досвід у створенні інформаційних продуктів (програмуванні та веб-дизайні, 3D дизайні) біля 14 років (на момент написання даної статті). Тобто це здебільшого досвід  створення веб-сервісів, веб-сайтів як  дизайну так і програмного коду. Веб-дизайн це не лише графічна складова, а передусім структура, рішення для ефективного сприйняття і роботи людини з програмним продуктом. В результаті я набув знань у веб-рішеннях в цілому. Також маю значні знання у психології(19 років), фізіології людини та значний вчительський і тренерський досвід (6 років). До своєї професійної діяльності у якості інтересів та хобі, я значну частину життя займався технологіями, програмуванням, графікою, психологією. В результаті глибоко  розумію і відчуваю сутність як технологічних так і психологічних напрямків. Встиг попрацювати у великій кількості фірм і над великою кількістю проектів для різних країн (США, Норвегія, Німеччина, Канада, Австралія, Африка, Росія, Україна), та попрацював з великою кількістю різних людей. В результаті мав можливість спостерігати за тим як побудована робота у різних командах і також бачив різні проблемні моменти. Ефективні рішення пішли у мій арсенал, а на ті проблеми на які не було хороших рішень, я поставив собі ціллю виробити кращі підходи. Проблемні моменти поділяються на дві категорії: технологічні і ті які пов'язані з людьми. 
+          br
+          p Даний курс я будую на основі власної реальної професійної практики, так і спостереженнях за проблемами та перемогами моїх учнів. Я займаюсь навчанням людей програмуванню і безперервно отримую зворотній зв'язок, щоб налаштувати методи навчання, які також переношу і у свій курс. Я безперервно спостерігаю за проблемами людей які навчаються програмуванню і підбираю рішення які діють. Мої учні живуть і працюють в різних частинах планети. В результаті це дає нам цільне та широке бачення того, що відбувається в нашій сфері у реальному часі.
+          br
+
+          h4.c Про джаваскрипт
+          br
+          p Джаваскрипт це чи не найпопулярніша мова програмування, яка ще й ефективна при застосуванні у різних технологічних напрямках і сферах. Джаваскрипт має хороші перспективи, про що свідчать сучасні тенденції і логічні оцінки. 
+          br
+          p Ще біля 8 років тому, джаваскрипт був “іграшковою” мовою програмування і цієї мови не існувало у її сучасній і потужній формі. Але така логіка подій, що інтернет захоплює весь світ. Власне він і є планетарною технологією, яка об’єднує в цілісність багато технологій і людей. Інтернет це веб-технологія, в якій основним інструментом є веб-браузери, які працюють з джаваскриптом. Тому джаваскрипт отримав стрімкий розвиток і почав захоплювати суміжні технології. Адже це ефективно, писати програми для суміжних сфер на мові, якою вже володієш. Через те що джаваскрипт набув такого великого значення, його й почали інтенсивно розвивати. Також весь час вдосконалюються й браузери, які надають багатий набір технологій, для використання у веб-технологіях. Можливо для когось таких хід подій був не передбачуваним, але така логіка життя нашої технологічної цивілізації. Біля 10 років тому, абсолютним чемпіоном можна вважати що була Джава але тепер чемпіоном став ДжаваСкрипт. Ці 2 мови входять в топ наймасовіших мов програмування і ні одна з них не може покинути арену раптово. Тому зараз хороший час щоб робити ставку на ДжаваСкрипт, а у разі, якщо ситуація почне змінюватись, то у нас буде більш ніж достатньо часу, для того щоб перекваліфікуватись на інші найкращі технології. Так що, якщо ти навчаєшся весь час, то можеш бути спокійним, все буде прекрасно.
+          br
+          p Також є важливий фактор, який сприяє міцній позиції ДжаваСкрипт. Коли веб ще тільки починав розвиватись, було багато проблем з тим моментом, щоб верстка відображалась у різних браузерах однаково і скрипт працював справно. Причина цього у тому що виконують джаваскрипт і відмальовують верстку різні браузери. І щоб досягти злагодженості усіх браузерів із стандартами та виробити ці стандарти і ще й відлагодити щоб все працювало ідеально, на це потрібно багато часу. І весь час у браузери додаються нові технології, для яких потрібно також по кілька років, щоб вони з’явились у всіх браузерах і були у актуальних версіях, після чого стає можливим використання цих технологій у комерційних проектах. Тому не можливо дуже різко змінити технології у веб-ніші. Веб є гарантом стабільності данної технології. І через свою масовість, джаваскрипт захоплює велику частину інших ніш. І тому у джаваскрипт програміста дуже розв’язанні руки - ти можеш створювати програмні продукти майже у всіх нішах. Також програми написані на джаваскрипт крос платформені. Це означає що пишеш один раз, а програма працює на різних операційних системах. Раніше зазвичай для кожної операційної системи писали заново версію програми на відповідній до операційної системи, мови програмування. Також перевага джаваскрипт у тому що ти можеш бути й бізнесменом - написати власний програмний продукт чи систему для свого бізнесу. Ця мова для цього підходить як найкраще. І хоча здається що важко знайти ідею для програмного продукту, насправді ще дуже багато чого потрібно розробити. Відсутність бачення, це лише наслідок відсутності достатнього рівня розуміння цієї сфери.
+          br
+
+          h4.c Конкуренція чи нехватка програмістів
+          br
+          p Для людини, яка вирішує, чи варто обирати своєю діяльністю програмування, важливим є запитання: “Чи буде ця професія прибутковою, чи через великий наплив бажаючих, виникне перенасичення і спад оплати праці програміста.” Колись в Україні були модними і популярними професії: юрист і менеджер. Багато людей пішли здобувати ці професії, в результаті ми отримали таку кількість юристів і менеджерів, яка виявилась не потрібною. Чи не буде такої ситуації з програмістами. Є протилежні точки зору. Одні кажуть, що програмістів буде потрібно так багато, що стільки все одно не вдасться підготувати. Інші кажуть що ситуація для програмістів вже погіршилась і продовжує погіршуватись.
+          br
+          p Кому вигідно стверджувати велику потребу у програмістах? Це курси, які заробляють на навчанні програмістів. Це фірми, яким потрібно щоб програмісти стали дешевшими і вони хочуть досягти цього напливом людей у нішу.
+          br
+          p Кому вигідно відбивати бажання у інших людей ставати програмістами? Вигідно програмістам, які вже програмісти і не хочуть щоб у них з’являлися конкуренти.
+          br
+          p Але це лише зацікавлені сторони, а важливішим фактором є дійсна реальність і логіка ходу речей.
+          br
+          p Тут є важлива поправка. Сильних, якісних програмістів завжди не вистачає. А ось слабких програмістів, може бути й перенасичення.
+          br
+          p Чому багато слабких програмістів? Тут 2 фактори: 1) Людська природа (не бажання по серйозному вкладатись і обмежувати себе від задоволень, які перешкоджають розвитку); 2) Друге це просо різкий сплеск новобранців, який з часом зменшиться, тому що фізично вичерпаються бажаючі (чи навіть існуючі).
+          br
+          p У моменті всплеску навали новобранців дискомфортно лише на першій стадії - коли зростає конкуренція. Але потім буде протилежний ефект - велика кількість доступних спеціалістів, призведе до розростання цифрової інфраструктури, яка з розвитком затребує ще більшої кількості програмістів. А технологічні системи ніколи не будуть зайвими, тому що вони генерують ресурс, який і потрібен людям.
+          br
+          p Отже підготовка слабких програмістів, це унило і прикро для усіх сторін (хоча й вони знайдуть роботу і навіть будуть задоволені. Багато мілких бізнесів потребують послуг і не сильних програмістів.). Але Я бачу сенс лише у підготовці потужних програмістів. Взрощуючи власний рівень, я самостійно і разом з моїми найкращими учнями працюємо над якісними рішеннями у нашій технологічній сфері. І сам процес навчання, я будую так, щоб в результаті формувати сильних професіоналів, які володіють ефективними і стандартизованими напрацюваннями. І по можливості щоб учні моєї школи утворювали спільні команди. Якщо команда заточена під спільні практики, тоді колективна розробка цими людьми буде дуже ефективною.
+          br
+          p Ми входим в новий технологічний, технократичний світ. Це буде щось надзвичайне і неймовірне. Люди будуть жити зовсім інше життя ніж тисячі років до цього. Схоже що це буде до божевілля зовсім іншим світом. І часом мені здається що не у всіх людей буде витримувати психіка від того, що буде відбуватись. Хоча щоб привести психіку в порядок, також будуть відповідні і ефективні технології.
+          br
+          p В новому світі в який ми входимо на коні будуть технічні спеціалісти інженери які розробляють різний софт для автоматизації, роботів, штучний інтелект, віртуальну та доповнену реальність, системи об’єднання людини з машинами, різного роду медики.
+          br
+          p Також у майбутньому програмування буде необхідно не тільки програмістам, а й багатьом іншим спеціалістам, щоб підвищувати ефективність роботи у своїй професійній сфері. Тому, що їхня професійна діяльність почне в певній мірі змішуватися з програмуванням.
+          br
+          p Програмування взагалі є надзвичайною особливою діяльністю тому, що програмування це концентрат логіки і мислення. І навики програмування дуже покращують ефективність мислення, що корисно у повсякденному житті і інших сферах діяльності. Ця діяльність еволюційно піднімає людину на більш високий рівень. Хоча за моїми спостереженнями це не єдина сторона яка потрібна для повноцінного росту особистості. Також технічні знання важливі для розуміння того нового техногенного  світу в якій ми входимо. Стрий світ всихає і відходить в небуття, а простір який навколо нас займе Новий технократичний Світ. Сильні технічні спеціалісти отримують великі можливості в цьому новому світі. Я зацікавлений у якнайшвидшому приході цього нового техногенного світу. І мій курс це також вклад у побудову цієї нової цивілізації. Це дуже голосно звучить, тому Я уточню - я роблю вклад лише у своїй тонкий технічний ніші. Рухають цивілізацію вперед також ще тисячі, а може й мільйони людей.
+          br
+          p Я допускаю що велика кількість моїх учнів можуть стати моїми партнерами, побратимами, друзями з якими ми будемо разом, у одній великій злагодженій команді розвивати потужні програмні системи.
+          br
+          p На розробку даного курсу Я запланував рік, а на наступний рік планую започаткувати курс по сфері штучного інтелекту.  Наступний курс буде органічним продовженням цього першого базового курсу.  Також я планую розвивати відгалуження,  модулі,  які також будуть органічним продовженням базового курсу.  Тому вони будуть   легко сприйматися,  рішення будуть абсолютно поєднуватися між собою.  В результаті ми отримуємо велику цільну і ефективну систему у яку входить не лише матеріали а й спільнота програмістів, які здійснюють вклад у розвиток цієї системи.  Свою систему я будую на прогресивних принципах,  які я проаналізував та розгледів,  як фундаментальні так і ті що з'являються при переході у контекст нового людського світу. 	Мені як технічному інженеру зрозуміло що наш світ стає однією великою технічною системою,  це інженерний погляд на стан речей.  Але існує ще й погляд економічний,  погляд людей із бізнесу.  І я організував підбірку прогнозів від людей з бізнесу . Отже час коли були зроблені ці прогнози це 2018 рік, а прогноз націлені на на 2021 -  2022 і подальші роки.  Що ж буде цікаво зараз ознайомитися з цими прогнозами для того щоб планувати свій курс розвитку.  А також у майбутньому буде цікаво перечитати ці прогнози і порівняти їх з тим що реально відблось.  Це не лише любопитно, а й надає нам додаткові знання для коригування стосовно подальших прогнозів. 
+          br
+          ul
+            li Отже У 2022 році більше 60% ВВП буде від цифрових технологій.
+            br
+            li 75 відсотків від усіх витрат на інформаційні системи підуть на просування цих продуктів. (А це означає що для людей буде більше халяви.  Для того щоб продвинути продукти, людям будуть безкоштовно надавати корисні послуги та додаткові опції. Бізнес системи будуть обслуговувати велику кількість людських потреб безкоштовно, для того щоб продати щось додатково. Це круто тому що технологічний світ буде навіть на халяву забезпечувати нас у великій мірі. Закономірно що всі ці компанії будуть намагатися конструювати людське світовідчуття, це теж саме що й відбувається зараз через рекламу телебачення і інші засоби. Щось з того що буде вкладатися людям голову буде цікавим, можливо навіть корисним, а щось і шкідливим. Тому потрібно цьому вміти протистояти. Протистояти можна тільки лише разом будучи об'єднаними в велику систему тому, що великі корпорації  ушатають поодиноких людей. А якщо інженери будуть об'єднані у одну велику систему, то вони будуть міцні як камінь у воді. І вода не зможе зруйнувати цей камінь, а буде лише шліфувати. І в результаті цей камінь буде тільки вдосконалюватися)
+            br
+            li Є сміливі прогнози, щодо дуже швидкої перебудови ринку праці. Але зроблю більш осмислену поправку від себе. Ця динаміка може бути одночасно швидкою і поступовою. Маю на увазі те що у різних країнах і містах відбуваються ці зміни з різною швидкістю і в різних об'ємах. Також в силу того що певна частина людей невзмозі перелаштовуватись, це консервує старий стан речей. Але люди які не перелаштуються - зсуваються на обочину економіки. Тобто тут виходить певне розшарування Старого Світу і Нового, старої економіки і нової.
+            br
+            li Кажуть що штучний інтелект знищить велику кількість професій але створить ще більшу. Але як так виходить, адже автоматизація це означає виключення людей з виробничого ланцюжка? Думаю що мається на увазі те що, з'являються нові можливості. Далі говорять про те що людей в результаті буде навіть не вистачати для всіх робіт. Але додам ще одну поправку, це  лише форма сприйняття. Насправді все балансується ринком. І навіть зараз можна сказати що не вистачає робітників,  просто їхній рівень оплати праці буде настільки малим, що мало хто захоче займатися такою роботою. Якщо відійти від цієї економічної шизофренії то в реальності ми спостерігаємо лише постійне зростання рівня життя людей нашої цивілізації. Економічно це може не відчуватися але безперервно ростуть об'єми і технологічність того, що  ми можемо споживати.          
+            br
+            li Інтернет речей.  Все більша кількість пристроїв буде комп'ютеризованою і об'єднаною в спільну систему. В пристрої перетворяться і багато речей, які зараз є дуже простими. І навіть, якщо додавання, технологічного функціоналу до них, здається безглуздим, то як мінімум можуть бути додані сенсори для збору статистики, що буде використовуватись в корисних цілях. Наприклад, аналіз поведінки, харчування, реакцій організму, для контролю здоров’я. У цій сфері прогнозується приріст 20 % кожен рік. До 2021 року буде підключено 16 млрд IoT пристроїв.Усе наше середовище буде заповнено датчиками які будуть Збирати інформацію такого типу,  як звук, температура, хімічні компоненти, інтенсивність освітлення. Ці дані будуть аналізуватися системи штучного інтелекту  для того щоб отримати  іншу корисну інформацію. В першу чергу це будуть такі системи як енергомережі, автомобілі,  системи екстреного виклику, системи безпеки, в тому числі індивідуальні, розумні будинки,  контроль і аналіз на виробництві, логістика.
+          br
+          p Отже даний курс буде не тільки навчальним матеріалом, а й частиною бази знань і напрацювань якою ти можеш користуватися  при розробці програмних продуктів. Пройшовши навчальний курс тобі буде легко користуватися всією базою матеріалів, адже структура і підходи будуть вже звичні і знайомі.
+          br
+
+          h4.c Організаційна Над ціль
+          br
+          p Не лише розвивати технологію а й змінити виробничий процес. Тобто знайти нові рішення у організації команд і процесі розробки. Хоча топові фірми працюють над покращенням умов для своїх інженерів. Але це все одно в основному сидяча робота у замкнутому просторі. Я вважаю що життя має бути якісним, а робота це частина життя. У випадку нашої професії це ще актуальніше. Адже наша робота дуже сильно перемішується з “поза робочим” часом, аж до нероздільної цілісності.
+          br
+          
+
+
+      //- Version US ------------------------------------------------------------------------------------
+      br
+      details
+        +summary('US', 'Intro (English version)', 'Вступ (Англійська версія)')
+        hr
+        .some
+          br
+
+          h4.c About the course
+          p This course works as follows - you get a framework of practical knowledge that is really used in professional development. These practices and knowledge are a hole in my practical workflow. I provide knowledge from the simplest and basic basics and to the more complex, but so it allows you to write code right away. And the more you pass this course, then you get the ability to solve the broader range of tasks and at a more professional level, that is, to write all the better code that allows you to successfully develop increasingly complex programs.
+          br
+          +iframe('jYN5Jz2qPys')
+          br
+          p Also, this course is an organic entry into the materials that I develop and collect. These are professional developments: ready-made solutions, code blocks, modules.
+          br
+          p The range of maximum optimality of this course is between 2015 and 2021. This means that the knowledge of this course is suitable both for supporting and developing projects written since 2015 and relevant for writing projects by 2021. In the future, when the course is somewhat out of date, I plan to update and improve it, but changes in any case will be only partial, so you will be able to easily update your knowledge based on a familiar and familiar learning system for you.
+          br
+          p At the time of this course (2019), this stack of technologies is very promising and in demand. There is also a tendency to further increase the relevance of these technologies. When I chose technologies for which it would be worth a bet, I devoted considerable time to analyzing the promise of technology and trend analysis. And eventually came to the choice between Java and JavaScript. (Between mobile development and web development) (Although in 2019, javascript has largely captured and mobile development, so my choice was twice correct).
+          br
+          p With regard to capturing the position of the JavaScript language, we are currently seeing the transition of a large part of popular programs to javascript. For example Skype and many others. The world-renowned Netflix company translates some of its servers to node.js (For business, this is also relevant as business gets its benefits from it).
+          br
+
+          h4.c About myself
+          br
+          p And now a few words about myself and why my course is of high quality and efficiency.
+          br
+          p First I am a professional full-stack javascript developer. My main positioning in web technologies is MEAN stack: Mongodb, Express.js, Angular, Node.js. In addition, I have considerable experience in creating information products (programming and web design, 3D design) for about 14 years (at the time of writing this article). That is, in most cases, the experience of creating web services, websites as design and software code. Web design is not only a graphic component, but above all a structure, a solution for the effective perception and work of a person with a software product. As a result, I have gained knowledge in web solutions as a whole. I also have significant knowledge in psychology (19 years), human physiology and significant teacher and coaching experience (6 years). To my professional activities as interests and hobbies, I devoted a significant part of my life to technologies, programming, graphics, and psychology. As a result, I understand deeply and feel the essence of both technological and psychological trends. He managed to work in a large number of companies and on a large number of projects for different countries (USA, Norway, Germany, Canada, Australia, Africa, Russia, Ukraine), and worked with a large number of different people. As a result, he had the opportunity to observe how the work was built in different teams and also saw various problem points. Effective solutions went to my arsenal, and for those problems that were not good decisions, I set myself the goal to develop better approaches. Problem moments are divided into two categories: technological and those that are related to people.
+          br
+          p I build this course on the basis of my own real professional practice, as well as observations of the problems and victories of my students. I'm training people in programming and continuously getting feedback to customize the teaching methods that I also take in my course. I continuously observe the problems of people who study programming and choose the solutions that work. My students live and work in different parts of the planet. As a result, it gives us a coherent and broad view of what's happening in our area in real time.
+          br
+
+          h4.c About Javascript
+          br
+          p Javascript is probably the most popular programming language, which is also effective when applied in different technological areas and spheres. Javascript has good prospects, as evidenced by current trends and logical evaluations.
+          br
+          p More than 8 years ago, javascript was a "toy" programming language and this language did not exist in its modern and powerful form. But such a logic is that the Internet captures the whole world. In fact, he is a planetary technology that unites the integrity of many technologies and people. The Internet is a web-based technology, in which the main tool is web browsers working with javascript. Therefore, the javascript received rapid development and began to seize related technologies. After all, it's effective to write programs for related areas in the language you already own. Due to the fact that the javascript got so much importance, he began to intensively develop. Browsers that provide a rich set of technologies for use in web technologies are also being improved all the time. Perhaps for somebody such a course of events was not predictable, but such is the logic of life of our technological civilization. About 10 years ago, the absolute champion can be considered to be Java, but now the champion was JavaScript. These 2 languages ​​are included in the top most mass programming languages ​​and none of them can leave the arena suddenly. So now is a good time to bet on Javascript, and if the situation starts to change, we will have more than enough time to re-qualify for the other best technologies. So, if you study all the time, you can be calm, everything will be fine.
+          br
+          p There is also an important factor contributing to the strong position of Javascript. When the web was just beginning to develop, there were many problems with the point that the layout was displayed in different browsers alike and the script worked properly. The reason for this is the fact that they perform javascript and sketch the layout of different browsers. And to achieve the coherence of all browsers with standards and to develop these standards, and yet to fix that everything worked perfectly, it takes a lot of time. And all the time the browser adds new technologies, which also need a few years to appear in all browsers and were up to date versions, after which it becomes possible to use these technologies in commercial projects. Therefore, it is not possible to change technology in a web niche very sharply. The web is a guarantee of the stability of this technology. And through its mass, the javascript captures most of the other niches. That's why the programmer's javascript is a very handy solution - you can create software products in almost all niches. Also, the programs are written on java-script cross platform. This means that you write once, and the program runs on different operating systems. Previously, for each operating system, a new version of the program was written in the programming language corresponding to the operating system. Also, the advantage of javascript is that you can be a businessman - write your own software product or system for your business. This language is the best for that. And although it seems difficult to find an idea for a software product, there is actually still a lot to be developed. Lack of vision is only a consequence of the lack of a sufficient level of understanding of this area.
+          br
+
+          h4.c Competition or lack of programmers
+          br
+          p For a person who decides whether to choose their programming activities, the question is: "Whether this profession will be profitable, or because of the large influx of applicants, there will be overestimation and a decline in the programmer's wages." Once upon a time in Ukraine there were fashionable and popular professions: a lawyer and manager. Many people went to get these professions, as a result, we received so many lawyers and managers that was not needed. Will there be such a situation with the programmers. There are opposite points of view. Some say that programmers will need so much that so many will still not be able to prepare. Others say that the situation for programmers has already deteriorated and continues to deteriorate.
+          br
+          p Who would like to assume a big need for programmers? These are courses that earn on the training of programmers. This is a firm that needs to make the programmers cheaper and they want to reach this niche by the influx of people.
+          br
+          p Who benefits from the unwillingness of other people to become programmers?  Good for programmers who are already programmers and do not want them to have competitors.
+          br
+          p But these are only interested parties, and a more important factor is the real reality and the logic of the course of things.
+          br
+          p There is an important amendment here. Strong, high-quality programmers are not always enough. But the weak programmers, maybe oversaturation.
+          br
+          p Why are many weak programmers? Here are 2 factors: 1) Human nature (not a desire to seriously invest and limit oneself from pleasures that hinder development); 2) The second is millet a sharp surge of recruits, which eventually diminishes, because the exhausted (or even existent) physically exhausted.
+          br
+          p At the moment of the splash recruit recruitment was uncomfortable only at the first stage - when competition increased. But then there will be the opposite effect - a large number of available professionals, will lead to the growth of digital infrastructure, which will require the development of more programmers. And technological systems will never be superfluous, because they generate a resource that people need.
+          br
+          p So, the training of weak programmers is unilateral and annoying for all parties (although they will find work and even be satisfied. Many small businesses require services and not powerful programmers.) But I see the point only in the preparation of powerful programmers. As I grow up my own level, I, along with my best students, work on high-quality solutions in our technological field. And the learning process itself, I build so as to result in the formation of strong professionals who have effective and standardized workflows. And if possible, my school students formed joint teams. If the team is hacked into common practice, then the collective development of these people will be very effective.
+          br
+          p We are entering a new technological, technocratic world. It will be something extraordinary and incredible. People will live a completely different life than thousands of years before. It looks like it will be up to madness with a completely different world. And sometimes it seems to me that not all people will survive the psyche of what will happen. Although to bring the psyche to order, there will also be appropriate and effective technology.
+          br
+          p In the new world in which we enter the horse are technical specialists engineers who develop various software for automation, robots, artificial intelligence, virtual and complementary reality, systems of combining people with cars, different kind of physicians.
+          br
+          p Also in the future, programming will be necessary not only for programmers, but also for many other specialists, in order to improve the efficiency of work in their professional field. Because their professional activities will begin to somewhat interfere with programming.
+          br
+          p Programming in general is an extraordinary special activity because programming is a concentrate of logic and thinking. And programming skills greatly improve the efficiency of thinking, which is useful in everyday life and other areas of activity. This activity evolutionarily raises a person to a higher level. Although according to my observations, this is not the only party that is needed for a full-fledged personality growth. Also, technical knowledge is important for understanding the new technogenic world in which we are entering. The strijy world dies and goes away to nothingness, and the space around us will occupy the New Technocratic World. Strong technical specialists get great opportunities in this new world. I am interested in the earliest advent of this new technogenic world. And my course is also a contribution to the construction of this new civilization. It sounds very loud, so I'll clarify - I'm contributing only to my slim technical niche. Moving civilization forward also thousands more, and maybe millions of people.
+          br
+          p I admit that a large number of my students can become my partners, twins, friends with whom we will be together, in one large, well-coordinated team develop powerful software systems.
+          br
+          p For the development of this course I have planned a year, and next year I plan to start a course in the field of artificial intelligence. The next course will be an organic continuation of this first basic course. Also, I plan to develop branches, modules, which will also be an organic continuation of the basic course. Therefore, they will be easily perceived, decisions will be absolutely united with each other. As a result, we get a large, integral and efficient system that includes not only materials but also a community of programmers who contribute to the development of this system. I build my system on the progressive principles that I have analyzed and understood, both fundamental and those that appear in the transition to the context of the new human world. As a technical engineer, it's clear to me that our world is becoming one big technical system, it's an engineering view of the state of affairs. But there is still an economic look, the view of people from business. And I organized a selection of forecasts from people from business. So when these forecasts were made, this is 2018, and the forecast is aimed at 2021-2022 and subsequent years. What would be interesting now to get acquainted with these predictions in order to plan your course of development. And in the future it will be interesting to re-read these predictions and compare them with what actually happened. It is not only curiosity, but also gives us additional knowledge for adjusting for further forecasts.
+          br
+          ul
+            li So in 2022 more than 60% of GDP will be from digital technologies.
+            br
+            li 75 percent of all information system costs will go on promoting these products. (This means that there will be more freebies for people to promote people's products and services for free and additional options for free.) Business systems will cater for a large number of human needs free of charge, in order to sell something extra. It will be logical that all these companies will try to construct a human attitude, this is what is happening now through television advertising and other means. Something of what will happen Putting people at the head will be interesting, maybe even useful, and something harmful, so you need to be able to withstand it. You can only resist being combined in a large system, because large corporations are losing individual people, and if the engineers are united in one big system, they will be strong as a stone in water, and water will not be able to destroy this stone, but will only be polished, and as a result, this stone will only be improved)
+            br
+            li There are courageous forecasts regarding a very rapid restructuring of the labor market. But I will make a more meaningful correction from myself. This speaker can be both fast and incremental. I mean that in different countries and cities these changes occur at different speeds and in different volumes. Also, due to the fact that a certain part of people can not be reconciled, it preserves the old state of affairs. But people who do not rebuild - shifted to the edge of the economy. That is, there is a certain stratification of the Old World and the New, the old economy and the new one.
+            br
+            li It is said that artificial intelligence will destroy a large number of trades but will create even more. But how does this happen, since automation means excluding people from the production chain? I think what is meant is that there are new opportunities. Then they say that people will not even have enough work for all. But add another correction, this is just a form of perception. In fact, everything is balanced by the market. And even now we can say that there is a shortage of workers, simply their level of pay will be so small that few will want to engage in such work. If we depart from this economic schizophrenia, then in reality we are seeing only a steady increase in the living standards of our civilization. Economically, this may not be feasible, but the volumes and manufacturability of what we can consume can grow continuously.
+            br
+            li Internet of Things. More and more devices will be computerized and integrated into a shared system. There are a lot of things that are now very simple in the device. And even if the addition of a technological function to them seems pointless, then at least there may be added sensors for collecting statistics that will be used for useful purposes. For example, an analysis of behavior, nutrition, body reactions, to monitor health. In this area, an increase of 20% is predicted each year. By 2021, 16 billion IoT devices will be connected. All our environment will be filled with sensors that will collect information of the type, such as sound, temperature, chemical components, intensity of illumination. These data will be analyzed by the artificial intelligence system in order to obtain other useful information. First of all, it will be such systems as power grids, cars, emergency systems, security systems, including individual, intelligent buildings, control and analysis in the production, logistics.
+
+          br
+          p Therefore, this course will be not only a training material, but also a part of the knowledge base and developments that you can use in developing software products. After completing the training course, you will easily use the entire database of materials, because the structure and approaches will be familiar and familiar.
+          br
+
+          h4.c Organizational Super Purpose
+          br
+          p Not only develop technology but also change the production process. That is, to find new solutions in the organization of teams and the development process. Although top companies are working to improve the conditions for their engineers. But this is still basically sedentary work in a closed space. I believe that life should be high-quality, and work is part of life. In the case of our profession, this is even more urgent. After all, our work is very mixed with "out of work" time, until the inseparable integrity.
+          br
+
+
+
+    +paging()
+
+    // !!! ???
+    include ../../parts/bottom

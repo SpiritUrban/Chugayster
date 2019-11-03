@@ -1,0 +1,43 @@
+extends ../layout
+block content
+  include ../includes/header.pug           
+  main
+  
+    h1.t(data-en="EXAMPLE"  data-ua="..." )
+
+    section.limit-2.space
+      br
+      br
+
+
+      p
+        | window.parent.caches.delete("call")   ᑞᑞ
+
+
+      br
+      hr
+      br
+
+
+      p
+        a(href='/img/my/project/fb.jpg' target="_blank")
+          img.w50(src="/img/my/project/fb.jpg")
+        br
+        br
+        a(href='https://developers.facebook.com/apps/305560030024538/fb-login/settings/' target="_blank") to this
+        br
+        a(href='https://developers.facebook.com/apps/455174914848353/fb-login/settings/' target="_blank") to app 2    
+        br
+        a(href='https://developers.facebook.com/apps/' target="_blank") them root
+            
+
+
+
+
+
+
+  include ../includes/footer.pug
+
+
+
+

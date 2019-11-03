@@ -1,0 +1,61 @@
+header
+    .p
+        a.logo(href='https://js-clan.com')
+            img(src='/img/js-clan.svg', alt='js-clan')
+            .led(style="--left: 70%; --top: 20%;")
+            .led(style="--left: 68%; --top: 37%;")
+            .led(style="--left: 67%; --top: 55%;")
+            .led(style="--left: 78%; --top: 12%;")
+            .led(style="--left: 76%; --top: 41%;")
+
+        .header-right
+            .languages
+                if user 
+                    span Hello: 
+                    b #{user.username} 
+                    a(href='/logout') Logout
+                if !user
+                    a(href='/login') Login
+            nav.nav
+                a(href='/account') account
+                a(href='/playlist') playlist
+                a(href='/members') MEMBERS
+                a(href='/lessons') lessons
+                a(href='/constructs') constructs
+                a(href='/materials') materials
+
+                a.o6(href='/draft') ...draft
+                a(href='/programs') programs
+                //- a(href='/chats') chats
+                //- a(href='/community') community
+                //- a(href='/stream') stream
+                //- a(href='/') trainings
+                //- a(href='/') collaboration
+                //- a(href='/') cooperation
+                //- a(href='/') best practices
+                //- a(href='/') decisions
+                //- a(href='/') developers
+                //- a(href='/') psichology
+                //- a(href='/') brain
+                //- a(href='/') phisiology
+                //- hr
+                //- a.o6(href='/') js
+                //- a.o6(href='/') node-js
+                //- a.o6(href='/') angular
+                //- a.o6(href='/') react
+                //- a.o6(href='/') blog
+                //- a(href='/') forum
+                //- a(href='/') hosting
+                //- a.o6(href='/') cripto-money
+                //- a.o6(href='/') robots
+                //- a.o6(href='/') iot
+                //- a(href='/') power
+                //- a(href='/') hacking
+                //- a(href='/') contacts
+                //- a(href='/dev') dev
+        .hamburger
+            i ---
+            i ---
+            i ---
+    script
+        include header.js

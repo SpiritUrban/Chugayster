@@ -1,0 +1,1290 @@
+extends ../../../layout
+
+block content
+  include ../../../includes/header.pug           
+  //- Style ------------------------------------------------------------------------------------------
+  style.
+    td {
+      text-align: center;
+    }
+    .small{
+      font-size: .7em;
+    }
+    table{
+      margin: auto;
+    }
+
+  main
+    br
+    br
+    h1 Alt codes
+    //-   a(href='') freedom 
+    //-   | & 
+    //-   a(href='') power !
+    
+    section.limit-2.space
+      p
+        h1(style='letter-spacing: 0') Повна таблиця Alt-кодів
+        br
+
+        table.alt-codes
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          tbody
+            tr
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+          tbody
+            tr
+              td Alt+1
+              td &#x263A;
+              td Alt+21
+              td &sect;
+              td Alt+41
+              td )
+              td Alt+61
+              td =
+              td Alt+81
+              td Q
+              td Alt+101
+              td e
+              td Alt+121
+              td y
+            tr
+              td Alt+2
+              td &#x263B;
+              td Alt+22
+              td &#x25AC;
+              td Alt+42
+              td *
+              td Alt+62
+              td &gt;
+              td Alt+82
+              td R
+              td Alt+102
+              td f
+              td Alt+122
+              td z
+            tr
+              td Alt+3
+              td &hearts;
+              td Alt+23
+              td &#x21A8;
+              td Alt+43
+              td +
+              td Alt+63
+              td &nbsp;?
+              td Alt+83
+              td S
+              td Alt+103
+              td g
+              td Alt+123
+              td {
+            tr
+              td Alt+4
+              td &diams;
+              td Alt+24
+              td &uarr;
+              td Alt+44
+              td ,
+              td Alt+64
+              td @
+              td Alt+84
+              td T
+              td Alt+104
+              td h
+              td Alt+124
+              td |
+            tr
+              td Alt+5
+              td &clubs;
+              td Alt+25
+              td &darr;
+              td Alt+45
+              td -
+              td Alt+65
+              td A
+              td Alt+85
+              td U
+              td Alt+105
+              td i
+              td Alt+125
+              td }
+            tr
+              td Alt+6
+              td &spades;
+              td Alt+26
+              td &rarr;
+              td Alt+46
+              td .
+              td Alt+66
+              td B
+              td Alt+86
+              td V
+              td Alt+106
+              td j
+              td Alt+126
+              td ~
+            tr
+              td Alt+7
+              td &bull;
+              td Alt+27
+              td &larr;
+              td Alt+47
+              td /
+              td Alt+67
+              td C
+              td Alt+87
+              td W
+              td Alt+107
+              td k
+              td Alt+127
+              td &#x2302;
+            tr
+              td Alt+8
+              td &#x25D8;
+              td Alt+28
+              td &angrt;
+              td Alt+48
+              td 0
+              td Alt+68
+              td D
+              td Alt+88
+              td X
+              td Alt+108
+              td l
+              td Alt+128
+              td &Acy;&#x81;
+            tr
+              td Alt+9
+              td &cir;
+              td Alt+29
+              td &harr;
+              td Alt+49
+              td 1
+              td Alt+69
+              td E
+              td Alt+89
+              td Y
+              td Alt+109
+              td m
+              td Alt+129
+              td &Bcy;&#x81;
+            tr
+              td Alt+10
+              td &#x25D9;
+              td Alt+30
+              td &#x25B2;
+              td Alt+50
+              td 2
+              td Alt+70
+              td F
+              td Alt+90
+              td Z
+              td Alt+110
+              td n
+              td Alt+130
+              td &Vcy;
+            tr
+              td Alt+11
+              td &male;
+              td Alt+31
+              td &#x25BC;
+              td Alt+51
+              td 3
+              td Alt+71
+              td G
+              td Alt+91
+              td [
+              td Alt+111
+              td o
+              td Alt+131
+              td &Gcy;
+            tr
+              td Alt+12
+              td &female;
+              td Alt+32
+              td.small &pcy;&rcy;&ocy;&bcy;&iecy;&lcy;
+              td Alt+52
+              td 4
+              td Alt+72
+              td H
+              td Alt+92
+              td \
+              td Alt+112
+              td p
+              td Alt+132
+              td &Dcy;
+            tr
+              td Alt+13
+              td &sung;
+              td Alt+33
+              td !
+              td Alt+53
+              td 5
+              td Alt+73
+              td I
+              td Alt+93
+              td ]
+              td Alt+113
+              td q
+              td Alt+133
+              td &IEcy;
+            tr
+              td Alt+14
+              td &#x266B;
+              td Alt+34
+              td &quot;
+              td Alt+54
+              td 6
+              td Alt+74
+              td J
+              td Alt+94
+              td ^
+              td Alt+114
+              td r
+              td Alt+134
+              td &ZHcy;
+            tr
+              td Alt+15
+              td &#x263C;
+              td Alt+35
+              td #
+              td Alt+55
+              td 7
+              td Alt+75
+              td K
+              td Alt+95
+              td _
+              td Alt+115
+              td s
+              td Alt+135
+              td &Zcy;
+            tr
+              td Alt+16
+              td &#x25BA;
+              td Alt+36
+              td $
+              td Alt+56
+              td 8
+              td Alt+76
+              td L
+              td Alt+96
+              td &grave;
+              td Alt+116
+              td t
+              td Alt+136
+              td &Icy;
+            tr
+              td Alt+17
+              td &#x25C4;
+              td Alt+37
+              td %
+              td Alt+57
+              td 9
+              td Alt+77
+              td M
+              td Alt+97
+              td a
+              td Alt+117
+              td u
+              td Alt+137
+              td &Jcy;
+            tr
+              td Alt+18
+              td &varr;
+              td Alt+38
+              td &amp;
+              td Alt+58
+              td :
+              td Alt+78
+              td N
+              td Alt+98
+              td b
+              td Alt+118
+              td v
+              td Alt+138
+              td &Kcy;
+            tr
+              td Alt+19
+              td &#x203C;
+              td Alt+39
+              td &apos;
+              td Alt+59
+              td ;
+              td Alt+79
+              td O
+              td Alt+99
+              td c
+              td Alt+119
+              td w
+              td Alt+139
+              td &Lcy;
+            tr
+              td Alt+20
+              td &para;
+              td Alt+40
+              td (
+              td Alt+60
+              td &lt;
+              td Alt+80
+              td P
+              td Alt+100
+              td d
+              td Alt+120
+              td x
+              td Alt+140
+              td &Mcy;
+
+
+
+
+
+        br
+        table.alt-codes
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          tbody
+            tr
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+          tbody
+            tr
+              td Alt+141
+              td &Ncy;
+              td Alt+161
+              td &bcy;
+              td Alt+181
+              td &boxvL;
+              td Alt+201
+              td &boxDR;
+              td Alt+221
+              td &#x258C;
+              td Alt+241
+              td &iocy;
+            tr
+              td Alt+142
+              td &Ocy;
+              td Alt+162
+              td &vcy;
+              td Alt+182
+              td &boxVl;
+              td Alt+202
+              td &boxHU;
+              td Alt+222
+              td &#x2590;
+              td Alt+242
+              td &Jukcy;
+            tr
+              td Alt+143
+              td &Pcy;
+              td Alt+163
+              td &gcy;
+              td Alt+183
+              td &boxDl;
+              td Alt+203
+              td &boxHD;
+              td Alt+223
+              td &uhblk;
+              td Alt+243
+              td &jukcy;
+            tr
+              td Alt+144
+              td &Rcy;
+              td Alt+164
+              td &dcy;
+              td Alt+184
+              td &boxdL;
+              td Alt+204
+              td &boxVR;
+              td Alt+224
+              td &rcy;
+              td Alt+244
+              td &YIcy;
+            tr
+              td Alt+145
+              td &Scy;
+              td Alt+165
+              td &iecy;
+              td Alt+185
+              td &boxVL;
+              td Alt+205
+              td &boxH;
+              td Alt+225
+              td &scy;
+              td Alt+245
+              td &yicy;
+            tr
+              td Alt+146
+              td &Tcy;
+              td Alt+166
+              td &zhcy;
+              td Alt+186
+              td &boxV;
+              td Alt+206
+              td &boxVH;
+              td Alt+226
+              td &tcy;
+              td Alt+246
+              td &Ubrcy;
+            tr
+              td Alt+147
+              td &Ucy;
+              td Alt+167
+              td &zcy;
+              td Alt+187
+              td &boxDL;
+              td Alt+207
+              td &boxHu;
+              td Alt+227
+              td &ucy;
+              td Alt+247
+              td &ubrcy;
+            tr
+              td Alt+148
+              td &Fcy;
+              td Alt+168
+              td &icy;
+              td Alt+188
+              td &boxUL;
+              td Alt+208
+              td &boxhU;
+              td Alt+228
+              td &fcy;
+              td Alt+248
+              td &deg;
+            tr
+              td Alt+149
+              td &KHcy;
+              td Alt+169
+              td &jcy;
+              td Alt+189
+              td &boxUl;
+              td Alt+209
+              td &boxHd;
+              td Alt+229
+              td &khcy;
+              td Alt+249
+              td &#x2219;
+            tr
+              td Alt+150
+              td &TScy;
+              td Alt+170
+              td &kcy;
+              td Alt+190
+              td &boxuL;
+              td Alt+210
+              td &boxhD;
+              td Alt+230
+              td &tscy;
+              td Alt+250
+              td &middot;
+            tr
+              td Alt+151
+              td &CHcy;
+              td Alt+171
+              td &lcy;
+              td Alt+191
+              td &boxdl;
+              td Alt+211
+              td &boxUr;
+              td Alt+231
+              td &chcy;
+              td Alt+251
+              td &Sqrt;
+            tr
+              td Alt+152
+              td &SHcy;
+              td Alt+172
+              td &mcy;
+              td Alt+192
+              td &boxur;
+              td Alt+212
+              td &boxuR;
+              td Alt+232
+              td &shcy;
+              td Alt+252
+              td &numero;
+            tr
+              td Alt+153
+              td &SHCHcy;
+              td Alt+173
+              td &ncy;
+              td Alt+193
+              td &boxhu;
+              td Alt+213
+              td &boxdR;
+              td Alt+233
+              td &shchcy;
+              td Alt+253
+              td &curren;
+            tr
+              td Alt+154
+              td &HARDcy;
+              td Alt+174
+              td &ocy;
+              td Alt+194
+              td &boxhd;
+              td Alt+214
+              td &boxDr;
+              td Alt+234
+              td &hardcy;
+              td Alt+254
+              td &#x25A0;
+            tr
+              td Alt+155
+              td &Ycy;
+              td Alt+175
+              td &pcy;
+              td Alt+195
+              td &boxvr;
+              td Alt+215
+              td &boxVh;
+              td Alt+235
+              td &ycy;
+              td Alt+255
+              td.small
+                | неразрывный
+                br
+                | пробел
+            tr
+              td Alt+156
+              td &SOFTcy;
+              td Alt+176
+              td &blk14;
+              td Alt+196
+              td &boxh;
+              td Alt+216
+              td &boxvH;
+              td Alt+236
+              td &softcy;
+              td Alt+256
+              td &Amacr;
+            tr
+              td Alt+157
+              td &Ecy;
+              td Alt+177
+              td &blk12;
+              td Alt+197
+              td &boxvh;
+              td Alt+217
+              td &boxul;
+              td Alt+237
+              td &ecy;
+              td Alt+257
+              td &amacr;
+            tr
+              td Alt+158
+              td &YUcy;
+              td Alt+178
+              td &blk34;
+              td Alt+198
+              td &boxvR;
+              td Alt+218
+              td &boxdr;
+              td Alt+238
+              td &yucy;
+              td Alt+258
+              td &Abreve;
+            tr
+              td Alt+159
+              td &YAcy;
+              td Alt+179
+              td &boxv;
+              td Alt+199
+              td &boxVr;
+              td Alt+219
+              td &block;
+              td Alt+239
+              td &yacy;
+              td Alt+259
+              td &abreve;
+            tr
+              td Alt+160
+              td &acy;
+              td Alt+180
+              td &boxvl;
+              td Alt+200
+              td &boxUR;
+              td Alt+220
+              td &lhblk;
+              td Alt+240
+              td &IOcy;
+              td Alt+260
+              td &Aogon;
+
+
+
+
+        br
+        table.alt-codes
+          caption Английская раскладка
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          tbody
+            tr
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+          tbody
+            tr
+              td Alt+0127
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0144
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0160
+              td.small
+                | неразрывный
+                br
+                | пробел
+              td Alt+0176
+              td &deg;
+              td Alt+0192
+              td &Agrave;
+              td Alt+0208
+              td &ETH;
+              td Alt+0224
+              td &agrave;
+              td Alt+0240
+              td &eth;
+            tr
+              td Alt+0128
+              td &DJcy;
+              td Alt+0145
+              td &lsquo;
+              td Alt+0161
+              td &iexcl;
+              td Alt+0177
+              td &pm;
+              td Alt+0193
+              td &Aacute;
+              td Alt+0209
+              td &Ntilde;
+              td Alt+0225
+              td &aacute;
+              td Alt+0241
+              td &ntilde;
+            tr
+              td Alt+0129
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0146
+              td &rsquo;
+              td Alt+0162
+              td &cent;
+              td Alt+0178
+              td &sup2;
+              td Alt+0194
+              td &Acirc;
+              td Alt+0210
+              td &Ograve;
+              td Alt+0226
+              td &acirc;
+              td Alt+0242
+              td &ograve;
+            tr
+              td Alt+0130
+              td &sbquo;
+              td Alt+0147
+              td &ldquo;
+              td Alt+0163
+              td &pound;
+              td Alt+0179
+              td &sup3;
+              td Alt+0195
+              td &Atilde;
+              td Alt+0211
+              td &Oacute;
+              td Alt+0227
+              td &atilde;
+              td Alt+0243
+              td &oacute;
+            tr
+              td Alt+0131
+              td y
+              td Alt+0148
+              td &rdquo;
+              td Alt+0164
+              td &curren;
+              td Alt+0180
+              td &acute;
+              td Alt+0196
+              td &Auml;
+              td Alt+0212
+              td &Ocirc;
+              td Alt+0228
+              td &auml;
+              td Alt+0244
+              td &ocirc;
+            tr
+              td Alt+0132
+              td &bdquo;
+              td Alt+0149
+              td &bull;
+              td Alt+0165
+              td &yen;
+              td Alt+0181
+              td &micro;
+              td Alt+0197
+              td &angst;
+              td Alt+0213
+              td &Otilde;
+              td Alt+0229
+              td &aring;
+              td Alt+0245
+              td &otilde;
+            tr
+              td Alt+0133
+              td &mldr;
+              td Alt+0150
+              td &ndash;
+              td Alt+0166
+              td &brvbar;
+              td Alt+0182
+              td &para;
+              td Alt+0198
+              td &AElig;
+              td Alt+0214
+              td &Ouml;
+              td Alt+0230
+              td &aelig;
+              td Alt+0246
+              td &ouml;
+            tr
+              td Alt+0134
+              td &dagger;
+              td Alt+0151
+              td &mdash;
+              td Alt+0167
+              td !
+              td Alt+0183
+              td &middot;
+              td Alt+0199
+              td &Ccedil;
+              td Alt+0215
+              td &times;
+              td Alt+0231
+              td &ccedil;
+              td Alt+0247
+              td &div;
+            tr
+              td Alt+0135
+              td &Dagger;
+              td Alt+0152
+              td &tilde;
+              td Alt+0168
+              td &die;
+              td Alt+0184
+              td &cedil;
+              td Alt+0200
+              td &Egrave;
+              td Alt+0216
+              td &Oslash;
+              td Alt+0232
+              td &egrave;
+              td Alt+0248
+              td &oslash;
+            tr
+              td Alt+0136
+              td &euro;
+              td Alt+0153
+              td &trade;
+              td Alt+0169
+              td &copy;
+              td Alt+0185
+              td &sup1;
+              td Alt+0201
+              td &Eacute;
+              td Alt+0217
+              td &Ugrave;
+              td Alt+0233
+              td &eacute;
+              td Alt+0249
+              td &ugrave;
+            tr
+              td Alt+0137
+              td &permil;
+              td Alt+0154
+              td &scaron;
+              td Alt+0170
+              td &ordf;
+              td Alt+0186
+              td &ordm;
+              td Alt+0202
+              td &Ecirc;
+              td Alt+0218
+              td &Uacute;
+              td Alt+0234
+              td &ecirc;
+              td Alt+0250
+              td &uacute;
+            tr
+              td Alt+0138
+              td &Scaron;
+              td Alt+0155
+              td &rsaquo;
+              td Alt+0171
+              td &laquo;&nbsp;
+              td Alt+0187
+              td &nbsp;&raquo;
+              td Alt+0203
+              td &Euml;
+              td Alt+0219
+              td &Ucirc;
+              td Alt+0235
+              td &euml;
+              td Alt+0251
+              td &ucirc;
+            tr
+              td Alt+0139
+              td &lsaquo;
+              td Alt+0156
+              td &oelig;
+              td Alt+0172
+              td &not;
+              td Alt+0188
+              td &frac14;
+              td Alt+0204
+              td &Igrave;
+              td Alt+0220
+              td &Uuml;
+              td Alt+0236
+              td &igrave;
+              td Alt+0252
+              td &uuml;
+            tr
+              td Alt+0140
+              td &OElig;
+              td Alt+0157
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0173
+              td &shy;&shy;&ncy;
+              td Alt+0189
+              td &half;
+              td Alt+0205
+              td &Iacute;
+              td Alt+0221
+              td &Yacute;
+              td Alt+0237
+              td &iacute;
+              td Alt+0253
+              td &yacute;
+            tr
+              td Alt+0142
+              td &#x8D;&Zcaron;
+              td Alt+0158
+              td &#x9D;&zcaron;
+              td Alt+0174
+              td &ocy;
+              td Alt+0190
+              td &frac34;
+              td Alt+0206
+              td &Icirc;
+              td Alt+0222
+              td &THORN;
+              td Alt+0238
+              td &icirc;
+              td Alt+0254
+              td &thorn;
+            tr
+              td Alt+0143
+              td &DZcy;
+              td Alt+0159
+              td &Yuml;
+              td Alt+0175
+              td &macr;
+              td Alt+0191
+              td &iquest;
+              td Alt+0207
+              td &Iuml;
+              td Alt+0223
+              td &szlig;
+              td Alt+0239
+              td &iuml;
+              td Alt+0255
+              td &yuml;
+
+
+
+
+        br
+        table.alt-codes
+          caption Русская раскладка
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          colgroup(span='2')
+          tbody
+            tr
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+              th Alt-&kcy;&ocy;&dcy;
+              th Char
+          tbody
+            tr
+              td Alt+0127
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0144
+              td &djcy;
+              td Alt+0160
+              td.small
+                | &ncy;&iecy;&rcy;&acy;&zcy;&rcy;&ycy;&vcy;&ncy;&ycy;&jcy;
+                br
+                | &pcy;&rcy;&ocy;&bcy;&iecy;&lcy;
+              td Alt+0176
+              td &deg;
+              td Alt+0192
+              td &Acy;
+              td Alt+0208
+              td &Rcy;
+              td Alt+0224
+              td &acy;
+              td Alt+0240
+              td &rcy;
+            tr
+              td Alt+0128
+              td &DJcy;
+              td Alt+0145
+              td &lsquo;
+              td Alt+0161
+              td &Ubrcy;
+              td Alt+0177
+              td &pm;
+              td Alt+0193
+              td &Bcy;
+              td Alt+0209
+              td &Scy;
+              td Alt+0225
+              td &bcy;
+              td Alt+0241
+              td &scy;
+            tr
+              td Alt+0129
+              td &GJcy;
+              td Alt+0146
+              td &rsquo;
+              td Alt+0162
+              td &ubrcy;
+              td Alt+0178
+              td &Iukcy;
+              td Alt+0194
+              td &Vcy;
+              td Alt+0210
+              td &Tcy;
+              td Alt+0226
+              td &vcy;
+              td Alt+0242
+              td &tcy;
+            tr
+              td Alt+0130
+              td &sbquo;
+              td Alt+0147
+              td &ldquo;
+              td Alt+0163
+              td &Jsercy;
+              td Alt+0179
+              td &iukcy;
+              td Alt+0195
+              td &Gcy;
+              td Alt+0211
+              td &Ucy;
+              td Alt+0227
+              td &gcy;
+              td Alt+0243
+              td &ucy;
+            tr
+              td Alt+0131
+              td &gjcy;
+              td Alt+0148
+              td &quot;
+              td Alt+0164
+              td &curren;
+              td Alt+0180
+              td &#x491;
+              td Alt+0196
+              td &Dcy;
+              td Alt+0212
+              td &Fcy;
+              td Alt+0228
+              td &dcy;
+              td Alt+0244
+              td &fcy;
+            tr
+              td Alt+0132
+              td &bdquo;
+              td Alt+0149
+              td &bull;
+              td Alt+0165
+              td &#x490;
+              td Alt+0181
+              td &micro;
+              td Alt+0197
+              td &IEcy;
+              td Alt+0213
+              td &KHcy;
+              td Alt+0229
+              td &iecy;
+              td Alt+0245
+              td &khcy;
+            tr
+              td Alt+0133
+              td &mldr;
+              td Alt+0150
+              td &ndash;
+              td Alt+0166
+              td &brvbar;
+              td Alt+0182
+              td &para;
+              td Alt+0198
+              td &ZHcy;
+              td Alt+0214
+              td &TScy;
+              td Alt+0230
+              td &zhcy;
+              td Alt+0246
+              td &tscy;
+            tr
+              td Alt+0134
+              td &dagger;
+              td Alt+0151
+              td &mdash;
+              td Alt+0167
+              td &sect;
+              td Alt+0183
+              td &middot;
+              td Alt+0199
+              td &Zcy;
+              td Alt+0215
+              td &CHcy;
+              td Alt+0231
+              td &zcy;
+              td Alt+0247
+              td &chcy;
+            tr
+              td Alt+0135
+              td &Dagger;
+              td Alt+0152
+              td &pcy;&ucy;&scy;&tcy;&ocy;
+              td Alt+0168
+              td &IOcy;
+              td Alt+0184
+              td &iocy;
+              td Alt+0200
+              td &Icy;
+              td Alt+0216
+              td &SHcy;
+              td Alt+0232
+              td &icy;
+              td Alt+0248
+              td &shcy;
+            tr
+              td Alt+0136
+              td &euro;
+              td Alt+0153
+              td &trade;
+              td Alt+0169
+              td &copy;
+              td Alt+0185
+              td &numero;
+              td Alt+0201
+              td &Jcy;
+              td Alt+0217
+              td &SHCHcy;
+              td Alt+0233
+              td &jcy;
+              td Alt+0249
+              td &shchcy;
+            tr
+              td Alt+0137
+              td &permil;
+              td Alt+0154
+              td &ljcy;
+              td Alt+0170
+              td &Jukcy;
+              td Alt+0186
+              td &jukcy;
+              td Alt+0202
+              td &Kcy;
+              td Alt+0218
+              td &HARDcy;
+              td Alt+0234
+              td &kcy;
+              td Alt+0250
+              td &hardcy;
+            tr
+              td Alt+0138
+              td &LJcy;
+              td Alt+0155
+              td &rsaquo;
+              td Alt+0171
+              td &laquo;&nbsp;
+              td Alt+0187
+              td &nbsp;&raquo;
+              td Alt+0203
+              td &Lcy;
+              td Alt+0219
+              td &Ycy;
+              td Alt+0235
+              td &lcy;
+              td Alt+0251
+              td &ycy;
+            tr
+              td Alt+0139
+              td &lsaquo;
+              td Alt+0156
+              td &njcy;
+              td Alt+0172
+              td &not;&shy;
+              td Alt+0188
+              td &jsercy;
+              td Alt+0204
+              td &Mcy;
+              td Alt+0220
+              td &SOFTcy;
+              td Alt+0236
+              td &mcy;
+              td Alt+0252
+              td &softcy;
+            tr
+              td Alt+0140
+              td &NJcy;
+              td Alt+0157
+              td &kjcy;
+              td Alt+0173
+              td &shy;&shy;-
+              td Alt+0189
+              td &DScy;
+              td Alt+0205
+              td &Ncy;
+              td Alt+0221
+              td &Ecy;
+              td Alt+0237
+              td &ncy;
+              td Alt+0253
+              td &ecy;
+            tr
+              td Alt+0142
+              td &#x8D;&TSHcy;
+              td Alt+0158
+              td &#x9D;&tshcy;
+              td Alt+0174
+              td &reg;
+              td Alt+0190
+              td &dscy;
+              td Alt+0206
+              td &Ocy;
+              td Alt+0222
+              td &YUcy;
+              td Alt+0238
+              td &ocy;
+              td Alt+0254
+              td &yucy;
+            tr
+              td Alt+0143
+              td &DZcy;
+              td Alt+0159
+              td &dzcy;
+              td Alt+0175
+              td &YIcy;
+              td Alt+0191
+              td &yicy;
+              td Alt+0207
+              td &Pcy;
+              td Alt+0223
+              td &YAcy;
+              td Alt+0239
+              td &pcy;
+              td Alt+0255
+              td &yacy;
+      
+
+        //- a(href='https://cdnjs.com/libraries/matter-js' target="_blank") CDN
+        //- |.
+        br
+        br
+        //- pre.line-numbers
+        //-   code.language-bash
+        //-     |  bower install matter-js
+        //-     |  npm install matter-js
+
+
+        //- p.s.
+        //- br
+        //- br
+        //- h4 ***** ps comment 
+
+
+  include ../../../includes/footer.pug
+
+  //- script(src='/js/_my-lib/default.js')
+  script(src='/js/lib/prism.js')  
+
+  script
+    | window.pageName = 'send-mail'
+
+

@@ -1,0 +1,59 @@
+extends ../../layout
+
+block content
+  include ../../includes/header.pug           
+
+  main
+    h1.t(data-en="Restore your requisites for"  data-ua="Віднови свої реквізити для" )
+    h1
+      a.t(href='' data-en="freedom"  data-ua="свободи ")  
+      | & 
+      a.t(href='' data-en="power !"  data-ua="сили !" ) 
+    
+    section.limit.space
+      br
+      br
+      details(id="restore-by-email")
+        summary.c 
+          span.o6
+          | I know the mail. 
+          span.o6 Я знаю пошту.      
+        br
+        form(class="login")
+          .form-group
+            label( for="login_email" ) Email:
+            input( id="login_email" type="text", name="login_email" value="example@gmail.com")              
+        .form-group
+          button(id="by-mail-btn") Send to mail
+
+      br
+      details(id="restore-by-nickname")
+        summary.c 
+          span.o6
+          | I know the nickname. 
+          span.o6 Я знаю нік.          
+        br
+        form(class="login")
+          .form-group
+            label( for="login_username" ) Username:
+            input( id="login_username" type="text", name="login_username" value="user")
+
+        .form-group
+          button(id="by-username-btn") Send to mail          
+
+      //
+      // if verified
+      //
+      //- if success
+      //-   h3.c
+      //-     | Пошту підтверджено. | Mail verified.
+      //- if !success
+      //-   h3.c
+      //-     | Пошту не підтверджено | The mail has not been verified 
+
+  include ../../includes/footer.pug
+
+  script
+    include ../../../js/_my-lib/default.js
+    include ../../../js/_my-plugins/pop-up2.js
+    include forgot.js

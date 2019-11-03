@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  include includes/header.pug           
+
+  main
+    h1 dev for 
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+    
+    //- section#content
+    p.description
+      | Links:
+      br
+      br
+      a(href='stream') stream
+
+      pre.line-numbers
+        code.language-css
+          |  .dev {
+          |      dev: dev;
+          |  }
+
+      pre.line-numbers
+        code.language-js
+          |  [].map((el)=>{
+          |     console.log(el)
+          |  })
+
+  include includes/footer.pug
+
+  script(src='js/lib/prism.js')  
+
+

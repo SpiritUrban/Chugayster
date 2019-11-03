@@ -1,0 +1,83 @@
+extends ../../layout
+
+block content
+  include ../../includes/header.pug           
+
+  main
+    br
+    br
+    h1 Matter.js
+    //-   a(href='') freedom 
+    //-   | & 
+    //-   a(href='') power !
+    
+    section.limit-2.space
+      p
+
+
+        //- 1
+        br
+        | 1. Install or connect with 
+        a(href='https://cdnjs.com/libraries/matter-js' target="_blank") CDN
+        |.
+        br
+        br
+        pre.line-numbers
+          code.language-bash
+            |  bower install matter-js
+            |  npm install matter-js
+
+
+        //- 2
+        br
+        | 2. 
+        br
+        br
+        pre.line-numbers
+          code.language-js
+            | var Engine = Matter.Engine,
+            |     Render = Matter.Render,
+            |     World = Matter.World,
+            |     Bodies = Matter.Bodies;
+            |      
+            | var engine = Engine.create();
+            |  
+            | var render = Render.create({
+            |                 element: document.body,
+            |                 engine: engine,
+            |                 options: {
+            |                     width: 800,
+            |                     height: 400,
+            |                     wireframes: false
+            |                 }
+            |              });
+            |               
+            | var boxA = Bodies.rectangle(400, 200, 80, 80);
+            | var ballA = Bodies.circle(380, 100, 40, 10);
+            | var ballB = Bodies.circle(460, 10, 40, 10);
+            | var ground = Bodies.rectangle(400, 380, 810, 60, { isStatic: true });
+            |  
+            | World.add(engine.world, [boxA, ballA, ballB, ground]);
+            |  
+            | Engine.run(engine);
+            | Render.run(render);
+
+
+
+
+
+        //- p.s.
+        br
+        br
+        h4 ***** ps comment 
+
+
+  include ../../includes/footer.pug
+
+  //- script(src='/js/_my-lib/default.js')
+  script(src='/js/lib/prism.js')  
+
+  script
+    | window.pageName = 'send-mail'
+
+

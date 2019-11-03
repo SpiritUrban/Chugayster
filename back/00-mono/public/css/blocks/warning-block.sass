@@ -1,0 +1,25 @@
+@import "../_mixins/_mixins.sass";
+
+// .warning-block
+//     background: #c90000
+//     color: #f3be8a
+//     @include shadow()
+//     &:hover
+//         @include shadow-hover()
+//         color: white
+//         // color: #f3be8a
+
+.alert-block
+    background: #c90000
+    // color: #f3be8a
+    @include shadow()
+    animation: alert-pulse 5s infinite
+    &:hover
+        @include shadow-hover()
+        // color: white
+        color: #f3be8a
+        // border: solid 1px red
+    p
+       text-shadow: 1px 1px 2px black, 0 0 1em red
+
+    

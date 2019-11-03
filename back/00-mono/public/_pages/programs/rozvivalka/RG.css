@@ -1,0 +1,134 @@
+body {
+  font: 11pt Arial, Helvetica, sans-serif; /* Рубленый шрифт текста */
+  margin: 0; /* Отступы на странице */
+  height: 100%;
+  background-color:#1b403c; 
+}
+
+h2 {
+  margin-top: 0; /* Убираем отступ сверху */
+}
+
+p {
+  font-size: 20px;
+  color: #ebe9bc;
+  max-width: 760px;
+  text-align: center;
+  display : inline-block;
+}
+
+header { /* Верхний блок */
+  background-color: rgb(0, 128, 192);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+  border-bottom:   #004060 solid 3px;
+  border-top: #72b9dc solid 3px;
+  overflow: hidden; /* Полечил от выпадания */
+  text-align: center;
+  width: 100%;
+}
+.headwrap {   
+display : inline-block;
+text-align: center;
+}
+
+.logo {
+height: 3.5em;
+width: 3.5em;
+/*margin: 0 auto;*/
+float: left; /* Обтекание справа */ 
+}
+
+h1 {
+font-size: 1.5em; /* Размер шрифта */
+color: white; /* Цвет текста */
+float: left;   
+height: 100%;
+margin-left: 0.5em;
+}
+
+canvas {
+display: block;
+}
+article {
+background-color: fffcf5;  text-align: center;
+}
+
+.info{
+  padding-bottom: 0.5em;
+  padding-top: 0.2em;
+  line-height: 0.1em;
+}
+.info > a {
+  color:white;
+}
+video {
+  width:100%;
+  border:0; padding:0; margin-bottom: -3px; 
+}
+
+#control {    	
+  background-color: rgb(0, 128, 192);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);    	
+  overflow: hidden; /* Полечил от выпадания */     
+  z-index: 2; 
+}
+.finish {
+  z-index: 2;
+}
+#center {        
+  width: 100%;
+  border-bottom:   #004060 solid 3px;
+  border-top: #72b9dc solid 3px;
+  text-align: center;
+  padding-bottom: 0.9em;
+}
+.letter {       
+ margin: 0.3em 0.5em 0;       
+ font-size: 3em;
+ color: white;
+ border-radius: 0.1em;
+ background-color: #588b1c;
+ box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);  
+ border: 1px solid #fff;
+}
+
+.start {
+  margin: 0.3em 0.5em 0;        
+  font-size: 3em;
+  color: white;
+  border-radius: 0.1em;
+  background-color: #E76D13;  
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
+  border: 1px solid #fff; 
+}
+
+#sidebar { /* Левая колонка */
+  float: left; /* Обтекание справа */
+  border: 1px solid #333; /* Параметры рамки вокруг */
+  width: 20%; /* Ширина колонки */
+  padding: 5px; /* Поля вокруг текста */
+  margin: 10px 10px 20px 5px; /* Значения отступов */
+}
+
+#content {}
+
+footer { 	
+  
+  background: #0080c0; /* Цвет фона */
+  color: #fff; /* Цвет текста */
+  width: 100%; /* Ширина слоя */
+  text-align: center;
+  font-size: 1em;
+  height: 2em;
+ 
+  z-index: 0;
+}
+
+footer > div > a {
+  color: white;
+  text-decoration: none;
+}
+
+footer > div {
+   padding:0.5em;
+}

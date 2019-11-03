@@ -1,0 +1,115 @@
+extends ../layout
+
+block content
+  include ../includes/header.pug    
+
+  //- Style ------------------------------------------------------------------------------------------
+  style.
+    details {
+      overflow: auto;
+    }
+    iframe{
+      border-radius: 1em;
+      width: 560px;
+      height: 315px;
+      display: block;
+      margin: auto;
+    }
+    details summary {
+      padding: 0;
+      padding-left: 1em;
+      display: flex;
+      align-items: center;
+
+    }
+    summary .index {
+      background: black;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      top: 0;
+      left: 0;
+      width: 2em;
+    }    
+    summary .pic {
+      background: #0a0c17;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: 0em;
+      width: 5em;
+    }
+    summary .sub {
+      padding: .5em 1em;
+          background: rgba(0, 0, 0, 0.36);
+      width: 100%;
+    }
+    iframe{
+    }
+
+  //- Mixin ------------------------------------------------------------------------------------------
+  mixin summary(i, en, ua)
+    summary
+      .index #{i}
+      .pic(style="background-size: cover; background-image: url(http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg); ")
+      //- span.o6 #{i}. 
+      .sub
+        span #{en}
+        br.h05
+        span.o4 #{ua}
+
+  mixin iframe(v)
+    iframe( src='https://www.youtube.com/embed/'+v frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+
+  mixin explanation
+    br
+    span Explanation 
+    span.o6 / Роз'яснення
+    br
+    br
+
+  mixin practice
+    br
+    span Practice 
+    span.o4 / Практика
+    br
+    br  
+
+  //- Main --------------------------------------------------------------------------------------------
+  main
+    br
+    br
+    h1 materialsfor 
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+    
+    //- Section ----------------------------------------------------------------------------------------
+    section.limit-2.space.c
+      p
+        br
+        hr
+        br
+        a(href='/materials/_sundry/alt-codes') Alt codes
+        //- br
+        //- br
+        //- hr
+        //- br
+        //- a(href='/lessons/send-mail') Send mail  ++++
+        //- br
+        //- br
+        //- hr
+        //- br
+        //- a(href='/lessons/matter') Matter.js++++
+
+
+    //- ------------------------------------------------------------------------------------------------
+        +summary(, '', '')
+        +iframe('')
+        +explanation
+        +practice
+
+  include ../includes/footer.pug
+  script(src='js/lib/prism.js')

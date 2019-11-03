@@ -1,0 +1,39 @@
+extends ../layout
+block content
+  include ../includes/header.pug           
+  main
+  
+    br
+    h1 all users
+    
+    section.limit-2.space
+      p
+        br
+        table(style="border: 1px solid white")
+          thead
+            tr
+              th  username
+              th  last_name
+              th  first_name
+              th  email
+              th  status
+              th  email_verif
+              th  last_login
+              th  last_appeal
+          tbody
+            each user in users
+              tr
+                td #{user.username}
+                td #{user.last_name}
+                td #{user.first_name}
+                td #{user.email}
+                td #{user.email_verif}
+                td #{user.status}
+                td #{user.last_login}
+                td #{user.last_appeal}
+
+    
+
+
+
+  include ../includes/footer.pug

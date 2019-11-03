@@ -1,0 +1,29 @@
+nav {
+    /* display: flex;
+    justify-content: space-between; */
+    /* background: cadetblue; */
+    background: #5f67a0;
+
+}
+
+ul {
+    display: flex;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+    /* font-weight: 700; */
+}
+li a:hover {
+    /* color: white; */
+    text-decoration: underline;
+    font-weight: 700;
+}

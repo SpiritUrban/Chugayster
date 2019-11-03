@@ -1,0 +1,188 @@
+extends ../layout
+
+block content
+  include ../includes/header.pug           
+
+  main
+    h1 chats for 
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+
+
+    //
+    // fields
+    //
+    br
+    .form-group-2
+      textarea( id="new-post")   
+      span &nbsp;
+      button(id="send-btn" value= 'root') Send 
+
+          
+    section.limit-2.space
+      p
+        if chat
+          details(id="chat-1" class="card")
+            .lable.o6 Lable
+            summary.c 
+              span.o6 =[ 
+              | #{chat.name} 
+              span.o6 ]= 
+            .title #{chat.title} 
+            .text #{chat.text} 
+            hr
+            br
+
+            div
+
+              //
+              // Post
+              //
+              //- details(id="chat-1" class="details-2 card-2")
+              //-   summary.c 
+              //-     span.o6 Post
+              //-   hr
+
+            
+
+              each val, i in chat.posts
+                .post-root
+                  .level.o6 1 (root)
+                  .author Author: #{val.author}
+                  .text= val.text
+
+                  .right
+                    //- button(onclick="reply(" + i + ")") Reply 
+                    button(class="reply-btn" value= i) Reply
+                    button(class="delete-btn" value= i) Delete
+                    //
+                    // Reply
+                    //                    
+                    //- details(id="chat-1" class="details-2 card-2")
+                    //-   .lable.o6 Lable
+                    //-   summary.c 
+                    //-     span.o6 Reply
+                    //-   hr
+                    //-   .form-group-2
+                    //-     textarea( id="new-post")   
+                    //-     button(class="reply-btn" value= i) Reply 
+                    
+
+                  if val.posts
+                    each val2, i2 in val.posts
+                      .post
+                        .level.o6 2
+                        .author= val2.author || ''
+                        .text= val2.text || ''
+                        .right
+                          button(class="reply-btn" value= i+'-'+i2) Reply
+                          button(class="delete-btn" value= i+'-'+i2) Delete 
+
+
+                        each val3, i3 in val2.posts
+                          .post
+                            .level.o6 3
+                            .author= val3.author
+                            .text= val3.text
+                            .right
+                              button(class="reply-btn" value= i+'-'+i2+'-'+i3) Reply
+                              button(class="delete-btn" value= i+'-'+i2+'-'+i3) Delete
+
+
+                            each val4, i4 in val3.posts
+                              .post
+                                .level.o6 4
+                                .author= val4.author
+                                .text= val4.text   
+                                .right
+                                  button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4) Reply
+                                  button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4) Delete
+
+
+                                each val5, i5 in val4.posts
+                                  .post
+                                    .level.o6 5
+                                    .author= val5.author
+                                    .text= val5.text
+                                    .right
+                                      button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5) Reply
+                                      button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5) Delete
+
+
+                                    each val6, i6 in val5.posts
+                                      .post
+                                        .level.o6 6
+                                        .author= val6.author
+                                        .text= val6.text
+                                        .right
+                                          button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6) Reply
+                                          button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6) Delete
+
+
+                                        each val7, i7 in val6.posts
+                                          .post
+                                            .level.o6 7
+                                            .author= val7.author
+                                            .text= val7.text      
+                                            .right
+                                              button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7) Reply
+                                              button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7) Delete
+
+
+                                            each val8, i8 in val7.posts
+                                              .post
+                                                .level.o6 8
+                                                .author= val8.author
+                                                .text= val8.text  
+                                                .right
+                                                  button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7+'-'+i8) Reply
+                                                  button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7+'-'+i8) Delete
+
+
+                                                each val9, i9 in val8.posts
+                                                  .post
+                                                    .level.o6 9
+                                                    .author= val9.author
+                                                    .text= val9.text   
+                                                    .right
+                                                      button(class="reply-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7+'-'+i8+'-'+i9) Reply
+                                                      button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7+'-'+i8+'-'+i9) Delete
+
+
+                                                    each val10, i10 in val9.posts
+                                                      .post
+                                                        .level.o6 10
+                                                        .author= val10.author
+                                                        .text= val10.text      
+                                                        .right
+                                                          button(class="delete-btn" value= i+'-'+i2+'-'+i3+'-'+i4+'-'+i5+'-'+i6+'-'+i7+'-'+i8+'-'+i9+'-'+i10) Delete
+
+                                                          //- button Reply                                                                                       
+            //- hr
+            //- form.o4
+            //-   .form-group
+            //-     label( for="first_name" ) First name:
+            //-     input( id="first_name" type="text", name="first_name" value=data)
+            //-     textarea( id="new-post")
+                              
+            //- .form-group
+            //-   button(id="send-btn") Send
+        //- button(id="create-1-btn") Create chat-1
+
+
+  include ../includes/footer.pug
+
+  //- script(src='js/lib/prism.js')
+  //- script(src='/js/_my-lib/default.js')
+
+  //- script(src='js/pages/chats.js')
+  //- script(src='/js/pages/chats.js', type= 'module')  
+
+  script
+    include ../../../js/_my-lib/default.js
+    //- include ../../../js/_my-plugins/url.js
+    //- include ../../../js/_my-plugins/pop-up2.js
+    include chats.js 
+
+

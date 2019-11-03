@@ -9,7 +9,8 @@ const routes: Routes = []
 if (projectMode == 'JS-Clan') {
   routes.push({
     path: '',
-    loadChildren: './@modules/js-clan/js-clan.module#JsClanModule'
+    // loadChildren: 'src/app/@modules/js-clan/js-clan.module#JsClanModule'
+    loadChildren: () => import('./@modules/js-clan/js-clan.module').then(m => m.JsClanModule) 
   })  
 }else{
   routes.push({

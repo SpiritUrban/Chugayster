@@ -1,0 +1,85 @@
+extends ../../layout
+
+block content
+  include ../../includes/header.pug           
+
+  main
+    br
+    h1.o4 login for 
+      a(href='') freedom  
+      | & 
+      a(href='') power
+      | !
+    br
+    
+    section.column
+      .limit
+        br
+        p.c For full access you need to login
+        p.c.o4 Для повного доступу необхідно залогінитися 
+        br
+        details(id="login")
+          summary.c Login
+          br
+          form(class="login")
+            .form-group
+              label( for="login_username" ) Username:
+              input( id="login_username" type="text", name="login_username" value="user")
+            .form-group
+              label( for="password" ) Password: 
+              input( id="login_password" type="password", name="password" value="1")
+          .form-group
+            button(id="login-btn") Login
+            a.btn.c(href="/api/auth/facebook") Login via Facebook 
+            hr
+            span &nbsp;
+            a.c(href="/pages/auth/forgot") Forgot? | Забув?
+            span &nbsp;
+
+
+        br
+        br
+        details(id="registration")
+          summary.c Registration
+          br
+          //- h3.c Registration
+        
+          form( class="login")
+            .form-group
+              label( for="username" ) Username: 
+              //- input( id="username" type="text", name="username" value="user")
+              input( id="username" type="text", name="username" value="")
+            .form-group
+              label( for="email" ) Email:
+              //- input( id="email" type="text", name="email" value="shadespiritenator@gmail.com")
+              input( id="email" type="text", name="email" value="")
+            .form-group
+              label( for="password" ) Password: 
+              //- input( id="password" type="password", name="password" value="1")
+              input( id="password" type="password", name="password" value="")
+          .form-group
+            button(id="registration-btn") Registration
+
+        br
+        br
+
+        //- br
+        //- a(href="/auth/twitter") Login via Twitter
+        //- br
+        //- a(href="/auth/github") Login via Github
+        //- br
+        //- a(href="/api/auth/google") Login via Google
+        //- br
+        //- a(href="/auth/instagram") Login via Instagram
+  
+        br
+        br
+
+  include ../../includes/footer.pug
+
+  script(src='/js/_my-lib/default.js')
+
+  script
+      include ../../../js/_my-plugins/pop-up2.js
+      include ../../../js/_my-lib/validate.js
+      include login.js

@@ -54,7 +54,8 @@ import { FooterComponent } from './components/general/footer/footer.component';
   ],
   exports: [
     FormValidatorComponent, 
-    ExtraAlertComponent
+    ExtraAlertComponent,
+    FooterComponent
     // ValidatorService -- !!! it's not need !!!
   ]
 })

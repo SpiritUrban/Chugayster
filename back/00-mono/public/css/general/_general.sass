@@ -1,0 +1,232 @@
+@font-face
+  font-family: 'Graduate'
+  font-style: normal
+  font-weight: 400
+  src: local("Graduate"), local("Graduate-Regular"), url(../fonts/graduate.eot) format("embedded-opentype"), url(../fonts/graduate.ttf) format("truetype"), url(../fonts/graduate.woff) format("woff")
+
+* 
+	margin: 0
+	padding: 0
+	transition-duration: 1.5s
+
+html 
+	font-size: 62.5%
+
+body 
+
+	position: relative
+	background: #333
+
+hr
+  border: none
+  background: #151515
+  height: 2px
+  
+.description
+  text-align: center
+  padding: 1em
+
+label
+  font-size: .85em
+  padding-bottom: .3em
+  padding-left: .7em
+  // background: black
+  // border-radius: 1em
+
+input, textarea
+  padding: .5em
+  background: #2c2c2c
+  background: #242424
+  color: $main-gray
+  border: 1px solid black
+  border-radius: 1em
+
+.freeze-field
+  padding: .5em
+  color: $main-gray
+  border-radius: 1em
+  background: rgba(36, 36, 36, 0.5)
+  border: 1px solid rgba(0, 0, 0, 0.3)
+
+details
+  background: #2c2c2c
+  color: $main-gray
+  border: 1px solid black
+  position: relative
+  &>div
+  .lable
+    position: absolute
+    top: 1em
+    right: 1em
+  .level
+    font-size: .7em
+    // margin: .3em
+    left: .25em
+    top: .25em
+    position: absolute
+
+  .title
+    padding: 1em
+    background-color: rgba(0, 0, 0, 0.5)
+  .author
+    background-color: rgba(0, 0, 0, 0.3)
+    padding: 1em
+    color: #6c6c6c
+  .text
+    padding: 1em
+    background-color: rgba(0, 0, 0, 0.1)
+  button
+    display: inline-block
+    // margin: 1em 1em 1em 0
+    margin: 1em auto
+    width: -moz-fit-content
+  summary
+    padding: .5em
+    font-size: 1.5em
+    line-height: 1em
+    &:hover
+      background: #242424
+      // color: $main2-plus
+      cursor: pointer
+
+.details-2
+  summary
+    background-color: rgba(0, 0, 0, 0.3)   
+    font-size: 1.2em
+
+
+.post-root
+  position: relative
+  margin: 1em 0 0 0  
+  background: rgba(0, 0, 0, .1)
+
+
+.post
+  position: relative
+  margin: 1em 0em 0em 1em
+  // padding: 1em
+  background: rgba(0, 0, 0, .1)
+  border-left: solid 3px rgba(0, 0, 0, 0.5)
+
+
+.right
+  text-align: right
+
+pre
+  background: #1a1d24 !important
+
+/* 
+ **   main
+main
+  width: 100%
+  margin-top: 6em
+  min-height: 100vh
+  min-height: calc(100vh - 6em)
+  background: #122b3b
+  background: #222831
+  a:hover
+    text-decoration: none
+    border-bottom: 1px solid #b12a34
+  p
+    // padding-bottom: 1.5em
+  ul
+    padding: 0.2em
+  li
+    line-height: 1.4em
+    margin-left: 1em
+  // img
+  //   float: right
+  //   width: 30%
+  //   min-width: 80px
+  //   max-width: 160px
+    // padding-bottom: 1em
+
+.playlist  
+  img
+    // float: right
+    width: 30%
+    min-width: 80px
+    max-width: 160px
+
+
+/* 
+ **   section
+section
+
+.flex
+  display: flex
+  flex-wrap: wrap
+  &.column
+    flex-direction: column  
+
+.limit
+  max-width: 500px
+  margin: auto
+  padding: 1em
+
+.limit-2
+  max-width: 1000px
+  margin: auto
+  padding: 1em
+
+.space
+  padding: 1em
+
+
+/* 
+ **   article
+article
+  border-top: 0.1em solid #acabab
+  padding: 1em
+  width: 100vw
+  overflow: hidden
+  background: #ffffffad
+  background: #ffffffc7
+  color: #262626
+  border-radius: 1em
+
+  img
+    &[data-src]
+      filter: blur(0.2em)
+    filter: blur(0em)
+    transition: filter 0.5s
+    border-radius: 1em
+    float: right
+    width: 30%
+    min-width: 80px
+    max-width: 160px
+
+.text-bg
+    background: #00000024
+    padding: 1em
+    border-radius: 1em      
+
+
+.tagline  
+  background: #001a5999
+  background: #052e3099
+  color: beige
+  color: #a8d8ffbf
+  // color: #e4c06be0
+  h1
+    color: beige
+    color: steelblue
+    color: #e4c06be0
+    color: #6395bf
+  h3
+    color: olivedrab
+
+.shadow-line    
+  background: #242424
+  background: #0f1620
+
+
+@import "h.sass";
+@import "a.sass";
+@import "button.sass";
+@import "table.sass";
+@import "login.sass";
+@import "form.sass";
+@import "card.sass";
+@import "col.sass";
+

@@ -1,0 +1,153 @@
+extends ../../layout
+
+block content
+  include ../../includes/header.pug           
+
+  main
+    br
+    br
+    h1 lessons for 
+      a(href='') freedom 
+      | & 
+      a(href='') power !
+    
+    section.limit-2.space
+      p
+
+
+        //- 1
+        br
+        | 1. Для розсилки пошти на NodeJS зазвичай використовують модуль 
+        a(href='/pages/about/module/nodemailer') 'nodemailer'
+        |.
+        br
+        br
+
+        pre.line-numbers
+          code.language-js
+            |  const nodemailer = require('nodemailer');
+
+
+        //- 2
+        br
+        | 2. Далі потрібно використовувати якийсь поштовий сервер. Наприклад: 
+        a(href='/pages/about/module/elasticemail') 'elasticemail' 
+        | або 
+        a(href='/pages/about/module/gmail') 'gmail'
+        |.
+
+        br
+        br
+        pre.line-numbers
+          code.language-js
+            | let transporter = nodemailer.createTransport({
+            |     host: 'smtp.gmail.com',
+            |     port: 465,
+            |     secure: true, // use SSL
+            |     auth: {
+            |         user: 'поштова-скринька-на-gmail', // наприклад: example@gmail.com
+            |         pass: 'пароль-поштової-скриньки'
+            |     },
+            |     connectionTimeout: 1 * 60 * 1000
+            | })
+
+
+        //- 3
+        br
+        | 3. Прописуємо  налаштування.         
+    
+        br
+        br
+        pre.line-numbers
+          code.language-js
+            | let transporter = nodemailer.createTransport({
+            | let mailOptions = {
+            |     from: 'Vitaliy <alien@gmail.com>',
+            |     to : 'human@gmail.com',
+            |     subject: 'Nodemailer test',
+            |     text: 'Hello Gmail'
+            | }
+
+
+        //- 4
+        br
+        | 4. Відправляємо.         
+    
+        br
+        br
+        pre.line-numbers
+          code.language-js
+            | transporter.sendMail( mailOptions, (err, res) => {
+            |     if (err) console.log('Error: ', err)
+            |     else console.log('Email Sent: ', res)
+            | })
+
+
+        //- 5
+        br
+        | 5. Також потрібно відкрити доступ до своєї скриньки за цим посиланням: 
+        a(href="https://myaccount.google.com/lesssecureapps" target="_blank") lesssecureapps
+        br
+
+
+        //- 6
+        br
+        | 6. Увага! При відправці через "gmail" це може не спрацювати.
+        br
+        br
+        | Тому на початку модуля додай наступний  рядок.
+    
+        br
+        br
+        pre.line-numbers
+          code.language-js
+            | process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+
+        //- 7
+        br
+        | 7. І знов виявив проблему! Через деякий час мій скрипт перестав працювати.
+        br
+        br
+        | Допомогла інсталяція модуля 'smtp'
+    
+        br
+        br
+        pre.line-numbers
+          code.language-bash
+            | npm install smtp
+
+
+        //- p.s.
+        br
+        br
+        h4 Цього достатньо. Але є також інші реалізації та можлвіть працювати з "gmail" через ( clientId, clientSecret, refreshToken), або через іньші поштові сервери
+
+
+  //- br
+  //- hr
+  //- br
+  //- h1 Обговорення
+  //- include ../includes/chats.pug     
+        
+
+        //- div CSS
+        //- pre.line-numbers
+        //-   code.language-css
+        //-     |  .example {
+        //-     |      font-family: Georgia, Times, serif;
+        //-     |      color: #555;
+        //-     |      text-align: center;
+        //-     |  }
+
+
+
+  include ../../includes/footer.pug
+
+  //- script(src='/js/_my-lib/default.js')
+  script(src='/js/lib/prism.js')  
+
+  script
+    | window.pageName = 'send-mail'
+
+

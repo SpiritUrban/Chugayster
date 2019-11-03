@@ -1,0 +1,198 @@
+header
+	//background: #2d2d2d url(../img/bg.png) repeat
+	background: #00131d
+	border-top: 0.2em solid #1f1f1f
+	//border-bottom: 0.2em solid #1f1f1f
+	overflow: hidden
+	position: fixed
+	width: 100vw
+	top: 0
+	z-index: 100
+
+.header-hide
+  top: -10em
+
+.logo
+  z-index: 10
+  position: relative
+  > .led
+    position: absolute
+    top: 40%
+    right: 30%
+    width: .2em
+    height: .2em
+    border-radius: 1em
+    background: #56ff56
+    background: blue
+
+    z-index: 2000
+    top: var(--top)
+    left: var(--left)
+    animation-name: example
+    animation-duration: 4s
+    animation-iteration-count: infinite
+
+@keyframes example
+  0%
+    background: #03A9F4
+
+  50%
+    background: black
+
+  100%
+    background: #56ff56
+
+
+.p
+  display: flex
+
+header
+  .p
+    width: 90%
+    margin: .3em auto
+    position: relative
+  img
+    display: block
+    width: 100%
+    min-width: 18em
+
+.header-right
+  position: absolute
+  z-index: 12
+  width: 60%
+  width: 75%
+
+  min-width: 150px
+  height: 100px
+  right: 0
+  top: .2em
+  &:before
+    position: absolute
+    z-index: -1
+    content: url(../img/header/header-code.svg)
+    right: 0
+    top: 0
+    width: 60%
+    opacity: .1
+
+.header-mobile
+  height: 100vh
+
+@media only screen and (max-width: 600px)
+  .logo
+    width: 80%
+  header img
+    min-width: 100%    
+
+
+/* 
+ **	languages
+.languages
+  text-align: right
+  z-index: 3000
+  a
+    margin: 0 .5em
+    background: #404040
+    background: #2e3742
+    padding: .25em .5em
+    border-radius: 1em
+    border: #585858 solid 1px
+    -webkit-box-shadow: 0 0.25em 0.45em rgba(0, 0, 0, 0.2)
+    box-shadow: 0 0.25em 0.45em rgba(0, 0, 0, 0.2)
+    &:hover
+      color: white
+
+/* 
+ **	nav
+nav
+  position: fixed
+  display: flex
+  flex-wrap: wrap
+  justify-content: flex-end
+  height: inherit
+  overflow: hidden
+  transition-duration: 1.5s
+  padding-right: 1em
+  height: 3em
+  top: 1.8em
+  top: 2.5em
+  right: 4%
+  width: 55%
+
+.nav-hide
+  top: -16em
+
+nav
+  &:hover
+    //background: #2d2d2d url(../img/bg.png) repeat
+    background: #00131d
+    padding-right: 1em
+    padding-bottom: .25em
+    border-bottom: 0.2em solid #1f1f1f
+    height: 10em
+    transition-duration: 1.5s
+  a
+    margin: .25em .25em .25em .5em
+    width: fit-content
+    border-radius: .5em
+    padding: .5em
+    &:before
+      content: '{ ' !important
+      color: gray
+    &:after
+      content: ' }' !important
+      color: gray
+    &:hover
+      color: #b12a34
+      color: white
+      opacity: 1
+
+.nav-mobile
+  top: 0
+  left: 0
+  background: #2d2d2d url(../img/bg.png) repeat
+  padding-right: 1em
+  padding-bottom: .25em
+  border-bottom: 0.2em solid #1f1f1f
+  height: 20em
+  position: fixed
+  width: 100vw
+  height: 100vh
+  transition-duration: 1.5s
+
+@media only screen and (max-width: 600px)
+  nav
+    top: -50em
+
+.hamburger
+  z-index: 101
+  display: none
+  position: absolute
+  flex-direction: column
+  font-weight: 600
+  font-size: 2em
+  background: #1f1f1f
+  border-radius: .5em
+  height: fit-content
+  padding: .25em
+  top: 1em
+  right: 1em
+  top: .2em
+  right: 0  
+  text-align: center
+  transform: translateY(50%)
+  i
+    height: .4em
+    line-height: .25em
+    width: 1.3em
+    // background: #b12a34
+    // background: #b12a3447
+    border-radius: .5em
+  &:hover
+    background: black
+    background: #b12a34
+    cursor: pointer
+
+@media only screen and (max-width: 600px)
+  .hamburger
+    display: flex

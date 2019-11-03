@@ -1,0 +1,15 @@
+footer {
+    position: relative;
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    background: var(--base-dark-darker);
+    color: white;
+}
+
+footer span {
+    margin: 10px 0;
+    color: var(--on-darker);
+}

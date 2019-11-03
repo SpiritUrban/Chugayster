@@ -1,0 +1,112 @@
+extends ../../layout
+
+
+block content
+  include ../../includes/header.pug           
+
+
+  main
+    br
+    br
+    h1.o4 your account for 
+      a(href='') freedom  
+      | & 
+      a(href='') power
+      | !
+    
+
+    section.column
+      .limit
+        br
+
+
+        small.c Hi 
+          strong '#{user.username}'
+          | ! You are logged.
+        br
+        br
+
+
+        a.btn(href="/") Go home 
+        span &nbsp;&nbsp;&nbsp;
+        a.btn(href="/logout") Logout
+        br
+        br
+
+
+        //
+        // The Danger Tool
+        //
+        if user.status == 'super admin'
+          include ../../includes/danger-tool.pug     
+
+
+        //
+        // alert-block: if mail has not been verified.
+        //
+        if !user.email_verif && user.email
+          .alert-block.space
+            p
+              | Ваша пошта не підтверджена. 
+              | На вашу поштову скриньку надіслано лист для підтвердження пошти.
+              | Не підтвердженні акунти не мають повного доступу та будуть видалені.
+            br
+            hr
+            br
+            p
+              | Your mail has not been verified.
+              | A letter to confirm your mail has been sent to your mailbox.
+              | Not confirmed, the charts do not have full access and will be deleted.        
+            button(id="re-send-mail-btn") відправити ще раз | send it again
+
+        br
+        br
+        details(id="account-card" class="card")
+          summary.c 
+            span.o6 Your 
+            | profile card. 
+            span.o6 Bro.
+          br
+          form()
+            .col-6
+              .form-group
+                label( for="username" ) Username:
+                .freeze-field( id="username"  name="username") #{user.username}
+              .form-group
+                label( for="email" ) Email:
+                .freeze-field( id="email" type="text", name="email") #{user.email}
+             
+            .col-6
+              .form-group
+                label( for="status" ) Status:
+                .freeze-field( id="status" type="text", name="status") #{user.status || 'none'}
+              .form-group
+                label( for="first_name" ) First name:
+                input( id="first_name" type="text", name="first_name" value=user.first_name)
+              .form-group
+                label( for="last_name" ) Last name:
+                input( id="last_name" type="text", name="last_name" value=user.last_name)                              
+                          
+          .form-group
+            button(id="save-btn") Save
+        br
+        .form-group
+          a.btn.c(href="/pages/auth/change-password") Change password | Змінити пароль
+         
+        
+
+  include ../../includes/footer.pug
+
+  //- script(src='js/bootstrap.min.js')
+  //- script(src='js/index.js') 
+  script
+    include ../../../js/_my-lib/default.js
+    //- include ../../../js/_my-plugins/url.js
+    include ../../../js/_my-plugins/pop-up2.js
+    include account.js
+
+  //- script(src='js/_my-lib/default.js')
+  //- script(src='js/pages/personal/account.js', type= 'module')    
+
+
+

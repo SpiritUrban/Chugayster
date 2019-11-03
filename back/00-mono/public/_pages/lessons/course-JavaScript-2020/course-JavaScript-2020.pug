@@ -1,0 +1,318 @@
+extends ../../layout
+block content
+  include ../../includes/header.pug
+  include css.pug
+  include mixin.pug
+
+  mixin paging()
+    br
+    h2.c Block 1 
+      span.o4 | 
+      a.c(href='/lessons/course-JavaScript-2020--2') Next >  
+
+
+  //- Main --------------------------------------------------------------------------------------------
+  main
+    include parts/slogan
+    +paging()
+    section.limit-2.space
+
+      h3 To lessons:
+        a(href='/lessons/course-JavaScript-2020/blocks/001-Intro') Intro
+
+
+      //- Lesson 0 ------------------------------------------------------------------------------------
+      br
+      details
+        //-(onclick="this.querySelector('iframe').src='https://www.youtube.com/embed/hlbkwWj6fYo'")
+        +summary(0, 'Skeleton of HTML + JavaScript', 'Скелет HTML + JavaScript')
+        hr
+        .c
+          br
+          div Fundamentals: Browser, Web page, its structure, browser tools.
+          div.o4 Основа основ: браузер, веб сторінка, її структура, інструменти розробника у браузері.
+          br
+          +iframe('-8gk0tXZu2w')
+        br
+        br      
+
+
+      //- Lesson 1 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(1, 'The structure of a web-project', 'Структура веб-проекту')
+        hr
+        .c
+          +explanation
+          +iframe('hlbkwWj6fYo')
+          +practice
+          +iframe('B-q7zap3IvM')
+          br
+          br
+          div Answers: File structure of large projects. 
+          div.o4 Відповіді: Файлова структура великих проектів. 
+          br
+          +iframe('zDypd0ob0_o')
+        br
+        br
+
+
+      //- Lesson 2 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(2, 'Variables and Types of Data', 'Змінні і типи данних')
+        hr
+        .c
+          +explanation
+          +iframe('9imNqIsp2hI')
+          +practice
+          +iframe('BL-F_noWRvk')      
+        br
+        br
+
+
+      //- Lesson 3 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(3, '(if) - is the operator of the choice', '(if) - оператор вибору')
+        hr
+        .c
+          +explanation
+          +iframe('RsBMXyz7_dw')
+          +practice
+          +iframe('QWzLHuEUQ_w')
+        br
+        br        
+
+
+      //- Lesson 4 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(4, 'Complex data types', 'Складні типи данних')
+        hr
+        .c
+          +explanation
+          +iframe('gMgUwAMK9nk')
+          +practice
+          +iframe('cIL_8YrW5bc')
+        br
+        br 
+
+
+      //- Lesson 5 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(5, 'Understanding the Essence - Object', "Розуміння сутності - Об'єкт")
+        hr
+        .c
+          +explanation
+          +iframe('wpnw0LCNZHs')
+        br
+        br 
+
+
+      //- Lesson 6 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(6, 'Understanding the essence - Array', 'Розуміння сутності - Масив')
+        hr
+        +explanation
+        +iframe('-OdwbBXtBdA')
+        br
+        br 
+
+
+      //- Lesson 7 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(7, 'Manage site elements', 'Керування елементами сайту')
+        hr
+        .c
+          +explanation
+          +iframe('QM1nDMPtPog')
+          +practice
+          +iframe('s_4svUmN1Sw')
+          br
+          +iframe('qxv94PQ4nGE')
+        br
+        br 
+
+
+      //- Lesson 8 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(8, 'Buttons', 'Кнопки')
+        hr
+        .c
+          +practice
+          +iframe('4SsK9K3JKFY')
+        br
+        br 
+
+
+      //- Lesson 9 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(9, 'Loops', 'Цикли')
+        hr
+        .c
+          +explanation
+          +iframe('zS-2HSGWCPo')
+          +practice
+          +iframe('-m5560NJRdU')
+          br
+          +iframe('f38bOpTeKCw')
+        br
+        br 
+
+
+      //- Lesson 10 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(10, 'Server and Internet', 'Сервер і інтернет')
+        hr
+        .c
+          +practice
+          +iframe('twsk_GdAlgs')
+          br
+          +iframe('SBGY7Q8O2Vo')
+          +explanation
+          +iframe('SmRgbRPoSWU')
+        br
+        br 
+
+
+      //- Lesson 11 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(11, 'Making a personal business card placed on the Internet', 'Верстаєм особисту візитку, розміщену в інтернеті')
+        hr
+        .c
+          +practice
+          +iframe('LqEpjC4fPxc')
+        br
+        br 
+
+
+      //- Lesson 12 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(12, 'Hypnosis - Programming the head of a programmer', 'Гіпноз - Програмування голови програміста')
+        hr
+        .c
+          +practice
+          +iframe('7YOCbZKZQ0Y')
+        br
+        br 
+
+
+      //- Lesson 13 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(13, 'Hand-to-hand combat JavaScript', 'Рукопашний JavaScript')
+        hr
+        .c
+          br
+          div Use of physical exercises to keep up and increase the energy of the parts of the brain responsible for this topic.
+          div.o4 Використання фізичних вправ для запам'ятовування і підвищення енергічності частин мозку, що відповідають за дану тему.
+          br
+          +iframe('-8gk0tXZu2w')
+        br
+        br 
+
+
+      //- Lesson 14 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(14, 'Manage items by replacing classes', 'Керування елементами через заміну класів')
+        hr
+        .c
+          +practice
+          +iframe('u5wmnyZyNzk')
+        br
+        br         
+
+
+      //- Lesson 15 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(15, 'querySelector', '')
+        hr
+        .c
+          +explanation
+          +iframe('IZbl-oW3agI')
+          +practice
+          +iframe('S4khKgvHJbs')
+        br
+        br 
+
+
+      //- Lesson 16 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(16, 'Mental map of traversed material', 'Ментальна мапа пройденого матеріалу')
+        hr
+        .c
+          +explanation
+          +iframe('w0L4REf5vNo')
+          br
+          +iframe('NyS9hhRp_x4')
+        br
+        br 
+
+
+      //- Lesson 17 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(17, 'Functions', 'Функції')
+        hr
+        .c
+          +explanation
+          +iframe('54uFLUShdbs')
+          +practice
+          +iframe('kD5kJ-jI9_8')
+        br
+        br 
+
+
+      //- Lesson 18 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(18, 'Callback functions, asynchronous code', 'Колбек функції, асинхронний код')
+        hr
+        .c
+          +explanation
+          +iframe('6V-rQXrTbiM')
+          +practice
+          +iframe('4HxvH-_Np2s')
+        br
+        br
+
+
+      //- Lesson 19 ------------------------------------------------------------------------------------
+      br
+      details
+        +summary(19, 'Working with the keyboard', 'Робота з клавіатурою')
+        hr
+        .c
+          +explanation
+          +iframe('zhBOgH-AaCw')
+          +practice
+          +iframe('j9d5S7EvVq0')
+        br
+        br
+
+
+    +paging()
+    include parts/bottom
+
+
+
+    //- div CSS
+    //- pre.line-numbers
+    //-   code.language-css
+    //-     |  .example {
+    //-     |      font-family: Georgia, Times, serif;
+    //-     |      color: #555;
+    //-     |      text-align: center;
+    //-     |  }

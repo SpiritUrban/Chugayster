@@ -1,0 +1,56 @@
+extends ../layout
+block content
+  style.
+    .react{
+      border: solid 1px black;
+      background: brown;
+    }
+  include ../includes/header.pug           
+  main
+    br
+    br
+
+    //- h1  test
+    //- #root
+  
+    h1.t(data-en="programs"  data-ua="програми" )
+
+      //- span.o4 for 
+      //-   a(href='') freedom 
+      //-   | & 
+      //-   a(href='') power !
+    
+    section.limit-2.space
+      p
+        br
+        a(href='/programs/rozvivalka/rozvivalka') rozvivalka     
+        //- br
+        //- a(href='/draft/sms-bomber') sms BOMBER
+        //- br
+        //- a(href='/draft/pwa') PWA
+        //- br
+        //- a(href='/draft/text-selection') text selection
+        //- br
+        //- a(href='/draft/code-on-mobile') site code on mobile device
+        //- br
+        //- a(href='/draft/hacks') HACKS
+        //- br
+        //- a(href='/draft/image-of-future') image of future
+        //- br
+        //- a(href='/draft/for-node-vpn-pr') for node VPN project
+
+
+  include ../includes/footer.pug
+
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/react/16.7.0-alpha.2/umd/react.production.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.7.0-alpha.2/umd/react-dom.production.min.js')
+
+
+
+  
+  
+
+  //script(src='https://unpkg.com/react@16.8/umd/react.production.min.js')
+  //script(src='https://unpkg.com/react-dom@16.8/umd/react-dom.production.min.js')
+  script(src='https://unpkg.com/babel-standalone@6.26.0/babel.js')
+  script(type='text/babel' src="_pages/programs/_programs.js").

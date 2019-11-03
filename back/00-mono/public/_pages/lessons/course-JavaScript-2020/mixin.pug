@@ -1,0 +1,42 @@
+//- ------------------------------------------------------------------------------------------------
+    +summary(, '', '')
+    +iframe('')
+    +explanation
+    +practice
+    
+mixin summary(i, en, ua)
+  summary
+    .index #{i}
+    .pic(style="background-size: cover; background-image: url(http://www.imgworlds.com/wp-content/uploads/2015/12/18-CONTACTUS-HEADER.jpg); ")
+    //- span.o6 #{i}. 
+    .sub
+      span #{en}
+      br.h05
+      span.o4 #{ua}
+
+
+mixin iframe(v)
+  iframe( src='https://www.youtube.com/embed/'+v frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen='')
+
+
+mixin explanation
+  br
+  span Explanation 
+  span.o6 / Роз'яснення
+  br
+  br
+
+
+mixin practice
+  br
+  span Practice 
+  span.o4 / Практика
+  br
+  br
+
+mixin code_on_github
+  br
+  div
+    a(href="https://github.com/SpiritUrban/JavaScript-2020" target="_blank") Code on GitHub > 
+  div.o4  
+    a(href="https://github.com/SpiritUrban/JavaScript-2020" target="_blank") Код на гітхабі >

@@ -1,0 +1,18 @@
+@import "../_mixins/_mixins.sass";
+
+    
+button
+  display: block
+  margin: 0 auto 2em
+  border-radius: 1em
+  padding: .5em
+  background: #1e2226
+  color: $main2
+  border: 1px solid #171717
+  line-height: 1em
+  @include shadow()
+  &:hover
+    @include shadow-hover() 
+
+    color: $main2-plus
+    cursor: pointer

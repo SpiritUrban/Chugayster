@@ -1,0 +1,16 @@
+:root {
+    --base-light: #ecdeca;
+    --base-dark: #3c5269;
+
+    --light-gray: #eaeaea;
+
+    --base-dark-darker: #27384a;
+    --on-darker: #7497bb;
+
+    --light-blue: #a7d2ff;
+
+    --js-orange: #fbb03b;
+
+    --sky: #3677c7;
+    --sky-steelblue: steelblue;
+}

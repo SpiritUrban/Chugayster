@@ -1,0 +1,14 @@
+
+  //- script(src="https://code.jquery.com/jquery-3.3.1.min.js", integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=", crossorigin="anonymous")
+
+
+***************************************************************************
+*                                Prism.js                                 *
+***************************************************************************
+https://prismjs.com/
+
+Other: 
+  Top 5 : Best code syntax highlighter javascript plugins
+  https://ourcodeworld.com/articles/read/140/top-5-best-code-syntax-highlighter-javascript-plugins
+
+  
