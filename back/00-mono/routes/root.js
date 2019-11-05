@@ -1,13 +1,11 @@
 const log = console.log
+const fs = require('fs').promises
 const User = require('../models/user.js')
 const Chat = require('../models/chat.js')
 const mailer = require('../controllers/mail/mailer')
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
-
-
-
 
 
 ///////////////////////////////////////////////////////
@@ -63,7 +61,6 @@ router.get('/auth/github/callback', passport.authenticate('github', { failureRed
 // 
 router.get('/auth/instagram', passport.authenticate('instagram'), (req, res) => { });
 router.get('/auth/instagram/callback', passport.authenticate('instagram', { failureRedirect: '/' }), (req, res) => res.redirect('/account'));
-
 
 
 
@@ -297,7 +294,6 @@ router.all(['/programs', '/programs/*'], async (req, res, next) => {
 
 
 
-const fs = require('fs').promises
 
 //redirect all get request to index.html. Must be the last!!!!!!!!!!!!!!!
 router.get('/*', async (req, res, next) => {
