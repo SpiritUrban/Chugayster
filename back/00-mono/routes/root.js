@@ -223,7 +223,8 @@ router.get('/pages/auth/mail-verify', async (req, res) => {
 
 // DOUBLE + commonInfo ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 [
-    { url: '', path: 'index' },
+    { url: '/', path: 'index' },
+    { url: 'home', path: 'index' },
     { url: 'login', path: 'pages/auth/login' }, // Page: login
     { url: 'members', path: 'members/_members' }
 ].map((page) => {
@@ -316,11 +317,13 @@ router.all(['/programs', '/programs/*'], async (req, res, next) => {
 
 
 
-
+const fs = require('fs').promises
 
 //redirect all get request to index.html. Must be the last!!!!!!!!!!!!!!!
-router.get('/*', (req, res) => {
-    res.redirect('/index.html');
+router.get('/*', async (req, res) => {
+    const html = await fs.readFile('../../front/dist/front/index.html')
+    res.end(html)
+    //res.redirect('/index.html');
   });
 
 
