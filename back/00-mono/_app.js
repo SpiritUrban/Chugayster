@@ -1,4 +1,6 @@
 const log = console.log;
+// const fs = require('fs').promises
+const lib = require('./routes/lib')
 
 // dependencies
 const express = require('express');
@@ -36,7 +38,7 @@ app
     indentedSyntax: true, // true = .sass and false = .scss
     sourceMap: true
   }))
-  .use(session({ 
+  .use(session({
     secret: 'my_precious',
     name: 'cookie_name',
     //store: sessionStore, // connect-mongo session store
@@ -46,6 +48,10 @@ app
   }))
   .use(passport.initialize())
   .use(passport.session())
+  .use( async (req, res, next) => { // home page
+    console.log('info: url = ', req.url)
+    req.url == '/' ? res.render('index', commonInfo(req)) : next()
+  })
   // static
   .use(express.static(__dirname + '/public'))
   // .use(express.static(path.join(__dirname, '/SPA/dist/front')))

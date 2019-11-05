@@ -3,6 +3,35 @@ const log = console.log
 const User = require('../models/user.js')
 
 
+// common info assembling
+commonInfo = (req) => {
+    return {
+        test: 'ok', // ???
+        isAuthenticated: req.isAuthenticated(),
+        chat: req.chat, // ???
+        user: req.user
+    }
+}
+
+// gives end of url
+url_end = (req) => {
+    const parts = req.url.split('/');
+    const end = parts[parts.length - 1];
+    return end;
+}
+
+// test authentication
+ensureAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) return next();
+    res.redirect('/login');
+};
+
+// test authentication
+apiEnsureAuthenticated = async (req, res, next) => {
+    if (req.isAuthenticated()) return next();
+    res.json('not logged')
+}
+
 error = (err, req, res, status, msg2) => {
     err = err.toString()
     log('error Universal'.error, err, status, msg2, '\n')
@@ -66,11 +95,7 @@ randomIntFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// test authentication
-apiEnsureAuthenticated = async (req, res, next) => {
-    if (req.isAuthenticated()) return next();
-    res.json('not logged')
-}
+
 
 
 // module.exports = router;

@@ -7,28 +7,7 @@ const router = express.Router()
 const passport = require('passport')
 
 
-// common info assembling
-function commonInfo(req) {
-    return {
-        test: 'ok', // ???
-        isAuthenticated: req.isAuthenticated(),
-        chat: req.chat, // ???
-        user: req.user
-    }
-}
 
-// gives end of url
-function url_end(req) {
-    const parts = req.url.split('/');
-    const end = parts[parts.length - 1];
-    return end;
-}
-
-// test authentication
-function ensureAuthenticated(req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.redirect('/login');
-};
 
 
 ///////////////////////////////////////////////////////
@@ -317,13 +296,11 @@ router.all(['/programs', '/programs/*'], async (req, res, next) => {
 
 
 
-const fs = require('fs').promises
+
 
 //redirect all get request to index.html. Must be the last!!!!!!!!!!!!!!!
-router.get('/*', async (req, res) => {
-    const html = await fs.readFile('../../front/dist/front/index.html')
-    res.end(html)
-    //res.redirect('/index.html');
+router.get('/*', async (req, res, next) => {
+    res.redirect('/index.html');
   });
 
 
