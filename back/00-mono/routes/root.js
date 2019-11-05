@@ -297,10 +297,13 @@ router.all(['/programs', '/programs/*'], async (req, res, next) => {
 
 
 
+const fs = require('fs').promises
 
 //redirect all get request to index.html. Must be the last!!!!!!!!!!!!!!!
 router.get('/*', async (req, res, next) => {
-    res.redirect('/index.html');
+    const html = await fs.readFile('../../front/dist/front/index.html');
+    res.end(html);
+    // res.redirect('/index.html');
   });
 
 
