@@ -23,6 +23,7 @@ import { FormValidatorComponent } from './components/general/form-validator/form
 import { ExtraAlertComponent } from './components/general/extra-alert/extra-alert.component';
 import { ShowCodeComponent } from './components/special/show-code/show-code.component';
 import { FooterComponent } from './components/general/footer/footer.component';
+import { NanoSiteComponent } from './components/special/nano-site/nano-site.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { FooterComponent } from './components/general/footer/footer.component';
     ExtraAlertComponent,
     EngineerComponent,
     ShowCodeComponent,
-    FooterComponent
+    FooterComponent,
+    NanoSiteComponent
   ],
   imports: [
     NgbModule,

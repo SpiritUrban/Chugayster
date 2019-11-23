@@ -1,7 +1,77 @@
 .big-logo
-    transition: 1s
-    width: 40%
-    transform: translateX(-5%)
-    opacity: .8
+    margin-right: 5em
+    width: 15em
+
+.hero-logo
+    display: flex
+    align-items: center
+    transform: translateY(-3em)
+
+.hero
+    z-index: -1
+    background: linear-gradient(200deg, #fbff00, #f58442)
+    position: absolute
+    width: 100%
+    height: 36em
+    transform: skewY(-8deg)
+    transform-origin: 100% center
+    overflow: hidden
+    right: 0
+    top: -15em
+
+.hero-main
+    height: 100vh   
+    display: flex
+    flex-direction: column
+    justify-content: space-around   
+    align-items: center
+ 
+.hero-description
+    margin-top: -10em
+    display: flex
+    align-items: center
+    justify-content: center
+    h4 
+        display: inline-block
+        text-align: left  
+        padding-left: 1em
+        line-height: 1.2em
+    i
+        font-size: 5.95em
+        color: white
+        opacity: .5
+        
+
+.hero-text-color
+    display: flex
+    flex-direction: column
+    color: #000
+    h1 
+        margin-bottom: .5em
+    h4
+        margin-bottom: 1em
+    
+.btn-start
+    background: #fff
+    padding: .5em 1em
+    border-radius: 2em
+    font-size: 1.2em
+    cursor: pointer
+    font-weight: 600
     &:hover
-        opacity: 1
+        box-shadow: .2em .4em .5em .2em rgba(0,0,0,0.3)
+
+.expample
+    position: relative
+
+.example-left
+    position: absolute
+    width: 20%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    div
+        height: 13em
+        width: 100%
+        background-color: #fff
+        margin: .5em
