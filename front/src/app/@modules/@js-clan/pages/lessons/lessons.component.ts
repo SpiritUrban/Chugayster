@@ -10,24 +10,32 @@ export class LessonsComponent implements OnInit {
   st = {
     cards: [
       {
-        title_en: 'Skeleton of HTML + JavaScript',
-        title_ua: 'Скелет HTML + JavaScript',
-        title_ru: 'Скелет HTML + JavaScript',
+        title: {
+          en: 'Skeleton of HTML + JavaScript',
+          ua: 'Скелет HTML + JavaScript',
+          ru: 'Скелет HTML + JavaScript',
+        }
       },
       {
-        title_en: 'Skeleton of HTML + JavaScript',
-        title_ua: 'Скелет HTML + JavaScript',
-        title_ru: 'Скелет HTML + JavaScript',
+        title: {
+          en: 'Skeleton of HTML + JavaScript',
+          ua: 'Скелет HTML + JavaScript',
+          ru: 'Скелет HTML + JavaScript',
+        }
       },
       {
-        title_en: 'Skeleton of HTML + JavaScript',
-        title_ua: 'Скелет HTML + JavaScript',
-        title_ru: 'Скелет HTML + JavaScript',
+        title: {
+          en: 'Skeleton of HTML + JavaScript',
+          ua: 'Скелет HTML + JavaScript',
+          ru: 'Скелет HTML + JavaScript',
+        }
       },
       {
-        title_en: 'Skeleton of HTML + JavaScript',
-        title_ua: 'Скелет HTML + JavaScript',
-        title_ru: 'Скелет HTML + JavaScript',
+        title: {
+          en: 'Skeleton of HTML + JavaScript',
+          ua: 'Скелет HTML + JavaScript',
+          ru: 'Скелет HTML + JavaScript',
+        }
       },
     ]
   }
