@@ -17,49 +17,33 @@
             </li>
 
             <!-- pages -->
-            <li 
-                class="nav-item dropdown"
-                (click)="drop1 = !drop1"
-                [ngClass]=" drop1 ? 'show': '' "
-            >
+            <li class="nav-item dropdown" (click)="drop1 = !drop1" [ngClass]=" drop1 ? 'show': '' ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Pages
                     <span class="caret"></span></a>
-                <div 
-                    class="dropdown-menu" 
-                    aria-labelledby="themes"
-                    [ngClass]=" drop1 ? 'show': '' "
-                >
-                    <a class="dropdown-item" routerLink="/main" >Home</a>
+                <div class="dropdown-menu" aria-labelledby="themes" [ngClass]=" drop1 ? 'show': '' ">
+                    <a class="dropdown-item" routerLink="/main">Home</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" routerLink="/about-us" >About</a>
-                    <a class="dropdown-item" routerLink="/auth/help" >auth/Help</a>
-                    <a class="dropdown-item" routerLink="/auth/login" >auth/Login</a>
-                    <a class="dropdown-item" routerLink="/auth/register" >auth/Register</a>
+                    <a class="dropdown-item" routerLink="/about-us">About</a>
+                    <a class="dropdown-item" routerLink="/auth/help">auth/Help</a>
+                    <a class="dropdown-item" routerLink="/auth/login">auth/Login</a>
+                    <a class="dropdown-item" routerLink="/auth/register">auth/Register</a>
 
-                    <a class="dropdown-item" routerLink="/" ></a>
+                    <a class="dropdown-item" routerLink="/"></a>
                 </div>
             </li>
 
             <!-- developer-guide -->
-            <li 
-                class="nav-item dropdown"
-                (click)="drop2 = !drop2"
-                [ngClass]=" drop2 ? 'show': '' "
-            >
+            <li class="nav-item dropdown" (click)="drop2 = !drop2" [ngClass]=" drop2 ? 'show': '' ">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="themes" aria-expanded="false">Dev-guide
                     <span class="caret"></span></a>
-                <div 
-                    class="dropdown-menu" 
-                    aria-labelledby="themes"
-                    [ngClass]=" drop2 ? 'show': '' "
-                >
-                    <a class="dropdown-item" routerLink="/dev/forms" >Forms</a>
-                    <a class="dropdown-item" routerLink="/dev/url-queries" >URL Queries</a>
-                    <a class="dropdown-item" routerLink="/dev/any" >Any examples</a>
-                    <a class="dropdown-item" routerLink="/" ></a>
+                <div class="dropdown-menu" aria-labelledby="themes" [ngClass]=" drop2 ? 'show': '' ">
+                    <a class="dropdown-item" routerLink="/dev/forms">Forms</a>
+                    <a class="dropdown-item" routerLink="/dev/url-queries">URL Queries</a>
+                    <a class="dropdown-item" routerLink="/dev/any">Any examples</a>
+                    <a class="dropdown-item" routerLink="/"></a>
 
                 </div>
-            </li>            
+            </li>
 
             <!-- Features -->
             <!-- <li class="nav-item">
@@ -73,8 +57,12 @@
 
             <!-- About -->
             <li class="nav-item">
-                <a class="nav-link"routerLink="/about-us">About</a>
+                <a class="nav-link" routerLink="/about-us">About</a>
             </li>
+
+
+            <li><a routerLink="/main">JS-CLAN -> main</a></li>
+
 
         </ul>
 

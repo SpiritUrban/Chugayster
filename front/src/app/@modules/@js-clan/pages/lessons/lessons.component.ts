@@ -7,6 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonsComponent implements OnInit {
 
+  st = {
+    cards: [
+      {
+        title_en: 'Skeleton of HTML + JavaScript',
+        title_ua: 'Скелет HTML + JavaScript',
+        title_ru: 'Скелет HTML + JavaScript',
+      },
+      {
+        title_en: 'Skeleton of HTML + JavaScript',
+        title_ua: 'Скелет HTML + JavaScript',
+        title_ru: 'Скелет HTML + JavaScript',
+      },
+      {
+        title_en: 'Skeleton of HTML + JavaScript',
+        title_ua: 'Скелет HTML + JavaScript',
+        title_ru: 'Скелет HTML + JavaScript',
+      },
+      {
+        title_en: 'Skeleton of HTML + JavaScript',
+        title_ua: 'Скелет HTML + JavaScript',
+        title_ru: 'Скелет HTML + JavaScript',
+      },
+    ]
+  }
   constructor() { }
 
   ngOnInit() {
