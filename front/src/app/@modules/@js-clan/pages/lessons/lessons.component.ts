@@ -10,6 +10,7 @@ export class LessonsComponent implements OnInit {
   st = {
     cards: [
       {
+        name: 'skeleton',
         title: {
           en: 'Skeleton of HTML + JavaScript',
           ua: 'Скелет HTML + JavaScript',

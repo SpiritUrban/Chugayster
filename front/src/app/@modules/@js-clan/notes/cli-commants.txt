@@ -1,5 +1,11 @@
-*** Generate Component:
+*** Generate COMPONENT:
 
-ng g component @modules/js-clan/components/general/nav
+ng g component @modules/@js-clan/components/general/nav
+
+
+*** Generate PAGE:
+
+ng g component @modules/@js-clan/pages/**
+
 
 

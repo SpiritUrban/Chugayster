@@ -8,6 +8,7 @@ import { CommonDependenciesModule } from '../../@modules/@common-dependencies/@c
 
 // Pages
 import { LessonsComponent } from './pages/lessons/lessons.component';
+import { LessonComponent } from './pages/lesson/lesson.component';
 import { MainComponent } from './pages/main/main.component';
 import { P404Component } from './pages/p404/p404.component';
 
@@ -21,7 +22,7 @@ import { ClanFooterComponent } from './components/general/clan-footer/clan-foote
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent
+    NavComponent, ClanFooterComponent, LessonComponent
   ],
   imports: [
     CommonModule,
