@@ -1,0 +1,5 @@
+*** Generate Component:
+
+ng g component @modules/js-clan/components/general/nav
+
+
