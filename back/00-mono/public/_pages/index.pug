@@ -30,175 +30,33 @@ html(lang='en')
     meta(name='msapplication-TileColor' content='#2F3BA2')
 
   body
-    include includes/header.pug
+    //- include includes/header.pug
 
+    header
+      .p
+        a.logo(href='https://js-clan.com')
+          img(src='/img/js-clan.svg', alt='js-clan')
+          .led(style="--left: 70%; --top: 20%;")
+          .led(style="--left: 68%; --top: 37%;")
+          .led(style="--left: 67%; --top: 55%;")
+          .led(style="--left: 78%; --top: 12%;")
+          .led(style="--left: 76%; --top: 41%;")
 
     main.main
 
-      //- div(style="background:brown;") isAuthenticated: #{isAuthenticated}
-      //- div(style="background:brown;") user: #{user}
-      //- br
-
-
-      //- tagline 
-      .tagline
-        br
-        h1.t(
-          data-en="Want you to be free & power ?"  
-          data-ua="Хочеш бути вільним і потужним ?" )
-        h4.t.c.t-m(
-          data-en="Take power over"  
-          data-ua="Візьми владу над" )
-        h3.t.c(
-          data-en="{ object_of_your_life }"  
-          data-ua="{ об'єктом_свого_життя }" )
-        br
-
-
-
-      .shadow-line
-        section.limit
-          br
-          p.c
-            //- | I am Dyachuk Vitali, I created and develop this resource.
-            //- br
-            h3.c.t(
-              data-en="This is a resource for JavaScript developers."  
-              data-ua="Це ресурс для розробників JavaScript. " ) 
-            h3.c.t(
-              data-en="On this resource realized:"  
-              data-ua="На цьому ресурсі реалізовано:" )  
-          br
-          p
-            .t(
-              data-en="- Materials for studying JavaScript"  
-              data-ua="- Матеріали для вивчення JavaScript" )
-            .t(
-              data-en="- Technological developments in JavaScript stack"  
-              data-ua="- Технологічні розробки в стеку JavaScript" )
-            .t(
-              data-en="- Collaboration between developers"  
-              data-ua="- Співпраця між розробниками" )
-            .t(
-              data-en="- Lobbying the interests of developers, engineers and technocratic civilization"  
-              data-ua="- Лобіювання інтересів розробників, інженерів і технократичної цивілізації" )
-          br
-
-
-      //- Style ------------------------------------------------------------------------------------------
-      style.
-        .shadow {
-          filter: blur(15px);
-          background: #222831;
-          height: 8em;
-          width: 100%;
-          position: absolute;
-          bottom: -3.5em;
-          left: 0;
-        }
-        .bottom{
-          height: 2em;
-          width: 100%;
-          position: absolute;
-          bottom: 0;
-          left: 0; 
-        }
-        .more {
-          border-top-left-radius: 1em;
-          border-top-right-radius: 1em;
-          width: 6em;
-          height: 2em;
-          margin: auto;
-          background: white;
-          text-align: center;
-          line-height: 1em;
-          color: #122b3b;
-          opacity: .5;
-          display: block;
-          cursor: pointer;
-        }
-        .more:hover{
-          opacity: 1;
-        }
-        .bage{
-          position: absolute;
-          right: -6em;
-          top: -1em;
-          background: green;
-          color: white;
-          border-radius: 1em;
-          padding: .1em .5em;
-          transform: rotate(15deg);
-        }
 
       section#info_2.limit(style="height: 16em; overflow: hidden; position: relative; ")
         br
-        h2.c Вітаю тебе інженер-розробник!!!
-        //h1 Ctrl+Shift+Delete
-        //h1 *** !!!!!  #{user}
-        p.c На цему ресурсі ти знайдеш: 
-        div(style="display: flex;")
-          img.c(src="./img/general/HH.svg" style="width: 7em; display: block;")
-          div(style="margin-left: 1em;")
-            p 
-              br
-              ul
-                li JavaScript уроки. 
-                li JavaScript приклади коду, напрацювання, кращі практики. 
-                li Новини, прогнози, тенденції світу веб розробки і JavaScript стеку технологій. 
-                li Методи ефективного розвитку та заробітку. 
-              br
-        h2.c Cпільнота JS-CLAN 
-        br
-        p Що більше ефективно організованих інженерних груп, тим більш ефективно ми досягаємо наших цілей. Живімо для САМЕ НАШОГО успіху, сили, щастя і радості. Ми цивілізація. Ми технологія. Ми майбутнє. 
-        br
-        .shadow
-        .bottom
-          b.more(onclick="open_2(); ") more
-            br
-            | ▼
-      script.
-        const open_2 = () => {
-           info_2.style.height = 'auto';
-           document.querySelector('.shadow').style.display = 'none';
-           document.querySelector('.bottom').style.display = 'none';
+        h2.c Ресурс для Java Script розробників
 
-        }
-
-
-      .js-2020(style="background: darkslateblue; text-align: center;")
-        br
-        .c(style="position: relative; display: inline-block; margin: auto;") Професійний курс
-          .bage безкоштовно!
-        h3.c(style="--left: 0;" data-en=""  title="Новини Клану" ) "JavaScript 2020"
-        section.limit.flex
-          p(style="width: 100%;") ......
-            br
-            br
-            a.btn.c(href="/lessons/course-JavaScript-2020") ПОЧАТИ >
-
-
-      // ЇЖАК !!!
-      //
-      //- .js-ijak(style="background: turquoise; color: #122b3b; text-align: center;")
-      //-   br
-      //-   .c(style="position: relative; display: inline-block; margin: auto;") Курс для початківців та дітей
-      //-     .bage безкоштовно!
-      //-   h3.c(style="--left: 0;" data-en=""  title="Новини Клану" ) "js-їжак"
-      //-   section.limit.flex
-      //-     p(style="width: 100%; ") descr
-      //-       br
-      //-       br
-      //-       a.btn.c(href="/js-ijak") ПОЧАТИ >
-
-
-
-      .shadow-line
-        //- h3.t.c(style="--left: 0;" data-en="Clan News"  data-ua="Новини Клану" )
-        br
-        h3.c(style="--left: 0;" data-en=""  title="Новини Клану" ) Clan News 
-        section#content.limit.flex
-        br
+        .menu(style="text-align: center;")
+          br
+          br
+          a.c(href="http://localhost:4200/lessons" class="action-button shadow animate green") Уроки Java Script
+          br
+          br
+          br
+          a.c(href="#" class="action-button shadow animate yellow") Члени
 
 
       //-
@@ -209,18 +67,6 @@ html(lang='en')
         button#notifications.t(
               data-en="I want to receive notifications"  
               data-ua="Я хочу отримувати сповіщення" )
-
-          
-      //-
-      //- chat
-      //-
-      //- br
-      //- hr
-      //- br
-        
-      //- h1 
-      //-   a(href='/chats/root') Основне Обговорення >>>
-      //- include includes/chats.pug  
 
 
 
