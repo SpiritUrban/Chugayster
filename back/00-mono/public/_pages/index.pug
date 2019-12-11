@@ -59,6 +59,98 @@ html(lang='en')
           a.c(href="#" class="action-button shadow animate yellow") Члени
 
 
+
+
+
+      //- Style ------------------------------------------------------------------------------------------
+      style.
+        .info_2_shadow {
+          filter: blur(15px);
+          background: #222831;
+          height: 8em;
+          width: 100%;
+          position: absolute;
+          bottom: -3.5em;
+          left: 0;
+        }
+        .bottom{
+          height: 2em;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0; 
+        }
+        .more {
+          border-top-left-radius: 1em;
+          border-top-right-radius: 1em;
+          width: 6em;
+          height: 2em;
+          margin: auto;
+          background: white;
+          text-align: center;
+          line-height: 1em;
+          color: #122b3b;
+          opacity: .5;
+          display: block;
+          cursor: pointer;
+        }
+        .more:hover{
+          opacity: 1;
+        }
+        .bage{
+          position: absolute;
+          right: -6em;
+          top: -1em;
+          background: green;
+          color: white;
+          border-radius: 1em;
+          padding: .1em .5em;
+          transform: rotate(15deg);
+        }
+        .info_2 {
+          height: 16em; 
+          overflow: hidden; 
+          position: relative;
+        }
+
+      section.info_2.limit
+        br
+        h2.c Вітаю тебе інженер-розробник!!!
+        //h1 Ctrl+Shift+Delete
+        //h1 *** !!!!!  #{user}
+        p.c На цему ресурсі ти знайдеш: 
+        div(style="display: flex;")
+          div(style="margin-left: 1em;")
+            p 
+              br
+              ul
+                li JavaScript уроки. 
+                li JavaScript приклади коду, напрацювання, кращі практики. 
+                li Новини, прогнози, тенденції світу веб розробки і JavaScript стеку технологій. 
+                li Методи ефективного розвитку та заробітку. 
+              br
+        h2.c Cпільнота JS-CLAN 
+        br
+        p Що більше ефективно організованих інженерних груп, тим більш ефективно ми досягаємо наших цілей. Живімо для САМЕ НАШОГО успіху, сили, щастя і радості. Ми цивілізація. Ми технологія. Ми майбутнє. 
+        br
+        .info_2_shadow
+        .bottom
+          b.more(onclick="open_2(); ") more
+            br
+            | ▼
+      script.
+        const open_2 = () => {
+           document.querySelector('.info_2').style.height = 'auto';
+           document.querySelector('.info_2_shadow').style.display = 'none';
+           document.querySelector('.bottom').style.display = 'none';
+
+        }
+
+
+
+
+
+
       //-
       //- dummy notifications !!! important
       //-

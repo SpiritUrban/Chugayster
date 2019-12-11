@@ -30,28 +30,28 @@ const news = [
 //
 // Generating content based on the template
 //
-var content = news.reduce(function(prev, curr) {
-	return prev + `
-		<article>
-			<img src='data/img/placeholder.png' data-src='data/img/${curr.img}' alt='${curr.name}'>
-			<h3>${curr.name}</h3>
-			<ul>
-			<li><span>Author:</span> <strong>${curr.author}</strong></li>
-			<li><span>More:</span> <a href='${curr.link}'>/${curr.slug}</a></li>
-			<li>
-				<span>Description:</span>
-				<strong 
-					class="t"
-					data-en="${curr.description}"
-					data-ua="${curr.description_ua}"
-				></strong>
-				</li>
-			</ul>
-	  	</article>`;
-  }, [""]);
+// var content = news.reduce(function(prev, curr) {
+// 	return prev + `
+// 		<article>
+// 			<img src='data/img/placeholder.png' data-src='data/img/${curr.img}' alt='${curr.name}'>
+// 			<h3>${curr.name}</h3>
+// 			<ul>
+// 			<li><span>Author:</span> <strong>${curr.author}</strong></li>
+// 			<li><span>More:</span> <a href='${curr.link}'>/${curr.slug}</a></li>
+// 			<li>
+// 				<span>Description:</span>
+// 				<strong 
+// 					class="t"
+// 					data-en="${curr.description}"
+// 					data-ua="${curr.description_ua}"
+// 				></strong>
+// 				</li>
+// 			</ul>
+// 	  	</article>`;
+//   }, [""]);
 
 
-document.querySelector('#content').innerHTML = content;
+// document.querySelector('#content').innerHTML = content;
 
 
 
