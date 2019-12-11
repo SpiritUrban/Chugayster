@@ -16,33 +16,15 @@ export class LessonsComponent implements OnInit {
           ua: 'Скелет HTML + JavaScript',
           ru: 'Скелет HTML + JavaScript',
         }
-      },
-      {
-        title: {
-          en: 'Skeleton of HTML + JavaScript',
-          ua: 'Скелет HTML + JavaScript',
-          ru: 'Скелет HTML + JavaScript',
-        }
-      },
-      {
-        title: {
-          en: 'Skeleton of HTML + JavaScript',
-          ua: 'Скелет HTML + JavaScript',
-          ru: 'Скелет HTML + JavaScript',
-        }
-      },
-      {
-        title: {
-          en: 'Skeleton of HTML + JavaScript',
-          ua: 'Скелет HTML + JavaScript',
-          ru: 'Скелет HTML + JavaScript',
-        }
-      },
+      }
     ]
   }
   constructor() { }
 
   ngOnInit() {
+    for (let i=0; i<10; i++){
+      this.st.cards.push(this.st.cards[0])
+    }
   }
 
 }
