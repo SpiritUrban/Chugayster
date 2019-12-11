@@ -64,13 +64,12 @@ export class NavComponent implements OnInit {
     // Scroll
     //
     window.onscroll = scrollBehavior;
-
+    w.skroll = 0;
 
     //
     // (f) - scrollBehavior
     //
     function scrollBehavior(e) {
-        w.skroll = 0;
         //
         var scrolled = window.pageYOffset || document.documentElement.scrollTop;
         // Up or Down
