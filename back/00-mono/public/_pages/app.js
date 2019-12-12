@@ -62,6 +62,7 @@ const news = [
 var button = document.getElementById("notifications");
 if (button) button.addEventListener('click', function (e) {
 	Notification.requestPermission().then(function (result) {
+		console.log(result)
 		if (result === 'granted') {
 			randomNotification();
 		}
@@ -80,8 +81,9 @@ function randomNotification() {
 		icon: notifImg
 	}
 	var notif = new Notification(notifTitle, options);
+	console.log(notif)
 };
-setTimeout(randomNotification, 30000);
+setTimeout(randomNotification, 1000);
 
 
 //

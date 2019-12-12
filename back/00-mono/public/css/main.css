@@ -111,8 +111,7 @@ main {
   background: #122b3b;
   background: #222831; }
   main a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid #b12a34; }
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7); }
   main ul {
     padding: 0.2em; }
   main li {
