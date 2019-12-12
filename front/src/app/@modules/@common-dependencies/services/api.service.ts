@@ -20,4 +20,7 @@ export class ApiService {
 
   register = (userData) => this.http.post('http://localhost:49001/api/auth/register', userData, httpOptions).toPromise();
 
+  getJson = (path) => this.http.get('./assets' + path).toPromise();
+  
+
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../@common-dependencies/services/api.service';
 
 @Component({
   selector: 'app-lessons',
@@ -8,21 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class LessonsComponent implements OnInit {
 
   st = {
-    cards: [
-      {
-        name: 'skeleton',
-        title: {
-          en: 'Skeleton of HTML + JavaScript',
-          ua: 'Скелет HTML + JavaScript',
-          ru: 'Скелет HTML + JavaScript',
-        }
-      }
-    ]
+    lang: 'ua',
+    cards: <any>[]
   }
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
-  ngOnInit() {
-    for (let i=0; i<10; i++){
+  async ngOnInit() {
+    try {
+      this.st.cards = await this.api.getJson('/js-clan/data/lessons.json');
+      console.log(this.st.cards);
+    } catch (error) {
+      console.log(error);
+    }
+    for (let i = 0; i < 10; i++) {
       this.st.cards.push(this.st.cards[0])
     }
   }
