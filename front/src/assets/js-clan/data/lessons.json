@@ -6,7 +6,31 @@
             "ua": "Скелет HTML + JavaScript",
             "ru": "Скелет HTML + JavaScript"
         },
-        "img": "https://yt3.ggpht.com/a/AGF-l7_hRCxgOf_7m6h2O1WsVilrkpuM3OEinvQe0A=s48-c-k-c0xffffffff-no-rj-mo",
+        "img": "assets/js-clan/img/lessons/0.jpg",
+        "description": {
+            "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
+        }
+    },
+    {
+        "name": "???",
+        "title": {
+            "en": "Skeleton of HTML + JavaScript",
+            "ua": "Скелет HTML + JavaScript",
+            "ru": "Скелет HTML + JavaScript"
+        },
+        "img": "assets/js-clan/img/lessons/1.jpg",
+        "description": {
+            "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
+        }
+    },
+    {
+        "name": "???",
+        "title": {
+            "en": "Skeleton of HTML + JavaScript",
+            "ua": "Скелет HTML + JavaScript",
+            "ru": "Скелет HTML + JavaScript"
+        },
+        "img": "assets/js-clan/img/lessons/1-2.jpg",
         "description": {
             "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
         }
