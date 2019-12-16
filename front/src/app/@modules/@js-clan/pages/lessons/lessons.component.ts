@@ -23,9 +23,9 @@ export class LessonsComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
-    for (let i = 0; i < 10; i++) {
-      this.st.cards.push(this.st.cards[0])
-    }
+    // for (let i = 0; i < 10; i++) {
+    //   this.st.cards.push(this.st.cards[0])
+    // }
   }
 
 }

@@ -1,38 +1,111 @@
 [
     {
+        "number": "0",
         "name": "???",
+        "video": "-8gk0tXZu2w",
+        "img": "assets/js-clan/img/lessons/0.jpg",        
         "title": {
             "en": "Skeleton of HTML + JavaScript",
-            "ua": "Скелет HTML + JavaScript",
-            "ru": "Скелет HTML + JavaScript"
+            "ua": "Скелет HTML + JavaScript"
         },
-        "img": "assets/js-clan/img/lessons/0.jpg",
         "description": {
-            "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
+            "ua": "Початок, інструменти, структура."
+        },
+        "text": {
+            "en": "Fundamentals: Browser, Web page, its structure, browser tools.",
+            "ua": "Основа основ: браузер, веб сторінка, її структура, інструменти розробника у браузері."
         }
     },
     {
+        "number": "1.1",
         "name": "???",
-        "title": {
-            "en": "Skeleton of HTML + JavaScript",
-            "ua": "Скелет HTML + JavaScript",
-            "ru": "Скелет HTML + JavaScript"
-        },
+        "video": "hlbkwWj6fYo",
         "img": "assets/js-clan/img/lessons/1.jpg",
+        "title": {
+            "en": "The structure of a web-project",
+            "ua": "Структура веб-проекту"
+        },
         "description": {
-            "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
         }
     },
     {
+        "number": "1.2",
         "name": "???",
-        "title": {
-            "en": "Skeleton of HTML + JavaScript",
-            "ua": "Скелет HTML + JavaScript",
-            "ru": "Скелет HTML + JavaScript"
-        },
+        "video": "B-q7zap3IvM",
         "img": "assets/js-clan/img/lessons/1-2.jpg",
+        "title": {
+            "en": "The structure of a web-project",
+            "ua": "Структура веб-проекту"
+        },
         "description": {
-            "ua": "dfsd sdsdfg s sdgsdgsdg sg sd"
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "ua": "",
+            "en": ""
+        }
+    },
+    {
+        "number": "1.3",
+        "name": "???",
+        "video": "zDypd0ob0_o",
+        "img": "assets/js-clan/img/lessons/1-3.jpg",
+        "title": {
+            "en": "",
+            "ua": "Структура великого проекту"
+        },
+        "description": {
+            "ua": "Відповіді"
+        },
+        "text": {
+            "en": "File structure of large projects.",
+            "ua": "Файлова структура великих проектів. "
+        }
+    },
+
+    {
+        "number": "2.1",
+        "name": "???",
+        "video": "9imNqIsp2hI",
+        "img": "assets/js-clan/img/lessons/2-1.jpg",
+
+        "title": {
+            "en": "Variables and Types of Data",
+            "ua": "Змінні і типи данних"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+    {
+        "number": "2.2",
+        "name": "???",
+        "video": "BL-F_noWRvk",
+        "img": "assets/js-clan/img/lessons/2-2.jpg",
+        "title": {
+            "en": "Variables and Types of Data",
+            "ua": "Змінні і типи данних"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
         }
     }
 ]
+

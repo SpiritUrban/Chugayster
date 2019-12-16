@@ -29,19 +29,18 @@
                         <div class="card-body">
                             <p class="card-text">{{card.description[st.lang]}}</p>
                         </div>
-                        <div class="card-body"></div>
-                        <div class="card-footer text-muted">2 days ago</div>
+                        <div class="card-footer text-muted">Урок: {{card.number}}</div>
                     </div>
 
                     <!-- --- -->
                     <div class="card mb-3 flip-card-back">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk Some quick example text to build on the card title and make up the bulk Some quick example text to build on the card title and make up the bulk Some quick example text to build on the card title and make up the bulk </p>
+                            <p class="card-text">{{card.text[st.lang]}}</p>
                         </div>
                         <div class="card-body">
                             <a class="btn btn-success" [routerLink]="['/lesson', card.name]">Go to lesson</a>
                         </div>
-                        <div class="card-footer text-muted"> 2 days ago </div>
+                        <div class="card-footer text-muted">Урок: {{card.number}}</div>
                     </div>
 
                 </div>
