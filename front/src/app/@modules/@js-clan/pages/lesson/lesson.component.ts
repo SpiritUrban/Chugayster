@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import  state  from '../../../../app-state';
 import { log } from '../../../../my_modules/stuff';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lesson',
@@ -16,13 +17,18 @@ export class LessonComponent implements OnInit {
     cards: <any>[],
     currentCard: <any>{
       title: '',
-      description: ''
+      description: '',
+      video: 'zKOQhgWQPM4'
     }
   }
+  url: string = "https://www.youtube.com/embed/";
+  urlSafe: SafeResourceUrl;
+  // src="https://www.youtube.com/embed/QWzLHuEUQ_w"
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    public sanitizer: DomSanitizer
   ) { }
 
   async ngOnInit() {
@@ -43,6 +49,9 @@ export class LessonComponent implements OnInit {
     //3
     this.st.currentCard = this.st.cards.filter( card => card.name == lessonName )[0]
     log(this.st.currentCard)
+
+    //4
+    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url + this.st.currentCard.video);
 
   }
 
