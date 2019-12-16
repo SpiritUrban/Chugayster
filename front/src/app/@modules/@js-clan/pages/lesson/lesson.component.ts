@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import  state  from '../../../../app-state';
+import state from '../../../../app-state';
 import { log } from '../../../../my_modules/stuff';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -23,7 +23,6 @@ export class LessonComponent implements OnInit {
   }
   url: string = "https://www.youtube.com/embed/";
   urlSafe: SafeResourceUrl;
-  // src="https://www.youtube.com/embed/QWzLHuEUQ_w"
 
   constructor(
     private route: ActivatedRoute,
@@ -32,27 +31,27 @@ export class LessonComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    // 1
-    let lessonName = this.route.snapshot.paramMap.get('name');
-    log(lessonName)
-    // log(state)
-
-
-    // 2
     try {
+
+      // 1
+      let lessonName = this.route.snapshot.paramMap.get('name');
+      log(lessonName)
+      // log(state)
+
+      // 2
       this.st.cards = await this.api.getJson('/js-clan/data/lessons.json');
-      console.log(this.st.cards);
+      log(this.st.cards);
+
+      //3
+      this.st.currentCard = this.st.cards.filter(card => card.name == lessonName)[0]
+      log(this.st.currentCard)
+
+      //4
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + this.st.currentCard.video);
+
     } catch (error) {
-      console.log(error);
+      log(error);
     }
-
-    //3
-    this.st.currentCard = this.st.cards.filter( card => card.name == lessonName )[0]
-    log(this.st.currentCard)
-
-    //4
-    this.urlSafe= this.sanitizer.bypassSecurityTrustResourceUrl(this.url + this.st.currentCard.video);
-
   }
 
 }
