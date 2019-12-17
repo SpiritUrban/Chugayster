@@ -109,7 +109,7 @@
     },
     {
         "number": "3.1",
-        "name": "if-explanation",
+        "name": "if---Explanation",
         "video": "RsBMXyz7_dw",
         "img": "assets/js-clan/img/lessons/3-1.jpg",
         "title": {
@@ -127,7 +127,7 @@
     },
     {
         "number": "3.2",
-        "name": "if-practice",
+        "name": "if---Practice",
         "video": "QWzLHuEUQ_w",
         "img": "assets/js-clan/img/lessons/3-2.jpg",
         "title": {
@@ -148,43 +148,49 @@
 
 
 
-    
+
     {
-        "number": "",
-        "name": "???",
-        "video": "",
-        "img": "assets/js-clan/img/lessons/.jpg",
+        "number": "4.1",
+        "name": "Complex-data-types---Explanation",
+        "video": "gMgUwAMK9nk",
+        "img": "assets/js-clan/img/lessons/4-1.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Complex data types",
+            "ua": "Складні типи данних"
         },
         "description": {
-            "en": "",
-            "ua": ""
+            "en": "Explanation",
+            "ua": "Розяснення"
         },
         "text": {
             "en": "",
-            "ua": ""
+            "ua": "Складні типи данних: масиви, об'єкти, функції."
         }
     },
     {
-        "number": "",
-        "name": "???",
-        "video": "",
-        "img": "assets/js-clan/img/lessons/.jpg",
+        "number": "4.2",
+        "name": "Complex-data-types---Practice",
+        "video": "cIL_8YrW5bc",
+        "img": "assets/js-clan/img/lessons/4-2.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Complex data types",
+            "ua": "Складні типи данних"
         },
         "description": {
-            "en": "",
-            "ua": ""
+            "en": "Practice",
+            "ua": "Практика"
         },
         "text": {
             "en": "",
-            "ua": ""
+            "ua": "Складні типи данних: масиви, об'єкти, функції."
         }
     },
+
+
+
+
+
+
     {
         "number": "",
         "name": "???",
