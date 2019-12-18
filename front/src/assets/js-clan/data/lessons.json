@@ -233,7 +233,7 @@
 
     {
         "number": "7.1",
-        "name": "Manage-site-elements",
+        "name": "Manage-site-elements---Explanation",
         "video": "QM1nDMPtPog",
         "img": "assets/js-clan/img/lessons/7-1.jpg",
         "title": {
@@ -249,22 +249,24 @@
             "ua": "Керування елементами сайту"
         }
     },
+
+
     {
-        "number": "",
-        "name": "???",
-        "video": "",
-        "img": "assets/js-clan/img/lessons/.jpg",
+        "number": "7.2",
+        "name": "Manage-site-elements---Practice",
+        "video": "s_4svUmN1Sw",
+        "img": "assets/js-clan/img/lessons/7-2.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
         },
         "description": {
-            "en": "",
-            "ua": ""
+            "en": "Practice",
+            "ua": "Практика"
         },
         "text": {
             "en": "",
-            "ua": ""
+            "ua": "Керування елементами сайту."
         }
     },
     {
@@ -273,8 +275,8 @@
         "video": "",
         "img": "assets/js-clan/img/lessons/.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
         },
         "description": {
             "en": "",
