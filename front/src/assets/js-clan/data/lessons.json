@@ -229,22 +229,24 @@
             "ua": "Масив у реальному світі і у програмі"
         }
     },
+
+
     {
-        "number": "",
-        "name": "???",
-        "video": "",
-        "img": "assets/js-clan/img/lessons/.jpg",
+        "number": "7.1",
+        "name": "Manage-site-elements",
+        "video": "QM1nDMPtPog",
+        "img": "assets/js-clan/img/lessons/7-1.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
         },
         "description": {
-            "en": "",
-            "ua": ""
+            "en": "Explanation",
+            "ua": "Розяснення"
         },
         "text": {
             "en": "",
-            "ua": ""
+            "ua": "Керування елементами сайту"
         }
     },
     {
