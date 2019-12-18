@@ -212,21 +212,21 @@
 
 
     {
-        "number": "",
-        "name": "???",
-        "video": "",
-        "img": "assets/js-clan/img/lessons/.jpg",
+        "number": "6",
+        "name": "Understanding-the-essence-Array",
+        "video": "-OdwbBXtBdA",
+        "img": "assets/js-clan/img/lessons/6.jpg",
         "title": {
-            "en": "",
-            "ua": ""
+            "en": "Understanding the essence - Array",
+            "ua": "Розуміння сутності - Масив"
         },
         "description": {
-            "en": "",
-            "ua": ""
+            "en": "Explanation",
+            "ua": "Розяснення"
         },
         "text": {
             "en": "",
-            "ua": ""
+            "ua": "Масив у реальному світі і у програмі"
         }
     },
     {
