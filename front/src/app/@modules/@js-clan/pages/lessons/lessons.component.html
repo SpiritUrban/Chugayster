@@ -15,7 +15,7 @@
 
         <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let card of st.cards">
 
-            <div class="flip-card">
+            <div class="flip-card" *ngIf="card.number">
                 <div class="flip-card-inner">
 
                     <!-- --- -->
@@ -46,7 +46,14 @@
                 </div>
 
             </div>
+
         </div>
+
+        <div class="PS" >
+            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>
+            <a class="btn btn-success" [routerLink]="['/wont-more']">ХОЧУ ЩЕ !!!</a>
+        </div>
+
     </div>
 </div>
 
