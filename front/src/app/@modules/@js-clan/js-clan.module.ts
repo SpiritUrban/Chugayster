@@ -11,6 +11,7 @@ import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LessonComponent } from './pages/lesson/lesson.component';
 import { MainComponent } from './pages/main/main.component';
 import { P404Component } from './pages/p404/p404.component';
+import { WantMoreLessonsComponent } from './pages/want-more-lessons/want-more-lessons.component';
 
 // Components
 import { NavComponent } from './components/general/nav/nav.component';
@@ -22,7 +23,7 @@ import { ClanFooterComponent } from './components/general/clan-footer/clan-foote
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent
   ],
   imports: [
     CommonModule,

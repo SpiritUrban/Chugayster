@@ -6,12 +6,15 @@ import { MainComponent } from './pages/main/main.component';
 import { LessonsComponent } from './pages/lessons/lessons.component';
 import { LessonComponent } from './pages/lesson/lesson.component';
 import { P404Component } from './pages/p404/p404.component';
+import { WantMoreLessonsComponent } from './pages/want-more-lessons/want-more-lessons.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
   { path: 'lessons', component: LessonsComponent },
   { path: 'lesson/:name', component: LessonComponent },
+  { path: 'want-more-lessons', component: WantMoreLessonsComponent },
+
   { path: 'p404', component: P404Component },
 ];
 
