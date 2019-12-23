@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose')
 
-// create a APP model
+// create a Vote model
 var Vote = mongoose.model('Vote', {
     type: String,
     data: Object,
