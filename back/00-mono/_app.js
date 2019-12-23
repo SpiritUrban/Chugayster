@@ -48,7 +48,7 @@ app
   }))
   .use(passport.initialize())
   .use(passport.session())
-  .use( async (req, res, next) => { // home page
+  .use(async (req, res, next) => { // home page
     console.log('info: url = ', req.url)
     req.url == '/' ? res.render('index', commonInfo(req)) : next()
   })
@@ -63,7 +63,7 @@ app
   .use(methodOverride())
   .use(function (req, res, next) { //allow cross origin requests
     res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
-    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:4200");
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // http://127.0.0.1, 192.168.0.100
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header("Access-Control-Allow-Credentials", true);
     next()

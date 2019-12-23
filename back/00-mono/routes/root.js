@@ -2,6 +2,7 @@ const log = console.log
 const fs = require('fs').promises
 const User = require('../models/user.js')
 const Chat = require('../models/chat.js')
+const Vote = require('../models/vote.js')
 const mailer = require('../controllers/mail/mailer')
 const express = require('express')
 const router = express.Router()
@@ -292,6 +293,20 @@ router.all(['/programs', '/programs/*'], async (req, res, next) => {
 })
 
 
+router.get('/vote-for-lessons', async (req, res) => {
+    const v = new Vote({
+        type: 'Want more lessons',
+        data: {
+            headers: req.headers,
+            ip: req.ip
+        }
+    });
+    v.save();
+    res.json({ok: true});
+})
+
+
+
 
 
 
@@ -300,7 +315,7 @@ router.get('/*', async (req, res, next) => {
     const html = await fs.readFile('../../front/dist/front/index.html');
     res.end(html);
     // res.redirect('/index.html');
-  });
+});
 
 
 module.exports = router;

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
+import { ApiJsClanService } from '../../services/api-js-clan.service';
+import { Router } from '@angular/router';
+import { log } from 'src/app/my_modules/stuff';
 
 @Component({
   selector: 'app-lessons',
@@ -10,10 +13,18 @@ export class LessonsComponent implements OnInit {
 
   st = {
     lang: 'ua',
-    cards: <any>[]
+    cards: <any>[],
+    alert: {
+      show: false,
+      title: '',
+      body: '',
+      // bodyDev: 'Tech details'
+  }
   }
   constructor(
-    private api: ApiService
+    private api: ApiService,
+    private _api: ApiJsClanService,
+    private router: Router
   ) { }
 
   async ngOnInit() {
@@ -26,6 +37,28 @@ export class LessonsComponent implements OnInit {
     // for (let i = 0; i < 10; i++) {
     //   this.st.cards.push(this.st.cards[0])
     // }
+  }
+
+  async wantMoreLessons() {
+    // this.router.navigate(['/want-more-lessons']);
+    const r: any = await this._api.voteForLessons();
+
+    (r.ok) ?
+      this.msgVoteOk() :
+      this.msgVoteBad()
+    log(r)
+  }
+
+  msgVoteOk(){
+    this.st.alert.title = ':)';
+    this.st.alert.body = 'Your vote counted';
+    this.st.alert.show = true
+  }
+
+  msgVoteBad(){
+    this.st.alert.title = ':(';
+    this.st.alert.body = 'Something wrong';
+    this.st.alert.show = true
   }
 
 }

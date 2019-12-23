@@ -51,13 +51,15 @@
 
         <div class="PS" >
             <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>
-            <a class="btn btn-success" [routerLink]="['/want-more-lessons']">ХОЧУ ЩЕ !!!</a>
+            <a class="btn btn-success" (click)="wantMoreLessons()" >ХОЧУ ЩЕ !!!</a>
+            <!-- [routerLink]="['/want-more-lessons']" -->
+            
         </div>
 
     </div>
 </div>
 
 
-<!-- <app-extra-alert [st]="st.alert"></app-extra-alert> -->
+<app-extra-alert [st]="st.alert"></app-extra-alert>
 
 <app-clan-footer></app-clan-footer>
