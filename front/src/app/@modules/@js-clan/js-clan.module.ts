@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { JsClanRoutingModule } from './js-clan-routing.module';
 
@@ -20,6 +21,9 @@ import { NavComponent } from './components/general/nav/nav.component';
 import { ClanFooterComponent } from './components/general/clan-footer/clan-footer.component';
 
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     LessonsComponent, 
@@ -30,7 +34,9 @@ import { ClanFooterComponent } from './components/general/clan-footer/clan-foote
   imports: [
     CommonModule,
     JsClanRoutingModule,
-    CommonDependenciesModule
+    CommonDependenciesModule,
+    FormsModule,
+    NgbModule
   ]
 })
 export class JsClanModule { }

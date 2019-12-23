@@ -34,7 +34,9 @@ import { ApiService } from './@modules/@common-dependencies/services/api.service
     // ReactiveFormsModule,
     // FormsModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
