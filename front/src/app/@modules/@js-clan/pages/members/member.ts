@@ -3,5 +3,7 @@ export interface Member {
     img: string;
     name: string;
     status: string;
+    carma: number;
+    level: number;
   }
   

@@ -2,8 +2,11 @@ import {Injectable, PipeTransform} from '@angular/core';
 
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 
-import {Country} from './country';
-import {COUNTRIES} from './countries';
+// import {Country} from './country';
+// import {members} from './members';
+
+import {Member} from './member';
+import {MEMBERS} from './members';
 
 import { DecimalPipe } from '@angular/common';
 
@@ -11,7 +14,7 @@ import {debounceTime, delay, switchMap, tap} from 'rxjs/operators';
 import {SortDirection} from './sortable.directive';
 
 interface SearchResult {
-  countries: Country[];
+  members: Member[];
   total: number;
 }
 
@@ -27,28 +30,28 @@ function compare(v1, v2) {
   return v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
 }
 
-function sort(countries: Country[], column: string, direction: string): Country[] {
+function sort(members: Member[], column: string, direction: string): Member[] {
   if (direction === '') {
-    return countries;
+    return members;
   } else {
-    return [...countries].sort((a, b) => {
+    return [...members].sort((a, b) => {
       const res = compare(a[column], b[column]);
       return direction === 'asc' ? res : -res;
     });
   }
 }
 
-function matches(country: Country, term: string, pipe: PipeTransform) {
-  return country.name.toLowerCase().includes(term.toLowerCase())
-    || pipe.transform(country.area).includes(term)
-    || pipe.transform(country.population).includes(term);
+function matches(member: Member, term: string, pipe: PipeTransform) {
+  return member.name.toLowerCase().includes(term.toLowerCase())
+    || pipe.transform(member.carma).includes(term)
+    || pipe.transform(member.level).includes(term);
 }
 
 @Injectable({providedIn: 'root'})
-export class CountryService {
+export class MemberService {
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
-  private _countries$ = new BehaviorSubject<Country[]>([]);
+  private _members$ = new BehaviorSubject<Member[]>([]);
   private _total$ = new BehaviorSubject<number>(0);
 
   private _state: State = {
@@ -69,14 +72,14 @@ export class CountryService {
       delay(200),
       tap(() => this._loading$.next(false))
     ).subscribe(result => {
-      this._countries$.next(result.countries);
+      this._members$.next(result.members);
       this._total$.next(result.total);
     });
 
     this._search$.next();
   }
 
-  get countries$() { return this._countries$.asObservable(); }
+  get members$() { return this._members$.asObservable(); }
   get total$() { return this._total$.asObservable(); }
   get loading$() { return this._loading$.asObservable(); }
   get page() { return this._state.page; }
@@ -98,14 +101,14 @@ export class CountryService {
     const {sortColumn, sortDirection, pageSize, page, searchTerm} = this._state;
 
     // 1. sort
-    let countries = sort(COUNTRIES, sortColumn, sortDirection);
+    let members = sort(MEMBERS, sortColumn, sortDirection);
 
     // 2. filter
-    countries = countries.filter(country => matches(country, searchTerm, this.pipe));
-    const total = countries.length;
+    members = members.filter(member => matches(member, searchTerm, this.pipe));
+    const total = members.length;
 
     // 3. paginate
-    countries = countries.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
-    return of({countries, total});
+    members = members.slice((page - 1) * pageSize, (page - 1) * pageSize + pageSize);
+    return of({members, total});
   }
 }

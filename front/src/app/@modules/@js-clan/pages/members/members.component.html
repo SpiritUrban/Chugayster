@@ -21,20 +21,20 @@
     <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col" sortable="name" (sort)="onSort($event)">Country</th>
-      <th scope="col" sortable="area" (sort)="onSort($event)">Area</th>
-      <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
+      <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+      <th scope="col" sortable="area" (sort)="onSort($event)">Carma</th>
+      <th scope="col" sortable="population" (sort)="onSort($event)">Level</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let country of countries$ | async">
-      <th scope="row">{{ country.id }}</th>
+    <tr *ngFor="let member of members$ | async">
+      <th scope="row">{{ member.id }}</th>
       <td>
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2" style="width: 20px">
-        <ngb-highlight [result]="country.name" [term]="service.searchTerm"></ngb-highlight>
+        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + member.img" class="mr-2" style="width: 20px">
+        <ngb-highlight [result]="member.name" [term]="service.searchTerm"></ngb-highlight>
       </td>
-      <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="member.carma | number" [term]="service.searchTerm"></ngb-highlight></td>
+      <td><ngb-highlight [result]="member.level | number" [term]="service.searchTerm"></ngb-highlight></td>
     </tr>
     </tbody>
   </table>

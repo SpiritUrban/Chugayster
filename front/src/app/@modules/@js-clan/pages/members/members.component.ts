@@ -4,8 +4,8 @@ import { DecimalPipe } from '@angular/common';
 import { QueryList, ViewChildren } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import {Country} from './country';
-import { CountryService } from './country.service';
+import {Member} from './member';
+import { MemberService } from './member.service';
 import { NgbdSortableHeader, SortEvent } from './sortable.directive';
 
 
@@ -13,21 +13,21 @@ import { NgbdSortableHeader, SortEvent } from './sortable.directive';
   selector: 'app-members',
   templateUrl: './members.component.html',
   styleUrls: ['./members.component.sass'],
-  providers: [CountryService, DecimalPipe]
+  providers: [MemberService, DecimalPipe]
 })
 
 
 export class MembersComponent implements OnInit {
 
-  countries$: Observable<Country[]>;
+  members$: Observable<Member[]>;
   total$: Observable<number>;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
   constructor(
-    public service: CountryService
+    public service: MemberService
     ) {
-    this.countries$ = service.countries$;
+    this.members$ = service.members$;
     this.total$ = service.total$;
   }
 
