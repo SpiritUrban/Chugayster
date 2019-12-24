@@ -18,7 +18,7 @@
     <tr *ngFor="let member of members$ | async">
       <th scope="row">{{ member.id }}</th>
       <td>
-        <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + member.img" class="mr-2" style="width: 20px">
+        <img [src]="member.img" class="mr-2" style="width: 20px">
         <ngb-highlight [result]="member.name" [term]="service.searchTerm"></ngb-highlight>
       </td>
       <td><ngb-highlight [result]="member.carma | number" [term]="service.searchTerm"></ngb-highlight></td>
