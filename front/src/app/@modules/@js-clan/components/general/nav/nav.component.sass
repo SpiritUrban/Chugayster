@@ -120,13 +120,13 @@ nav
 	top: -16em
 
 nav
-	&:hover
-		background: #00131d
-		padding-right: 1em
-		padding-bottom: .25em
-		border-bottom: 0.2em solid #1f1f1f
-		height: 10em
-		transition-duration: 1.5s
+	// &:hover  .................................................................... OPEN !!!
+	// 	background: #00131d
+	// 	padding-right: 1em
+	// 	padding-bottom: .25em
+	// 	border-bottom: 0.2em solid #1f1f1f
+	// 	height: 10em
+	// 	transition-duration: 1.5s
 	a
 		margin: .25em .25em .25em .5em
 		width: fit-content
@@ -143,18 +143,34 @@ nav
 			color: white
 			opacity: 1
 
+
+
 .nav-mobile
 	top: 0
 	left: 0
 	background: #2d2d2d url(/assets/js-clan/img/bg.png) repeat
-	padding-right: 1em
-	padding-bottom: .25em
+	// padding-right: 1em
+	// padding-bottom: .25em
 	border-bottom: 0.2em solid #1f1f1f
 	height: 20em
 	position: fixed
 	width: 100vw
 	height: 100vh
 	transition-duration: 1.5s
+	padding: 2em 1em
+	display: block
+	text-align: center
+	a
+		width: 100%
+		display: block
+		background: rgba(255, 255, 255, 0.07)
+		cursor: pointer
+		margin: 1em 0
+		&:hover
+			background: rgba(255, 255, 255, 0.2)
+
+
+
 
 @media only screen and (max-width: 600px)
 	nav
@@ -167,14 +183,12 @@ nav
 	flex-direction: column
 	font-weight: 600
 	font-size: 2em
-	background: #1f1f1f
-	border-radius: .5em
+	border-radius: .2em
 	height: fit-content
-	padding: .25em
+	padding: .35em
 	top: 1em
-	right: 1em
 	top: .2em
-	right: 0  
+	right: -.5em
 	text-align: center
 	transform: translateY(50%)
 	i
@@ -182,6 +196,7 @@ nav
 		line-height: .25em
 		width: 1.3em
 		border-radius: .5em
+		font-size: 1.5em
 	&:hover
 		background: black
 		background: #b12a34
@@ -190,3 +205,8 @@ nav
 @media only screen and (max-width: 600px)
 	.hamburger
 		display: flex
+
+
+
+.hide
+	display: none		

@@ -203,7 +203,7 @@ router.get('/pages/auth/mail-verify', async (req, res) => {
     { url: '/', path: 'index' },
     { url: 'home', path: 'index' },
     { url: 'login', path: 'pages/auth/login' }, // Page: login
-    { url: 'members', path: 'members/_members' }
+    // { url: 'members', path: 'members/_members' }
 ].map((page) => {
     router.get(`/${page.url}`, (req, res) => res.render(page.path, commonInfo(req)));
 });
@@ -252,7 +252,7 @@ router.get('/pages/auth/restore-password', async (req, res) => {
 
 // categiry page + childrens (folder component + page
 [
-    'lessons',
+    // 'lessons',
     'materials'
 ].map(category => {
     router.all([`/${category}`, `/${category}/*`], async (req, res) => {

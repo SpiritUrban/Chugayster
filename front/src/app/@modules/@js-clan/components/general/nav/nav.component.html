@@ -7,19 +7,35 @@
             <div class="led" style="--left: 76%; --top: 41%;"></div>
         </a>
         <div class="header-right">
-            <div class="languages"><a href="/login">Login</a></div>
-            <nav class="nav"><a href="/account">account</a><a href="/playlist">playlist</a><a
-                    href="/members">MEMBERS</a><a href="/lessons">lessons</a><a href="/constructs">constructs</a><a
-                    href="/materials">materials</a><a class="o6" href="/draft">...draft</a><a
-                    href="/programs">programs</a>
-                <hr><a class="o6" href="/">js</a><a class="o6" href="/">node-js</a><a class="o6" href="/">angular</a><a
-                    class="o6" href="/">react</a><a class="o6" href="/">blog</a><a class="o6"
-                    href="/">cripto-money</a><a class="o6" href="/">robots</a><a class="o6" href="/">iot</a></nav>
+            <!-- <div class="languages"><a href="/login">Login</a></div> -->
+            <nav class="nav">
+                <!-- <a href="/account">account</a> -->
+                <!-- <a href="/playlist">playlist</a> -->
+                <a [routerLink]="['/members']">MEMBERS</a>
+                <a [routerLink]="['/lessons']">lessons</a>
+
+                <!-- <a href="/constructs">constructs</a>
+                <a href="/materials">materials</a>
+                <a class="o6" href="/draft">...draft</a>
+                <a href="/programs">programs</a>
+                <hr>
+                <a class="o6" href="/">js</a>
+                <a class="o6" href="/">node-js</a>
+                <a class="o6" href="/">angular</a>
+                <a class="o6" href="/">react</a><a class="o6" href="/">blog</a>
+                <a class="o6" href="/">cripto-money</a>
+                <a class="o6" href="/">robots</a>
+                <a class="o6" href="/">iot</a> -->
+        
+
+            </nav>
         </div>
-        <div class="hamburger"><i>---</i><i>---</i><i>---</i></div>
+        <div class="hamburger">
+            <i class="mdi mdi-menu" aria-hidden="true"></i>
+        </div>
     </div>
 
 
     <script>
-</script>
+    </script>
 </header>
