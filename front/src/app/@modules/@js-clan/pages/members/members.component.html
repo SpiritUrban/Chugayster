@@ -1,21 +1,9 @@
-<p>This is a more complete example with a service that simulates server calling:</p>
-
-<ul>
-  <li>an observable async service to fetch a list of countries</li>
-  <li>sorting, filtering and pagination</li>
-  <li>simulated delay and loading indicator</li>
-  <li>debouncing of search requests</li>
-</ul>
-
-
 <form>
-
 
   <div class="form-group form-inline">
       Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
       <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
   </div>
-
 
   <table class="table table-striped">
     <thead>
