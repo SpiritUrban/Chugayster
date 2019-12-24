@@ -4,6 +4,7 @@ export interface Member {
     name: string;
     status: string;
     carma: number;
-    level: number;
+    // level: number;
+    github: string;
   }
   

@@ -1,44 +1,97 @@
-<form>
+<app-nav></app-nav>
 
-  <div class="form-group form-inline">
-      Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
-      <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
-  </div>
+<div class="container members-content">
 
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
-      <th scope="col" sortable="area" (sort)="onSort($event)">Carma</th>
-      <th scope="col" sortable="population" (sort)="onSort($event)">Level</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let member of members$ | async">
-      <th scope="row">{{ member.id }}</th>
-      <td>
-        <img [src]="member.img" class="mr-2" style="width: 20px">
-        <ngb-highlight [result]="member.name" [term]="service.searchTerm"></ngb-highlight>
-      </td>
-      <td><ngb-highlight [result]="member.carma | number" [term]="service.searchTerm"></ngb-highlight></td>
-      <td><ngb-highlight [result]="member.level | number" [term]="service.searchTerm"></ngb-highlight></td>
-    </tr>
-    </tbody>
-  </table>
+    <!-- <br>
+    <div class="row">
+        <button type="button" class="btn btn-primary">English</button>
+        <button type="button" class="btn btn-secondary">Українською</button>
+        <button type="button" class="btn btn-secondary">Русский</button>
+    </div> -->
+
+    <br>
+
+    <div class="row">
 
 
-  <div class="d-flex justify-content-between p-2">
-    <ngb-pagination
-      [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
-    </ngb-pagination>
 
-    <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-      <option [ngValue]="2">2 items per page</option>
-      <option [ngValue]="4">4 items per page</option>
-      <option [ngValue]="6">6 items per page</option>
-    </select>
-  </div>
+        <form class="table-form">
+
+            <div class="form-group form-inline">
+                <!-- <img [src]="member.img" class="mr-2" style="width: 20px"> -->
+                <i class="mdi mdi-account-search" aria-hidden="true"></i>
+
+                <input class="form-control ml-2 search" type="text" placeholder="Full text search" name="searchTerm"
+                    [(ngModel)]="service.searchTerm" />
+                <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+            </div>
+
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" sortable="name" (sort)="onSort($event)">Name</th>
+                        <th scope="col" sortable="name" (sort)="onSort($event)">Links</th>
+
+                        <th scope="col" sortable="area" (sort)="onSort($event)">Carma</th>
+                        <!-- <th scope="col" sortable="population" (sort)="onSort($event)">Level</th> -->
+                        <th scope="col" sortable="population" (sort)="onSort($event)">Status</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let member of members$ | async">
+                        <th scope="row">{{ member.id }}</th>
+                        <td>
+                            <img [src]="member.img" class="mr-2" style="width: 20px">
+                            <ngb-highlight [result]="member.name" [term]="service.searchTerm"></ngb-highlight>
+                        </td>
+                        <td style="padding: 0 .75rem;">
+                            <a [href]="member.github" target="_blank">
+                                <i class="mdi mdi-github-circle" aria-hidden="true"></i>
+                            </a>
+                            
+                            <!-- <ngb-highlight [result]="member.status" [term]="service.searchTerm"></ngb-highlight> -->
+                        </td>
+                        <td>
+                            <ngb-highlight [result]="member.carma | number" [term]="service.searchTerm"></ngb-highlight>
+                        </td>
+                        <!-- <td>
+                            <ngb-highlight [result]="member.level | number" [term]="service.searchTerm"></ngb-highlight>
+                        </td> -->
+                        <td>
+                            <ngb-highlight [result]="member.status" [term]="service.searchTerm"></ngb-highlight>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
 
-</form>
+            <div class="d-flex justify-content-between p-2">
+                <ngb-pagination [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
+                </ngb-pagination>
+
+                <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+                    <option [ngValue]="2">2 items per page</option>
+                    <option [ngValue]="4">4 items per page</option>
+                    <option [ngValue]="6">6 items per page</option>
+                </select>
+            </div>
+
+
+        </form>
+
+
+        <div class="PS">
+            <p>Якщо ти один з моїх учнів і ти хочеш бути в цему списку, скажи мені про це.</p>
+            <!-- <a class="btn btn-success" (click)="wantMoreLessons()">ХОЧУ ЩЕ !!!</a> -->
+            <!-- [routerLink]="['/want-more-lessons']" -->
+        </div>
+
+    </div>
+</div>
+
+
+<!-- <app-extra-alert [st]="st.alert"></app-extra-alert> -->
+
+<app-clan-footer></app-clan-footer>
