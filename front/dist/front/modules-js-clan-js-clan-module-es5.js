@@ -62,7 +62,7 @@ module.exports = "<app-nav></app-nav>\n\n<br>\n<br>\n<br>\n<br>\n<br>\n<br>\n<br
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\n\n<div class=\"container members-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n\n\n        <form class=\"table-form\">\n\n            <div class=\"form-group form-inline\">\n                <!-- <img [src]=\"member.img\" class=\"mr-2\" style=\"width: 20px\"> -->\n                <i class=\"mdi mdi-account-search\" aria-hidden=\"true\"></i>\n\n                <input class=\"form-control ml-2 search\" type=\"text\" placeholder=\"Full text search\" name=\"searchTerm\"\n                    [(ngModel)]=\"service.searchTerm\" />\n                <span class=\"ml-3\" *ngIf=\"service.loading$ | async\">Loading...</span>\n            </div>\n\n            <table class=\"table table-striped\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">#</th>\n                        <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Name</th>\n                        <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Links</th>\n\n                        <th scope=\"col\" sortable=\"area\" (sort)=\"onSort($event)\">Carma</th>\n                        <!-- <th scope=\"col\" sortable=\"population\" (sort)=\"onSort($event)\">Level</th> -->\n                        <th scope=\"col\" sortable=\"population\" (sort)=\"onSort($event)\">Status</th>\n\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let member of members$ | async\">\n                        <th scope=\"row\">{{ member.id }}</th>\n                        <td>\n                            <img [src]=\"member.img\" class=\"mr-2\" style=\"width: 20px\">\n                            <ngb-highlight [result]=\"member.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n                        <td style=\"padding: 0 .75rem;\">\n                            <a [href]=\"member.github\" target=\"_blank\">\n                                <i class=\"mdi mdi-github-circle\" aria-hidden=\"true\"></i>\n                            </a>\n                            \n                            <!-- <ngb-highlight [result]=\"member.status\" [term]=\"service.searchTerm\"></ngb-highlight> -->\n                        </td>\n                        <td>\n                            <ngb-highlight [result]=\"member.carma | number\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n                        <!-- <td>\n                            <ngb-highlight [result]=\"member.level | number\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td> -->\n                        <td>\n                            <ngb-highlight [result]=\"member.status\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n            <div class=\"d-flex justify-content-between p-2\">\n                <ngb-pagination [collectionSize]=\"total$ | async\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n                </ngb-pagination>\n\n                <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n                    <option [ngValue]=\"2\">2 items per page</option>\n                    <option [ngValue]=\"4\">4 items per page</option>\n                    <option [ngValue]=\"6\">6 items per page</option>\n                </select>\n            </div>\n\n\n        </form>\n\n\n        <div class=\"PS\">\n            <p>Якщо ти один з моїх учнів і ти хочеш бути в цему списку, скажи мені про це.</p>\n            <!-- <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\">ХОЧУ ЩЕ !!!</a> -->\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n        </div>\n\n    </div>\n</div>\n\n\n<!-- <app-extra-alert [st]=\"st.alert\"></app-extra-alert> -->\n\n<app-clan-footer></app-clan-footer>"
+module.exports = "<app-nav></app-nav>\n\n<div class=\"container members-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n\n\n        <form class=\"table-form\">\n\n            <div class=\"form-group form-inline\">\n                <!-- <img [src]=\"member.img\" class=\"mr-2\" style=\"width: 20px\"> -->\n                <i class=\"mdi mdi-account-search\" aria-hidden=\"true\"></i>\n\n                <input class=\"form-control ml-2 search\" type=\"text\" placeholder=\"Search by names\" name=\"searchTerm\"\n                    [(ngModel)]=\"service.searchTerm\" />\n                <span class=\"ml-3\" *ngIf=\"service.loading$ | async\">Loading...</span>\n            </div>\n\n            <table class=\"table table-striped\">\n                <thead>\n                    <tr>\n                        <th scope=\"col\">#</th>\n                        <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Name</th>\n                        <th scope=\"col\" sortable=\"name\" (sort)=\"onSort($event)\">Links</th>\n\n                        <th scope=\"col\" sortable=\"area\" (sort)=\"onSort($event)\">Carma</th>\n                        <!-- <th scope=\"col\" sortable=\"population\" (sort)=\"onSort($event)\">Level</th> -->\n                        <th scope=\"col\" sortable=\"population\" (sort)=\"onSort($event)\">Status</th>\n\n                    </tr>\n                </thead>\n                <tbody>\n                    <tr *ngFor=\"let member of members$ | async\">\n                        <th scope=\"row\">{{ member.id }}</th>\n\n                        <td>\n                            <img [src]=\"member.img\" class=\"mr-2\" style=\"width: 20px\">\n                            <ngb-highlight [result]=\"member.name\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n\n                        <td style=\"padding: 0 .75rem;\">\n                            <a *ngIf=\"member.github\" [href]=\"member.github\" target=\"_blank\">\n                                <i class=\"mdi mdi-github-circle\" aria-hidden=\"true\"></i>\n                            </a>\n                            <a *ngIf=\"member.linkedin\" [href]=\"member.linkedin\" target=\"_blank\">\n                                <i class=\"mdi mdi-linkedin-box\" aria-hidden=\"true\"></i>\n                            </a>\n                            <a *ngIf=\"member.instagram\" [href]=\"member.instagram\" target=\"_blank\">\n                                <i class=\"mdi mdi-instagram\" aria-hidden=\"true\"></i>\n                            </a>                            \n                            <!-- <ngb-highlight [result]=\"member.status\" [term]=\"service.searchTerm\"></ngb-highlight> -->\n                        </td>\n\n                        <td>\n                            <ngb-highlight [result]=\"member.carma | number\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n\n                        <!-- <td>\n                            <ngb-highlight [result]=\"member.level | number\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td> -->\n\n                        <td>\n                            <ngb-highlight [result]=\"member.status\" [term]=\"service.searchTerm\"></ngb-highlight>\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n\n\n            <div class=\"d-flex justify-content-between p-2\">\n                <ngb-pagination [collectionSize]=\"total$ | async\" [(page)]=\"service.page\" [pageSize]=\"service.pageSize\">\n                </ngb-pagination>\n\n                <select class=\"custom-select\" style=\"width: auto\" name=\"pageSize\" [(ngModel)]=\"service.pageSize\">\n                    <option [ngValue]=\"10\">10 items per page</option>\n                    <option [ngValue]=\"20\">20 items per page</option>\n                    <option [ngValue]=\"30\">30 items per page</option>\n                </select>\n            </div>\n\n\n        </form>\n\n\n        <div class=\"PS\">\n            <p>Якщо ти один з моїх учнів і ти хочеш бути в цему списку, скажи мені про це.</p>\n            <!-- <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\">ХОЧУ ЩЕ !!!</a> -->\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n        </div>\n\n    </div>\n</div>\n\n\n<!-- <app-extra-alert [st]=\"st.alert\"></app-extra-alert> -->\n\n<app-clan-footer></app-clan-footer>"
 
 /***/ }),
 
@@ -714,7 +714,7 @@ var MemberService = /** @class */ (function () {
         this._total$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](0);
         this._state = {
             page: 1,
-            pageSize: 4,
+            pageSize: 10,
             searchTerm: '',
             sortColumn: '',
             sortDirection: ''
@@ -804,7 +804,7 @@ var MemberService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".container {\n  margin-top: 6em;\n}\n\n.PS {\n  margin: 1em auto 2em auto;\n  text-align: center;\n}\n\n.table-form {\n  width: 100%;\n}\n\ntd {\n  vertical-align: middle;\n}\n\n.search {\n  background: #0000;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n\n.mdi-account-search {\n  font-size: 2em;\n  color: #df691a;\n}\n\n.mdi-github-circle {\n  font-size: 2em;\n  cursor: pointer;\n}\n\n.mdi-github-circle:hover {\n  opacity: 0.7;\n}\n\n.custom-select {\n  background-color: #818a8f;\n  color: black;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQG1vZHVsZXMvQGpzLWNsYW4vcGFnZXMvbWVtYmVycy9EOlxccHJvamVjdHMyXFxDaHVnYXlzdGVyXFxmcm9udC9zcmNcXGFwcFxcQG1vZHVsZXNcXEBqcy1jbGFuXFxwYWdlc1xcbWVtYmVyc1xcbWVtYmVycy5jb21wb25lbnQuc2FzcyIsInNyYy9hcHAvQG1vZHVsZXMvQGpzLWNsYW4vcGFnZXMvbWVtYmVycy9tZW1iZXJzLmNvbXBvbmVudC5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsZUFBQTtBQ0FGOztBRENBO0VBQ0UseUJBQUE7RUFDQSxrQkFBQTtBQ0VGOztBRENBO0VBQ0ksV0FBQTtBQ0VKOztBRERBO0VBQ0ksc0JBQUE7QUNJSjs7QUREQTtFQUNJLGlCQUFBO0VBQ0EsMEJBQUE7RUFBQSx1QkFBQTtFQUFBLGtCQUFBO0FDSUo7O0FEREE7RUFDSSxjQUFBO0VBQ0EsY0FBQTtBQ0lKOztBREZBO0VBQ0ksY0FBQTtFQUNBLGVBQUE7QUNLSjs7QURKSTtFQUNJLFlBQUE7QUNNUjs7QURKQTtFQUNJLHlCQUFBO0VBQ0EsWUFBQTtBQ09KIiwiZmlsZSI6InNyYy9hcHAvQG1vZHVsZXMvQGpzLWNsYW4vcGFnZXMvbWVtYmVycy9tZW1iZXJzLmNvbXBvbmVudC5zYXNzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gbWFpblxyXG4uY29udGFpbmVyXHJcbiAgbWFyZ2luLXRvcDogNmVtXHJcbi5QU1xyXG4gIG1hcmdpbjogMWVtIGF1dG8gMmVtIGF1dG9cclxuICB0ZXh0LWFsaWduOiBjZW50ZXJcclxuICAgIFxyXG4gICAgXHJcbi50YWJsZS1mb3JtXHJcbiAgICB3aWR0aDogMTAwJVxyXG50ZFxyXG4gICAgdmVydGljYWwtYWxpZ246IG1pZGRsZVxyXG5cclxuXHJcbi5zZWFyY2hcclxuICAgIGJhY2tncm91bmQ6ICMwMDAwXHJcbiAgICB3aWR0aDogZml0LWNvbnRlbnRcclxuICAgIC8vIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2JhKDAsMCwwLDAuMTUpXHJcblxyXG4ubWRpLWFjY291bnQtc2VhcmNoXHJcbiAgICBmb250LXNpemU6IDJlbVxyXG4gICAgY29sb3I6ICNkZjY5MWFcclxuXHJcbi5tZGktZ2l0aHViLWNpcmNsZVxyXG4gICAgZm9udC1zaXplOiAyZW1cclxuICAgIGN1cnNvcjogcG9pbnRlclxyXG4gICAgJjpob3ZlclxyXG4gICAgICAgIG9wYWNpdHk6IC43XHJcblxyXG4uY3VzdG9tLXNlbGVjdFxyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzgxOGE4ZlxyXG4gICAgY29sb3I6IGJsYWNrIiwiLmNvbnRhaW5lciB7XG4gIG1hcmdpbi10b3A6IDZlbTtcbn1cblxuLlBTIHtcbiAgbWFyZ2luOiAxZW0gYXV0byAyZW0gYXV0bztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4udGFibGUtZm9ybSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG50ZCB7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG59XG5cbi5zZWFyY2gge1xuICBiYWNrZ3JvdW5kOiAjMDAwMDtcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xufVxuXG4ubWRpLWFjY291bnQtc2VhcmNoIHtcbiAgZm9udC1zaXplOiAyZW07XG4gIGNvbG9yOiAjZGY2OTFhO1xufVxuXG4ubWRpLWdpdGh1Yi1jaXJjbGUge1xuICBmb250LXNpemU6IDJlbTtcbiAgY3Vyc29yOiBwb2ludGVyO1xufVxuLm1kaS1naXRodWItY2lyY2xlOmhvdmVyIHtcbiAgb3BhY2l0eTogMC43O1xufVxuXG4uY3VzdG9tLXNlbGVjdCB7XG4gIGJhY2tncm91bmQtY29sb3I6ICM4MThhOGY7XG4gIGNvbG9yOiBibGFjaztcbn0iXX0= */"
+module.exports = ".container {\n  margin-top: 6em;\n}\n\n.PS {\n  margin: 1em auto 2em auto;\n  text-align: center;\n}\n\n.table-form {\n  width: 100%;\n}\n\ntd {\n  vertical-align: middle;\n}\n\n.search {\n  background: #0000;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n}\n\n.mdi-account-search {\n  font-size: 2em;\n  color: #df691a;\n}\n\n.mdi-github-circle, .mdi-linkedin-box, .mdi-instagram {\n  font-size: 2em;\n  cursor: pointer;\n  margin-right: 0.5em;\n}\n\n.mdi-github-circle:hover, .mdi-linkedin-box:hover, .mdi-instagram:hover {\n  opacity: 0.7;\n}\n\n.custom-select {\n  background-color: #818a8f;\n  color: black;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQG1vZHVsZXMvQGpzLWNsYW4vcGFnZXMvbWVtYmVycy9EOlxccHJvamVjdHMyXFxDaHVnYXlzdGVyXFxmcm9udC9zcmNcXGFwcFxcQG1vZHVsZXNcXEBqcy1jbGFuXFxwYWdlc1xcbWVtYmVyc1xcbWVtYmVycy5jb21wb25lbnQuc2FzcyIsInNyYy9hcHAvQG1vZHVsZXMvQGpzLWNsYW4vcGFnZXMvbWVtYmVycy9tZW1iZXJzLmNvbXBvbmVudC5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBO0VBQ0UsZUFBQTtBQ0FGOztBRENBO0VBQ0UseUJBQUE7RUFDQSxrQkFBQTtBQ0VGOztBRENBO0VBQ0ksV0FBQTtBQ0VKOztBRERBO0VBQ0ksc0JBQUE7QUNJSjs7QUREQTtFQUNJLGlCQUFBO0VBQ0EsMEJBQUE7RUFBQSx1QkFBQTtFQUFBLGtCQUFBO0FDSUo7O0FEREE7RUFDSSxjQUFBO0VBQ0EsY0FBQTtBQ0lKOztBREZBO0VBQ0ksY0FBQTtFQUNBLGVBQUE7RUFDQSxtQkFBQTtBQ0tKOztBREpJO0VBQ0ksWUFBQTtBQ01SOztBREpBO0VBQ0kseUJBQUE7RUFDQSxZQUFBO0FDT0oiLCJmaWxlIjoic3JjL2FwcC9AbW9kdWxlcy9AanMtY2xhbi9wYWdlcy9tZW1iZXJzL21lbWJlcnMuY29tcG9uZW50LnNhc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBtYWluXHJcbi5jb250YWluZXJcclxuICBtYXJnaW4tdG9wOiA2ZW1cclxuLlBTXHJcbiAgbWFyZ2luOiAxZW0gYXV0byAyZW0gYXV0b1xyXG4gIHRleHQtYWxpZ246IGNlbnRlclxyXG4gICAgXHJcbiAgICBcclxuLnRhYmxlLWZvcm1cclxuICAgIHdpZHRoOiAxMDAlXHJcbnRkXHJcbiAgICB2ZXJ0aWNhbC1hbGlnbjogbWlkZGxlXHJcblxyXG5cclxuLnNlYXJjaFxyXG4gICAgYmFja2dyb3VuZDogIzAwMDBcclxuICAgIHdpZHRoOiBmaXQtY29udGVudFxyXG4gICAgLy8gYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHJnYmEoMCwwLDAsMC4xNSlcclxuXHJcbi5tZGktYWNjb3VudC1zZWFyY2hcclxuICAgIGZvbnQtc2l6ZTogMmVtXHJcbiAgICBjb2xvcjogI2RmNjkxYVxyXG5cclxuLm1kaS1naXRodWItY2lyY2xlLCAubWRpLWxpbmtlZGluLWJveCwgLm1kaS1pbnN0YWdyYW1cclxuICAgIGZvbnQtc2l6ZTogMmVtXHJcbiAgICBjdXJzb3I6IHBvaW50ZXJcclxuICAgIG1hcmdpbi1yaWdodDogLjVlbVxyXG4gICAgJjpob3ZlclxyXG4gICAgICAgIG9wYWNpdHk6IC43XHJcblxyXG4uY3VzdG9tLXNlbGVjdFxyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzgxOGE4ZlxyXG4gICAgY29sb3I6IGJsYWNrIiwiLmNvbnRhaW5lciB7XG4gIG1hcmdpbi10b3A6IDZlbTtcbn1cblxuLlBTIHtcbiAgbWFyZ2luOiAxZW0gYXV0byAyZW0gYXV0bztcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4udGFibGUtZm9ybSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG50ZCB7XG4gIHZlcnRpY2FsLWFsaWduOiBtaWRkbGU7XG59XG5cbi5zZWFyY2gge1xuICBiYWNrZ3JvdW5kOiAjMDAwMDtcbiAgd2lkdGg6IGZpdC1jb250ZW50O1xufVxuXG4ubWRpLWFjY291bnQtc2VhcmNoIHtcbiAgZm9udC1zaXplOiAyZW07XG4gIGNvbG9yOiAjZGY2OTFhO1xufVxuXG4ubWRpLWdpdGh1Yi1jaXJjbGUsIC5tZGktbGlua2VkaW4tYm94LCAubWRpLWluc3RhZ3JhbSB7XG4gIGZvbnQtc2l6ZTogMmVtO1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIG1hcmdpbi1yaWdodDogMC41ZW07XG59XG4ubWRpLWdpdGh1Yi1jaXJjbGU6aG92ZXIsIC5tZGktbGlua2VkaW4tYm94OmhvdmVyLCAubWRpLWluc3RhZ3JhbTpob3ZlciB7XG4gIG9wYWNpdHk6IDAuNztcbn1cblxuLmN1c3RvbS1zZWxlY3Qge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiAjODE4YThmO1xuICBjb2xvcjogYmxhY2s7XG59Il19 */"
 
 /***/ }),
 
@@ -882,21 +882,113 @@ __webpack_require__.r(__webpack_exports__);
 var MEMBERS = [
     {
         id: 1,
-        name: 'Roman Peredrii',
-        img: 'https://avatars0.githubusercontent.com/u/42037680?s=460&v=4',
-        status: 'student',
-        carma: 100,
+        name: 'Vitaliy Dyachuk',
+        img: 'https://avatars3.githubusercontent.com/u/16016599?s=460&v=4',
+        status: 'CLAN-leader, super-mentor',
+        carma: 1000,
         level: 0,
-        github: 'https://github.com/RomanPeredrii'
+        github: 'https://github.com/SpiritUrban',
+        linkedin: 'https://www.linkedin.com/in/vitaly-dyachuk-8ba18a54/',
+        instagram: 'https://www.instagram.com/shadespiritenator/'
     },
     {
         id: 2,
+        name: 'Roman Peredrii',
+        img: 'https://avatars0.githubusercontent.com/u/42037680?s=460&v=4',
+        status: 'student, mentor',
+        carma: 100,
+        level: 0,
+        github: 'https://github.com/RomanPeredrii',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 3,
         name: 'Vladyslav Piatyhor',
         img: 'https://avatars1.githubusercontent.com/u/29441499?s=460&v=4',
         status: 'student',
         carma: 100,
         level: 0,
-        github: 'https://github.com/5Mountains'
+        github: 'https://github.com/5Mountains',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 4,
+        name: 'Taras Ostasha',
+        img: 'https://avatars3.githubusercontent.com/u/19312196?s=460&v=4',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: 'https://github.com/TarasOstasha',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 5,
+        name: 'Vlad Buryak',
+        img: 'assets/img/base/icons/avatars/batman.svg',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: '',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 6,
+        name: 'Oksana Soroka',
+        img: 'assets/img/base/icons/avatars/woman.svg',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: '',
+        linkedin: '',
+        instagram: 'https://www.instagram.com/ksu_mid/'
+    },
+    {
+        id: 7,
+        name: 'Kolya (Toto)',
+        img: 'https://avatars3.githubusercontent.com/u/33295757?s=460&v=4',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: 'https://github.com/Mooninghnk',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 8,
+        name: 'Sergiy Semeguk',
+        img: 'https://avatars2.githubusercontent.com/u/45179731?s=460&v=4',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: 'https://github.com/semeguk',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 9,
+        name: 'Dima Semeguk',
+        img: 'https://avatars1.githubusercontent.com/u/51905745?s=460&v=4',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: 'https://github.com/dimasemehuk7',
+        linkedin: '',
+        instagram: ''
+    },
+    {
+        id: 10,
+        name: 'Dima Martinovich',
+        img: 'assets/img/base/icons/avatars/batman.svg',
+        status: 'student',
+        carma: 100,
+        level: 0,
+        github: '',
+        linkedin: '',
+        instagram: ''
     }
 ];
 
