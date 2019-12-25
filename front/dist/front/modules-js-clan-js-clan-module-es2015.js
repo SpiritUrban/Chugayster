@@ -1020,7 +1020,7 @@ __webpack_require__.r(__webpack_exports__);
 const httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
 };
-const back = 'http://localhost';
+const back = '.'; // 'http://localhost'
 let ApiJsClanService = class ApiJsClanService {
     constructor(http) {
         this.http = http;
