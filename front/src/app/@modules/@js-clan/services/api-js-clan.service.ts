@@ -5,7 +5,7 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-const back = 'http://localhost'
+const back = '.'; // 'http://localhost'
 
 @Injectable({
   providedIn: 'root'
