@@ -6,5 +6,7 @@ export interface Member {
     carma: number;
     level: number;
     github: string;
+    linkedin: string;
+    instagram: string;
   }
   

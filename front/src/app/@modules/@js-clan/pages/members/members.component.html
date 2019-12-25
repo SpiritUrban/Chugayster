@@ -42,23 +42,33 @@
                 <tbody>
                     <tr *ngFor="let member of members$ | async">
                         <th scope="row">{{ member.id }}</th>
+
                         <td>
                             <img [src]="member.img" class="mr-2" style="width: 20px">
                             <ngb-highlight [result]="member.name" [term]="service.searchTerm"></ngb-highlight>
                         </td>
+
                         <td style="padding: 0 .75rem;">
-                            <a [href]="member.github" target="_blank">
+                            <a *ngIf="member.github" [href]="member.github" target="_blank">
                                 <i class="mdi mdi-github-circle" aria-hidden="true"></i>
                             </a>
-                            
+                            <a *ngIf="member.linkedin" [href]="member.linkedin" target="_blank">
+                                <i class="mdi mdi-linkedin-box" aria-hidden="true"></i>
+                            </a>
+                            <a *ngIf="member.instagram" [href]="member.instagram" target="_blank">
+                                <i class="mdi mdi-instagram" aria-hidden="true"></i>
+                            </a>                            
                             <!-- <ngb-highlight [result]="member.status" [term]="service.searchTerm"></ngb-highlight> -->
                         </td>
+
                         <td>
                             <ngb-highlight [result]="member.carma | number" [term]="service.searchTerm"></ngb-highlight>
                         </td>
+
                         <!-- <td>
                             <ngb-highlight [result]="member.level | number" [term]="service.searchTerm"></ngb-highlight>
                         </td> -->
+
                         <td>
                             <ngb-highlight [result]="member.status" [term]="service.searchTerm"></ngb-highlight>
                         </td>
@@ -72,9 +82,9 @@
                 </ngb-pagination>
 
                 <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
-                    <option [ngValue]="2">2 items per page</option>
-                    <option [ngValue]="4">4 items per page</option>
-                    <option [ngValue]="6">6 items per page</option>
+                    <option [ngValue]="10">10 items per page</option>
+                    <option [ngValue]="20">20 items per page</option>
+                    <option [ngValue]="30">30 items per page</option>
                 </select>
             </div>
 
