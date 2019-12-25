@@ -21,7 +21,7 @@
                 <!-- <img [src]="member.img" class="mr-2" style="width: 20px"> -->
                 <i class="mdi mdi-account-search" aria-hidden="true"></i>
 
-                <input class="form-control ml-2 search" type="text" placeholder="Full text search" name="searchTerm"
+                <input class="form-control ml-2 search" type="text" placeholder="Search by names" name="searchTerm"
                     [(ngModel)]="service.searchTerm" />
                 <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
             </div>
