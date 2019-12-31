@@ -40,7 +40,7 @@ module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n        <div class=\"col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3\" *ngFor=\"let card of st.cards\">\n\n            <div class=\"flip-card\" *ngIf=\"card.number\">\n                <div class=\"flip-card-inner\">\n\n                    <!-- --- -->\n                    <div class=\"card mb-3 flip-card-front\">\n                        <h3 class=\"card-header\">{{card.title[st.lang]}}</h3>\n                        \n                        <div class=\"card-img\"\n                        [style.backgroundImage]=\"'url('+card.img+')'\" \n                        alt=\"Card image\"></div>\n\n                        <div class=\"card-body\">\n                            <p class=\"card-text\">{{card.description[st.lang]}}</p>\n                        </div>\n                        <div class=\"card-footer text-muted\">Урок: {{card.number}}</div>\n                    </div>\n\n                    <!-- --- -->\n                    <div class=\"card mb-3 flip-card-back\">\n                        <div class=\"card-body\">\n                            <p class=\"card-text\">{{card.text[st.lang]}}</p>\n                        </div>\n                        <div class=\"card-body\">\n                            <a class=\"btn btn-success\" [routerLink]=\"['/lesson', card.name]\">Go to lesson</a>\n                        </div>\n                        <div class=\"card-footer text-muted\">Урок: {{card.number}}</div>\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n        <div class=\"PS\" >\n            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>\n            <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\" >ХОЧУ ЩЕ !!!</a>\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n            \n        </div>\n\n    </div>\n</div>\n\n\n<app-extra-alert [st]=\"st.alert\"></app-extra-alert>\n\n<app-clan-footer></app-clan-footer>"
+module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n        <div class=\"col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3\" *ngFor=\"let card of st.cards\">\n\n            <div class=\"flip-card\" *ngIf=\"card.number\">\n                <div class=\"flip-card-inner\">\n\n                    <!-- --- -->\n                    <div class=\"card mb-3 flip-card-front\">\n                        <h3 class=\"card-header\">{{card.title[st.lang]}}</h3>\n                        \n                        <div class=\"card-img\"\n                        [style.backgroundImage]=\"'url('+card.img+')'\" \n                        alt=\"Card image\"></div>\n\n                        <div class=\"card-body\">\n                            <p class=\"card-text\">{{card.description[st.lang]}}</p>\n                        </div>\n                        <div class=\"card-footer text-muted\">Урок: {{card.number}}</div>\n                    </div>\n\n                    <!-- --- -->\n                    <div class=\"card mb-3 flip-card-back\">\n                        <div class=\"card-body\">\n                            <p class=\"card-text\">{{card.text[st.lang]}}</p>\n                        </div>\n                        <div class=\"card-body\">\n                            <a class=\"btn btn-success\" [routerLink]=\"['/lesson', card.name]\">Go to lesson</a>\n                        </div>\n                        <div class=\"card-footer text-muted\">Урок: {{card.number}}</div>\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n        <div class=\"PS\" >\n            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>\n            <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\" >ХОЧУ ЩЕ !!!</a>\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n            \n        </div>\n\n    </div>\n</div>\n\n<app-extra-alert [st]=\"st.alert\"></app-extra-alert>\n\n<app-clan-footer></app-clan-footer>"
 
 /***/ }),
 
@@ -931,7 +931,7 @@ var MEMBERS = [
         status: 'student',
         carma: 100,
         level: 0,
-        github: '',
+        github: 'https://github.com/VladGodOfJS',
         linkedin: '',
         instagram: ''
     },
@@ -943,7 +943,7 @@ var MEMBERS = [
         carma: 100,
         level: 0,
         github: '',
-        linkedin: '',
+        linkedin: 'http://linkedin.com/in/oksana-soroka-45282919a',
         instagram: 'https://www.instagram.com/ksu_mid/'
     },
     {
@@ -986,8 +986,8 @@ var MEMBERS = [
         status: 'student',
         carma: 100,
         level: 0,
-        github: '',
-        linkedin: '',
+        github: 'https://github.com/marpusik',
+        linkedin: 'https://www.linkedin.com/in/%D0%B4%D0%B8%D0%BC%D0%B0-%D0%BC%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%B8%D1%87-0881a5196/',
         instagram: ''
     }
 ];
