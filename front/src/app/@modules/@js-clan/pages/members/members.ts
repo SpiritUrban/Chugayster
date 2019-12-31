@@ -52,7 +52,7 @@ export const MEMBERS: Member[] = [
     status: 'student',
     carma: 100,
     level: 0,
-    github: '',
+    github: 'https://github.com/VladGodOfJS',
     linkedin: '',
     instagram: ''
   },
@@ -108,8 +108,8 @@ export const MEMBERS: Member[] = [
     status: 'student',
     carma: 100,
     level: 0,
-    github: '',
-    linkedin: '',
+    github: 'https://github.com/marpusik',
+    linkedin: 'https://www.linkedin.com/in/%D0%B4%D0%B8%D0%BC%D0%B0-%D0%BC%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%B8%D1%87-0881a5196/',
     instagram: ''
   }
 ];
