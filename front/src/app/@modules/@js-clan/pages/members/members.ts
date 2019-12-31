@@ -64,7 +64,7 @@ export const MEMBERS: Member[] = [
     carma: 100,
     level: 0,
     github: '',
-    linkedin: '',
+    linkedin: 'http://linkedin.com/in/oksana-soroka-45282919a',
     instagram: 'https://www.instagram.com/ksu_mid/'
   },
   {
