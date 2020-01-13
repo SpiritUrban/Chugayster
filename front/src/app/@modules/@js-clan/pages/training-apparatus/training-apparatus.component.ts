@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../../@common-dependencies/services/api.service';
 
 @Component({
   selector: 'app-training-apparatus',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainingApparatusComponent implements OnInit {
 
-  constructor() { }
+  st = {
+    lang: 'ua',
+    cards: <any>[],
+    alert: {
+      show: false,
+      title: '',
+      body: '',
+      // bodyDev: 'Tech details'
+    }
+  }
 
-  ngOnInit() {
+  constructor(
+    private api: ApiService
+  ) { }
+
+  async ngOnInit() {
+    try {
+      this.st.cards = await this.api.getJson('/js-clan/data/training-apparatus.json');
+      console.log(this.st.cards);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }

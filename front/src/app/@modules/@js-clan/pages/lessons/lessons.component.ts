@@ -19,8 +19,9 @@ export class LessonsComponent implements OnInit {
       title: '',
       body: '',
       // bodyDev: 'Tech details'
+    }
   }
-  }
+  
   constructor(
     private api: ApiService,
     private _api: ApiJsClanService,
@@ -49,13 +50,13 @@ export class LessonsComponent implements OnInit {
     log(r)
   }
 
-  msgVoteOk(){
+  msgVoteOk() {
     this.st.alert.title = ':)';
     this.st.alert.body = 'Your vote counted';
     this.st.alert.show = true
   }
 
-  msgVoteBad(){
+  msgVoteBad() {
     this.st.alert.title = ':(';
     this.st.alert.body = 'Something wrong';
     this.st.alert.show = true
