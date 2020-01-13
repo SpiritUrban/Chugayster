@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
+import { log } from 'src/app/my_modules/stuff';
 
 @Component({
   selector: 'app-training-apparatus',
@@ -30,6 +31,10 @@ export class TrainingApparatusComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  play(){
+    log('Play')
   }
 
 }
