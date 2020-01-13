@@ -9,6 +9,8 @@ import { P404Component } from './pages/p404/p404.component';
 import { WantMoreLessonsComponent } from './pages/want-more-lessons/want-more-lessons.component';
 import { MembersComponent } from './pages/members/members.component';
 import { StudentsComponent } from './pages/students/students.component';
+import { TrainingApparatusComponent } from './pages/training-apparatus/training-apparatus.component';
+
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: 'want-more-lessons', component: WantMoreLessonsComponent },
   { path: 'members', component: MembersComponent },
   { path: 'students', component: StudentsComponent },
+  { path: 'training-apparatus', component: TrainingApparatusComponent },
   { path: 'p404', component: P404Component },
 ];
 

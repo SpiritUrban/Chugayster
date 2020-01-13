@@ -15,6 +15,7 @@ import { P404Component } from './pages/p404/p404.component';
 import { WantMoreLessonsComponent } from './pages/want-more-lessons/want-more-lessons.component';
 import { MembersComponent } from './pages/members/members.component';
 import { StudentsComponent } from './pages/students/students.component';
+import { TrainingApparatusComponent } from './pages/training-apparatus/training-apparatus.component';
 
 // Components
 import { NavComponent } from './components/general/nav/nav.component';
@@ -29,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent
   ],
   imports: [
     CommonModule,
