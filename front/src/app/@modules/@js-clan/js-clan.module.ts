@@ -25,6 +25,7 @@ import { ClanFooterComponent } from './components/general/clan-footer/clan-foote
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlipCardComponent } from './components/flip-card/flip-card.component';
+import { FlipCardVideoComponent } from './components/flip-card-video/flip-card-video.component';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import { FlipCardComponent } from './components/flip-card/flip-card.component';
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent
   ],
   imports: [
     CommonModule,

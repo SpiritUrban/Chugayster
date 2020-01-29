@@ -18,38 +18,38 @@ export class HealthComponent implements OnInit {
     this.st.cards = [
       {
         number: "0",
-        name: "Skeleton",
-        video: "-8gk0tXZu2w",
+        name: "Упражнение для спины",
+        video: "-RjXS5aH3Hk",
         img: "assets/js-clan/img/lessons/0.jpg",
         title: {
-          en: "Skeleton of HTML + JavaScript",
-          ua: "Скелет HTML + JavaScript"
+          en: "",
+          ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
         },
         description: {
-          ua: "Початок, інструменти, структура."
+          ua: ""
         },
         text: {
-          en: "Fundamentals: Browser, Web page, its structure, browser tools.",
-          ua: "Основа основ: браузер, веб сторінка, її структура, інструменти розробника у браузері."
+          en: "",
+          ua: ""
         }
       },
       {
-        number: "2",
-        name: "Skeleton",
-        video: "-8gk0tXZu2w",
+        number: "0",
+        name: "Упражнение для спины",
+        video: "-RjXS5aH3Hk",
         img: "assets/js-clan/img/lessons/0.jpg",
         title: {
-          en: "Skeleton of HTML + JavaScript",
-          ua: "Скелет HTML + JavaScript"
+          en: "",
+          ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
         },
         description: {
-          ua: "Початок, інструменти, структура."
+          ua: ""
         },
         text: {
-          en: "Fundamentals: Browser, Web page, its structure, browser tools.",
-          ua: "Основа основ: браузер, веб сторінка, її структура, інструменти розробника у браузері."
+          en: "",
+          ua: ""
         }
-      }
+      },
     ]
   }
 
