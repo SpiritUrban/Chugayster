@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-main',
@@ -7,15 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  st = {
-    alert: {
-      show: true,
-      title: 'About',
-      body: 'Some wrong or good',
-      bodyDev: 'Tech details'
-    }
+  st: any;
+
+  constructor() { 
+    this.st = appState
   }
-  constructor() { }
 
   ngOnInit() {
   }

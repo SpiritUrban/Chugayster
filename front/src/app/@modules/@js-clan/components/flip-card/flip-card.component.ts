@@ -1,4 +1,5 @@
 import { OnInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import appState from '../../../../app-state';
 
 
 @Component({
@@ -13,18 +14,11 @@ export class FlipCardComponent implements OnInit {
   // @Input() userId: string;
   @Input() card: any;
 
-  st = {
-    lang: 'ua',
-    cards: <any>[],
-    alert: {
-      show: false,
-      title: '',
-      body: '',
-      // bodyDev: 'Tech details'
-    }
-  }
-  
-  constructor() { }
+  st: any;
+
+  constructor() {
+    this.st = appState
+   }
 
   ngOnInit() {
   }

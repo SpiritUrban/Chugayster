@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import state from '../../../../app-state';
+import appState from '../../../../app-state';
 import { log } from '../../../../my_modules/stuff';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -12,15 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class LessonComponent implements OnInit {
 
-  st = {
-    lang: 'ua',
-    cards: <any>[],
-    currentCard: <any>{
-      title: '',
-      description: '',
-      video: 'zKOQhgWQPM4'
-    }
-  }
+  st: any;
   url: string = "https://www.youtube.com/embed/";
   urlSafe: SafeResourceUrl;
 
@@ -28,7 +20,9 @@ export class LessonComponent implements OnInit {
     private route: ActivatedRoute,
     private api: ApiService,
     public sanitizer: DomSanitizer
-  ) { }
+  ) {
+    this.st = appState
+   }
 
   async ngOnInit() {
     try {

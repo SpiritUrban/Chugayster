@@ -3,6 +3,7 @@ import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { ApiJsClanService } from '../../services/api-js-clan.service';
 import { Router } from '@angular/router';
 import { log } from 'src/app/my_modules/stuff';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-lessons',
@@ -11,22 +12,15 @@ import { log } from 'src/app/my_modules/stuff';
 })
 export class LessonsComponent implements OnInit {
 
-  st = {
-    lang: 'ua',
-    cards: <any>[],
-    alert: {
-      show: false,
-      title: '',
-      body: '',
-      // bodyDev: 'Tech details'
-    }
-  }
-  
+  st: any;
+
   constructor(
     private api: ApiService,
     private _api: ApiJsClanService,
     private router: Router
-  ) { }
+  ) {
+    this.st = appState
+  }
 
   async ngOnInit() {
     try {
