@@ -11,6 +11,8 @@ import { MembersComponent } from './pages/members/members.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { TrainingApparatusComponent } from './pages/training-apparatus/training-apparatus.component';
 import { HealthComponent } from './pages/health/health.component';
+import { VideoSamplesComponent } from './pages/sources/video-samples/video-samples.component';
+import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -22,6 +24,9 @@ const routes: Routes = [
   { path: 'students', component: StudentsComponent },
   { path: 'training-apparatus', component: TrainingApparatusComponent },
   { path: 'health', component: HealthComponent },
+  { path: 'video-samples', component: VideoSamplesComponent },
+  { path: 'free-sounds', component: FreeSoundsComponent },
+
 
   { path: 'p404', component: P404Component },
 ];
