@@ -10,6 +10,7 @@ import { WantMoreLessonsComponent } from './pages/want-more-lessons/want-more-le
 import { MembersComponent } from './pages/members/members.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { TrainingApparatusComponent } from './pages/training-apparatus/training-apparatus.component';
+import { HealthComponent } from './pages/health/health.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -20,6 +21,8 @@ const routes: Routes = [
   { path: 'members', component: MembersComponent },
   { path: 'students', component: StudentsComponent },
   { path: 'training-apparatus', component: TrainingApparatusComponent },
+  { path: 'health', component: HealthComponent },
+
   { path: 'p404', component: P404Component },
 ];
 
