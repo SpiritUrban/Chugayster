@@ -36,9 +36,9 @@ export class FreeSoundsComponent implements OnInit {
       description: 'looperman.com'
     },
     {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
+      link: 'https://www.producerloops.com/download-royalty-free-loops-and-samples/index3.html?a=1&sort=add_date&sort_direction=1',
+      img: this.place + 'producerloops.jpg',
+      description: 'producerloops.com'
     },
     {
       link: '',
