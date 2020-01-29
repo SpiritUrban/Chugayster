@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { OnInit, Component, EventEmitter, Input, Output } from '@angular/core';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-flip-card-video',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlipCardVideoComponent implements OnInit {
 
-  constructor() { }
+  @Input() card: any;
+
+  st: any;
+
+  constructor() {
+    this.st = appState
+   }
 
   ngOnInit() {
   }
