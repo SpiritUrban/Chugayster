@@ -18,7 +18,7 @@ export class HealthComponent implements OnInit {
     this.st.cards = [
       {
         number: "0",
-        name: "Упражнение для спины",
+        name: "Вправа для поясниці",
         video: "-RjXS5aH3Hk",
         // img: "assets/js-clan/img/lessons/0.jpg",
         // title: {
@@ -35,8 +35,8 @@ export class HealthComponent implements OnInit {
       },
       {
         number: "1",
-        name: "Упражнение для спины",
-        video: "-RjXS5aH3Hk",
+        name: "Вправа для поясниці",
+        video: "PMqLSUT8LhE",
         // img: "assets/js-clan/img/lessons/0.jpg",
         // title: {
         //   en: "",
