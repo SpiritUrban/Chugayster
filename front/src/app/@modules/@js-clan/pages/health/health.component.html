@@ -1,1 +1,64 @@
-<p>health works!</p>
+<app-nav></app-nav>
+
+<div class="container health-content">
+
+    <!-- <br>
+    <div class="row">
+        <button type="button" class="btn btn-primary">English</button>
+        <button type="button" class="btn btn-secondary">Українською</button>
+        <button type="button" class="btn btn-secondary">Русский</button>
+    </div> -->
+
+    <br>
+
+    <div class="row">
+
+        <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let card of st.cards">
+
+            <div class="flip-card" *ngIf="card.number" [routerLink]="['/lesson', card.name]">
+                <div class="flip-card-inner">
+
+                    <!-- --- -->
+                    <div class="card mb-3 flip-card-front">
+                        <h3 class="card-header">{{card.title[st.lang]}}</h3>
+                        
+                        <div class="card-img"
+                        [style.backgroundImage]="'url('+card.img+')'" 
+                        alt="Card image"></div>
+
+                        <div class="card-body">
+                            <p class="card-text">{{card.description[st.lang]}}</p>
+                        </div>
+                        <div class="card-footer text-muted">Урок: {{card.number}}</div>
+                    </div>
+
+                    <!-- --- -->
+                    <div class="card mb-3 flip-card-back">
+                        <div class="card-body">
+                            <p class="card-text">{{card.text[st.lang]}}</p>
+                        </div>
+                        <div class="card-body">
+                            <a class="btn btn-success" [routerLink]="['/lesson', card.name]">Go to lesson</a>
+                        </div>
+                        <div class="card-footer text-muted">Урок: {{card.number}}</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="PS" >
+            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>
+            <a class="btn btn-success" (click)="wantMoreLessons()" >ХОЧУ ЩЕ !!!</a>
+            <!-- [routerLink]="['/want-more-lessons']" -->
+            
+        </div>
+
+    </div>
+</div>
+
+<app-extra-alert [st]="st.alert"></app-extra-alert>
+
+<app-clan-footer></app-clan-footer>

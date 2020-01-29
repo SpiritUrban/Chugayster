@@ -1,0 +1,31 @@
+<div class="flip-card" *ngIf="card.number" [routerLink]="['/lesson', card.name]">
+    <div class="flip-card-inner">
+
+        <!-- --- -->
+        <div class="card mb-3 flip-card-front">
+            <h3 class="card-header">{{card.title[st.lang]}}</h3>
+            
+            <div class="card-img"
+            [style.backgroundImage]="'url('+card.img+')'" 
+            alt="Card image"></div>
+
+            <div class="card-body">
+                <p class="card-text">{{card.description[st.lang]}}</p>
+            </div>
+            <div class="card-footer text-muted">Урок: {{card.number}}</div>
+        </div>
+
+        <!-- --- -->
+        <div class="card mb-3 flip-card-back">
+            <div class="card-body">
+                <p class="card-text">{{card.text[st.lang]}}</p>
+            </div>
+            <div class="card-body">
+                <a class="btn btn-success" [routerLink]="['/lesson', card.name]">Go to lesson</a>
+            </div>
+            <div class="card-footer text-muted">Урок: {{card.number}}</div>
+        </div>
+
+    </div>
+
+</div>
