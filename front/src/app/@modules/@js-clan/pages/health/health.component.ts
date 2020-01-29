@@ -20,34 +20,34 @@ export class HealthComponent implements OnInit {
         number: "0",
         name: "Упражнение для спины",
         video: "-RjXS5aH3Hk",
-        img: "assets/js-clan/img/lessons/0.jpg",
-        title: {
-          en: "",
-          ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
-        },
+        // img: "assets/js-clan/img/lessons/0.jpg",
+        // title: {
+        //   en: "",
+        //   ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
+        // },
         description: {
-          ua: ""
+          ua: "Вправа для поясниці"
         },
         text: {
-          en: "",
-          ua: ""
+          en: "text",
+          ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
         }
       },
       {
-        number: "0",
+        number: "1",
         name: "Упражнение для спины",
         video: "-RjXS5aH3Hk",
-        img: "assets/js-clan/img/lessons/0.jpg",
-        title: {
-          en: "",
-          ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
-        },
+        // img: "assets/js-clan/img/lessons/0.jpg",
+        // title: {
+        //   en: "",
+        //   ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
+        // },
         description: {
-          ua: ""
+          ua: "Вправа для поясниці"
         },
         text: {
-          en: "",
-          ua: ""
+          en: "text",
+          ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
         }
       },
     ]

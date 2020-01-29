@@ -3,16 +3,17 @@
 
         <!-- --- -->
         <div class="card mb-3 flip-card-front">
-            <h3 class="card-header">{{card.title[st.lang]}}</h3>
             
-            <div class="card-img-2"
-            [style.backgroundImage]="'url('+card.img+')'" 
-            alt="Card image"></div>
+            <iframe  
+                [src]="urlSafe"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen=""></iframe>
 
             <div class="card-body">
                 <p class="card-text">{{card.description[st.lang]}}</p>
             </div>
-            <div class="card-footer text-muted">Урок: {{card.number}}</div>
+
         </div>
 
         <!-- --- -->
@@ -21,9 +22,8 @@
                 <p class="card-text">{{card.text[st.lang]}}</p>
             </div>
             <div class="card-body">
-                <a class="btn btn-success" [routerLink]="['/lesson', card.name]">Go to lesson</a>
+                <!-- <a class="btn btn-success" [routerLink]="['/lesson', card.name]">Go to lesson</a> -->
             </div>
-            <div class="card-footer text-muted">Урок: {{card.number}}</div>
         </div>
 
     </div>
