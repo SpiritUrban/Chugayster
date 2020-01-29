@@ -40,51 +40,51 @@ export class FreeSoundsComponent implements OnInit {
       img: this.place + 'producerloops.jpg',
       description: 'producerloops.com'
     },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    },
-    {
-      link: '',
-      img: this.place + '.jpg',
-      description: ''
-    }
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // },
+    // {
+    //   link: '',
+    //   img: this.place + '.jpg',
+    //   description: ''
+    // }
   ]
   constructor() { }
 

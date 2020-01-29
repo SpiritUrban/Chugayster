@@ -1,8 +1,15 @@
+<app-nav></app-nav>
 
-<div class="one" *ngFor="let one of list">
-    <a [href]="one.link" target="_blank">
-        <img [src]="one.img" alt="pixabay">
-        <h6>{{one.description}}</h6>
-    </a>
+<div class="container lessons-content">
+    <br>
+    <div class="row">
+        <div class="one" *ngFor="let one of list">
+            <a [href]="one.link" target="_blank">
+                <img [src]="one.img" alt="pixabay">
+                <h6>{{one.description}}</h6>
+            </a>
+        </div>
+    </div>
 </div>
 
+<app-clan-footer></app-clan-footer>

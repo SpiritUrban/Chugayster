@@ -27,36 +27,11 @@ export class VideoSamplesComponent implements OnInit {
       img: this.place + 'pexels.jpg',
       description: 'pexels.com'
     },
-    {
-      link: '',
-      img: this.place + '',
-      description: ''
-    },
-    {
-      link: '',
-      img: '',
-      description: ''
-    },
-    {
-      link: '',
-      img: '',
-      description: ''
-    },
-    {
-      link: '',
-      img: '',
-      description: ''
-    },
-    {
-      link: '',
-      img: '',
-      description: ''
-    },
-    {
-      link: '',
-      img: '',
-      description: ''
-    }
+    // {
+    //   link: '',
+    //   img: this.place + '',
+    //   description: ''
+    // },
   ]
 
   ngOnInit() {
