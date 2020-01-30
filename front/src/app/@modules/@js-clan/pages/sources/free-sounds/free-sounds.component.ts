@@ -40,11 +40,11 @@ export class FreeSoundsComponent implements OnInit {
       img: this.place + 'producerloops.jpg',
       description: 'producerloops.com'
     },
-    // {
-    //   link: '',
-    //   img: this.place + '.jpg',
-    //   description: ''
-    // },
+    {
+      link: 'https://soundcloud.com/search?q=Creative%20Commons%20drum',
+      img: this.place + 'soundcloud.jpg',
+      description: 'soundcloud.com | Creative Commons'
+    },
     // {
     //   link: '',
     //   img: this.place + '.jpg',
