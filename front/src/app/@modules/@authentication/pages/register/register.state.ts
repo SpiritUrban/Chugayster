@@ -15,6 +15,7 @@ interface RegisterState {
 
 var registerState: RegisterState = {
     user: {
+        username: '',
         firstName: '',
         lastName: '',
         email: '',
@@ -31,7 +32,7 @@ var registerState: RegisterState = {
         'Operator'
     ],
     alert: {
-        show: true,
+        show: false,
         title: 'About',
         body: 'Some wrong or good',
         bodyDev: 'Tech details'

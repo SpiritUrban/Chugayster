@@ -41,6 +41,7 @@ export class RegisterComponent implements OnInit {
 
     // build 'userForm' essence
     this.userForm = this.formBuilder.group({
+      'username': [this.st.user.username, [Validators.required, Validators.minLength(2)]],
       'email': [this.st.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
       'passwords': this.formBuilder.group({
         'pwd': ['', pwdValidators],
@@ -84,6 +85,7 @@ export class RegisterComponent implements OnInit {
   // gathering the structure 'userData' from 'userForm'
   get userData() {
     return {
+      username: this.userForm.controls.username.value,
       email: this.userForm.controls.email.value,
       password: this.userForm.controls.passwords.controls.pwd.value,
       password2: this.userForm.controls.passwords.controls.confirm.value
@@ -91,6 +93,7 @@ export class RegisterComponent implements OnInit {
   }
 
   // for elements of form 
+  get username() { return this.userForm.get('username'); }
   get email() { return this.userForm.get('email'); }
   get passwords() { return this.userForm.get('passwords'); }
   get pwd() { return this.userForm.get('passwords.pwd'); }

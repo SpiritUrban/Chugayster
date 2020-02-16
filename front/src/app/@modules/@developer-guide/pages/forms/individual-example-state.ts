@@ -7,6 +7,7 @@ interface IndividualExampleState {
 
 var individualExampleState: IndividualExampleState = {
     user: {
+        username: '',
         firstName: '',
         lastName: '',
         email: '',

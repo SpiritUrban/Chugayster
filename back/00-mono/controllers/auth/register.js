@@ -9,11 +9,11 @@ const uuid = require('uuid');
 module.exports = async (req, res, next) => {
     try {
         // var-s
-        let email = req.body.email
-        let password = req.body.password
-        let username = req.body.username
-        let first_name = req.body.first_name
-        let last_name = req.body.last_name
+        let email = req.body.email;
+        let password = req.body.password;
+        let username = req.body.username;
+        let first_name = req.body.first_name;
+        let last_name = req.body.last_name;
 
         log('*BODY : '.info, '\n', req.body, '\n');
 
@@ -24,14 +24,14 @@ module.exports = async (req, res, next) => {
         // if (!first_name) return error('custom', req, res, 409, 'first_name required!')
         // if (!last_name) return error('custom', req, res, 409, 'last_name required!')
 
-        let userByEmail = await User.findOne({ email: email }).exec()
-        if (userByEmail !== null) error('custom', req, res, 409, 'Email already exists!')
+        let userByEmail = await User.findOne({ email: email }).exec();
+        if (userByEmail !== null) error('custom', req, res, 409, 'Email already exists!');
 
-        let userByName = await User.findOne({ username: username }).exec()
-        if (userByName !== null) error('custom', req, res, 409, 'User already exists!')
+        let userByName = await User.findOne({ username: username }).exec();
+        if (userByName !== null) error('custom', req, res, 409, 'User already exists!');
 
-        log('userByName', userByName)
-        log('\n', 'userByName : '.info, '\n', userByName, '\n')
+        log('userByName', userByName);
+        log('\n', 'userByName : '.info, '\n', userByName, '\n');
 
         if (userByName == null) await createNewUser(email, password, username, first_name, last_name)
 

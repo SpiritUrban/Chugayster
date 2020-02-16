@@ -3,7 +3,7 @@ const router = express.Router();
 const path_ctr_auth = '../../../controllers/auth';
 
 // Registration
-router.post('/reg', require(`${path_ctr_auth}/reg`));
+router.post('/register', require(`${path_ctr_auth}/register`));
 
 // change-password
 router.post('/change-password', apiEnsureAuthenticated, require(`${path_ctr_auth}/change-password`));
