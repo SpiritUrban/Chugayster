@@ -40,6 +40,8 @@ import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.com
     CommonDependenciesModule,
     FormsModule,
     NgbModule
-  ]
+  ],
+  exports: [NavComponent, ClanFooterComponent]
+
 })
 export class JsClanModule { }

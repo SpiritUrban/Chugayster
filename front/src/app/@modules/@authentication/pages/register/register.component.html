@@ -1,76 +1,86 @@
-Mode:
-&nbsp; <a href="/auth/register?mode=default">Default</a>
-&nbsp; <a href="/auth/register?mode=custom">Custom</a>
+<app-nav></app-nav>
 
+<div class="container register-content">
 
-<div class="jumbotron limit">
-
-  <h3 class="title">Registration</h3>
-
-  <!-- Register Form -->
-  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-
-    <!-- username -->
-    <div class="form-group">
-      <label for="1">Username</label>
-      <input formControlName="username" id="0" class="form-control" type="email" placeholder="Enter username">
-      <!-- validation -->
-      <app-form-validator [it]="username"></app-form-validator>
-    </div>    
-
-    <!-- email -->
-    <div class="form-group">
-      <label for="1">Email address</label>
-      <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
-      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
-      <!-- validation -->
-      <app-form-validator [it]="email"></app-form-validator>
-    </div>
-
-    <!-- both -->
-    <fieldset formGroupName="passwords">
-
-      <!-- password -->
+  <!-- <br>
+  <br>
+  <br>
+  Mode:
+  &nbsp; <a href="/auth/register?mode=default">Default</a>
+  &nbsp; <a href="/auth/register?mode=custom">Custom</a> -->
+  
+  
+  <div class="jumbotron limit">
+  
+    <h3 class="title">Registration</h3>
+  
+    <!-- Register Form -->
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  
+      <!-- username -->
       <div class="form-group">
-        <label for="2">Password</label>
-        <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
+        <label for="1">Username</label>
+        <input formControlName="username" id="0" class="form-control" type="email" placeholder="Enter username">
         <!-- validation -->
-        <app-form-validator [it]="pwd"></app-form-validator>
-      </div>
-
-      <!-- confirm password -->
+        <app-form-validator [it]="username"></app-form-validator>
+      </div>    
+  
+      <!-- email -->
       <div class="form-group">
-        <label for="3">Password confirmation</label>
-        <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
-          placeholder="Confirm Password">
-        <small class="form-text text-muted">Password must be at 6 to 20 characters long.</small>
+        <label for="1">Email address</label>
+        <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
         <!-- validation -->
-        <app-form-validator [it]="confirm"></app-form-validator>
+        <app-form-validator [it]="email"></app-form-validator>
       </div>
-
-      <!-- mix validation: confirm, passwords -->
-      <!-- equal -->
-      <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
-        {{passwords.errors.itemsAreEqual.msg}}
+  
+      <!-- both -->
+      <fieldset formGroupName="passwords">
+  
+        <!-- password -->
+        <div class="form-group">
+          <label for="2">Password</label>
+          <input formControlName="pwd" id="2" class="form-control" type="password" placeholder="Password">
+          <!-- validation -->
+          <app-form-validator [it]="pwd"></app-form-validator>
+        </div>
+  
+        <!-- confirm password -->
+        <div class="form-group">
+          <label for="3">Password confirmation</label>
+          <input formControlName="confirm" id="3" class="form-control input-lg" type="password"
+            placeholder="Confirm Password">
+          <small class="form-text text-muted">Password must be at 6 to 20 characters long.</small>
+          <!-- validation -->
+          <app-form-validator [it]="confirm"></app-form-validator>
+        </div>
+  
+        <!-- mix validation: confirm, passwords -->
+        <!-- equal -->
+        <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
+          {{passwords.errors.itemsAreEqual.msg}}
+        </div>
+  
+      </fieldset>
+  
+      <div class="form-group conditions">
+        <i class="mdi mdi-file-document-box-check"></i>
+        <a class="alert-link" routerLink="/auth/conditions"> Conditions Document</a>
       </div>
-
-    </fieldset>
-
-    <div class="form-group conditions">
-      <i class="mdi mdi-file-document-box-check"></i>
-      <a class="alert-link" href=""> Conditions Document</a>
-    </div>
-
-    <div class="form-group ">
-      <div class="custom-control custom-checkbox">
-        <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
-        <label class="custom-control-label" for="customCheck1">I agree with conditions</label>
+  
+      <div class="form-group ">
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="customCheck1" checked="">
+          <label class="custom-control-label" for="customCheck1">I agree with conditions</label>
+        </div>
       </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  
+  </div>  
 
 </div>
 
-
 <app-extra-alert [st]="st.alert"></app-extra-alert>
+
+<app-clan-footer></app-clan-footer>

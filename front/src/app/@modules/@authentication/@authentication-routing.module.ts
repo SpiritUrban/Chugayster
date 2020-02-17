@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { HelpComponent } from './pages/help/help.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { ConditionsComponent } from './pages/conditions/conditions.component'
 
 
 const routes: Routes = [
   { path: 'help', component: HelpComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'conditions', component: ConditionsComponent },
 ];
 
 @NgModule({
