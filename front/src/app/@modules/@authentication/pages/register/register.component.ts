@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 import { log, getUrlQueries } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
-import { registerState } from './register.state'
+import appState from '../../../../app-state';
+
 import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
 
 declare var require: any;
@@ -25,7 +26,7 @@ const mode = queries.mode ? queries.mode : 'empty'
 export class RegisterComponent implements OnInit {
 
   userForm: any; //FormGroup;
-  st = registerState;
+  st:any = appState;
 
   constructor(
     private formBuilder: FormBuilder,
