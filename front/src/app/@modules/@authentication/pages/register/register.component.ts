@@ -26,7 +26,7 @@ const mode = queries.mode ? queries.mode : 'empty'
 export class RegisterComponent implements OnInit {
 
   userForm: any; //FormGroup;
-  st:any = appState;
+  st: any = appState;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -84,9 +84,9 @@ export class RegisterComponent implements OnInit {
   }
 
   // for elements of form 
-  get username() { return this.userForm.get('username'); }
-  get email() { return this.userForm.get('email'); }
   get passwords() { return this.userForm.get('passwords'); }
-  get pwd() { return this.userForm.get('passwords.pwd'); }
+  get username() { return this.userForm.get('username'); }
   get confirm() { return this.userForm.get('passwords.confirm'); }
+  get email() { return this.userForm.get('email'); }
+  get pwd() { return this.userForm.get('passwords.pwd'); }
 }
