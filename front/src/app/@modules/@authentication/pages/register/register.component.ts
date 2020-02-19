@@ -54,15 +54,6 @@ export class RegisterComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // example !!!
-    // setInterval(this.logForm.bind(this), 2000)
-
-    // api test
-    // log( await this.api.test() )
-  }
-
-  logForm() {
-    log('userData: ', this.userData)
   }
 
   my_alert(title, userMsg, devMsg) {
