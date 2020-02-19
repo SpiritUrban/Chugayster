@@ -8,10 +8,9 @@ import appState from '../../../../app-state';
 })
 export class MainComponent implements OnInit {
 
-  st: any;
+  st: any= appState;
 
   constructor() { 
-    this.st = appState
   }
 
   ngOnInit() {
