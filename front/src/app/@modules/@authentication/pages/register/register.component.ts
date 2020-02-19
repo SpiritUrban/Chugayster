@@ -73,8 +73,8 @@ export class RegisterComponent implements OnInit {
     try {
       const answer: any = await this.api.register(this.userData)
       log('answer: ', answer)
-      if (answer.err) this.my_alert('???', answer.msg2, answer.err); // showing of error
-      if (answer.success) this.my_alert('???', 'User was created!', null); // showing of error
+      if (answer.err) this.my_alert(':(', answer.msg2, answer.err); // showing of error
+      if (answer.success) this.my_alert(':)', 'User was created!', null); // showing of error
     } catch (error) {
       log('HttpErrorResponse: ', error)
     }
