@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, ValidatorFn } from '@angular/forms';
+import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
+import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
+import { log, my_alert } from '../../../../my_modules/stuff';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,65 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  userForm: any; //FormGroup;
+  st: any = appState;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private validator: ValidatorService,
+    private api: ApiService
+  ) {
+    // group of validators (for next usage)
+    const pwdValidators: ValidatorFn[] = [
+      Validators.required,
+      Validators.minLength(6),
+      Validators.maxLength(20),
+    ];
+
+    // build 'userForm' essence
+    this.userForm = this.formBuilder.group({
+      'username': [this.st.user.username, [Validators.required, Validators.minLength(2)]],
+      'email': [this.st.user.email, [Validators.required, Validators.minLength(5), this.validator.mailValidator()]],
+      'passwords': this.formBuilder.group({
+        'pwd': ['', pwdValidators],
+        'confirm': ['', pwdValidators]
+      }, {
+        validator: this.validator.itemsAreEqual('Passwords', 'pwd', 'confirm')
+      })
+    });
+  }
 
   ngOnInit() {
   }
+
+    // when user pressed (submit/register)
+    async onSubmit() {
+      try {
+        const answer: any = await this.api.register(this.userData)
+        log('answer: ', answer)
+        if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
+        if (answer.success) my_alert(':)', 'User was created!', null); // showing of error
+      } catch (error) {
+        log('HttpErrorResponse: ', error)
+      }
+  
+    }
+  
+    // gathering the structure 'userData' from 'userForm'
+    get userData() {
+      return {
+        username: this.userForm.controls.username.value,
+        email: this.userForm.controls.email.value,
+        password: this.userForm.controls.passwords.controls.pwd.value,
+        password2: this.userForm.controls.passwords.controls.confirm.value
+      }
+    }
+  
+    // for elements of form 
+    get passwords() { return this.userForm.get('passwords'); }
+    get username() { return this.userForm.get('username'); }
+    get confirm() { return this.userForm.get('passwords.confirm'); }
+    get email() { return this.userForm.get('email'); }
+    get pwd() { return this.userForm.get('passwords.pwd'); }
 
 }
