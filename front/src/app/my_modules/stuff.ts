@@ -1,3 +1,6 @@
+import appState from '../app-state';
+
+
 const log = console.log;
 
 const steps = (lot) => {
@@ -20,5 +23,8 @@ const parseQuery = (queryString) => {
 
 const getUrlQueries = () => parseQuery(location.search);
 
+const my_alert = (title, userMsg, devMsg) => {
+    appState.alert = { show: true, title, userMsg, devMsg }
+  }
 
-export { log, steps, parseQuery, getUrlQueries };
+export { log, steps, parseQuery, getUrlQueries, my_alert };

@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
-import { log, getUrlQueries } from '../../../../my_modules/stuff';
+import { log, getUrlQueries, my_alert } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import appState from '../../../../app-state';
-
 import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
-
 declare var require: any;
 
 // change component mode 
@@ -56,17 +54,13 @@ export class RegisterComponent implements OnInit {
   async ngOnInit() {
   }
 
-  my_alert(title, userMsg, devMsg) {
-    this.st.alert = { show: true, title, userMsg, devMsg }
-  }
-
   // when user pressed (submit/register)
   async onSubmit() {
     try {
       const answer: any = await this.api.register(this.userData)
       log('answer: ', answer)
-      if (answer.err) this.my_alert(':(', answer.msg2, answer.err); // showing of error
-      if (answer.success) this.my_alert(':)', 'User was created!', null); // showing of error
+      if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
+      if (answer.success) my_alert(':)', 'User was created!', null); // showing of error
     } catch (error) {
       log('HttpErrorResponse: ', error)
     }
