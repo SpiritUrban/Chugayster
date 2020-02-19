@@ -3,8 +3,8 @@ import { User } from '../../../@common-dependencies/interfaces/user';
 interface extraAlert {
     show: Boolean;
     title: String;
-    body: String;
-    bodyDev: String;
+    userMsg: String;
+    devMsg: String;
 }
 
 interface RegisterState {
@@ -34,8 +34,8 @@ var registerState: RegisterState = {
     alert: {
         show: false,
         title: 'About',
-        body: 'Some wrong or good',
-        bodyDev: 'Tech details'
+        userMsg: 'Some wrong or good',
+        devMsg: 'Tech details'
     }
 };
 

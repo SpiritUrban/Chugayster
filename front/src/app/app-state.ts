@@ -12,8 +12,8 @@ const appState = {
     alert: {
       show: false,
       title: 'About',
-      body: 'Some wrong or good',
-      bodyDev: 'Tech details'
+      userMsg: 'Some wrong or good',
+      devMsg: 'Tech details'
     }
   };
 

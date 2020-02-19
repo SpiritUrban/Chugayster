@@ -47,8 +47,8 @@ export class RegisterComponent implements OnInit {
         'pwd': ['', pwdValidators],
         'confirm': ['', pwdValidators]
       }, {
-          validator: this.validator.itemsAreEqual('Passwords', 'pwd', 'confirm')
-        })
+        validator: this.validator.itemsAreEqual('Passwords', 'pwd', 'confirm')
+      })
     });
   }
 
@@ -64,9 +64,8 @@ export class RegisterComponent implements OnInit {
     log('userData: ', this.userData)
   }
 
-  my_alert(userMsg, devMsg){
-    alert(userMsg)
-    alert(devMsg)
+  my_alert(title, userMsg, devMsg) {
+    this.st.alert = { show: true, title, userMsg, devMsg }
   }
 
   // when user pressed (submit/register)
@@ -74,8 +73,8 @@ export class RegisterComponent implements OnInit {
     try {
       const answer: any = await this.api.register(this.userData)
       log('answer: ', answer)
-      if (answer.err) this.my_alert(answer.msg2, answer.err); // showing of error
-      if (answer.success) alert('User was created!'); // showing of error
+      if (answer.err) this.my_alert('???', answer.msg2, answer.err); // showing of error
+      if (answer.success) this.my_alert('???', 'User was created!', null); // showing of error
     } catch (error) {
       log('HttpErrorResponse: ', error)
     }
