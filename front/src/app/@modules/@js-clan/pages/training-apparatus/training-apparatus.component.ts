@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { log } from 'src/app/my_modules/stuff';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-training-apparatus',
@@ -9,17 +10,8 @@ import { log } from 'src/app/my_modules/stuff';
 })
 export class TrainingApparatusComponent implements OnInit {
 
-  st = {
-    lang: 'ua',
-    cards: <any>[],
-    alert: {
-      show: false,
-      title: '',
-      body: '',
-      // bodyDev: 'Tech details'
-    }
-  }
-
+  st: any= appState;
+  
   constructor(
     private api: ApiService
   ) { }

@@ -12,7 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class LessonComponent implements OnInit {
 
-  st: any;
+  st: any = appState;
   url: string = "https://www.youtube.com/embed/";
   urlSafe: SafeResourceUrl;
 
@@ -21,8 +21,7 @@ export class LessonComponent implements OnInit {
     private api: ApiService,
     public sanitizer: DomSanitizer
   ) {
-    this.st = appState
-   }
+  }
 
   async ngOnInit() {
     try {

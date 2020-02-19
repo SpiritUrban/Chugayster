@@ -12,14 +12,13 @@ import appState from '../../../../app-state';
 })
 export class LessonsComponent implements OnInit {
 
-  st: any;
+  st: any = appState;
 
   constructor(
     private api: ApiService,
     private _api: ApiJsClanService,
     private router: Router
   ) {
-    this.st = appState
   }
 
   async ngOnInit() {
