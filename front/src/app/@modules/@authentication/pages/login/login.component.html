@@ -1,34 +1,33 @@
 <app-nav></app-nav>
 
 <div class="container login-content">
-  
+
   <div class="jumbotron limit">
-  
+
     <h3 class="title">Login</h3>
-  
+
     <!-- Login Form -->
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-  
+
       <!-- username -->
       <!-- <div class="form-group">
         <label for="1">Username</label>
         <input formControlName="username" id="0" class="form-control" type="email" placeholder="Enter username"> -->
-        <!-- validation -->
-        <!-- <app-form-validator [it]="username"></app-form-validator>
+      <!-- validation -->
+      <!-- <app-form-validator [it]="username"></app-form-validator>
       </div>     -->
-  
+
       <!-- email -->
       <div class="form-group">
         <label for="1">Email address</label>
         <input formControlName="email" id="1" class="form-control" type="email" placeholder="Enter email">
-        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
         <!-- validation -->
         <app-form-validator [it]="email"></app-form-validator>
       </div>
-  
+
       <!-- both -->
       <fieldset formGroupName="passwords">
-  
+
         <!-- password -->
         <div class="form-group">
           <label for="2">Password</label>
@@ -36,19 +35,23 @@
           <!-- validation -->
           <app-form-validator [it]="pwd"></app-form-validator>
         </div>
-  
+
         <!-- mix validation: confirm, passwords -->
         <!-- equal -->
-        <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual" class="alert alert-danger">
+        <div *ngIf=" !confirm.pristine && passwords.errors && passwords.errors.itemsAreEqual"
+          class="alert alert-danger">
           {{passwords.errors.itemsAreEqual.msg}}
         </div>
-  
+
       </fieldset>
-  
-      <button type="submit" class="btn btn-primary">Submit</button>
+
+      <div class="btn-panel">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
     </form>
-  
-  </div>  
+
+  </div>
 
 </div>
 
