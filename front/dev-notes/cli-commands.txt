@@ -6,6 +6,8 @@ ng generate module @modules/@common-dependencies --routing
 *** Generate Component in him:
 ng generate component @modules/@common-dependencies/components/general/form-validator
 ng generate component @modules/@authentication/pages/conditions
+ng generate component @modules/@js-clan/pages/cabinet
+
 
 *** Generate Service:
 ng generate service @modules/@common-dependencies/services/validator
