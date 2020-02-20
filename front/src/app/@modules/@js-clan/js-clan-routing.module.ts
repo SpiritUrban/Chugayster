@@ -13,6 +13,7 @@ import { TrainingApparatusComponent } from './pages/training-apparatus/training-
 import { HealthComponent } from './pages/health/health.component';
 import { VideoSamplesComponent } from './pages/sources/video-samples/video-samples.component';
 import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.component';
+import { CabinetComponent } from './pages/cabinet/cabinet.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'health', component: HealthComponent },
   { path: 'video-samples', component: VideoSamplesComponent },
   { path: 'free-sounds', component: FreeSoundsComponent },
-
+  { path: 'cabinet', component: CabinetComponent },
 
   { path: 'p404', component: P404Component },
 ];

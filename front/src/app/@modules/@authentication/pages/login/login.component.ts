@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
       if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
       if (answer.success) {
         my_alert(':)', 'User logged!', null);
-        this.router.navigate(['/cabinet']);
+        setTimeout(_ => this.router.navigate(['/cabinet']), 2000)
       }
     } catch (error) {
       log('HttpErrorResponse: ', error)

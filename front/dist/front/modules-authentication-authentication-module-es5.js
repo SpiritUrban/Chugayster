@@ -314,6 +314,7 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.onSubmit = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var answer, error_1;
+            var _this = this;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -325,8 +326,8 @@ var LoginComponent = /** @class */ (function () {
                         if (answer.err)
                             Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':(', answer.msg2, answer.err); // showing of error
                         if (answer.success) {
-                            this.router.navigate(['/cabinet']);
                             Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':)', 'User logged!', null);
+                            setTimeout(function (_) { return _this.router.navigate(['/cabinet']); }, 2000);
                         }
                         return [3 /*break*/, 3];
                     case 2:

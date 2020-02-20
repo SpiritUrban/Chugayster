@@ -309,8 +309,8 @@ let LoginComponent = class LoginComponent {
                 if (answer.err)
                     Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':(', answer.msg2, answer.err); // showing of error
                 if (answer.success) {
-                    this.router.navigate(['/cabinet']);
                     Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':)', 'User logged!', null);
+                    setTimeout(_ => this.router.navigate(['/cabinet']), 2000);
                 }
             }
             catch (error) {

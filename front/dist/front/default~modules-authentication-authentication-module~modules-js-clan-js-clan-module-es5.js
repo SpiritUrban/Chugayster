@@ -44,6 +44,17 @@ module.exports = "<header>\n    <div class=\"p\"><a class=\"logo\" href=\"https:
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/index.js!./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.html":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/raw-loader!./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.html ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>cabinet works!</p>\n"
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/index.js!./src/app/@modules/@js-clan/pages/health/health.component.html":
 /*!************************************************************************************************!*\
   !*** ./node_modules/raw-loader!./src/app/@modules/@js-clan/pages/health/health.component.html ***!
@@ -84,7 +95,7 @@ module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n    <br>\n    <div class=\"row\">\n        <ul>\n            <li><a routerLink=\"/common/main\">/common/main</a></li>\n            <li><a routerLink=\"/lessons\">Lessons</a></li>\n            <li><a routerLink=\"/members\">Members</a></li>\n            <li><a routerLink=\"/training-apparatus\">Training apparatus</a></li>\n        \n            <h3>Ресурси:</h3>\n            <h4>Для відео монтажу:</h4>\n            <li><a routerLink=\"/video-samples\">Video samples</a></li>\n            <li><a routerLink=\"/free-sounds\">Free sounds</a></li>\n\n            <h4>AUTH:</h4>\n            <li><a routerLink=\"/auth/register\">Register</a></li>\n            <li><a routerLink=\"/auth/conditions\">Conditions</a></li>\n            <li><a routerLink=\"/auth/login\">Login</a></li>\n\n\n        </ul>\n    </div>\n</div>\n\n<!-- <app-extra-alert [st]=\"st.alert\"></app-extra-alert> -->\n\n<app-clan-footer></app-clan-footer>\n"
+module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n    <br>\n    <div class=\"row\">\n        <ul>\n            <h4>JS-CLAN:</h4>\n            <li><a routerLink=\"/common/main\">/common/main</a></li>\n            <li><a routerLink=\"/lessons\">Lessons</a></li>\n            <li><a routerLink=\"/members\">Members</a></li>\n            <li><a routerLink=\"/training-apparatus\">Training apparatus</a></li>\n            <li><a routerLink=\"/cabinet\">Cabinet</a></li>\n        \n            <h3>Ресурси:</h3>\n            <h4>Для відео монтажу:</h4>\n            <li><a routerLink=\"/video-samples\">Video samples</a></li>\n            <li><a routerLink=\"/free-sounds\">Free sounds</a></li>\n\n            <h4>AUTH:</h4>\n            <li><a routerLink=\"/auth/register\">Register</a></li>\n            <li><a routerLink=\"/auth/conditions\">Conditions</a></li>\n            <li><a routerLink=\"/auth/login\">Login</a></li>\n        </ul>\n    </div>\n</div>\n\n<!-- <app-extra-alert [st]=\"st.alert\"></app-extra-alert> -->\n\n<app-clan-footer></app-clan-footer>\n"
 
 /***/ }),
 
@@ -457,10 +468,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_health_health_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./pages/health/health.component */ "./src/app/@modules/@js-clan/pages/health/health.component.ts");
 /* harmony import */ var _pages_sources_video_samples_video_samples_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/sources/video-samples/video-samples.component */ "./src/app/@modules/@js-clan/pages/sources/video-samples/video-samples.component.ts");
 /* harmony import */ var _pages_sources_free_sounds_free_sounds_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/sources/free-sounds/free-sounds.component */ "./src/app/@modules/@js-clan/pages/sources/free-sounds/free-sounds.component.ts");
+/* harmony import */ var _pages_cabinet_cabinet_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/cabinet/cabinet.component */ "./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.ts");
 
 
 
 // Pages
+
 
 
 
@@ -484,6 +497,7 @@ var routes = [
     { path: 'health', component: _pages_health_health_component__WEBPACK_IMPORTED_MODULE_11__["HealthComponent"] },
     { path: 'video-samples', component: _pages_sources_video_samples_video_samples_component__WEBPACK_IMPORTED_MODULE_12__["VideoSamplesComponent"] },
     { path: 'free-sounds', component: _pages_sources_free_sounds_free_sounds_component__WEBPACK_IMPORTED_MODULE_13__["FreeSoundsComponent"] },
+    { path: 'cabinet', component: _pages_cabinet_cabinet_component__WEBPACK_IMPORTED_MODULE_14__["CabinetComponent"] },
     { path: 'p404', component: _pages_p404_p404_component__WEBPACK_IMPORTED_MODULE_6__["P404Component"] },
 ];
 var JsClanRoutingModule = /** @class */ (function () {
@@ -540,6 +554,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_health_health_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./pages/health/health.component */ "./src/app/@modules/@js-clan/pages/health/health.component.ts");
 /* harmony import */ var _pages_sources_video_samples_video_samples_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./pages/sources/video-samples/video-samples.component */ "./src/app/@modules/@js-clan/pages/sources/video-samples/video-samples.component.ts");
 /* harmony import */ var _pages_sources_free_sounds_free_sounds_component__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./pages/sources/free-sounds/free-sounds.component */ "./src/app/@modules/@js-clan/pages/sources/free-sounds/free-sounds.component.ts");
+/* harmony import */ var _pages_cabinet_cabinet_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./pages/cabinet/cabinet.component */ "./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.ts");
 
 
 
@@ -565,6 +580,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var JsClanModule = /** @class */ (function () {
     function JsClanModule() {
     }
@@ -574,7 +590,7 @@ var JsClanModule = /** @class */ (function () {
                 _pages_lessons_lessons_component__WEBPACK_IMPORTED_MODULE_11__["LessonsComponent"],
                 _pages_main_main_component__WEBPACK_IMPORTED_MODULE_13__["MainComponent"],
                 _pages_p404_p404_component__WEBPACK_IMPORTED_MODULE_14__["P404Component"],
-                _components_general_nav_nav_component__WEBPACK_IMPORTED_MODULE_7__["NavComponent"], _components_general_clan_footer_clan_footer_component__WEBPACK_IMPORTED_MODULE_8__["ClanFooterComponent"], _pages_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_12__["LessonComponent"], _pages_want_more_lessons_want_more_lessons_component__WEBPACK_IMPORTED_MODULE_15__["WantMoreLessonsComponent"], _pages_members_members_component__WEBPACK_IMPORTED_MODULE_16__["MembersComponent"], _pages_students_students_component__WEBPACK_IMPORTED_MODULE_17__["StudentsComponent"], _pages_training_apparatus_training_apparatus_component__WEBPACK_IMPORTED_MODULE_18__["TrainingApparatusComponent"], _pages_health_health_component__WEBPACK_IMPORTED_MODULE_19__["HealthComponent"], _components_flip_card_flip_card_component__WEBPACK_IMPORTED_MODULE_9__["FlipCardComponent"], _components_flip_card_video_flip_card_video_component__WEBPACK_IMPORTED_MODULE_10__["FlipCardVideoComponent"], _pages_sources_video_samples_video_samples_component__WEBPACK_IMPORTED_MODULE_20__["VideoSamplesComponent"], _pages_sources_free_sounds_free_sounds_component__WEBPACK_IMPORTED_MODULE_21__["FreeSoundsComponent"]
+                _components_general_nav_nav_component__WEBPACK_IMPORTED_MODULE_7__["NavComponent"], _components_general_clan_footer_clan_footer_component__WEBPACK_IMPORTED_MODULE_8__["ClanFooterComponent"], _pages_lesson_lesson_component__WEBPACK_IMPORTED_MODULE_12__["LessonComponent"], _pages_want_more_lessons_want_more_lessons_component__WEBPACK_IMPORTED_MODULE_15__["WantMoreLessonsComponent"], _pages_members_members_component__WEBPACK_IMPORTED_MODULE_16__["MembersComponent"], _pages_students_students_component__WEBPACK_IMPORTED_MODULE_17__["StudentsComponent"], _pages_training_apparatus_training_apparatus_component__WEBPACK_IMPORTED_MODULE_18__["TrainingApparatusComponent"], _pages_health_health_component__WEBPACK_IMPORTED_MODULE_19__["HealthComponent"], _components_flip_card_flip_card_component__WEBPACK_IMPORTED_MODULE_9__["FlipCardComponent"], _components_flip_card_video_flip_card_video_component__WEBPACK_IMPORTED_MODULE_10__["FlipCardVideoComponent"], _pages_sources_video_samples_video_samples_component__WEBPACK_IMPORTED_MODULE_20__["VideoSamplesComponent"], _pages_sources_free_sounds_free_sounds_component__WEBPACK_IMPORTED_MODULE_21__["FreeSoundsComponent"], _pages_cabinet_cabinet_component__WEBPACK_IMPORTED_MODULE_22__["CabinetComponent"]
             ],
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
@@ -587,6 +603,50 @@ var JsClanModule = /** @class */ (function () {
         })
     ], JsClanModule);
     return JsClanModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.sass":
+/*!************************************************************************!*\
+  !*** ./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.sass ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL0Btb2R1bGVzL0Bqcy1jbGFuL3BhZ2VzL2NhYmluZXQvY2FiaW5ldC5jb21wb25lbnQuc2FzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.ts ***!
+  \**********************************************************************/
+/*! exports provided: CabinetComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CabinetComponent", function() { return CabinetComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+
+
+var CabinetComponent = /** @class */ (function () {
+    function CabinetComponent() {
+    }
+    CabinetComponent.prototype.ngOnInit = function () {
+    };
+    CabinetComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-cabinet',
+            template: __webpack_require__(/*! raw-loader!./cabinet.component.html */ "./node_modules/raw-loader/index.js!./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.html"),
+            styles: [__webpack_require__(/*! ./cabinet.component.sass */ "./src/app/@modules/@js-clan/pages/cabinet/cabinet.component.sass")]
+        })
+    ], CabinetComponent);
+    return CabinetComponent;
 }());
 
 
