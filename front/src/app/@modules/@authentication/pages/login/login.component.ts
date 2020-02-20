@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
   st: any = appState;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private validator: ValidatorService,
     private api: ApiService
@@ -43,34 +45,37 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-    // when user pressed (submit/register)
-    async onSubmit() {
-      try {
-        const answer: any = await this.api.register(this.userData)
-        log('answer: ', answer)
-        if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
-        if (answer.success) my_alert(':)', 'User was created!', null); // showing of error
-      } catch (error) {
-        log('HttpErrorResponse: ', error)
+  // when user pressed (submit/register)
+  async onSubmit() {
+    try {
+      const answer: any = await this.api.login(this.userData)
+      log('answer: ', answer)
+      if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
+      if (answer.success) {
+        my_alert(':)', 'User logged!', null);
+        this.router.navigate(['/cabinet']);
       }
-  
+    } catch (error) {
+      log('HttpErrorResponse: ', error)
     }
-  
-    // gathering the structure 'userData' from 'userForm'
-    get userData() {
-      return {
-        username: this.userForm.controls.username.value,
-        email: this.userForm.controls.email.value,
-        password: this.userForm.controls.passwords.controls.pwd.value,
-        password2: this.userForm.controls.passwords.controls.confirm.value
-      }
+
+  }
+
+  // gathering the structure 'userData' from 'userForm'
+  get userData() {
+    return {
+      username: this.userForm.controls.username.value,
+      email: this.userForm.controls.email.value,
+      password: this.userForm.controls.passwords.controls.pwd.value,
+      password2: this.userForm.controls.passwords.controls.confirm.value
     }
-  
-    // for elements of form 
-    get passwords() { return this.userForm.get('passwords'); }
-    get username() { return this.userForm.get('username'); }
-    get confirm() { return this.userForm.get('passwords.confirm'); }
-    get email() { return this.userForm.get('email'); }
-    get pwd() { return this.userForm.get('passwords.pwd'); }
+  }
+
+  // for elements of form 
+  get passwords() { return this.userForm.get('passwords'); }
+  get username() { return this.userForm.get('username'); }
+  get confirm() { return this.userForm.get('passwords.confirm'); }
+  get email() { return this.userForm.get('email'); }
+  get pwd() { return this.userForm.get('passwords.pwd'); }
 
 }

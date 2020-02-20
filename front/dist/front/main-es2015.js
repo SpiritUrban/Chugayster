@@ -38,7 +38,7 @@ module.exports = webpackAsyncContext;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"modal\" *ngIf=\"st.show\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <h5 class=\"modal-title\">{{st.title}}</h5>\n          <button (click)=\"close()\" type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n            <span aria-hidden=\"true\">&times;</span>\n          </button>\n        </div>\n\n        <div class=\"modal-body\">\n          <p>{{st.body}}</p>\n          <!-- <p></p> -->\n        </div>\n\n\n        <!-- * -->\n        <ngb-accordion *ngIf=\"st.bodyDev\" #acc=\"ngbAccordion\" activeIds=\"ngb-panel-3\">\n          <ngb-panel title=\"Dev msg\">\n            <ng-template ngbPanelContent>\n              {{st.bodyDev}}\n            </ng-template>\n          </ngb-panel>\n        </ngb-accordion>\n<!-- *         -->\n\n        <div class=\"modal-footer\">\n          <!-- <button (click)=\"close()\" type=\"button\" class=\"btn btn-primary\">Save changes</button> -->\n          <button (click)=\"close()\" type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
+module.exports = "<div class=\"modal\" *ngIf=\"st.show\">\n  <div class=\"modal-dialog\" role=\"document\">\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <h5 class=\"modal-title\">{{st.title}}</h5>\n        <button (click)=\"close()\" type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n          <span aria-hidden=\"true\">&times;</span>\n        </button>\n      </div>\n\n      <div class=\"modal-body\">\n        <p>{{st.userMsg}}</p>\n        <!-- <p></p> -->\n      </div>\n\n      <!-- * -->\n      <ngb-accordion *ngIf=\"st.devMsg\" #acc=\"ngbAccordion\" activeIds=\"ngb-panel-3\">\n        <ngb-panel title=\"Dev msg\">\n          <ng-template ngbPanelContent>\n            {{st.devMsg}}\n          </ng-template>\n        </ngb-panel>\n      </ngb-accordion>\n      <!-- * -->\n\n      <div class=\"modal-footer\">\n        <!-- <button (click)=\"close()\" type=\"button\" class=\"btn btn-primary\">Save changes</button> -->\n        <button (click)=\"close()\" type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -300,7 +300,7 @@ CommonDependenciesModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".modal {\n  display: block;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQG1vZHVsZXMvQGNvbW1vbi1kZXBlbmRlbmNpZXMvY29tcG9uZW50cy9nZW5lcmFsL2V4dHJhLWFsZXJ0L0Q6XFxwcm9qZWN0czJcXENodWdheXN0ZXJcXGZyb250L3NyY1xcYXBwXFxAbW9kdWxlc1xcQGNvbW1vbi1kZXBlbmRlbmNpZXNcXGNvbXBvbmVudHNcXGdlbmVyYWxcXGV4dHJhLWFsZXJ0XFxleHRyYS1hbGVydC5jb21wb25lbnQuc2FzcyIsInNyYy9hcHAvQG1vZHVsZXMvQGNvbW1vbi1kZXBlbmRlbmNpZXMvY29tcG9uZW50cy9nZW5lcmFsL2V4dHJhLWFsZXJ0L2V4dHJhLWFsZXJ0LmNvbXBvbmVudC5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvQG1vZHVsZXMvQGNvbW1vbi1kZXBlbmRlbmNpZXMvY29tcG9uZW50cy9nZW5lcmFsL2V4dHJhLWFsZXJ0L2V4dHJhLWFsZXJ0LmNvbXBvbmVudC5zYXNzIiwic291cmNlc0NvbnRlbnQiOlsiLm1vZGFsXHJcbiAgICBkaXNwbGF5OiBibG9jayIsIi5tb2RhbCB7XG4gIGRpc3BsYXk6IGJsb2NrO1xufSJdfQ== */"
+module.exports = ".modal {\n  display: block;\n  background: rgba(0, 0, 0, 0.69);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvQG1vZHVsZXMvQGNvbW1vbi1kZXBlbmRlbmNpZXMvY29tcG9uZW50cy9nZW5lcmFsL2V4dHJhLWFsZXJ0L0Q6XFxwcm9qZWN0czJcXENodWdheXN0ZXJcXGZyb250L3NyY1xcYXBwXFxAbW9kdWxlc1xcQGNvbW1vbi1kZXBlbmRlbmNpZXNcXGNvbXBvbmVudHNcXGdlbmVyYWxcXGV4dHJhLWFsZXJ0XFxleHRyYS1hbGVydC5jb21wb25lbnQuc2FzcyIsInNyYy9hcHAvQG1vZHVsZXMvQGNvbW1vbi1kZXBlbmRlbmNpZXMvY29tcG9uZW50cy9nZW5lcmFsL2V4dHJhLWFsZXJ0L2V4dHJhLWFsZXJ0LmNvbXBvbmVudC5zYXNzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksY0FBQTtFQUNBLCtCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9AbW9kdWxlcy9AY29tbW9uLWRlcGVuZGVuY2llcy9jb21wb25lbnRzL2dlbmVyYWwvZXh0cmEtYWxlcnQvZXh0cmEtYWxlcnQuY29tcG9uZW50LnNhc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9kYWxcclxuICAgIGRpc3BsYXk6IGJsb2NrXHJcbiAgICBiYWNrZ3JvdW5kOiBoc2xhKDAsIDAlLCAwJSwgMC42OSkiLCIubW9kYWwge1xuICBkaXNwbGF5OiBibG9jaztcbiAgYmFja2dyb3VuZDogcmdiYSgwLCAwLCAwLCAwLjY5KTtcbn0iXX0= */"
 
 /***/ }),
 
@@ -1031,13 +1031,20 @@ __webpack_require__.r(__webpack_exports__);
 const httpOptions = {
     headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({ 'Content-Type': 'application/json' })
 };
+if (location.hostname == 'localhost')
+    var url = 'http://localhost'; //dev
+else
+    var url = ''; //production
 let ApiService = class ApiService {
     constructor(http) {
         this.http = http;
+        // test
         this.test = () => this.http.get('https://api.github.com/users').toPromise();
-        // register = (userData) => this.http.get('http://localhost:49001/api/auth/info', userData).toPromise();
-        this.register = (userData) => this.http.post('http://localhost:49001/api/auth/register', userData, httpOptions).toPromise();
+        // front
         this.getJson = (path) => this.http.get('./assets' + path).toPromise();
+        // back
+        this.register = (userData) => this.http.post(url + '/api/auth/register', userData, httpOptions).toPromise();
+        this.login = (userData) => this.http.post(url + '/api/auth/login', userData, httpOptions).toPromise();
     }
 };
 ApiService.ctorParameters = () => [
@@ -1190,7 +1197,7 @@ const routes = [
     {
         path: '',
         // loadChildren: 'src/app/@modules/js-clan/js-clan.module#JsClanModule'
-        loadChildren: () => __webpack_require__.e(/*! import() | modules-js-clan-js-clan-module */ "modules-js-clan-js-clan-module").then(__webpack_require__.bind(null, /*! ./@modules/@js-clan/js-clan.module */ "./src/app/@modules/@js-clan/js-clan.module.ts")).then(m => m.JsClanModule)
+        loadChildren: () => __webpack_require__.e(/*! import() | modules-js-clan-js-clan-module */ "default~modules-authentication-authentication-module~modules-js-clan-js-clan-module").then(__webpack_require__.bind(null, /*! ./@modules/@js-clan/js-clan.module */ "./src/app/@modules/@js-clan/js-clan.module.ts")).then(m => m.JsClanModule)
     },
     {
         path: 'common',
@@ -1198,7 +1205,7 @@ const routes = [
     },
     {
         path: 'auth',
-        loadChildren: () => __webpack_require__.e(/*! import() | modules-authentication-authentication-module */ "modules-authentication-authentication-module").then(__webpack_require__.bind(null, /*! ./@modules/@authentication/@authentication.module */ "./src/app/@modules/@authentication/@authentication.module.ts")).then(mod => mod.AuthenticationModule)
+        loadChildren: () => Promise.all(/*! import() | modules-authentication-authentication-module */[__webpack_require__.e("default~modules-authentication-authentication-module~modules-js-clan-js-clan-module"), __webpack_require__.e("modules-authentication-authentication-module")]).then(__webpack_require__.bind(null, /*! ./@modules/@authentication/@authentication.module */ "./src/app/@modules/@authentication/@authentication.module.ts")).then(mod => mod.AuthenticationModule)
     },
     {
         path: 'dev',
@@ -1231,6 +1238,36 @@ __webpack_require__.r(__webpack_exports__);
 const appState = {
     nav: {
         msg: 'hi'
+    },
+    lang: 'ua',
+    cards: [],
+    currentCard: {
+        title: '',
+        description: '',
+        video: 'zKOQhgWQPM4'
+    },
+    user: {
+        username: '',
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        password1: '',
+        password2: '',
+        role: 'Guest',
+        notes: null
+    },
+    roles: [
+        'Guest',
+        'Admin',
+        'Owner',
+        'Operator'
+    ],
+    alert: {
+        show: false,
+        title: 'About',
+        userMsg: 'Some wrong or good',
+        devMsg: 'Tech details'
     }
 };
 /* harmony default export */ __webpack_exports__["default"] = (appState);
@@ -1299,7 +1336,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!*************************************!*\
   !*** ./src/app/my_modules/stuff.ts ***!
   \*************************************/
-/*! exports provided: log, steps, parseQuery, getUrlQueries */
+/*! exports provided: log, steps, parseQuery, getUrlQueries, my_alert */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1308,6 +1345,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "steps", function() { return steps; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseQuery", function() { return parseQuery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUrlQueries", function() { return getUrlQueries; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "my_alert", function() { return my_alert; });
+/* harmony import */ var _app_state__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app-state */ "./src/app/app-state.ts");
+
 const log = console.log;
 const steps = (lot) => {
     lot.map(one => setTimeout(one[1], one[0]));
@@ -1325,6 +1365,9 @@ const parseQuery = (queryString) => {
     return query;
 };
 const getUrlQueries = () => parseQuery(location.search);
+const my_alert = (title, userMsg, devMsg) => {
+    _app_state__WEBPACK_IMPORTED_MODULE_0__["default"].alert = { show: true, title, userMsg, devMsg };
+};
 
 
 

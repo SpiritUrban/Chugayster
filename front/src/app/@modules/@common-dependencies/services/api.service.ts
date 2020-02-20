@@ -25,6 +25,8 @@ export class ApiService {
 
   // back
   register = (userData) => this.http.post(url + '/api/auth/register', userData, httpOptions).toPromise();
+  login = (userData) => this.http.post(url + '/api/auth/login', userData, httpOptions).toPromise();
+
 
   // auth info ???
   // register = (userData) => this.http.get('http://localhost:49001/api/auth/info', userData).toPromise();

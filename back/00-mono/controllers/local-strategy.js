@@ -22,9 +22,9 @@ module.exports = {
             ? req.logIn(user, (err) => {
               return err
                 ? next(err)
-                : res.json('ok');
+                : send(user, req, res, 'User logged!') //res.json({success: true, user});
             })
-            : res.json('no');
+            : error('custom', req, res, 409, 'Not logged!')//res.json({err});
       }
     )(req, res, next);
   },

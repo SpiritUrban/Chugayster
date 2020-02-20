@@ -63,8 +63,8 @@ export class RegisterComponent implements OnInit {
       log('answer: ', answer)
       if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
       if (answer.success) {
-        this.router.navigate(['/auth/login']);
         my_alert(':)', 'User was created!', null);
+        this.router.navigate(['/auth/login']);
       }
     } catch (error) {
       log('HttpErrorResponse: ', error)
