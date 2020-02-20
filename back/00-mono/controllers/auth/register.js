@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         // checking
         if (!email) return error('custom', req, res, 409, 'Email required!')
         if (!password) return error('custom', req, res, 409, 'Password required!')
-        // if (!username) return error('custom', req, res, 409, 'Username required!')
+        if (!username) return error('custom', req, res, 409, 'Username required!')
         // if (!first_name) return error('custom', req, res, 409, 'first_name required!')
         // if (!last_name) return error('custom', req, res, 409, 'last_name required!')
 

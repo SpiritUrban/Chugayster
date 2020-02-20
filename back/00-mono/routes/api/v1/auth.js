@@ -14,6 +14,17 @@ router.post('/restore-access-by-email-or-username', require(`${path_ctr_auth}/re
 // restore access by 'email' & by 'user name'
 router.post('/restore-password', require(`${path_ctr_auth}/restore-password`))
 
+///////////////////////////////////////////////////////
+//                                                   //
+//                   local strategy                  //
+//                                                   //
+///////////////////////////////////////////////////////
+
+// Auth system
+const lS = require('../../../controllers/local-strategy');
+router.post('/login', lS.login);
+router.get('/logout', lS.logout);
+
 
 /* .................................................. off .......................................................... */
 

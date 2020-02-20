@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { log, getUrlQueries, my_alert } from '../../../../my_modules/stuff';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
@@ -27,6 +28,7 @@ export class RegisterComponent implements OnInit {
   st: any = appState;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private validator: ValidatorService,
     private api: ApiService
@@ -60,7 +62,10 @@ export class RegisterComponent implements OnInit {
       const answer: any = await this.api.register(this.userData)
       log('answer: ', answer)
       if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
-      if (answer.success) my_alert(':)', 'User was created!', null); // showing of error
+      if (answer.success) {
+        this.router.navigate(['/auth/login']);
+        my_alert(':)', 'User was created!', null);
+      }
     } catch (error) {
       log('HttpErrorResponse: ', error)
     }

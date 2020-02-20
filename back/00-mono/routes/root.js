@@ -124,16 +124,7 @@ router.post('/*', (req, res, next) => {
 
 
 
-///////////////////////////////////////////////////////
-//                                                   //
-//                   local strategy                  //
-//                                                   //
-///////////////////////////////////////////////////////
 
-// Auth system
-const lS = require('../controllers/local-strategy');
-router.post('/l-login', lS.login);
-router.get('/logout', lS.logout);
 
 
 ///////////////////////////////////////////////////////
