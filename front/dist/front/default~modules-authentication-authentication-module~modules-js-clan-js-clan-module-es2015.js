@@ -51,7 +51,7 @@ module.exports = "<header>\n    <div class=\"p\"><a class=\"logo\" href=\"https:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>cabinet works!</p>\n"
+module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n        <div class=\"col-12\">\n            <h3>Info about user</h3>\n        </div>\n\n        <div class=\"col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3\" *ngFor=\"let item of [1,2,3]\">\n            <div class=\"user-info\">\n                Block: {{item}}\n            </div>\n            <!-- <app-flip-card [card]=\"card\"></app-flip-card> -->\n        </div>\n\n    </div>\n</div>\n\n<app-extra-alert [st]=\"st.alert\"></app-extra-alert>\n\n<app-clan-footer></app-clan-footer>"
 
 /***/ }),
 
@@ -84,7 +84,7 @@ module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n        <div class=\"col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3\" *ngFor=\"let card of st.cards\">\n            <app-flip-card [card]=\"card\"></app-flip-card>\n        </div>\n\n        <div class=\"PS\" >\n            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>\n            <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\" >ХОЧУ ЩЕ !!!</a>\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n            \n        </div>\n\n    </div>\n</div>\n\n<app-extra-alert [st]=\"st.alert\"></app-extra-alert>\n\n<app-clan-footer></app-clan-footer>"
+module.exports = "<app-nav></app-nav>\n\n<div class=\"container lessons-content\">\n\n    <!-- <br>\n    <div class=\"row\">\n        <button type=\"button\" class=\"btn btn-primary\">English</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Українською</button>\n        <button type=\"button\" class=\"btn btn-secondary\">Русский</button>\n    </div> -->\n\n    <br>\n\n    <div class=\"row\">\n\n        <div class=\"col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3\" *ngFor=\"let card of st.cards\">\n            <app-flip-card [card]=\"card\"></app-flip-card>\n        </div>\n\n        <div class=\"PS\" >\n            <p>Хочеш ще уроків? Жми кнопку! Щоб я знав, скільком людям це потрібно.</p>\n            <a class=\"btn btn-success\" (click)=\"wantMoreLessons()\" >ХОЧУ ЩЕ !!!</a>\n            <!-- [routerLink]=\"['/want-more-lessons']\" -->\n        </div>\n\n    </div>\n</div>\n\n<app-extra-alert [st]=\"st.alert\"></app-extra-alert>\n\n<app-clan-footer></app-clan-footer>"
 
 /***/ }),
 
@@ -620,13 +620,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CabinetComponent", function() { return CabinetComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _app_state__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../app-state */ "./src/app/app-state.ts");
+/* harmony import */ var _common_dependencies_services_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../@common-dependencies/services/api.service */ "./src/app/@modules/@common-dependencies/services/api.service.ts");
+
+
 
 
 let CabinetComponent = class CabinetComponent {
-    constructor() { }
+    constructor(api) {
+        this.api = api;
+        this.st = _app_state__WEBPACK_IMPORTED_MODULE_2__["default"];
+    }
     ngOnInit() {
     }
 };
+CabinetComponent.ctorParameters = () => [
+    { type: _common_dependencies_services_api_service__WEBPACK_IMPORTED_MODULE_3__["ApiService"] }
+];
 CabinetComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-cabinet',

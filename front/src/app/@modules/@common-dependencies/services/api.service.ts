@@ -51,9 +51,10 @@ export class ApiService {
   //   return this.http.post<Todo[]>(url + '/todos', todos, httpOptions) //leave becouse we don't use it
   // }
 
-  // getSessionInfo() {
-  //   return this.http.get(url + '/session-info').toPromise();
-  // }
+  getSessionInfo() {
+    return this.http.get(url + '/session-info').toPromise();
+  }
+  
   // getProducts(): any {
   //   return this.http.get(url + '/products').toPromise(); 
   // }
@@ -125,10 +126,10 @@ export class ApiService {
 
   // }
 
-  // createFingerPrint(systemInfo) {
-  //   console.log(systemInfo)
-  //   return this.http.post(url + '/session', systemInfo, httpOptions).toPromise(); 
-  // }
+  createFingerPrint(systemInfo) {
+    console.log(systemInfo)
+    return this.http.post(url + '/session', systemInfo, httpOptions).toPromise(); 
+  }
 
   // getAll(model, currentPage, sizePage) {
   //   return this.http.get(`http://localhost:3000/all/${model}/${currentPage}?size=${sizePage}` , httpOptions).toPromise();

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import { ValidatorService } from '../../../../@modules/@common-dependencies/services/validator.service';
 import { ApiService } from '../../../../@modules/@common-dependencies/services/api.service'
+import { StorageService } from '../../../../@modules/@common-dependencies/services/storage.service'
+
 import { log, my_alert } from '../../../../my_modules/stuff';
 import appState from '../../../../app-state';
 
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private validator: ValidatorService,
-    private api: ApiService
+    private api: ApiService,
+    private storage: StorageService
   ) {
     // group of validators (for next usage)
     const pwdValidators: ValidatorFn[] = [
@@ -52,6 +55,7 @@ export class LoginComponent implements OnInit {
       log('answer: ', answer)
       if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
       if (answer.success) {
+        this.storage.setItem('user', answer.result)
         my_alert(':)', 'User logged!', null);
         setTimeout(_ => this.router.navigate(['/cabinet']), 2000)
       }

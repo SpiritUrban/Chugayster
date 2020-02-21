@@ -263,8 +263,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var _modules_common_dependencies_services_validator_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../../@modules/@common-dependencies/services/validator.service */ "./src/app/@modules/@common-dependencies/services/validator.service.ts");
 /* harmony import */ var _modules_common_dependencies_services_api_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../../@modules/@common-dependencies/services/api.service */ "./src/app/@modules/@common-dependencies/services/api.service.ts");
-/* harmony import */ var _my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../my_modules/stuff */ "./src/app/my_modules/stuff.ts");
-/* harmony import */ var _app_state__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../app-state */ "./src/app/app-state.ts");
+/* harmony import */ var _modules_common_dependencies_services_storage_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../@modules/@common-dependencies/services/storage.service */ "./src/app/@modules/@common-dependencies/services/storage.service.ts");
+/* harmony import */ var _my_modules_stuff__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../my_modules/stuff */ "./src/app/my_modules/stuff.ts");
+/* harmony import */ var _app_state__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../app-state */ "./src/app/app-state.ts");
+
 
 
 
@@ -274,12 +276,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let LoginComponent = class LoginComponent {
-    constructor(router, formBuilder, validator, api) {
+    constructor(router, formBuilder, validator, api, storage) {
         this.router = router;
         this.formBuilder = formBuilder;
         this.validator = validator;
         this.api = api;
-        this.st = _app_state__WEBPACK_IMPORTED_MODULE_7__["default"];
+        this.storage = storage;
+        this.st = _app_state__WEBPACK_IMPORTED_MODULE_8__["default"];
         // group of validators (for next usage)
         const pwdValidators = [
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required,
@@ -305,16 +308,17 @@ let LoginComponent = class LoginComponent {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function* () {
             try {
                 const answer = yield this.api.login(this.userData);
-                Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["log"])('answer: ', answer);
+                Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_7__["log"])('answer: ', answer);
                 if (answer.err)
-                    Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':(', answer.msg2, answer.err); // showing of error
+                    Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_7__["my_alert"])(':(', answer.msg2, answer.err); // showing of error
                 if (answer.success) {
-                    Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["my_alert"])(':)', 'User logged!', null);
+                    this.storage.setItem('user', answer.result);
+                    Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_7__["my_alert"])(':)', 'User logged!', null);
                     setTimeout(_ => this.router.navigate(['/cabinet']), 2000);
                 }
             }
             catch (error) {
-                Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_6__["log"])('HttpErrorResponse: ', error);
+                Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_7__["log"])('HttpErrorResponse: ', error);
             }
         });
     }
@@ -338,7 +342,8 @@ LoginComponent.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormBuilder"] },
     { type: _modules_common_dependencies_services_validator_service__WEBPACK_IMPORTED_MODULE_4__["ValidatorService"] },
-    { type: _modules_common_dependencies_services_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"] }
+    { type: _modules_common_dependencies_services_api_service__WEBPACK_IMPORTED_MODULE_5__["ApiService"] },
+    { type: _modules_common_dependencies_services_storage_service__WEBPACK_IMPORTED_MODULE_6__["StorageService"] }
 ];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -483,6 +488,50 @@ RegisterComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         ]
     })
 ], RegisterComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/@modules/@common-dependencies/services/storage.service.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/@modules/@common-dependencies/services/storage.service.ts ***!
+  \***************************************************************************/
+/*! exports provided: StorageService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StorageService", function() { return StorageService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let StorageService = class StorageService {
+    constructor() { }
+    getBasketFromStorage() {
+        const json = localStorage.getItem('basket');
+        if (json == null)
+            return [];
+        else
+            return JSON.parse(json);
+    }
+    setItem(key, value) {
+        //return Promise.resolve().then(function () {
+        localStorage.setItem(key, JSON.stringify(value));
+        //});
+    }
+    getItem(key) {
+        return Promise.resolve().then(function () {
+            return JSON.parse(localStorage.getItem(key));
+        });
+    }
+};
+StorageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], StorageService);
 
 
 

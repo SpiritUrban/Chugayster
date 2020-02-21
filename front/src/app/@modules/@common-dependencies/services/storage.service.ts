@@ -16,12 +16,12 @@ export class StorageService {
 
   setItem(key, value) {
     //return Promise.resolve().then(function () {
-      localStorage.setItem(key, value);
+    localStorage.setItem(key, JSON.stringify(value));
     //});
   }
   getItem(key) {
     return Promise.resolve().then(function () {
-      return localStorage.getItem(key);
+      return JSON.parse(localStorage.getItem(key));
     });
   }
 

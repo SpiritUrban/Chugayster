@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import appState from '../../../../app-state';
+import { ApiService } from '../../../@common-dependencies/services/api.service';
+
 
 @Component({
   selector: 'app-cabinet',
@@ -10,7 +12,9 @@ export class CabinetComponent implements OnInit {
 
   st: any = appState;
 
-  constructor() { }
+  constructor(
+    private api: ApiService,
+  ) { }
 
   ngOnInit() {
   }
