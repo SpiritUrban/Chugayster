@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-cabinet',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cabinet.component.sass']
 })
 export class CabinetComponent implements OnInit {
+
+  st: any = appState;
 
   constructor() { }
 
