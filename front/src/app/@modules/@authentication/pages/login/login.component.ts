@@ -55,7 +55,21 @@ export class LoginComponent implements OnInit {
       log('answer: ', answer)
       if (answer.err) my_alert(':(', answer.msg2, answer.err); // showing of error
       if (answer.success) {
-        this.storage.setItem('user', answer.result)
+        this.storage.setItem('user', answer.result); // save to localStorage
+        this.st.user = answer.result; // save to appState
+        //   {
+        //     username: '',
+        //     firstName: '',                                          + need add to model !!!
+        //     lastName: '',                                           + need add to model !!!
+        //     email: '',
+        //     password: '',
+        //     password1: '',
+        //     password2: '',
+        //     role: 'Guest',                                          + need add to model !!!
+        //     notes: null                                             + need add to model !!!
+        // }
+        log('this.st: ', this.st)
+
         my_alert(':)', 'User logged!', null);
         setTimeout(_ => this.router.navigate(['/cabinet']), 2000)
       }
