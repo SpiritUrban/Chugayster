@@ -1,1 +1,32 @@
-<p>cabinet works!</p>
+<app-nav></app-nav>
+
+<div class="container lessons-content">
+
+    <!-- <br>
+    <div class="row">
+        <button type="button" class="btn btn-primary">English</button>
+        <button type="button" class="btn btn-secondary">Українською</button>
+        <button type="button" class="btn btn-secondary">Русский</button>
+    </div> -->
+
+    <br>
+
+    <div class="row">
+
+        <div class="col-12">
+            <h3>Info about user</h3>
+        </div>
+
+        <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let item of [1,2,3]">
+            <div class="user-info">
+                Block: {{item}}
+            </div>
+            <!-- <app-flip-card [card]="card"></app-flip-card> -->
+        </div>
+
+    </div>
+</div>
+
+<app-extra-alert [st]="st.alert"></app-extra-alert>
+
+<app-clan-footer></app-clan-footer>
