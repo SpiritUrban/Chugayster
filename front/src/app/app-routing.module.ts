@@ -5,11 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
     {
       path: '',
       // loadChildren: 'src/app/@modules/js-clan/js-clan.module#JsClanModule'
-      loadChildren: () => import('./@modules/@js-clan/js-clan.module').then(m => m.JsClanModule) 
+      loadChildren: () => import('./@modules/@js-clan/js-clan.module').then(mod => mod.JsClanModule) 
     },
     {
       path: 'common',
-      loadChildren: './@modules/@common-dependencies/@common-dependencies.module#CommonDependenciesModule'
+      loadChildren: () => import('./@modules/@common-dependencies/@common-dependencies.module').then(mod => mod.CommonDependenciesModule)
     },
     {
       path: 'auth',
