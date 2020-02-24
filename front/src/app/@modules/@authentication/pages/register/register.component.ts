@@ -14,13 +14,19 @@ const mode = queries.mode ? queries.mode : 'empty'
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: [
-    mode == 'custom'
-      ? require('./register.component-alternative.sass') // <---| not works for (ng build -prod)
-      : require('./register.component.sass') // <---------------| can be used for (ng build): just for stage of development
-    // './register.component-alternative.sass'
-  ]
+  styleUrls: ['./register.component.sass']
 })
+
+// @Component({
+//   selector: 'app-register',
+//   templateUrl: './register.component.html',
+//   styleUrls: [
+//     mode == 'custom'
+//       ? require('./register.component-alternative.sass') // <---| not works for (ng build -prod)
+//       : require('./register.component.sass') // <---------------| can be used for (ng build): just for stage of development
+//     // './register.component-alternative.sass'
+//   ]
+// })
 
 export class RegisterComponent implements OnInit {
 
