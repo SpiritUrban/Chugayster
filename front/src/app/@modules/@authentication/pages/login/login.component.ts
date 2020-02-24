@@ -68,7 +68,10 @@ export class LoginComponent implements OnInit {
         //     role: 'Guest',                                          + need add to model !!!
         //     notes: null                                             + need add to model !!!
         // }
-        log('this.st: ', this.st)
+        log('this.st: ', this.st);
+
+        // need add finger print !!!
+        
 
         my_alert(':)', 'User logged!', null);
         setTimeout(_ => this.router.navigate(['/cabinet']), 2000)
