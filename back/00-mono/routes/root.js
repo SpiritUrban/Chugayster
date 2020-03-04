@@ -140,6 +140,16 @@ router.post('/*', (req, res, next) => {
 
 
 
+
+
+// test
+router.get('/test', (req, res, next) => {
+    const users = User.find({});
+    res.json(users)
+});
+
+
+
 ///////////////////////////////////////////////////////
 //                                                   //
 //                  Front on Back                    //
