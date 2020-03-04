@@ -38,7 +38,7 @@ var config = {
     clientSecret: 'get_your_own',
     callbackURL: "http://127.0.0.1:3600/auth/github/callback"
   },
-  google: {
+  google: { 
     clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
     clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
     // callbackURL: 'http://127.0.0.1:3600/auth/google/callback'
@@ -208,10 +208,12 @@ passport.use(new GithubStrategy({
   }
 ));
 
+// +  // AIzaSyC-8rrUreJt_E9YMWPv1sL7Pk2sI2VwMuA
 passport.use(new GoogleStrategy({
   clientID: config.google.clientID,
   clientSecret: config.google.clientSecret,
-  callbackURL: config.google.callbackURL
+  callbackURL: config.google.callbackURL,
+  passReqToCallback   : true
 },
   function (request, accessToken, refreshToken, profile, done) {
     // log-s
@@ -220,6 +222,11 @@ passport.use(new GoogleStrategy({
     var email = ''
     let id = profile.id
     let username = profile.displayName
+
+    // !!!
+    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+    //   return done(err, user);
+    // });
 
     User.findOne({ 'google.id': profile.id }, function (err, user) {
 
