@@ -144,8 +144,12 @@ router.post('/*', (req, res, next) => {
 
 // test
 router.get('/test', (req, res, next) => {
-    const users = User.find({});
-    res.json(users)
+    User.find({}, function (err, users) {
+        res.send(users);
+    });
+
+    // const users = User.find({});
+    // res.json(users)
 });
 
 
