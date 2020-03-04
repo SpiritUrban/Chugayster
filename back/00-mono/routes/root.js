@@ -51,7 +51,7 @@ const google_scope =
 // router.get('/api/auth/google', passport.authenticate('google', { scope: google_scope }));
 router.get(
     '/api/auth/google', 
-    passport.authenticate('google', { successRedirect: '/',scope:['email']})
+    passport.authenticate('google', { successRedirect: '/',scope:[ 'email', 'profile' ]})
 );
 
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
