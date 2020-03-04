@@ -236,7 +236,9 @@ passport.use(new GoogleStrategy({
 
         if (profile.email) email = profile.email;
 
-        user = new User();
+        User.remove({}, ()=>{}); // !!!!!!!!!!!!!!!!!!!!!!
+
+        const user = new User();
 
         user.google.id = id;
         user.google.username = username;
