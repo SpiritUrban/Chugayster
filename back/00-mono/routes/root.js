@@ -36,19 +36,24 @@ router.get('/ping', (req, res, next) => {
 
 // google
 //
-const google_scope =[ 'email', 'profile' ];
 console.log('Fackerrrrrrr!!!')
-//  [
-//     'https://www.googleapis.com/auth/plus.login',
-//     'https://www.googleapis.com/auth/plus.profile.emails.read'
-// ]
+const google_scope =
+    [
+        'https://www.googleapis.com/auth/plus.login',
+        'https://www.googleapis.com/auth/plus.profile.emails.read'
+    ]
 // const google_scope = [ 'https://www.googleapis.com/auth/userinfo.email']
 // const google_scope = [
 //     'https://www.googleapis.com/auth/plus.login',
 //     'https://www.googleapis.com/auth/userinfo.email'
 // ]
 
-router.get('/api/auth/google', passport.authenticate('google', { scope: google_scope }));
+// router.get('/api/auth/google', passport.authenticate('google', { scope: google_scope }));
+router.get(
+    '/api/auth/google', 
+    passport.authenticate('google', { successRedirect: '/',scope:['email']})
+);
+
 router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
 
 // facebook
