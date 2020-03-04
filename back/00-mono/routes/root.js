@@ -37,6 +37,7 @@ router.get('/ping', (req, res, next) => {
 // google
 //
 const google_scope =[ 'email', 'profile' ];
+console.log('Fackerrrrrrr!!!')
 //  [
 //     'https://www.googleapis.com/auth/plus.login',
 //     'https://www.googleapis.com/auth/plus.profile.emails.read'
