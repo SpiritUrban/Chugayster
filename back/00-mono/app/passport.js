@@ -38,7 +38,7 @@ var config = {
     clientSecret: 'get_your_own',
     callbackURL: "http://127.0.0.1:3600/auth/github/callback"
   },
-  google: { 
+  google: {
     clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
     clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
     // callbackURL: 'http://127.0.0.1:3600/auth/google/callback'
@@ -120,18 +120,17 @@ module.exports = passport.use(new FacebookStrategy({
 
         user = new User()
 
-        user.facebook.id = id,
-          user.facebook.username = username,
-          user.facebook.email = email,
-          user.username = username,
-          user.email = email,
-          user.created = Date.now()
-        user.wallets =
-          {
-            USD: {
-              balance: 0
-            }
+        user.facebook.id = id;
+        user.facebook.username = username;
+        user.facebook.email = email;
+        user.username = username;
+        user.email = email;
+        user.created = Date.now();
+        user.wallets = {
+          USD: {
+            balance: 0
           }
+        };
 
         user.save(function (err) {
           if (err) log(err)
@@ -213,15 +212,15 @@ passport.use(new GoogleStrategy({
   clientID: config.google.clientID,
   clientSecret: config.google.clientSecret,
   callbackURL: config.google.callbackURL,
-  passReqToCallback   : true
+  passReqToCallback: true
 },
   function (request, accessToken, refreshToken, profile, done) {
     // log-s
-    log('google profile: ', profile)
+    log('google profile: ', profile);
     // var-s
-    var email = ''
-    let id = profile.id
-    let username = profile.displayName
+    var email = '';
+    let id = profile.id;
+    let username = profile.displayName;
 
     // !!!
     // User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -229,31 +228,27 @@ passport.use(new GoogleStrategy({
     // });
 
     User.findOne({ 'google.id': profile.id }, function (err, user) {
-
       if (err) log(err)
 
       if (!err && user !== null) {
         done(null, user);
       } else {
 
-        log(profile)
+        if (profile.email) email = profile.email;
 
-        if (profile.email) email = profile.email
+        user = new User();
 
-        user = new User()
-
-        user.google.id = id,
-          user.google.username = username,
-          user.google.email = email,
-          user.username = username,
-          user.email = email,
-          user.created = Date.now()
-        user.wallets =
-          {
-            USD: {
-              balance: 0
-            }
+        user.google.id = id;
+        user.google.username = username;
+        user.google.email = email;
+        user.username = username;
+        user.email = email;
+        user.created = Date.now();
+        user.wallets = {
+          USD: {
+            balance: 0
           }
+        }
 
         user.save(function (err) {
           if (err) log(err)
