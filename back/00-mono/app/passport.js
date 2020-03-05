@@ -33,6 +33,42 @@ passport.deserializeUser((id, done) => {
   });
 })
 
+async function createUser(strategy, profile, done) {
+
+  const newUser = new User({
+    username: profile.displayName,
+    email: email,
+    created: Date.now(),
+    wallets: {
+      USD: {
+        balance: 0
+      }
+    }
+  });
+
+  if (strategy == 'google') {
+    const email = profile.emails[0].value;
+    newUser.google = {
+      id: profile.id,
+      username: profile.displayName,
+      email: email,
+    }
+  }
+
+  if (strategy == 'facebook') {
+    const email = (profile.email) ? profile.email : '';
+    newUser.facebook = {
+      id: profile.id,
+      username: profile.displayName,
+      email: email
+    }
+  }
+
+  await newUser.save();
+  done(null, newUser);
+  log("USER SAVED !!!");
+}
+
 
 //
 // LocalStrategy
@@ -55,6 +91,29 @@ passport.use(new LocalStrategy({
 }));
 
 
+
+passport.use(new GoogleStrategy({
+  clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
+  clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
+  callbackURL: process.env.GP_CLB, //'http://r4.okm.pub:3600/auth/google/callback'
+  passReqToCallback: true
+},
+  async (request, accessToken, refreshToken, profile, done) => {
+    try {
+      log('google profile: ', profile);
+
+      const user = await User.findOne({ 'google.id': profile.id });
+      if (user) return done(null, user);
+
+      createUser('google', profile, done);
+
+    } catch (error) {
+      log(error)
+    }
+  }
+))
+
+
 module.exports = passport.use(new FacebookStrategy({
   clientID: process.env.FB_ID,  // '455174914848353',
   clientSecret: process.env.FB_KEY, //'30a983716bd55cf5f36e1626fe3b20b8',
@@ -70,50 +129,12 @@ module.exports = passport.use(new FacebookStrategy({
       if (user) return done(null, user);
 
       createUser('facebook', profile, done);
-      log("USER SAVED !!!");
 
     } catch (error) {
       log(error)
     }
   }
 ))
-
-
-async function createUser(strategy, profile, done){
-  const email = (profile.email) ? profile.email : '';
-
-  const newUser = new User({
-    username: profile.displayName,
-    email: email,
-    created: Date.now(),
-    wallets: {
-      USD: {
-        balance: 0
-      }
-    }
-  });
-
-  if (strategy == 'google') {
-    newUser.google = {
-      id : profile.id,
-      username : profile.displayName,
-      email : email,
-    }
-  }
-
-  if (strategy == 'facebook') {
-    newUser.facebook = {
-      id: profile.id,
-      username: profile.displayName,
-      email: email
-    }
-  }
-
-  await newUser.save();
-  done(null, newUser);
-  log("USER SAVED !!!");
-}
-
 
 
 passport.use(new TwitterStrategy({
@@ -180,56 +201,6 @@ passport.use(new GithubStrategy({
   }
 ));
 
-passport.use(new GoogleStrategy({
-  clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
-  clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
-  callbackURL: process.env.GP_CLB, //'http://r4.okm.pub:3600/auth/google/callback'
-  passReqToCallback: true
-},
-  function (request, accessToken, refreshToken, profile, done) {
-    // log-s
-    log('google profile: ', profile);
-    // var-s
-    let email = profile.emails[0].value;
-    let id = profile.id;
-    let username = profile.displayName;
-
-    // !!!
-    // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-    //   return done(err, user);
-    // });
-
-    User.findOne({ 'google.id': profile.id }, function (err, user) {
-      if (err) log(err)
-
-      if (!err && user !== null) {
-        done(null, user);
-      } else {
-        const user = new User();
-
-        user.google.id = id;
-        user.google.username = username;
-        user.google.email = email;
-        user.username = username;
-        user.email = email;
-        user.created = Date.now();
-        user.wallets = {
-          USD: {
-            balance: 0
-          }
-        }
-
-        user.save(function (err) {
-          if (err) log(err)
-          else {
-            log("saving user ...");
-            done(null, user);
-          }
-        })
-      }
-    })
-  }
-))
 
 
 passport.use(new InstagramStrategy({
