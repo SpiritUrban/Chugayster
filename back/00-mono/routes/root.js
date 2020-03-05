@@ -55,7 +55,7 @@ router.get(
 );
 router.get(
     '/auth/google/callback',
-    passport.authenticate('google', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
+    passport.authenticate('google', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => {});
 
 // facebook
 // 
@@ -69,7 +69,7 @@ router.get(
 );
 router.get(
     '/auth/facebook/callback', 
-    passport.authenticate('facebook', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => res.redirect('/'));
+    passport.authenticate('facebook', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => {});
 
 // twitter
 // 
