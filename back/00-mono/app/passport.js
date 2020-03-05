@@ -74,36 +74,59 @@ module.exports = passport.use(new FacebookStrategy({
       const user = await User.findOne({ 'facebook.id': profile.id });
       if (user) return done(null, user);
 
-      newUser = new User({
-        facebook: {
-          id: profile.id,
-          username: profile.displayName,
-          email: email
-        },
-        username: profile.displayName,
-        email: email,
-        created: Date.now(),
-        wallets: {
-          USD: {
-            balance: 0
-          }
-        }
-      })
+      createUser(profile, done)
 
+      // newUser = new User({
+      //   facebook: {
+      //     id: profile.id,
+      //     username: profile.displayName,
+      //     email: email
+      //   },
+      //   username: profile.displayName,
+      //   email: email,
+      //   created: Date.now(),
+      //   wallets: {
+      //     USD: {
+      //       balance: 0
+      //     }
+      //   }
+      // });
 
-      newUser.save(function (err) {
-        if (err) log(err)
-        else {
-          log("saving user ...")
-          done(null, user)
-        }
-      })
+      // await newUser.save();
+
+      // done(null, newUser);
+      log("USER SAVED !!!");
 
     } catch (error) {
       log(error)
     }
   }
 ))
+
+
+async function createUser(done){
+  const newUser = new User({
+    facebook: {
+      id: profile.id,
+      username: profile.displayName,
+      email: email
+    },
+    username: profile.displayName,
+    email: email,
+    created: Date.now(),
+    wallets: {
+      USD: {
+        balance: 0
+      }
+    }
+  });
+
+  await newUser.save();
+  done(null, newUser);
+  log("USER SAVED !!!");
+}
+
+
 
 passport.use(new TwitterStrategy({
   consumerKey: 'get_your_own',
