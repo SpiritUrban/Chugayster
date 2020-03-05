@@ -8,7 +8,9 @@ module.exports = function (app) {
   // use routes
   [
     ['/',              './api/v1/auth-strategies'],
+    ['/',              './api/v1/dev'],
     ['/',              './root'],
+
     ['/api/auth',      './api/v1/auth'],
 
     ['/chats',         './chats_'],
