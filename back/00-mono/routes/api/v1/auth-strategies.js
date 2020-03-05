@@ -1,9 +1,4 @@
 const log = console.log
-// const fs = require('fs').promises
-// const User = require('../models/user.js')
-// const Chat = require('../models/chat.js')
-// const Vote = require('../models/vote.js')
-// const mailer = require('../controllers/mail/mailer')
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
@@ -15,6 +10,7 @@ const passport = require('passport')
 //                      Auth                         //
 //                                                   //
 ///////////////////////////////////////////////////////
+
 const successRedirect = '/main';
 const failureRedirect = '/';
 const redirects = { successRedirect, failureRedirect }

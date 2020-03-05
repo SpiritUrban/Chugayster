@@ -6,8 +6,6 @@ const Vote = require('../models/vote.js')
 const mailer = require('../controllers/mail/mailer')
 const express = require('express')
 const router = express.Router()
-// const passport = require('passport')
-
 
 
 ///////////////////////////////////////////////////////

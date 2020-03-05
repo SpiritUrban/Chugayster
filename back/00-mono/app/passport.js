@@ -57,15 +57,16 @@ var config = {
 //
 // serialize and deserialize
 //
-passport.serializeUser(function (user, done) {
+passport.serializeUser((user, done) => {
   log('serializeUser: ' + user._id);
   done(null, user._id);
 })
 
-passport.deserializeUser(function (id, done) {
-  User.findById(id, function (err, user) {
-    if (!err) done(null, user)
-    else done(err, null)
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => {
+    (!err) ? done(null, user) : done(err, null);
+    // if (!err) done(null, user)
+    // else done(err, null)
   });
 })
 
@@ -103,8 +104,6 @@ module.exports = passport.use(new FacebookStrategy({
   callbackURL: config.facebook.callbackURL,
   // passReqToCallback : true,
   profileFields: ['id', 'displayName', 'link', 'email', 'name', 'picture.type(large)']
-  // profileFields: ['id', 'emails', 'name'] //This
-  // profileFields: ['id', 'displayName', 'link', 'photos', 'email']
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
