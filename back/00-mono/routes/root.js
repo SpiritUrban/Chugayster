@@ -6,109 +6,16 @@ const Vote = require('../models/vote.js')
 const mailer = require('../controllers/mail/mailer')
 const express = require('express')
 const router = express.Router()
-const passport = require('passport')
+// const passport = require('passport')
+
 
 
 ///////////////////////////////////////////////////////
 //                                                   //
-//                     XZ !!!                        //
+//                    All !!!                        //
 //                                                   //
 ///////////////////////////////////////////////////////
 
-router.get('/ping', (req, res, next) => {
-    mailer.send(
-        'Vitaliy <we.js.clan@gmail.com> ', // from
-        'shadespiritenator@gmail.com', // to
-        'Nodemailer test', // subject
-        'Hello Gmail 2- ' + new Date(), // text
-    )
-    console.dir(req.headers)
-    console.dir(req.rawHeaders)
-    res.send({ m: 'Hello!' })
-});
-
-
-///////////////////////////////////////////////////////
-//                                                   //
-//                      Auth                         //
-//                                                   //
-///////////////////////////////////////////////////////
-const successRedirect = '/main';
-const failureRedirect = '/';
-const redirects = { successRedirect, failureRedirect }
-
-//
-// google
-//
-router.get(
-    '/api/auth/google',
-    passport.authenticate('google', { scope: ['email', 'profile'] })
-);
-router.get(
-    '/auth/google/callback',
-    passport.authenticate('google', redirects),
-    (req, res) => { }
-);
-
-//
-// facebook
-// 
-router.get(
-    '/api/auth/facebook',
-    passport.authenticate('facebook'),
-    (req, res) => { }
-);
-router.get(
-    '/auth/facebook/callback',
-    passport.authenticate('facebook', redirects),
-    (req, res) => { }
-);
-
-//
-// twitter
-// 
-router.get('/auth/twitter',
-    passport.authenticate('twitter'),
-    (req, res) => { }
-);
-router.get(
-    '/auth/twitter/callback',
-    passport.authenticate('twitter', redirects),
-    (req, res) => { }
-);
-
-//
-// github
-// 
-router.get(
-    '/api/auth/github',
-    passport.authenticate('github'),
-    (req, res) => { }
-);
-router.get(
-    '/auth/github/callback',
-    passport.authenticate('github', redirects),
-    (req, res) => { }
-);
-
-//
-// instagram
-// 
-router.get(
-    '/auth/instagram',
-    passport.authenticate('instagram'),
-    (req, res) => { }
-);
-router.get(
-    '/auth/instagram/callback',
-    passport.authenticate('instagram', redirects),
-    (req, res) => { }
-);
-
-
-
-
-// All
 router.all('/*', async (req, res, next) => {
     log('\n ROUTER LOG ##################################################################################################'.help)
     log(req.url.info, '\n')
@@ -169,14 +76,12 @@ router.post('/*', (req, res, next) => {
 
 
 
+///////////////////////////////////////////////////////
+//                                                   //
+//                    DEV !!!                        //
+//                                                   //
+///////////////////////////////////////////////////////
 
-
-
-
-
-
-
-// test !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 router.get('/test', (req, res, next) => {
     User.find({}, function (err, users) {
         res.send(users);
@@ -192,6 +97,17 @@ router.get('/clean', (req, res, next) => {
     res.send('clean');
 });
 
+router.get('/ping', (req, res, next) => {
+    mailer.send(
+        'Vitaliy <we.js.clan@gmail.com> ', // from
+        'shadespiritenator@gmail.com', // to
+        'Nodemailer test', // subject
+        'Hello Gmail 2- ' + new Date(), // text
+    )
+    console.dir(req.headers)
+    console.dir(req.rawHeaders)
+    res.send({ m: 'Hello!' })
+});
 
 
 

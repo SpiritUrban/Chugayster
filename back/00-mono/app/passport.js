@@ -178,7 +178,6 @@ passport.use(new TwitterStrategy({
 
 
 
-// User.remove({}, ()=>{}); // !!!!!!!!!!!!!!!!!!!!!!
 
 
 passport.use(new GithubStrategy({
