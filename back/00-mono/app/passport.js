@@ -101,8 +101,8 @@ module.exports = passport.use(new FacebookStrategy({
   clientID: config.facebook.clientID,
   clientSecret: config.facebook.clientSecret,
   callbackURL: config.facebook.callbackURL,
-  scope: 'email',
-  passReqToCallback : true,
+  // passReqToCallback : true,
+  profileFields: ['id', 'emails', 'name', 'picture.type(large)']
   // profileFields: ['id', 'emails', 'name'] //This
   // profileFields: ['id', 'displayName', 'link', 'photos', 'email']
 },
