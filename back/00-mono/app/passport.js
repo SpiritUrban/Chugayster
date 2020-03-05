@@ -47,7 +47,7 @@ async function createUser(strategy, profile, done) {
 
   if (strategy == 'google') {
     const email = profile.emails[0].value;
-    newUser.email= email;
+    newUser.email = email;
     newUser.google = {
       id: profile.id,
       username: profile.displayName,
@@ -57,7 +57,7 @@ async function createUser(strategy, profile, done) {
 
   if (strategy == 'facebook') {
     const email = (profile.email) ? profile.email : '';
-    newUser.email= email;
+    newUser.email = email;
     newUser.facebook = {
       id: profile.id,
       username: profile.displayName,
@@ -101,12 +101,12 @@ passport.use(new GoogleStrategy({
 },
   async (request, accessToken, refreshToken, profile, done) => {
     try {
-      log('google profile: ', profile);
-
+      log('google profile: '.info, profile);
       const user = await User.findOne({ 'google.id': profile.id });
-      if (user) return done(null, user);
 
-      createUser('google', profile, done);
+      (user)
+        ? done(null, user)
+        : createUser('google', profile, done);
 
     } catch (error) {
       log(error)
@@ -125,11 +125,11 @@ module.exports = passport.use(new FacebookStrategy({
   async (accessToken, refreshToken, profile, done) => {
     try {
       log('facebook profile: '.info, profile);
-
       const user = await User.findOne({ 'facebook.id': profile.id });
-      if (user) return done(null, user);
 
-      createUser('facebook', profile, done);
+      (user)
+        ? done(null, user)
+        : createUser('facebook', profile, done);
 
     } catch (error) {
       log(error)
