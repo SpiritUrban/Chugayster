@@ -21,38 +21,6 @@ let log = console.log
 
 
 
-var config = {
-  facebook: {
-    clientID: process.env.FB_ID,  // '455174914848353',
-    clientSecret: process.env.FB_KEY, //'30a983716bd55cf5f36e1626fe3b20b8',
-    callbackURL: process.env.FB_CLB // 'http://r4.okm.pub:3600/auth/facebook/callback'
-    // callbackURL: `${process.env.HOST}:3600/auth/facebook/callback`
-  },
-  twitter: {
-    consumerKey: 'get_your_own',
-    consumerSecret: 'get_your_own',
-    callbackURL: "http://127.0.0.1:3600/auth/twitter/callback"
-  },
-  github: {
-    clientID: 'get_your_own',
-    clientSecret: 'get_your_own',
-    callbackURL: "http://127.0.0.1:3600/auth/github/callback"
-  },
-  google: {
-    clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
-    clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
-    // callbackURL: 'http://127.0.0.1:3600/auth/google/callback'
-    callbackURL: process.env.GP_CLB //'http://r4.okm.pub:3600/auth/google/callback'
-    // callbackURL: `${process.env.HOST}:3600/auth/google/callback`
-
-  },
-  instagram: {
-    clientID: 'get_your_own',
-    clientSecret: 'get_your_own',
-    callbackURL: 'http://127.0.0.1:3600/auth/instagram/callback'
-  }
-};
-
 
 //
 // serialize and deserialize
@@ -65,8 +33,6 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser((id, done) => {
   User.findById(id, (err, user) => {
     (!err) ? done(null, user) : done(err, null);
-    // if (!err) done(null, user)
-    // else done(err, null)
   });
 })
 
@@ -79,12 +45,7 @@ passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function (email, password, done) {
-
-  // shadespiritenator@gmail.com ebfa6a9617ed2a****c3a1a4a07b5f
-  console.log(
-    '******************',
-    email, password
-  )
+  console.log('******************', email, password  )
 
   User.findOne({ email }, function (err, user) {
     return err
@@ -99,11 +60,11 @@ passport.use(new LocalStrategy({
 
 
 module.exports = passport.use(new FacebookStrategy({
-  clientID: config.facebook.clientID,
-  clientSecret: config.facebook.clientSecret,
-  callbackURL: config.facebook.callbackURL,
-  // passReqToCallback : true,
+  clientID: process.env.FB_ID,  // '455174914848353',
+  clientSecret: process.env.FB_KEY, //'30a983716bd55cf5f36e1626fe3b20b8',
+  callbackURL: process.env.FB_CLB, // 'http://r4.okm.pub:3600/auth/facebook/callback'
   profileFields: ['id', 'displayName', 'link', 'email', 'name', 'picture.type(large)']
+  // passReqToCallback : true,
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
@@ -145,9 +106,9 @@ module.exports = passport.use(new FacebookStrategy({
 ))
 
 passport.use(new TwitterStrategy({
-  consumerKey: config.twitter.consumerKey,
-  consumerSecret: config.twitter.consumerSecret,
-  callbackURL: config.twitter.callbackURL
+  consumerKey: 'get_your_own',
+  consumerSecret: 'get_your_own',
+  callbackURL: "http://127.0.0.1:3600/auth/twitter/callback"
 },
   function (accessToken, refreshToken, profile, done) {
     User.findOne({ oauthID: profile.id }, function (err, user) {
@@ -177,12 +138,10 @@ passport.use(new TwitterStrategy({
 
 
 
-
-
 passport.use(new GithubStrategy({
-  clientID: config.github.clientID,
-  clientSecret: config.github.clientSecret,
-  callbackURL: config.github.callbackURL
+  clientID: 'get_your_own',
+  clientSecret: 'get_your_own',
+  callbackURL: "http://127.0.0.1:3600/auth/github/callback"
 },
   function (accessToken, refreshToken, profile, done) {
     User.findOne({ oauthID: profile.id }, function (err, user) {
@@ -211,9 +170,9 @@ passport.use(new GithubStrategy({
 ));
 
 passport.use(new GoogleStrategy({
-  clientID: config.google.clientID,
-  clientSecret: config.google.clientSecret,
-  callbackURL: config.google.callbackURL,
+  clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
+  clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
+  callbackURL: process.env.GP_CLB, //'http://r4.okm.pub:3600/auth/google/callback'
   passReqToCallback: true
 },
   function (request, accessToken, refreshToken, profile, done) {
@@ -262,45 +221,10 @@ passport.use(new GoogleStrategy({
 ))
 
 
-// passport.use(new GoogleStrategy({
-//   clientID:     config.google.clientID,
-//   clientSecret: config.google.clientSecret,
-//   callbackURL:  config.google.callbackURL
-//   },
-//   function(request, accessToken, refreshToken, profile, done) {
-//     log('google profile: '.info, profile)
-
-//     User.findOne({ oauthID: profile.id }, function(err, user) {
-//       if(err) {
-//         console.log(err);  // handle errors!
-//       }
-//       if (!err && user !== null) {
-//         done(null, user);
-//       } else {
-//         user = new User({
-//           oauthID:  profile.id,
-//           username: profile.displayName,
-//           email:    profile.email,
-//           password: 'Not has. Because it Passport registration.',
-//           created: Date.now()
-//         });
-//         user.save(function(err) {
-//           if(err) {
-//             console.log(err);  // handle errors!
-//           } else {
-//             console.log("saving user ...");
-//             done(null, user);
-//           }
-//         });
-//       }
-//     });
-//   }
-// ));
-
 passport.use(new InstagramStrategy({
-  clientID: config.instagram.clientID,
-  clientSecret: config.instagram.clientSecret,
-  callbackURL: config.instagram.callbackURL
+  clientID: 'get_your_own',
+  clientSecret: 'get_your_own',
+  callbackURL: 'http://127.0.0.1:3600/auth/instagram/callback'
 },
   function (accessToken, refreshToken, profile, done) {
     User.findOne({ oauthID: profile.id }, function (err, user) {
