@@ -102,13 +102,12 @@ module.exports = passport.use(new FacebookStrategy({
   clientSecret: config.facebook.clientSecret,
   callbackURL: config.facebook.callbackURL,
   // passReqToCallback : true,
-  profileFields: ['id', 'displayName', 'link',  'email',  'name', 'picture.type(large)']
+  profileFields: ['id', 'displayName', 'link', 'email', 'name', 'picture.type(large)']
   // profileFields: ['id', 'emails', 'name'] //This
   // profileFields: ['id', 'displayName', 'link', 'photos', 'email']
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
-    // log('arguments:', arguments)
     log('facebook profile: '.info, profile)
     // var-s
     let email = ''
@@ -116,36 +115,32 @@ module.exports = passport.use(new FacebookStrategy({
     let username = profile.displayName
 
     User.findOne({ 'facebook.id': profile.id }, function (err, user) {
-      if (err) log(err)
+      if (err) return log(err)
+      if (profile.email) email = profile.email;
 
-      if (!err && user !== null) done(null, user)
-      else {
+      if (!err && user !== null) return done(null, user)
 
-        if (profile.email) email = profile.email
+      user = new User()
+      user.facebook.id = id;
+      user.facebook.username = username;
+      user.facebook.email = email;
+      user.username = username;
+      user.email = email;
+      user.created = Date.now();
+      user.wallets = {
+        USD: {
+          balance: 0
+        }
+      };
 
-        user = new User()
+      user.save(function (err) {
+        if (err) log(err)
+        else {
+          log("saving user ...")
+          done(null, user)
+        }
+      })
 
-        user.facebook.id = id;
-        user.facebook.username = username;
-        user.facebook.email = email;
-        user.username = username;
-        user.email = email;
-        user.created = Date.now();
-        user.wallets = {
-          USD: {
-            balance: 0
-          }
-        };
-
-        user.save(function (err) {
-          if (err) log(err)
-          else {
-            log("saving user ...")
-            done(null, user)
-          }
-        })
-
-      }
     })
   }
 ))
