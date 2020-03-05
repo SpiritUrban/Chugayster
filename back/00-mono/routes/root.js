@@ -61,12 +61,12 @@ router.get(
 // 
 
 
-  
+
 router.get(
-    '/api/auth/facebook', 
-    passport.authenticate('facebook'), 
+    '/api/auth/facebook',
+    passport.authenticate('facebook'),
     (req, res) => { }
-    );
+);
 router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => res.redirect('/'));
 
 // twitter
@@ -162,13 +162,14 @@ router.get('/test', (req, res, next) => {
     });
 });
 
-
-
 router.get('/user', (req, res, next) => {
     res.send(req.user);
 });
 
-
+router.get('/clean', (req, res, next) => {
+    User.remove({}, () => { }); // !!!!!!!!!!!!!!!!!!!!!!
+    res.send('clean');
+});
 
 
 
