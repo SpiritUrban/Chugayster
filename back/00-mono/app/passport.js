@@ -13,13 +13,10 @@ var User = require('../models/user.js');
 // var config = require('./oauth.js');
 let log = console.log
 
-
 // setInterval(()=>{
 //   log(`AUTH @#@#@# ${process.env.HOST}`.info)
 //   log(`${process.env.HOST}/auth/facebook/callback`)
 // },1000)
-
-
 
 
 //
@@ -35,7 +32,6 @@ passport.deserializeUser((id, done) => {
     (!err) ? done(null, user) : done(err, null);
   });
 })
-
 
 
 //
@@ -73,27 +69,7 @@ module.exports = passport.use(new FacebookStrategy({
       const user = await User.findOne({ 'facebook.id': profile.id });
       if (user) return done(null, user);
 
-      createUser(profile, done)
-
-      // newUser = new User({
-      //   facebook: {
-      //     id: profile.id,
-      //     username: profile.displayName,
-      //     email: email
-      //   },
-      //   username: profile.displayName,
-      //   email: email,
-      //   created: Date.now(),
-      //   wallets: {
-      //     USD: {
-      //       balance: 0
-      //     }
-      //   }
-      // });
-
-      // await newUser.save();
-
-      // done(null, newUser);
+      createUser('facebook', profile, done);
       log("USER SAVED !!!");
 
     } catch (error) {
@@ -103,15 +79,10 @@ module.exports = passport.use(new FacebookStrategy({
 ))
 
 
-async function createUser(profile, done){
+async function createUser(strategy, profile, done){
   const email = (profile.email) ? profile.email : '';
 
   const newUser = new User({
-    facebook: {
-      id: profile.id,
-      username: profile.displayName,
-      email: email
-    },
     username: profile.displayName,
     email: email,
     created: Date.now(),
@@ -121,6 +92,22 @@ async function createUser(profile, done){
       }
     }
   });
+
+  if (strategy == 'google') {
+    newUser.google = {
+      id : profile.id,
+      username : profile.displayName,
+      email : email,
+    }
+  }
+
+  if (strategy == 'facebook') {
+    newUser.facebook = {
+      id: profile.id,
+      username: profile.displayName,
+      email: email
+    }
+  }
 
   await newUser.save();
   done(null, newUser);
