@@ -37,7 +37,6 @@ async function createUser(strategy, profile, done) {
 
   const newUser = new User({
     username: profile.displayName,
-    email: email,
     created: Date.now(),
     wallets: {
       USD: {
@@ -48,6 +47,7 @@ async function createUser(strategy, profile, done) {
 
   if (strategy == 'google') {
     const email = profile.emails[0].value;
+    newUser.email= email;
     newUser.google = {
       id: profile.id,
       username: profile.displayName,
@@ -57,6 +57,7 @@ async function createUser(strategy, profile, done) {
 
   if (strategy == 'facebook') {
     const email = (profile.email) ? profile.email : '';
+    newUser.email= email;
     newUser.facebook = {
       id: profile.id,
       username: profile.displayName,
