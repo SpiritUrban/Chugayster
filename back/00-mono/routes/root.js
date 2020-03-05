@@ -62,7 +62,7 @@ router.get(
 
 router.get(
     '/api/auth/facebook',
-    passport.authenticate('facebook'),
+    passport.authenticate('facebook', {scope: [ "email" ]}),
     (req, res) => { }
 );
 router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => res.redirect('/'));
