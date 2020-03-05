@@ -104,7 +104,7 @@ module.exports = passport.use(new FacebookStrategy({
 ))
 
 
-async function createUser(done){
+async function createUser(profile, done){
   const newUser = new User({
     facebook: {
       id: profile.id,
