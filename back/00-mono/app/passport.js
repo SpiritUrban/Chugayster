@@ -178,7 +178,7 @@ passport.use(new TwitterStrategy({
 
 
 
-User.remove({}, ()=>{}); // !!!!!!!!!!!!!!!!!!!!!!
+// User.remove({}, ()=>{}); // !!!!!!!!!!!!!!!!!!!!!!
 
 
 passport.use(new GithubStrategy({
@@ -212,7 +212,6 @@ passport.use(new GithubStrategy({
   }
 ));
 
-// +  // AIzaSyC-8rrUreJt_E9YMWPv1sL7Pk2sI2VwMuA
 passport.use(new GoogleStrategy({
   clientID: config.google.clientID,
   clientSecret: config.google.clientSecret,
@@ -238,8 +237,6 @@ passport.use(new GoogleStrategy({
       if (!err && user !== null) {
         done(null, user);
       } else {
-
-
         const user = new User();
 
         user.google.id = id;

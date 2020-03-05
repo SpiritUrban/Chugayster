@@ -53,8 +53,9 @@ router.get(
     '/api/auth/google', 
     passport.authenticate('google', { successRedirect: '/',scope:[ 'email', 'profile' ]})
 );
-
-router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
+router.get(
+    '/auth/google/callback', 
+    passport.authenticate('google', { successRedirect:'/main', failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
 
 // facebook
 // 
@@ -142,7 +143,12 @@ router.post('/*', (req, res, next) => {
 
 
 
-// test
+
+
+
+
+
+// test !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 router.get('/test', (req, res, next) => {
     User.find({}, function (err, users) {
         res.send(users);
@@ -151,6 +157,18 @@ router.get('/test', (req, res, next) => {
     // const users = User.find({});
     // res.json(users)
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
