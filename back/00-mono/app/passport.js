@@ -100,7 +100,9 @@ passport.use(new LocalStrategy({
 module.exports = passport.use(new FacebookStrategy({
   clientID: config.facebook.clientID,
   clientSecret: config.facebook.clientSecret,
-  callbackURL: config.facebook.callbackURL
+  callbackURL: config.facebook.callbackURL,
+  passReqToCallback : true,
+  profileFields: ['id', 'emails', 'name'] //This
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
