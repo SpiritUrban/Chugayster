@@ -107,6 +107,7 @@ module.exports = passport.use(new FacebookStrategy({
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
+    log('arguments:', arguments)
     log('facebook profile: '.info, profile)
     // var-s
     let email = ''
