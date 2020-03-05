@@ -74,7 +74,7 @@ module.exports = passport.use(new FacebookStrategy({
       const user = await User.findOne({ 'facebook.id': profile.id });
       if (user) return done(null, user);
 
-      user = new User({
+      newUser = new User({
         facebook: {
           id: profile.id,
           username: profile.displayName,
@@ -91,7 +91,7 @@ module.exports = passport.use(new FacebookStrategy({
       })
 
 
-      user.save(function (err) {
+      newUser.save(function (err) {
         if (err) log(err)
         else {
           log("saving user ...")
