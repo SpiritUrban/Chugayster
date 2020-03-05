@@ -102,7 +102,8 @@ module.exports = passport.use(new FacebookStrategy({
   clientSecret: config.facebook.clientSecret,
   callbackURL: config.facebook.callbackURL,
   passReqToCallback : true,
-  profileFields: ['id', 'emails', 'name'] //This
+  // profileFields: ['id', 'emails', 'name'] //This
+  profileFields: ['id', 'displayName', 'link', 'about_me', 'photos', 'email']
 },
   function (accessToken, refreshToken, profile, done) {
     // logs
