@@ -12,7 +12,7 @@ const passport = require('passport')
 ///////////////////////////////////////////////////////
 
 const successRedirect = '/main';
-const failureRedirect = '/';
+const failureRedirect = '/auth/login';
 const redirects = { successRedirect, failureRedirect }
 
 //
