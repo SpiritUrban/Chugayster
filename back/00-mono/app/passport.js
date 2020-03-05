@@ -45,7 +45,7 @@ passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
 }, function (email, password, done) {
-  console.log('******************', email, password  )
+  console.log('******************', email, password)
 
   User.findOne({ email }, function (err, user) {
     return err
@@ -66,32 +66,30 @@ module.exports = passport.use(new FacebookStrategy({
   profileFields: ['id', 'displayName', 'link', 'email', 'name', 'picture.type(large)']
   // passReqToCallback : true,
 },
-  function (accessToken, refreshToken, profile, done) {
-    // logs
-    log('facebook profile: '.info, profile)
-    // var-s
-    let email = ''
-    let id = profile.id
-    let username = profile.displayName
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      log('facebook profile: '.info, profile);
 
-    User.findOne({ 'facebook.id': profile.id }, function (err, user) {
-      if (err) return log(err)
-      if (profile.email) email = profile.email;
+      const email = (profile.email) ? profile.email : '';
+      const user = await User.findOne({ 'facebook.id': profile.id });
+      if (user) return done(null, user);
 
-      if (!err && user !== null) return done(null, user)
-
-      user = new User()
-      user.facebook.id = id;
-      user.facebook.username = username;
-      user.facebook.email = email;
-      user.username = username;
-      user.email = email;
-      user.created = Date.now();
-      user.wallets = {
-        USD: {
-          balance: 0
+      user = new User({
+        facebook: {
+          id: profile.id,
+          username: profile.displayName,
+          email: email
+        },
+        username: profile.displayName,
+        email: email,
+        created: Date.now(),
+        wallets: {
+          USD: {
+            balance: 0
+          }
         }
-      };
+      })
+
 
       user.save(function (err) {
         if (err) log(err)
@@ -101,7 +99,9 @@ module.exports = passport.use(new FacebookStrategy({
         }
       })
 
-    })
+    } catch (error) {
+      log(error)
+    }
   }
 ))
 
