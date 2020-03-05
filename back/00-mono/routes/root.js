@@ -50,12 +50,12 @@ const google_scope =
 
 // router.get('/api/auth/google', passport.authenticate('google', { scope: google_scope }));
 router.get(
-    '/api/auth/google', 
-    passport.authenticate('google', { successRedirect: '/',scope:[ 'email', 'profile' ]})
+    '/api/auth/google',
+    passport.authenticate('google', { successRedirect: '/', scope: ['email', 'profile'] })
 );
 router.get(
-    '/auth/google/callback', 
-    passport.authenticate('google', { successRedirect:'/main', failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
+    '/auth/google/callback',
+    passport.authenticate('google', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => res.redirect(process.env.AUTH_callback));
 
 // facebook
 // 
@@ -153,14 +153,13 @@ router.get('/test', (req, res, next) => {
     User.find({}, function (err, users) {
         res.send(users);
     });
-
-    // const users = User.find({});
-    // res.json(users)
 });
 
 
 
-
+router.get('/user', (req, res, next) => {
+    res.send(req.user);
+});
 
 
 
