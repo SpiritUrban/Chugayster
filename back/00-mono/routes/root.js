@@ -59,12 +59,12 @@ router.get(
 
 // facebook
 // 
-  
+
 router.get(
-    '/api/auth/facebook', 
-    passport.authenticate('facebook', { scope: ['read_stream', 'publish_actions'] }),
+    '/api/auth/facebook',
+    passport.authenticate('facebook'),
     (req, res) => { }
-    );
+);
 router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => res.redirect('/'));
 
 // twitter
