@@ -67,7 +67,9 @@ router.get(
     passport.authenticate('facebook'),
     (req, res) => { }
 );
-router.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/' }), (req, res) => res.redirect('/'));
+router.get(
+    '/auth/facebook/callback', 
+    passport.authenticate('facebook', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => res.redirect('/'));
 
 // twitter
 // 
