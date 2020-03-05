@@ -70,7 +70,6 @@ module.exports = passport.use(new FacebookStrategy({
     try {
       log('facebook profile: '.info, profile);
 
-      const email = (profile.email) ? profile.email : '';
       const user = await User.findOne({ 'facebook.id': profile.id });
       if (user) return done(null, user);
 
@@ -105,6 +104,8 @@ module.exports = passport.use(new FacebookStrategy({
 
 
 async function createUser(profile, done){
+  const email = (profile.email) ? profile.email : '';
+
   const newUser = new User({
     facebook: {
       id: profile.id,
