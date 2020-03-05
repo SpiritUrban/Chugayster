@@ -33,48 +33,46 @@ router.get('/ping', (req, res, next) => {
 //                      Auth                         //
 //                                                   //
 ///////////////////////////////////////////////////////
-
+const successRedirect = '/main';
+const failureRedirect = '/';
 // google
 //
 console.log('Fackerrrrrrr!!!')
-const google_scope =
-    [
-        'https://www.googleapis.com/auth/plus.login',
-        'https://www.googleapis.com/auth/plus.profile.emails.read'
-    ]
-// const google_scope = [ 'https://www.googleapis.com/auth/userinfo.email']
-// const google_scope = [
-//     'https://www.googleapis.com/auth/plus.login',
-//     'https://www.googleapis.com/auth/userinfo.email'
-// ]
-
-// router.get('/api/auth/google', passport.authenticate('google', { scope: google_scope }));
+const google_scope = [
+    'https://www.googleapis.com/auth/plus.login',
+    'https://www.googleapis.com/auth/plus.profile.emails.read'
+]
 router.get(
     '/api/auth/google',
-    passport.authenticate('google', { successRedirect: '/', scope: ['email', 'profile'] })
+    passport.authenticate('google', { scope: ['email', 'profile'] })
 );
 router.get(
     '/auth/google/callback',
-    passport.authenticate('google', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => {});
+    passport.authenticate('google', { successRedirect, failureRedirect }),
+    (req, res) => { });
 
 // facebook
 // 
-
-
-
 router.get(
     '/api/auth/facebook',
     passport.authenticate('facebook'),
     (req, res) => { }
 );
 router.get(
-    '/auth/facebook/callback', 
-    passport.authenticate('facebook', { successRedirect: '/main', failureRedirect: '/' }), (req, res) => {});
+    '/auth/facebook/callback',
+    passport.authenticate('facebook', { successRedirect: '/main', failureRedirect: '/' }),
+    (req, res) => { });
 
 // twitter
 // 
-router.get('/auth/twitter', passport.authenticate('twitter'), (req, res) => { });
-router.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedirect: '/' }), (req, res) => res.redirect('/account'));
+router.get('/auth/twitter',
+    passport.authenticate('twitter'),
+    (req, res) => { }
+);
+router.get(
+    '/auth/twitter/callback',
+    passport.authenticate('twitter', { successRedirect: '/main', failureRedirect: '/' }),
+    (req, res) => { });
 
 // github
 // 
