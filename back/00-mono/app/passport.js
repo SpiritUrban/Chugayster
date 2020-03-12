@@ -33,6 +33,41 @@ passport.deserializeUser((id, done) => {
   });
 })
 
+//
+// createOrUpdateUser(strategy, profile, done)
+//
+async function createOrUpdateUser(strategy, profile, done) {
+  var user = null;
+  if (strategy == 'google') {
+      const email = profile.emails[0].value;
+      user = await User.findOneAndUpdate({ email }, {
+          google: {
+              id: profile.id,
+              userName: profile.displayName,
+              email: email,
+          }
+      })
+  }
+  if (strategy == 'facebook') {
+      const email = (profile.email) ? profile.email : '';
+      user = await User.findOneAndUpdate({ email }, {
+          facebook: {
+              id: profile.id,
+              userName: profile.displayName,
+              email: email
+          }
+      })
+  }
+  if(!user) createUser(strategy, profile, done);
+  else {
+      done(null, user);
+      log("USER Updated !!!");
+  }
+}
+
+//
+// createUser(strategy, profile, done)
+//
 async function createUser(strategy, profile, done) {
 
   const newUser = new User({
@@ -92,7 +127,9 @@ passport.use(new LocalStrategy({
 }));
 
 
-
+//
+// GoogleStrategy
+//
 passport.use(new GoogleStrategy({
   clientID: process.env.GP_ID, //'706111676047-g5j86f7ipga7ant19ii0shaltrooac36.apps.googleusercontent.com',
   clientSecret: process.env.GP_KEY, //'IdHthb-IWhRRyGtl1K5dNd38',
@@ -106,7 +143,7 @@ passport.use(new GoogleStrategy({
 
       (user)
         ? done(null, user)
-        : createUser('google', profile, done);
+        : createOrUpdateUser('google', profile, done);
 
     } catch (error) {
       log(error)
@@ -115,6 +152,9 @@ passport.use(new GoogleStrategy({
 ))
 
 
+//
+// FacebookStrategy
+//
 module.exports = passport.use(new FacebookStrategy({
   clientID: process.env.FB_ID,  // '455174914848353',
   clientSecret: process.env.FB_KEY, //'30a983716bd55cf5f36e1626fe3b20b8',
@@ -129,7 +169,7 @@ module.exports = passport.use(new FacebookStrategy({
 
       (user)
         ? done(null, user)
-        : createUser('facebook', profile, done);
+        : createOrUpdateUser('facebook', profile, done);
 
     } catch (error) {
       log(error)
