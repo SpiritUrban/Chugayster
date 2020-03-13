@@ -7,13 +7,9 @@ const express = require('express')
 const router = express.Router()
 
 
-
-
-
-
 ///////////////////////////////////////////////////////
 //                                                   //
-//                  Front on Back                    //
+//                Front across Back                  //
 //                                                   //
 ///////////////////////////////////////////////////////
 
@@ -41,6 +37,28 @@ router.get('/pages/auth/mail-verify', async (req, res) => {
         res.render('pages/auth/mail-verify', data);
     } catch (e) {
         error(e, req, res, 500, 'Can not verify')
+    }
+});
+
+// Page: restore-password
+router.get('/pages/auth/restore-password', async (req, res) => {
+    try {
+        let user = null;
+        let fit = false;
+        const _id = req.query.user;
+        const token = req.query.token;
+        // data for page
+        const data = { _id };
+        // get user
+        user = await User.findOne({ _id });
+        // fit ?
+        fit = (user.email_token == token) ? true : false;
+        // approval ?
+        (fit) ?
+            res.render('pages/auth/restore-password', data) :
+            res.render('pages/common/bad-data', data);
+    } catch (e) {
+        res.render('pages/common/bad-data', {});
     }
 });
 
@@ -91,28 +109,7 @@ router.get('/pages/auth/mail-verify', async (req, res) => {
 });
 
 
-// Page: restore-password
-router.get('/pages/auth/restore-password', async (req, res) => {
-    try {
-        const _id = req.query.user;
-        const token = req.query.token;
-        const data = {};
-        let user = null;
-        let fit = false;
-        // data for page
-        data._id = _id
-        // get user
-        user = await User.findOne({ _id });
-        // fit ?
-        fit = (user.email_token == token) ? true : false;
-        // approval ?
-        (fit) ?
-            res.render('pages/auth/restore-password', data) :
-            res.render('pages/common/bad-data', data);
-    } catch (e) {
-        res.render('pages/common/bad-data', {});
-    }
-});
+
 
 
 // router.all(['/lessons', '/lessons/*'], async (req, res) => {
