@@ -1,0 +1,39 @@
+[
+    {
+        "number": "0",
+        "name": "??? programmer-tips",
+        "video": "",
+        "img": "assets/js-clan/img/lessons/.jpg",
+        "title": {
+            "en": "",
+            "ua": "programmer-tips"
+        },
+        "description": {
+            "en": "",
+            "ua": ""
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+    {
+        "number": "0",
+        "name": "???",
+        "video": "",
+        "img": "assets/js-clan/img/lessons/.jpg",
+        "title": {
+            "en": "",
+            "ua": ""
+        },
+        "description": {
+            "en": "",
+            "ua": ""
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    }
+]
+
