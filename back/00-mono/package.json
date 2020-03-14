@@ -25,6 +25,7 @@
   "author": "Michael Herman <michael@mherman.org>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "bson": "^1.1.3",
     "chai": "^3.4.1",

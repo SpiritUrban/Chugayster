@@ -3,8 +3,73 @@ const fs = require('fs').promises
 const User = require('../models/user.js')
 const Chat = require('../models/chat.js')
 const Vote = require('../models/vote.js')
+const Session = require('../models/session');
 const express = require('express')
 const router = express.Router()
+const bcrypt = require('bcrypt');
+
+
+
+
+///////////////////////////////////////////////////////
+//                                                   //
+//                     Session                       //
+//                                                   //
+///////////////////////////////////////////////////////
+
+// finger print mechanism
+router.post('/session', async (req, res) => {
+    try {
+      const systemInfo = req.body;
+      const random = Math.random();
+      const fingerPrint = await bcrypt.hash(systemInfo.appVersion + random, 10);
+      const session = new Session({
+        //userId: String,
+        appVersion: systemInfo.appVersion,
+        fingerPrint: fingerPrint,
+        random: random,
+        ip: req.ip
+      })
+      session.save();
+      res.json({ session: fingerPrint });
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+  })
+  
+  router.get('/session-info', (req, res) => {
+    res.json({ user: req.user })
+  });
+  
+  router.get('/get-user-info-if-logged', async (req, res) => {
+    try {
+      console.log(req.user)
+      // const user = {
+      //   firstName: (req.user) ? req.user.firstName : null
+      // }
+      if(req.user) {
+        var user = {
+          firstName: req.user.firstName,
+          userName: req.user.userName,
+          isLogged: true
+        }
+      } else {
+        var user = {
+          isLogged: false
+        }
+      }
+      res.json(user);
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+  })
+
+  
+
+
+
 
 
 ///////////////////////////////////////////////////////
