@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import appState from '../../../../app-state';
-import { ApiService } from '../../../@common-dependencies/services/api.service';
 
+import { ApiService } from '../../../@common-dependencies/services/api.service';
+import { ApiJsClanService } from '../../services/api-js-clan.service';
+import { Router } from '@angular/router';
+import { log } from 'src/app/my_modules/stuff';
+import appState from '../../../../app-state';
 
 @Component({
   selector: 'app-cabinet',
@@ -14,9 +17,14 @@ export class CabinetComponent implements OnInit {
 
   constructor(
     private api: ApiService,
-  ) { }
+    private _api: ApiJsClanService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit() {
+    log('STATE:');
+    log(this.st)
   }
 
 }

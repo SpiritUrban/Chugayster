@@ -11,20 +11,47 @@
 
     <br>
 
+
+    <!-- UN LOGGED -->
+    <div *ngIf="!st.user.isLogged" class="jumbotron" >
+        <h1 class="display-3">You are not logged!!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
+          <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
+        </p>
+      </div>
+
+
+    <!-- LOGGED -->
+    <div *ngIf="st.user.isLogged"class="jumbotron">
+        <h1 class="display-3">Hello, {{st.user.username}}!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+
     <div class="row">
-
         <div class="col-12">
-            <h3>Info about user</h3>
+            <h3>Title</h3>
         </div>
-
         <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let item of [1,2,3]">
             <div class="user-info">
                 Block: {{item}}
             </div>
             <!-- <app-flip-card [card]="card"></app-flip-card> -->
         </div>
-
     </div>
+
+    <br>
+    <br>
+
+
 </div>
 
 <app-extra-alert [st]="st.alert"></app-extra-alert>
