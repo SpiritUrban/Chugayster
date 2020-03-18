@@ -77,12 +77,14 @@ app
     res.header("Access-Control-Allow-Credentials", true);
     next()
   })
+  // safe user
   .use(function (req, res, next) {
     if (req.user) {
-      req.userSafe.password = null;
-      req.userSafe.email_token = null;
+      req.user = req.user;
+      req.user.password = null;
+      req.user.email_token = null;
     } else {
-      req.userSafe = { isLogged: false }
+      req.user = { isLogged: false }
     }
     next()
   })

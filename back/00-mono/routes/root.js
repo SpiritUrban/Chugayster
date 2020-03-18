@@ -42,9 +42,10 @@ router.get('/session-info', (req, res) => {
     res.json({ user: req.userSafe })
 });
 
-router.get('/get-user-info-if-logged', async (req, res) => {
+router.get(['/user', '/get-user-info-if-logged'], async (req, res) => {
     try {
-        res.json(req.userSafe);
+        log('---5---')
+        res.json(req.user);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);

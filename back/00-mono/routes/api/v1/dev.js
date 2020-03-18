@@ -22,9 +22,9 @@ router.get('/all-users', (req, res, next) => {
 });
 
 
-router.get('/user', (req, res, next) => {
-    res.send(req.user);
-});
+// router.get('/user', (req, res, next) => {
+//     res.send(req.user);
+// });
 
 
 router.get('/clean', (req, res, next) => {
