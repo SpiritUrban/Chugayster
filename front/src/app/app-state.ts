@@ -25,6 +25,7 @@ const appState = {
       video: 'zKOQhgWQPM4'
     },
     user: {
+      isLogged: false,
       username: '',
       firstName: '',
       lastName: '',

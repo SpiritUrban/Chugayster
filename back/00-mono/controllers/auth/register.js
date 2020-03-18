@@ -52,7 +52,7 @@ async function createNewUser(email, password, username, first_name, last_name) {
             username: username,
             email: email,
             email_token,
-            password: hash(password),
+            password: hash(password + ''),
             name: first_name + ' ' + last_name,
             numeric_id: randomIntFromInterval(11111111, 99999999),
             phone_pin: randomIntFromInterval(111111, 999999),
@@ -84,7 +84,7 @@ async function createNewUser(email, password, username, first_name, last_name) {
         log('\n', 'u'.info, '\n', u, '\n')
         let x = await u.save()
         log('RESULT DB:', x)
-        
+
         // send mail for verification
         mails.send_mail_verification(u._id)
 

@@ -20,7 +20,16 @@ require('./app/base'); //................ show info
 require('./app/log/init.js')(app); //.... logs
 require('./app/log/start.js')(app); //... logs
 require('./app/passport.js'); //... passport
-require('mongoose').connect('mongodb://localhost/' + process.env.DBNAME, { useCreateIndex: true, useNewUrlParser: true }); // connect to the database
+
+require('mongoose').connect('mongodb://localhost/', {
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+})
+  .then(() => console.log('DB Connected!'))
+  .catch(err => {
+    console.log(`DB Connection Error: ${err.message}`);
+  });
 
 app
   .set('views', __dirname + '/public/_pages')
@@ -68,7 +77,15 @@ app
     res.header("Access-Control-Allow-Credentials", true);
     next()
   })
-
+  .use(function (req, res, next) {
+    if (req.user) {
+      req.userSafe.password = null;
+      req.userSafe.email_token = null;
+    } else {
+      req.userSafe = { isLogged: false }
+    }
+    next()
+  })
 // routes  
 require('./routes')(app)
 

@@ -1,1 +1,43 @@
-<p>profile works!</p>
+<app-nav></app-nav>
+
+<div class="container health-content">
+
+    <div class="jumbotron">
+        <h1 class="display-3">Hello, {{st.user.username}}!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
+
+    <!-- <br>
+    <div class="row">
+        <button type="button" class="btn btn-primary">English</button>
+        <button type="button" class="btn btn-secondary">Українською</button>
+        <button type="button" class="btn btn-secondary">Русский</button>
+    </div> -->
+
+    <br>
+
+    <div class="row">
+<!-- 
+        <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let card of st.cards">
+
+            <app-flip-card-video [card]="card"></app-flip-card-video>
+
+        </div> -->
+
+        <div class="PS" >
+            <p>Долучайся до нашої спільноти на Ютуб!</p>
+            <a class="btn btn-success" href="https://www.youtube.com/channel/UC1fRCBrRa1oeIENiEm8AzUA?view_as=subscriber" target="_blank" >ХОЧУ !!!</a>
+            <!-- [routerLink]="['/want-more-lessons']" -->
+        </div>
+
+    </div>
+</div>
+
+<app-extra-alert [st]="st.alert"></app-extra-alert>
+
+<app-clan-footer></app-clan-footer>

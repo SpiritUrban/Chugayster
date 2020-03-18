@@ -26,12 +26,13 @@ export class AppComponent {
   }
 
   async getUserInfo() {
-    const fromServer: any = await this.api.getUserInfoIfLogged();
-    console.log('result getUserInfo', fromServer);
-    if (fromServer.firstName) {
-      this.st.header.isLogged = true;
-      this.st.header.user.name = fromServer.firstName;
-    }
+    this.st.user = await this.api.getUserInfoIfLogged();
+    console.log('result getUserInfo', this.st.user);
+    // this.st.user = fromServer
+    // if (this.st.user.firstName) {
+    //   this.st.header.isLogged = true;
+    //   this.st.header.user.name = fromServer.firstName;
+    // }
   }
 
 }

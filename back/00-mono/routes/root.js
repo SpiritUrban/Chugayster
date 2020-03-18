@@ -20,53 +20,38 @@ const bcrypt = require('bcrypt');
 // finger print mechanism
 router.post('/session', async (req, res) => {
     try {
-      const systemInfo = req.body;
-      const random = Math.random();
-      const fingerPrint = await bcrypt.hash(systemInfo.appVersion + random, 10);
-      const session = new Session({
-        //userId: String,
-        appVersion: systemInfo.appVersion,
-        fingerPrint: fingerPrint,
-        random: random,
-        ip: req.ip
-      })
-      session.save();
-      res.json({ session: fingerPrint });
+        const systemInfo = req.body;
+        const random = Math.random();
+        const fingerPrint = await bcrypt.hash(systemInfo.appVersion + random, 10);
+        const session = new Session({
+            //userId: String,
+            appVersion: systemInfo.appVersion,
+            fingerPrint: fingerPrint,
+            random: random,
+            ip: req.ip
+        })
+        session.save();
+        res.json({ session: fingerPrint });
     } catch (error) {
-      console.log(error);
-      res.sendStatus(500);
+        console.log(error);
+        res.sendStatus(500);
     }
-  })
-  
-  router.get('/session-info', (req, res) => {
-    res.json({ user: req.user })
-  });
-  
-  router.get('/get-user-info-if-logged', async (req, res) => {
-    try {
-      console.log(req.user)
-      // const user = {
-      //   firstName: (req.user) ? req.user.firstName : null
-      // }
-      if(req.user) {
-        var user = {
-          firstName: req.user.firstName,
-          userName: req.user.userName,
-          isLogged: true
-        }
-      } else {
-        var user = {
-          isLogged: false
-        }
-      }
-      res.json(user);
-    } catch (error) {
-      console.log(error);
-      res.sendStatus(500);
-    }
-  })
+})
 
-  
+router.get('/session-info', (req, res) => {
+    res.json({ user: req.userSafe })
+});
+
+router.get('/get-user-info-if-logged', async (req, res) => {
+    try {
+        res.json(req.userSafe);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
+})
+
+
 
 
 

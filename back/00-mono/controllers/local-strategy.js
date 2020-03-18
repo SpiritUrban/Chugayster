@@ -3,7 +3,6 @@ const User = require('../models/user.js');
 const passport = require('passport');
 var hash = require('../controllers/crypto/hash');
 
-
 module.exports = {
 
   // Здесь мы проверяем, передаем данные о пользователе в функцию верификации, котоую мы определили выше. 

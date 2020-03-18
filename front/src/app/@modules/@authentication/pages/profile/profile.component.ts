@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import appState from '../../../../app-state';
+import { log, my_alert } from '../../../../my_modules/stuff';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  st: any = appState;
+
   constructor() { }
 
   ngOnInit(): void {
+    log(this.st)
   }
 
 }
