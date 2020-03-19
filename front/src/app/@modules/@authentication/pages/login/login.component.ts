@@ -48,6 +48,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  fill(){
+    log('fill')
+    this.userForm.controls['username'].setValue('testUser');
+    this.userForm.controls['email'].setValue('shadespiritenator@gmail.com');
+    this.userForm.controls['passwords'].controls['pwd'].setValue(123456);
+    this.userForm.controls['passwords'].controls['confirm'].setValue(123456);
+  }
+  
   // when user pressed (submit/register)
   async onSubmit() {
     try {

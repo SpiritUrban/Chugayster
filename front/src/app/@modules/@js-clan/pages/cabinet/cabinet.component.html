@@ -13,28 +13,56 @@
 
 
     <!-- UN LOGGED -->
-    <div *ngIf="!st.user.isLogged" class="jumbotron" >
-        <h1 class="display-3">You are not logged!!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <div *ngIf="!st.user.isLogged" class="jumbotron user-card">
+        <h1 class="">You are not logged!!</h1>
+        <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg" alt="Anonymous">
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+            featured content or information.</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
-          <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
+            <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
+            <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
         </p>
-      </div>
+        <div class="modal-body">
+            <p>Modal body text goes here.</p>
+        </div>
+    </div>
 
 
     <!-- LOGGED -->
-    <div *ngIf="st.user.isLogged"class="jumbotron">
-        <h1 class="display-3">Hello, {{st.user.username}}!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <div *ngIf="st.user.isLogged" class="jumbotron user-card">
+        <h1 class="">Hello, {{st.user.username}}!</h1>
+        <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg" alt="Anonymous">
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+            featured content or information.</p>
         <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+
+        <hr class="my-4">
+
+
+        <dl>
+            <p>
+                <dt>Email:</dt>
+                <dd>
+                    <b>{{st.user.email}}</b>
+                    <sup class="badge">
+                        <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                        <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                    </sup>
+                </dd>
+            </p>
+            <p>
+                <dt>Milk</dt>
+                <dd>White cold drink</dd>
+            </p>
+        </dl>
+
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
         </p>
-      </div>
+    </div>
 
     <div class="row">
         <div class="col-12">
