@@ -46,6 +46,10 @@
                         <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
                         <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
                     </sup>
+
+                </dd>
+                <dd>
+                    <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">Send mail</button>
                 </dd>
             </p>
             <p>
