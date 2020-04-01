@@ -18,9 +18,19 @@ export class FlipCardComponent implements OnInit {
 
   constructor() {
     this.st = appState
-   }
+  }
 
   ngOnInit() {
+    // lazy img loading
+    const imageObserver = new IntersectionObserver((entries, imgObserver) => {
+      entries.forEach((entry: any) => {
+        const lazyImage = entry.target;
+        if (entry.isIntersecting) lazyImage.style.backgroundImage = lazyImage.dataset.image;
+      })
+    });
+    document.querySelectorAll('.card-img-2').forEach((v) => {
+      imageObserver.observe(v);
+    })
   }
 
 }
