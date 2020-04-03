@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { ApiJsClanService } from '../../services/api-js-clan.service';
 import { Router } from '@angular/router';
-import { log } from 'src/app/my_modules/stuff';
+import { log,  my_alert } from 'src/app/my_modules/stuff';
 import appState from '../../../../app-state';
 
 @Component({
@@ -41,19 +41,11 @@ export class LessonsComponent implements OnInit {
   }
 
   msgVoteOk() {
-    this.showAlert(':)', 'Your vote counted')
+    my_alert(':)', 'Your vote counted', null)
   }
 
   msgVoteBad() {
-    this.showAlert(':(', 'Something wrong')
-  }
-
-  showAlert(title, body){
-    this.st.alert = {
-      title,
-      body,
-      show: true
-    }
+    my_alert(':(', 'Something wrong', null)
   }
 
 }
