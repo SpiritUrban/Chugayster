@@ -41,15 +41,19 @@ export class LessonsComponent implements OnInit {
   }
 
   msgVoteOk() {
-    this.st.alert.title = ':)';
-    this.st.alert.body = 'Your vote counted';
-    this.st.alert.show = true
+    this.st.alert = {
+      title: ':)',
+      body: 'Your vote counted',
+      show: true
+    }
   }
 
   msgVoteBad() {
-    this.st.alert.title = ':(';
-    this.st.alert.body = 'Something wrong';
-    this.st.alert.show = true
+    this.st.alert = {
+      title: ':(';
+      body: 'Something wrong';
+      show: true
+    }
   }
 
 }
