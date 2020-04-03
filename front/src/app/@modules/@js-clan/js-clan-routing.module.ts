@@ -15,6 +15,8 @@ import { VideoSamplesComponent } from './pages/sources/video-samples/video-sampl
 import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.component';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips.component';
+import { ArComponent } from './pages/games/ar/ar.component';
+
 
 const routes: Routes = [
   // { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -30,6 +32,11 @@ const routes: Routes = [
   { path: 'free-sounds', component: FreeSoundsComponent },
   { path: 'cabinet', component: CabinetComponent },
   { path: 'programmer-tips', component: ProgrammerTipsComponent },
+
+  { path: 'games/ar', component: ArComponent },
+
+
+
 
 
   { path: 'p404', component: P404Component },

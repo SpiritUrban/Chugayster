@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { JsClanRoutingModule } from './js-clan-routing.module';
@@ -28,13 +28,14 @@ import { VideoSamplesComponent } from './pages/sources/video-samples/video-sampl
 import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.component';
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips.component';
+import { ArComponent } from './pages/games/ar/ar.component';
 
 @NgModule({
   declarations: [
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent, ArComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +44,8 @@ import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips
     FormsModule,
     NgbModule
   ],
-  exports: [NavComponent, ClanFooterComponent]
+  exports: [NavComponent, ClanFooterComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 })
 export class JsClanModule { }

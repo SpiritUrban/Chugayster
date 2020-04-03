@@ -16,3 +16,8 @@ ng generate service @modules/@common-dependencies/services/validator
 ::: IN DEVELOPER GUIDE
 *** Generate Page
 ng generate component @modules/@developer-guide/pages/***
+
+
+::: workflow
+*** live reload on UBUNTU
+ng serve --live-reload
