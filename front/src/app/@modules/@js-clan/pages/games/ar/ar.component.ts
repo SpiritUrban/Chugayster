@@ -17,7 +17,7 @@ export class ArComponent implements OnInit {
       audio: false,
       video: true
     };
-    
+
     function handleSuccess(stream) {
       const video = document.querySelector('video');
       const videoTracks = stream.getVideoTracks();
@@ -26,19 +26,19 @@ export class ArComponent implements OnInit {
       window.stream = stream; // make variable available to browser console
       video.srcObject = stream;
     }
-    
+
     function handleError(error) {
       if (error.name === 'ConstraintNotSatisfiedError') {
         const v: any = constraints.video;
-        errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`,1);
+        errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`, 1);
       } else if (error.name === 'PermissionDeniedError') {
         errorMsg('Permissions have not been granted to use your camera and ' +
           'microphone, you need to allow the page access to your devices in ' +
-          'order for the demo to work.',1);
+          'order for the demo to work.', 1);
       }
       errorMsg(`getUserMedia error: ${error.name}`, error);
     }
-    
+
     function errorMsg(msg, error) {
       const errorElement = document.querySelector('#errorMsg');
       errorElement.innerHTML += `<p>${msg}</p>`;
@@ -46,7 +46,7 @@ export class ArComponent implements OnInit {
         console.error(error);
       }
     }
-    
+
     async function init(e) {
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -56,8 +56,27 @@ export class ArComponent implements OnInit {
         handleError(e);
       }
     }
-    
+
     document.querySelector('#showVideo').addEventListener('click', e => init(e));
+
+    this.x()
+  }
+
+  x() {
+    var sceneEl = document.querySelector('a-scene');
+    var markerEl: any = document.querySelector('#marker');
+
+    // Add boxe when spacebar is pressed.
+    document.addEventListener('keyup', function (e) {
+      if (e.keyCode !== 32) return;
+
+      var newEl = document.createElement('a-box');
+      newEl.setAttribute('color', 'red');
+      sceneEl.appendChild(newEl);
+      var position = markerEl.object3D.getWorldPosition();
+      position.y = 0.5;
+      newEl.setAttribute('position', position);
+    });
   }
 
 }
