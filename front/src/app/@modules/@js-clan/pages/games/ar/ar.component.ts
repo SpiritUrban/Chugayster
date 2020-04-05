@@ -18,6 +18,11 @@ export class ArComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // 40
+    setInterval(() => {
+      this.aimMove()
+    }, 100)
+
 
     const constraints = window.constraints = {
       audio: false,
@@ -104,4 +109,36 @@ export class ArComponent implements OnInit {
   fireEnd() {
     clearInterval(this.fireFlow)
   }
+
+  aimMove() {
+    var markerEl: any = document.querySelector('#marker');
+
+    const all = document.querySelectorAll('a-box');
+    // log(
+    //   all[1 ].getAttribute('position')
+    // )
+    all.forEach((x)=>{
+      const ownPosition: any = x.getAttribute('position');
+      var position = markerEl.object3D.getWorldPosition();
+      // position.x = 0.5;
+      // ownPosition.y = position.y
+      // log(ownPosition.y += Math.random()*2-1)
+      ownPosition.y += Math.random()-0.1
+      ownPosition.x += Math.random()-0.1
+      ownPosition.z += Math.random()-0.1
+
+      x.setAttribute('position',ownPosition);
+
+      //200
+      const toFar = Math.max(
+        Math.abs(ownPosition.y),
+        Math.abs(ownPosition.x),
+        Math.abs(ownPosition.z)
+      )
+      log(ownPosition, toFar)
+      if (toFar > 200) x.parentNode.removeChild(x);
+    })
+  }
+
+
 }
