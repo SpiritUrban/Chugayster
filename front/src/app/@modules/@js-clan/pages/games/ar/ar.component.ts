@@ -72,7 +72,7 @@ export class ArComponent implements OnInit {
 
 
     document.querySelector('a-scene').addEventListener('loaded',  () => {
-      log('LOADED')
+      alert('LOADED')
      this.x()
     })
 
