@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ApiService } from '../../../../@common-dependencies/services/api.service';
+import { log } from 'src/app/my_modules/stuff';
+import appState from '../../../../../app-state';
+
 declare var window: any;
 @Component({
   selector: 'app-ar',
@@ -7,6 +11,8 @@ declare var window: any;
   encapsulation: ViewEncapsulation.None,
 })
 export class ArComponent implements OnInit {
+
+  fireFlow: any; // setInterval // fire loop
 
   constructor() { }
 
@@ -63,20 +69,39 @@ export class ArComponent implements OnInit {
   }
 
   x() {
-    var sceneEl = document.querySelector('a-scene');
-    var markerEl: any = document.querySelector('#marker');
 
     // Add boxe when spacebar is pressed.
-    document.addEventListener('keyup', function (e) {
+    document.addEventListener('keyup', (e) => {
       if (e.keyCode !== 32) return;
+      this.fire()
 
-      var newEl = document.createElement('a-box');
-      newEl.setAttribute('color', 'red');
-      sceneEl.appendChild(newEl);
-      var position = markerEl.object3D.getWorldPosition();
-      position.y = 0.5;
-      newEl.setAttribute('position', position);
     });
   }
 
+  info(info) {
+    alert(info)
+  }
+
+  fire() {
+    var sceneEl = document.querySelector('a-scene');
+    var markerEl: any = document.querySelector('#marker');
+
+    var newEl = document.createElement('a-box');
+    newEl.setAttribute('color', 'red');
+    sceneEl.appendChild(newEl);
+    var position = markerEl.object3D.getWorldPosition();
+    position.y = 0.5;
+    newEl.setAttribute('position', position);
+  }
+
+  fireStart() {
+    log('firestart')
+    this.fireFlow = setInterval(() => {
+      this.fire()
+    }, 500)
+  }
+
+  fireEnd() {
+    clearInterval(this.fireFlow)
+  }
 }
