@@ -70,7 +70,12 @@ export class ArComponent implements OnInit {
 
     document.querySelector('#showVideo').addEventListener('click', e => init(e));
 
-    this.x()
+
+    document.querySelector('a-scene').addEventListener('loaded',  () => {
+      log('LOADED')
+     this.x()
+    })
+
   }
 
   x() {
@@ -89,13 +94,16 @@ export class ArComponent implements OnInit {
 
   fire() {
     var sceneEl = document.querySelector('a-scene');
-    var markerEl: any = document.querySelector('#marker');
+    const m: any = document.querySelector('#marker')
+    const position = m.object3D.getWorldPosition()
+    var newEl = document.createElement('a-entity');
+    newEl.setAttribute('position', '-10 0.5 -20');
+    newEl.setAttribute('scale', '40 40 40');
+    newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
 
-    var newEl = document.createElement('a-box');
-    newEl.setAttribute('color', 'red');
     sceneEl.appendChild(newEl);
-    var position = markerEl.object3D.getWorldPosition();
-    position.y = 0.5;
+    // var position = this.getMarkerPosition()
+    position.y = '0.5';
     newEl.setAttribute('position', position);
   }
 
@@ -111,15 +119,14 @@ export class ArComponent implements OnInit {
   }
 
   aimMove() {
-    var markerEl: any = document.querySelector('#marker');
 
-    const all = document.querySelectorAll('a-box');
+    const all = document.querySelectorAll('a-entity');
     // log(
     //   all[1 ].getAttribute('position')
     // )
     all.forEach((x)=>{
       const ownPosition: any = x.getAttribute('position');
-      var position = markerEl.object3D.getWorldPosition();
+      var position = this.getMarkerPosition()
       // position.x = 0.5;
       // ownPosition.y = position.y
       // log(ownPosition.y += Math.random()*2-1)
@@ -135,10 +142,16 @@ export class ArComponent implements OnInit {
         Math.abs(ownPosition.x),
         Math.abs(ownPosition.z)
       )
-      log(ownPosition, toFar)
+      // log(ownPosition, toFar)
       if (toFar > 200) x.parentNode.removeChild(x);
     })
   }
 
+    getMarker: any = () => document.querySelector('#marker');
 
+    getMarkerPosition(){
+      // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
+      return {x:'0', y:'0', z:'-100'}
+
+    }
 }
