@@ -71,9 +71,14 @@ export class ArComponent implements OnInit {
     document.querySelector('#showVideo').addEventListener('click', e => init(e));
 
 
-    document.querySelector('a-scene').addEventListener('loaded',  () => {
+    document.querySelector('a-scene').addEventListener('loaded', () => {
       alert('LOADED')
-     this.x()
+      this.x()
+
+      setInterval(() => {
+        this.spawn()
+      }, 15000)
+
     })
 
   }
@@ -83,7 +88,7 @@ export class ArComponent implements OnInit {
     // Add boxe when spacebar is pressed.
     document.addEventListener('keyup', (e) => {
       if (e.keyCode !== 32) return;
-      this.fire()
+      this.spawn()
 
     });
   }
@@ -92,17 +97,20 @@ export class ArComponent implements OnInit {
     alert(info)
   }
 
-  fire() {
+  spawn() {
     var sceneEl = document.querySelector('a-scene');
     const m: any = document.querySelector('#marker')
     const position = m.object3D.getWorldPosition()
+    // enemy
     var newEl = document.createElement('a-entity');
+    newEl.setAttribute('class', 'enemy');
     newEl.setAttribute('position', '-10 0.5 -20');
     newEl.setAttribute('scale', '40 40 40');
     newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
 
     sceneEl.appendChild(newEl);
     // var position = this.getMarkerPosition()
+    log(position)
     position.y = '0.5';
     newEl.setAttribute('position', position);
   }
@@ -110,7 +118,7 @@ export class ArComponent implements OnInit {
   fireStart() {
     log('firestart')
     this.fireFlow = setInterval(() => {
-      this.fire()
+      this.spawn()
     }, 500)
   }
 
@@ -120,21 +128,21 @@ export class ArComponent implements OnInit {
 
   aimMove() {
 
-    const all = document.querySelectorAll('a-entity');
+    const all = document.querySelectorAll('.enemy');
     // log(
     //   all[1 ].getAttribute('position')
     // )
-    all.forEach((x)=>{
+    all.forEach((x) => {
       const ownPosition: any = x.getAttribute('position');
       var position = this.getMarkerPosition()
       // position.x = 0.5;
       // ownPosition.y = position.y
       // log(ownPosition.y += Math.random()*2-1)
-      ownPosition.y += Math.random()-0.1
-      ownPosition.x += Math.random()-0.1
-      ownPosition.z += Math.random()-0.1
+      ownPosition.y += Math.random() - 0.1
+      ownPosition.x += Math.random() - 0.1
+      ownPosition.z += Math.random() - 0.1
 
-      x.setAttribute('position',ownPosition);
+      x.setAttribute('position', ownPosition);
 
       //200
       const toFar = Math.max(
@@ -147,11 +155,11 @@ export class ArComponent implements OnInit {
     })
   }
 
-    getMarker: any = () => document.querySelector('#marker');
+  getMarker: any = () => document.querySelector('#marker');
 
-    getMarkerPosition(){
-      // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
-      return {x:'0', y:'0', z:'-100'}
+  getMarkerPosition() {
+    // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
+    return { x: '0', y: '0', z: '-100' }
 
-    }
+  }
 }
