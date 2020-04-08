@@ -14,7 +14,7 @@ declare var window: any;
 export class ArComponent implements OnInit {
 
   fireFlow: any; // setInterval // fire loop
-  sceneEl = document.querySelector('a-scene');
+  
   constraints = window.constraints = {
     audio: false,
     video: true
@@ -22,15 +22,44 @@ export class ArComponent implements OnInit {
 
   constructor() { }
 
+  
   ngOnInit(): void {
     // 40
-    setInterval(() => this.aimMove, 100);
+    setInterval(() => this.aimMove(), 100);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
-    document.querySelector('a-scene').addEventListener('loaded', this.aFrameOnInit);
+    document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
+
+    // document.querySelector('a-scene').addEventListener('loaded', _ => {
+    //   log('aFrameOnInit', this)
+    //   alert('LOADED')
+    //   this.x();
+    //   // setInterval(() => {
+    //   //   this.spawn()
+    //   // }, 15000)
+    //   this.spawn('enemy');
+    //   this.spawn('enemy');
+    // });
+
+  }
+
+  sceneEl = () => document.querySelector('a-scene');
+
+
+  x() {
+    // Add boxe when spacebar is pressed.
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode !== 32) return;
+      this.spawn('enemy');
+    });
+  }
+
+  info(info) {
+    alert(info)
   }
 
   aFrameOnInit(){
+    log('aFrameOnInit', this)
     alert('LOADED')
     this.x();
     // setInterval(() => {
@@ -79,17 +108,7 @@ export class ArComponent implements OnInit {
     }
   }
 
-  x() {
-    // Add boxe when spacebar is pressed.
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode !== 32) return;
-      this.spawn('enemy');
-    });
-  }
 
-  info(info) {
-    alert(info)
-  }
   
 
   spawn(type) {
@@ -102,7 +121,7 @@ export class ArComponent implements OnInit {
     newEl.setAttribute('scale', '40 40 40');
     newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
 
-    this.sceneEl.appendChild(newEl);
+    this.sceneEl().appendChild(newEl);
     // var position = this.getMarkerPosition()
     log(position)
     position.y = '0.5';
