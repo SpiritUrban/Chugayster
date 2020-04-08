@@ -14,14 +14,14 @@ declare var window: any;
 export class ArComponent implements OnInit {
 
   fireFlow: any; // setInterval // fire loop
-  
+
   constraints = window.constraints = {
     audio: false,
     video: true
   };
 
   constructor() { }
-  
+
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 100);
@@ -45,11 +45,11 @@ export class ArComponent implements OnInit {
     alert(info)
   }
 
-  aFrameOnInit(){
+  aFrameOnInit() {
     log('aFrameOnInit', this);
     alert('LOADED');
     this.x();
-    setInterval(() => this.spawn('enemy'), 15000);
+    //setInterval(() => this.spawn('enemy'), 15000);
     this.spawn('enemy');
     this.spawn('enemy');
   }
@@ -94,24 +94,44 @@ export class ArComponent implements OnInit {
   }
 
 
-  
+  // const marker: any = document.querySelector('#marker')
+  // const position = marker.object3D.getWorldPosition()
+  // var position = this.getMarkerPosition()
+  // position.y = '0.5';
 
-  spawn(type) {
-    const marker: any = document.querySelector('#marker')
-    const position = marker.object3D.getWorldPosition()
+  spawn(type, position = '-10 0.5 -20', ) {
+
     // enemy
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', type);
-    newEl.setAttribute('position', '-10 0.5 -20');
+    newEl.setAttribute('position', position);
     newEl.setAttribute('scale', '40 40 40');
     newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
 
     this.sceneEl().appendChild(newEl);
+    log(position)
+    newEl.setAttribute('position', position);
+  }
+
+
+  spawnRocket() {
+    const marker: any = document.querySelector('#marker')
+    const position = marker.object3D.getWorldPosition()
     // var position = this.getMarkerPosition()
+
+    // enemy
+    var newEl = document.createElement('a-entity');
+    newEl.setAttribute('class', 'rocket');
+    newEl.setAttribute('position', '0 0 0');
+    newEl.setAttribute('scale', '4 4 4');
+    newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+
+    this.sceneEl().appendChild(newEl);
     log(position)
     position.y = '0.5';
     newEl.setAttribute('position', position);
   }
+
 
   fireStart() {
     log('firestart')
@@ -166,7 +186,7 @@ export class ArComponent implements OnInit {
   }
 
   toBegin(x) {
-    x.setAttribute('position', this.getStartPosition()); 
+    x.setAttribute('position', this.getStartPosition());
   }
 
   getPosition(x) {
@@ -189,7 +209,7 @@ export class ArComponent implements OnInit {
     return { x: '0', y: '0', z: '-100' }
   }
 
-  launch(){
+  launch() {
 
   }
 
