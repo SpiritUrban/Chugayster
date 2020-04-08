@@ -21,7 +21,6 @@ export class ArComponent implements OnInit {
   };
 
   constructor() { }
-
   
   ngOnInit(): void {
     // 40
@@ -29,18 +28,6 @@ export class ArComponent implements OnInit {
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
-
-    // document.querySelector('a-scene').addEventListener('loaded', _ => {
-    //   log('aFrameOnInit', this)
-    //   alert('LOADED')
-    //   this.x();
-    //   // setInterval(() => {
-    //   //   this.spawn()
-    //   // }, 15000)
-    //   this.spawn('enemy');
-    //   this.spawn('enemy');
-    // });
-
   }
 
   sceneEl = () => document.querySelector('a-scene');
@@ -59,12 +46,10 @@ export class ArComponent implements OnInit {
   }
 
   aFrameOnInit(){
-    log('aFrameOnInit', this)
-    alert('LOADED')
+    log('aFrameOnInit', this);
+    alert('LOADED');
     this.x();
-    // setInterval(() => {
-    //   this.spawn()
-    // }, 15000)
+    setInterval(() => this.spawn('enemy'), 15000);
     this.spawn('enemy');
     this.spawn('enemy');
   }
