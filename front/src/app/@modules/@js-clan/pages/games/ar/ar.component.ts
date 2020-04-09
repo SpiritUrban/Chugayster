@@ -113,7 +113,11 @@ export class ArComponent implements OnInit {
   // position.y = '0.5';
 
   spawn(type) {
-    if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    const en =  this.spawnEntity(type)
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
+    en.setAttribute('scale', '0.01 0.01 0.01');
+
   }
 
   spawnRocket() {
@@ -124,9 +128,9 @@ export class ArComponent implements OnInit {
     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
     console.log(worldPos);
 
-    const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1')
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
+    const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
     // this.rockets.push(en)
   }
 
@@ -134,6 +138,8 @@ export class ArComponent implements OnInit {
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', type);
     newEl.setAttribute('scale', scale);
+    // newEl.setAttribute('scale', '0.01 0.01 0.01');
+
     newEl.setAttribute('position', position);
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     this.sceneEl().appendChild(newEl);
@@ -176,7 +182,7 @@ export class ArComponent implements OnInit {
         Math.abs(ownPosition.z)
       )
       //200
-      log(toFar)
+      // log(toFar)
       if (toFar > 10)  {
         this.toZero(x)
         // x.parentNode.removeChild(x);
@@ -186,8 +192,10 @@ export class ArComponent implements OnInit {
 
   aimMove() {
     const all = document.querySelectorAll('.enemy');
-    all.forEach((x) => {
+    all.forEach((x, i) => {
       const ownPosition: any = x.getAttribute('position');
+      log(i, ownPosition)
+
       ownPosition.y += Math.random() - 0.4
       ownPosition.x += Math.random() - 0.1
       ownPosition.z += Math.random() - 0.1
@@ -255,7 +263,8 @@ export class ArComponent implements OnInit {
   }
 
   getStartPosition() {
-    return { x: '0', y: '0', z: '-100' }
+    return '0 0 -100'
+    // return { x: '0', y: '0', z: '-100' }
   }
 
   launch() {
