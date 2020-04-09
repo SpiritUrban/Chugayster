@@ -198,7 +198,7 @@ export class ArComponent implements OnInit {
   }
 
   camPosToRockPosDeg(camPos) {
-    let RockPosDeg = '0 0 0'
+    let RockPosDeg = `${camPos.y * 90 - 90} 0 ${camPos.x * 90 * -1 }`
     // 1 = 360
     // 0 = 0
     // .5 = 180
