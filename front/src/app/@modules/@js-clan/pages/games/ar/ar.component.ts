@@ -59,8 +59,8 @@ export class ArComponent implements OnInit {
     alert('LOADED');
     this.x();
     //setInterval(() => this.spawn('enemy'), 15000);
-    setTimeout(() => this.spawn('enemy'), 5000);
-    setTimeout(() => this.spawn('enemy'), 10000);
+    setTimeout(() => this.spawn('enemy'), 15000);
+    setTimeout(() => this.spawn('enemy'), 24000);
 
     this.spawn('enemy');
     this.spawnRocket()
