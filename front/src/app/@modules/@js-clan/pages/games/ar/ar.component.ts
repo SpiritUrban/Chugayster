@@ -66,7 +66,44 @@ export class ArComponent implements OnInit {
     this.spawnRocket()
     this.spawnRocket()
     this.spawnRocket()
-    
+
+    var cameraEl: any = document.querySelector('#camera');
+    log(cameraEl)
+    // AFRAME.registerComponent('rotation-reader', {
+    //   tick:  ()=> {
+    //     // `this.el` is the element.
+    //     // `object3D` is the three.js object.
+    //     // `rotation` is a three.js Euler using radians. `quaternion` also available.
+    //     console.log('******************---------',cameraEl.object3D.rotation);
+    //     // `position` is a three.js Vector3.
+    //     console.log(cameraEl.object3D.position);
+    //   }
+    // });
+    // inside an a-frame component
+    var player:any = document.querySelector("a-camera")
+    var direction = new THREE.Vector3();
+
+
+
+    window.addEventListener("keydown", (e) => {
+      console.log(
+        player.sceneEl.camera.getWorldDirection(direction)
+  
+      )
+// go forvard
+      if (e.code === "KeyR") {
+        // get the cameras world direction
+        player.sceneEl.camera.getWorldDirection(direction);
+        direction.multiplyScalar(0.1)
+        // faster than the below code - but getAttribute wont work
+        // player.object3D.position.add(direction)
+        var pos = player.getAttribute("position")
+        pos.x += direction.x
+        pos.y += direction.y // comment this to get 2D movement
+        pos.z += direction.z
+        player.setAttribute("position", pos);
+      }
+    })
   }
 
   async init(e) {
@@ -116,7 +153,7 @@ export class ArComponent implements OnInit {
 
   spawn(type) {
     // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
-    const en =  this.spawnEntity(type)
+    const en = this.spawnEntity(type)
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
     en.setAttribute('scale', '0.01 0.01 0.01');
 
@@ -170,7 +207,7 @@ export class ArComponent implements OnInit {
     //   }
     // }
     // log(x)
-    const all =  document.querySelectorAll('.rocket');
+    const all = document.querySelectorAll('.rocket');
     all.forEach((x) => {
       const ownPosition: any = x.getAttribute('position');
       // ownPosition.y += Math.random() - 0.5
@@ -185,7 +222,7 @@ export class ArComponent implements OnInit {
       )
       //200
       // log(toFar)
-      if (toFar > 100)  {
+      if (toFar > 100) {
         this.toZero(x)
         // x.parentNode.removeChild(x);
       }
@@ -196,14 +233,14 @@ export class ArComponent implements OnInit {
     const all = document.querySelectorAll('.enemy');
     all.forEach((x, i) => {
       const ownPosition: any = x.getAttribute('position');
-      log(i, ownPosition)
+      // log(i, ownPosition)
 
       // ownPosition.y += Math.random()*0.1 - 0.04
       // ownPosition.x += Math.random()*0.1 - 0.01
       // ownPosition.z += Math.random()*0.1 - 0.01
-      ownPosition.y +=   0.01
-      ownPosition.x +=  0.01
-      ownPosition.z +=  0.01
+      ownPosition.y += 0.01
+      ownPosition.x += 0.01
+      ownPosition.z += 0.01
 
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
@@ -247,7 +284,7 @@ export class ArComponent implements OnInit {
     x.setAttribute('position', this.getStartPosition());
   }
 
-  toZero(x){
+  toZero(x) {
     x.setAttribute('position', '0 -1 -0.5');
 
   }
