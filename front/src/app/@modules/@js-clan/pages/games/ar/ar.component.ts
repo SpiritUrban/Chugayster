@@ -32,8 +32,8 @@ export class ArComponent implements OnInit {
 
   ngOnInit(): void {
     // 40
-    setInterval(() => this.aimMove(), 100);
-    setInterval(() => this.rocketMove(), 100);
+    setInterval(() => this.aimMove(), 40);
+    setInterval(() => this.rocketMove(), 40);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
@@ -59,7 +59,9 @@ export class ArComponent implements OnInit {
     alert('LOADED');
     this.x();
     //setInterval(() => this.spawn('enemy'), 15000);
-    this.spawn('enemy');
+    setTimeout(() => this.spawn('enemy'), 5000);
+    setTimeout(() => this.spawn('enemy'), 10000);
+
     this.spawn('enemy');
     this.spawnRocket()
     this.spawnRocket()
@@ -183,7 +185,7 @@ export class ArComponent implements OnInit {
       )
       //200
       // log(toFar)
-      if (toFar > 10)  {
+      if (toFar > 100)  {
         this.toZero(x)
         // x.parentNode.removeChild(x);
       }
@@ -196,9 +198,13 @@ export class ArComponent implements OnInit {
       const ownPosition: any = x.getAttribute('position');
       log(i, ownPosition)
 
-      ownPosition.y += Math.random() - 0.4
-      ownPosition.x += Math.random() - 0.1
-      ownPosition.z += Math.random() - 0.1
+      // ownPosition.y += Math.random()*0.1 - 0.04
+      // ownPosition.x += Math.random()*0.1 - 0.01
+      // ownPosition.z += Math.random()*0.1 - 0.01
+      ownPosition.y +=   0.01
+      ownPosition.x +=  0.01
+      ownPosition.z +=  0.01
+
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
         Math.abs(ownPosition.y),
