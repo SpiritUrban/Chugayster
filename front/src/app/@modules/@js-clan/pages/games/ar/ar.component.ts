@@ -21,7 +21,7 @@ export class ArComponent implements OnInit {
   fireFlow: any; // setInterval // fire loop
 
   // aims:any = []
-  // rockets: any = []
+  rockets: any = []
 
   constraints = window.constraints = {
     audio: false,
@@ -33,7 +33,7 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
-    setInterval(() => this.rocketMove(), 40);
+    // setInterval(() => this.rocketMove(), 40);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
@@ -80,17 +80,22 @@ export class ArComponent implements OnInit {
     //   }
     // });
     // inside an a-frame component
-    var player:any = document.querySelector("a-camera")
+    var player: any = document.querySelector("a-camera")
     var direction = new THREE.Vector3();
 
 
 
     window.addEventListener("keydown", (e) => {
-      console.log(
-        player.sceneEl.camera.getWorldDirection(direction)
-  
-      )
-// go forvard
+      const camPos = player.sceneEl.camera.getWorldDirection(direction);
+        
+      const RockPosDeg = this.camPosToRockPosDeg(camPos)
+
+      console.log( 'keydown', this.rockets, camPos, '::: ', RockPosDeg )
+
+      this.rockets[0].link.setAttribute('rotation', RockPosDeg);
+
+
+      // go forvard
       if (e.code === "KeyR") {
         // get the cameras world direction
         player.sceneEl.camera.getWorldDirection(direction);
@@ -151,28 +156,6 @@ export class ArComponent implements OnInit {
   // var position = this.getMarkerPosition()
   // position.y = '0.5';
 
-  spawn(type) {
-    // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
-    const en = this.spawnEntity(type)
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
-    en.setAttribute('scale', '0.01 0.01 0.01');
-
-  }
-
-  spawnRocket() {
-    log(this)
-
-    var cameraEl: any = document.querySelector('#camera');
-    var worldPos = new THREE.Vector3();
-    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-    console.log(worldPos);
-
-    const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
-    en.setAttribute('rotation', '-90 0 0');
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
-    // this.rockets.push(en)
-  }
-
   spawnEntity(type, position = '-10 0.5 -20', scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', type);
@@ -183,6 +166,52 @@ export class ArComponent implements OnInit {
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     this.sceneEl().appendChild(newEl);
     return newEl
+  }
+
+  spawn(type) {
+    // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    const en = this.spawnEntity(type)
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
+    en.setAttribute('scale', '0.01 0.01 0.01');
+
+  }
+
+  spawnRocket() {
+    // 0 0 -1 == -90 0 0
+    log(this)
+
+    var cameraEl: any = document.querySelector('#camera');
+    var worldPos = new THREE.Vector3();
+    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+    console.log(worldPos);
+
+    const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
+    en.setAttribute('rotation', '-90 0 0');
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
+    this.rockets.push({
+      isFlying: false,
+      link: en,
+      vector: '',
+      position: '0 -1 -0.5',
+      speed: ''
+    })
+  }
+
+  camPosToRockPosDeg(camPos) {
+    let RockPosDeg = '0 0 0'
+    // 1 = 360
+    // 0 = 0
+    // .5 = 180
+    // to deg -> .5 * .36 * 1000 = 180
+    return RockPosDeg
+  }
+
+
+
+
+
+  launch() {
+
   }
 
   rocketMove() {
@@ -310,8 +339,6 @@ export class ArComponent implements OnInit {
     // return { x: '0', y: '0', z: '-100' }
   }
 
-  launch() {
 
-  }
 
 }
