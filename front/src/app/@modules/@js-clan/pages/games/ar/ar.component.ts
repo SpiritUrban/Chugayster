@@ -1,8 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
 import { ApiService } from '../../../../@common-dependencies/services/api.service';
 import { log } from 'src/app/my_modules/stuff';
 import appState from '../../../../../app-state';
 declare let AFRAME: any;
+declare let THREE: any;
+declare let $: any;
+
+
+
 
 declare var window: any;
 @Component({
@@ -15,6 +20,9 @@ export class ArComponent implements OnInit {
 
   fireFlow: any; // setInterval // fire loop
 
+  // aims:any = []
+  // rockets: any = []
+
   constraints = window.constraints = {
     audio: false,
     video: true
@@ -25,6 +33,7 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 100);
+    setInterval(() => this.rocketMove(), 100);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
@@ -34,10 +43,10 @@ export class ArComponent implements OnInit {
 
 
   x() {
-    // Add boxe when spacebar is pressed.
     document.addEventListener('keyup', (e) => {
       if (e.keyCode !== 32) return;
-      this.spawn('enemy');
+      // this.spawn('enemy');
+      // this.spawnRocket()
     });
   }
 
@@ -52,6 +61,10 @@ export class ArComponent implements OnInit {
     //setInterval(() => this.spawn('enemy'), 15000);
     this.spawn('enemy');
     this.spawn('enemy');
+    this.spawnRocket()
+    this.spawnRocket()
+    this.spawnRocket()
+    
   }
 
   async init(e) {
@@ -99,39 +112,97 @@ export class ArComponent implements OnInit {
   // var position = this.getMarkerPosition()
   // position.y = '0.5';
 
-  spawn(type, position = '-10 0.5 -20', ) {
-
-    // enemy
-    var newEl = document.createElement('a-entity');
-    newEl.setAttribute('class', type);
-    newEl.setAttribute('position', position);
-    newEl.setAttribute('scale', '40 40 40');
-    newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
-
-    this.sceneEl().appendChild(newEl);
-    log(position)
-    newEl.setAttribute('position', position);
+  spawn(type) {
+    if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
   }
-
 
   spawnRocket() {
-    const marker: any = document.querySelector('#marker')
-    const position = marker.object3D.getWorldPosition()
-    // var position = this.getMarkerPosition()
+    log(this)
 
-    // enemy
-    var newEl = document.createElement('a-entity');
-    newEl.setAttribute('class', 'rocket');
-    newEl.setAttribute('position', '0 0 0');
-    newEl.setAttribute('scale', '4 4 4');
-    newEl.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    var cameraEl: any = document.querySelector('#camera');
+    var worldPos = new THREE.Vector3();
+    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+    console.log(worldPos);
 
-    this.sceneEl().appendChild(newEl);
-    log(position)
-    position.y = '0.5';
-    newEl.setAttribute('position', position);
+    const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1')
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
+    en.setAttribute('rotation', '-90 0 0');
+    // this.rockets.push(en)
   }
 
+  spawnEntity(type, position = '-10 0.5 -20', scale = '40 40 40'): any {
+    var newEl = document.createElement('a-entity');
+    newEl.setAttribute('class', type);
+    newEl.setAttribute('scale', scale);
+    newEl.setAttribute('position', position);
+    // newEl._remove = () => newEl.parentNode.removeChild(newEl);
+    this.sceneEl().appendChild(newEl);
+    return newEl
+  }
+
+  rocketMove() {
+    // const x: any = document.querySelector('.rocket');
+    // if (x) {
+    //   const ownPosition: any = x.getAttribute('position');
+    //   ownPosition.y += Math.random() - 0.5
+    //   ownPosition.x += Math.random() - 0.5
+    //   ownPosition.z += Math.random() - 0.9
+    //   x.setAttribute('position', ownPosition);
+    //   const toFar = Math.max(
+    //     Math.abs(ownPosition.y),
+    //     Math.abs(ownPosition.x),
+    //     Math.abs(ownPosition.z)
+    //   )
+    //   //200
+    //   log(toFar)
+    //   if (toFar > 10) {
+    //     x.parentNode.removeChild(x);
+    //     // THREE.Cache.clear()
+    //     // x.remove();
+    //   }
+    // }
+    // log(x)
+    const all =  document.querySelectorAll('.rocket');
+    all.forEach((x) => {
+      const ownPosition: any = x.getAttribute('position');
+      // ownPosition.y += Math.random() - 0.5
+      // ownPosition.x += Math.random() - 0.5
+      // ownPosition.z += Math.random() - 0.9
+      ownPosition.z -= 1;
+      x.setAttribute('position', ownPosition);
+      const toFar = Math.max(
+        Math.abs(ownPosition.y),
+        Math.abs(ownPosition.x),
+        Math.abs(ownPosition.z)
+      )
+      //200
+      log(toFar)
+      if (toFar > 10)  {
+        this.toZero(x)
+        // x.parentNode.removeChild(x);
+      }
+    })
+  }
+
+  aimMove() {
+    const all = document.querySelectorAll('.enemy');
+    all.forEach((x) => {
+      const ownPosition: any = x.getAttribute('position');
+      ownPosition.y += Math.random() - 0.4
+      ownPosition.x += Math.random() - 0.1
+      ownPosition.z += Math.random() - 0.1
+      x.setAttribute('position', ownPosition);
+      const toFar = Math.max(
+        Math.abs(ownPosition.y),
+        Math.abs(ownPosition.x),
+        Math.abs(ownPosition.z)
+      )
+      //200
+      if (toFar > 100) this.toBegin(x) //this.remove(x) //x.parentNode.removeChild(x);
+      // if (toFar > 40) this.remove(x) //x.parentNode.removeChild(x);
+
+    })
+  }
 
   fireStart() {
     log('firestart')
@@ -144,34 +215,6 @@ export class ArComponent implements OnInit {
     clearInterval(this.fireFlow)
   }
 
-  aimMove() {
-    const all = document.querySelectorAll('.enemy');
-    // log(
-    //   all[1 ].getAttribute('position')
-    // )
-    all.forEach((x) => {
-      const ownPosition: any = x.getAttribute('position');
-      var position = this.getMarkerPosition()
-      // position.x = 0.5;
-      // ownPosition.y = position.y
-      // log(ownPosition.y += Math.random()*2-1)
-      ownPosition.y += Math.random() - 0.4
-      ownPosition.x += Math.random() - 0.1
-      ownPosition.z += Math.random() - 0.1
-
-      x.setAttribute('position', ownPosition);
-
-      //200
-      const toFar = Math.max(
-        Math.abs(ownPosition.y),
-        Math.abs(ownPosition.x),
-        Math.abs(ownPosition.z)
-      )
-      // log(ownPosition, toFar)
-      if (toFar > 100) this.toBegin(x) //this.remove(x) //x.parentNode.removeChild(x);
-    })
-  }
-
   remove(x: any) {
     // AFRAME.registerComponent('light', {
     //   // ...
@@ -180,13 +223,19 @@ export class ArComponent implements OnInit {
     //   }
     //   // ...
     // });
-
+    // x._remove()
     x.parentNode.removeChild(x);
-    x = null; //delete x;
+    // delete this.rockets[0]
+    // x = null; //delete x;
   }
 
   toBegin(x) {
     x.setAttribute('position', this.getStartPosition());
+  }
+
+  toZero(x){
+    x.setAttribute('position', '0 -1 -0.5');
+
   }
 
   getPosition(x) {
