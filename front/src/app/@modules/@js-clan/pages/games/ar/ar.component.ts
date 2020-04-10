@@ -33,7 +33,7 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
-    // setInterval(() => this.rocketMove(), 40);
+    setInterval(() => this.rocketMove(), 40);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
@@ -64,8 +64,8 @@ export class ArComponent implements OnInit {
 
     this.spawn('enemy');
     this.spawnRocket()
-    this.spawnRocket()
-    this.spawnRocket()
+    // this.spawnRocket()
+    // this.spawnRocket()
 
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl)
@@ -87,10 +87,11 @@ export class ArComponent implements OnInit {
 
     window.addEventListener("keydown", (e) => {
       const camPos = player.sceneEl.camera.getWorldDirection(direction);
-        
+
       const RockPosDeg = this.camPosToRockPosDeg(camPos)
 
-      console.log( 'keydown', this.rockets, camPos, '::: ', RockPosDeg )
+      console.log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
+      log('_camPos -> ', this._camPos())
 
       this.rockets[0].link.setAttribute('rotation', RockPosDeg);
 
@@ -109,6 +110,13 @@ export class ArComponent implements OnInit {
         player.setAttribute("position", pos);
       }
     })
+  }
+
+  _camPos() {
+    var player: any = document.querySelector("a-camera")
+    var direction = new THREE.Vector3();
+    const camPos = player.sceneEl.camera.getWorldDirection(direction);
+    return camPos
   }
 
   async init(e) {
@@ -203,7 +211,7 @@ export class ArComponent implements OnInit {
     let RockPosDeg = `
       ${ (camPos.z < 0) ? (camPos.y * 90 - 90) : 180 - (camPos.y * 90 - 90)} 
       0 
-      ${ (camPos.z < 0) ?  (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
+      ${ (camPos.z < 0) ? (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
     `
 
     // 1 = 360
@@ -220,6 +228,8 @@ export class ArComponent implements OnInit {
   launch() {
 
   }
+
+
 
   rocketMove() {
     // const x: any = document.querySelector('.rocket');
@@ -243,13 +253,43 @@ export class ArComponent implements OnInit {
     //   }
     // }
     // log(x)
+
+
+    var player: any = document.querySelector("a-camera")
+    var direction = new THREE.Vector3();
+    const camPos = player.sceneEl.camera.getWorldDirection(direction);
+
+    // x y  z
+    // 0 0 -1
     const all = document.querySelectorAll('.rocket');
     all.forEach((x) => {
       const ownPosition: any = x.getAttribute('position');
       // ownPosition.y += Math.random() - 0.5
       // ownPosition.x += Math.random() - 0.5
       // ownPosition.z += Math.random() - 0.9
-      ownPosition.z -= 1;
+
+
+
+
+
+
+
+
+
+
+      ownPosition.z += camPos.z;
+      ownPosition.x += camPos.x;
+      ownPosition.y += camPos.y;
+
+
+
+
+
+
+
+
+
+
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
         Math.abs(ownPosition.y),
