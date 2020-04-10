@@ -59,8 +59,8 @@ export class ArComponent implements OnInit {
     alert('LOADED');
     this.x();
     //setInterval(() => this.spawn('enemy'), 15000);
-    setTimeout(() => this.spawn('enemy'), 15000);
-    setTimeout(() => this.spawn('enemy'), 24000);
+    setTimeout(() => this.spawn('enemy'), 30000);
+    setTimeout(() => this.spawn('enemy'), 60000);
 
     this.spawn('enemy');
     this.spawnRocket()
@@ -155,9 +155,16 @@ export class ArComponent implements OnInit {
 
   spawn(type) {
     // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    // const en = this.spawnEntity(type)
+    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
+    // en.setAttribute('scale', '0.01 0.01 0.01');
+
+    // straaljager_met_raketten
     const en = this.spawnEntity(type)
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
-    en.setAttribute('scale', '0.01 0.01 0.01');
+    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/straaljager_met_raketten/scene.gltf)');
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+
+    // en.setAttribute('scale', '0.01 0.01 0.01');
 
   }
 
