@@ -80,44 +80,27 @@ export class ArComponent implements OnInit {
     //   }
     // });
     // inside an a-frame component
-    var player: any = document.querySelector("a-camera")
-    var direction = new THREE.Vector3();
 
 
 
     window.addEventListener("keydown", (e) => {
-      const camPos = player.sceneEl.camera.getWorldDirection(direction);
-
+      const camPos = this.camPos()
       const RockPosDeg = this.camPosToRockPosDeg(camPos)
 
       console.log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
-      log('_camPos -> ', this._camPos())
+      log('_camPos -> ', this.camPos())
 
       this.rockets[0].link.setAttribute('rotation', RockPosDeg);
-
-
-      // go forvard
-      if (e.code === "KeyR") {
-        // get the cameras world direction
-        player.sceneEl.camera.getWorldDirection(direction);
-        direction.multiplyScalar(0.1)
-        // faster than the below code - but getAttribute wont work
-        // player.object3D.position.add(direction)
-        var pos = player.getAttribute("position")
-        pos.x += direction.x
-        pos.y += direction.y // comment this to get 2D movement
-        pos.z += direction.z
-        player.setAttribute("position", pos);
-      }
     })
   }
 
-  _camPos() {
+  camPos() {
     var player: any = document.querySelector("a-camera")
     var direction = new THREE.Vector3();
     const camPos = player.sceneEl.camera.getWorldDirection(direction);
     return camPos
   }
+
 
   async init(e) {
     try {
@@ -157,12 +140,6 @@ export class ArComponent implements OnInit {
       console.error(error);
     }
   }
-
-
-  // const marker: any = document.querySelector('#marker')
-  // const position = marker.object3D.getWorldPosition()
-  // var position = this.getMarkerPosition()
-  // position.y = '0.5';
 
   spawnEntity(type, position = '-10 0.5 -20', scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
@@ -207,88 +184,28 @@ export class ArComponent implements OnInit {
 
   camPosToRockPosDeg(camPos) {
     // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
-
     let RockPosDeg = `
       ${ (camPos.z < 0) ? (camPos.y * 90 - 90) : 180 - (camPos.y * 90 - 90)} 
       0 
       ${ (camPos.z < 0) ? (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
     `
-
-    // 1 = 360
-    // 0 = 0
-    // .5 = 180
-    // to deg -> .5 * .36 * 1000 = 180
     return RockPosDeg
   }
-
-
-
-
 
   launch() {
 
   }
 
-
-
   rocketMove() {
-    // const x: any = document.querySelector('.rocket');
-    // if (x) {
-    //   const ownPosition: any = x.getAttribute('position');
-    //   ownPosition.y += Math.random() - 0.5
-    //   ownPosition.x += Math.random() - 0.5
-    //   ownPosition.z += Math.random() - 0.9
-    //   x.setAttribute('position', ownPosition);
-    //   const toFar = Math.max(
-    //     Math.abs(ownPosition.y),
-    //     Math.abs(ownPosition.x),
-    //     Math.abs(ownPosition.z)
-    //   )
-    //   //200
-    //   log(toFar)
-    //   if (toFar > 10) {
-    //     x.parentNode.removeChild(x);
-    //     // THREE.Cache.clear()
-    //     // x.remove();
-    //   }
-    // }
-    // log(x)
+    const camPos = this.camPos();
 
-
-    var player: any = document.querySelector("a-camera")
-    var direction = new THREE.Vector3();
-    const camPos = player.sceneEl.camera.getWorldDirection(direction);
-
-    // x y  z
-    // 0 0 -1
     const all = document.querySelectorAll('.rocket');
     all.forEach((x) => {
-      const ownPosition: any = x.getAttribute('position');
-      // ownPosition.y += Math.random() - 0.5
-      // ownPosition.x += Math.random() - 0.5
-      // ownPosition.z += Math.random() - 0.9
-
-
-
-
-
-
-
-
-
-
+      const ownPosition: any = x.getAttribute('position'); 
+      // shift
       ownPosition.z += camPos.z;
       ownPosition.x += camPos.x;
       ownPosition.y += camPos.y;
-
-
-
-
-
-
-
-
-
 
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
@@ -378,12 +295,38 @@ export class ArComponent implements OnInit {
   getMarkerPosition() {
     // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
     return { x: '0', y: '0', z: '-100' }
-
   }
 
   getStartPosition() {
     return '0 0 -100'
     // return { x: '0', y: '0', z: '-100' }
+  }
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
+  xz() {
+    window.addEventListener("keydown", (e) => {
+      const camPos = this.camPos()
+      const RockPosDeg = this.camPosToRockPosDeg(camPos)
+      var player: any = document.querySelector("a-camera")
+      var direction = new THREE.Vector3();
+      // go forvard
+      if (e.code === "KeyR") {
+        // get the cameras world direction
+        player.sceneEl.camera.getWorldDirection(direction);
+        direction.multiplyScalar(0.1)
+        // faster than the below code - but getAttribute wont work
+        // player.object3D.position.add(direction)
+        var pos = player.getAttribute("position")
+        pos.x += direction.x
+        pos.y += direction.y // comment this to get 2D movement
+        pos.z += direction.z
+        player.setAttribute("position", pos);
+      }
+    })
   }
 
 
