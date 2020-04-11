@@ -66,12 +66,12 @@ export class ArComponent implements OnInit {
     setTimeout(() => this.spawn('enemy'), 60000);
 
     this.spawn('enemy');
-    this.spawnRocket()
-    // this.spawnRocket()
-    // this.spawnRocket()
+    this.spawnRocket();
+    this.spawnRocket();
+    this.spawnRocket();
 
     var cameraEl: any = document.querySelector('#camera');
-    log(cameraEl)
+    log(cameraEl);
     // AFRAME.registerComponent('rotation-reader', {
     //   tick:  ()=> {
     //     // `this.el` is the element.
@@ -93,7 +93,9 @@ export class ArComponent implements OnInit {
       console.log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
       log('_camPos -> ', this.camPos())
 
-      this.rockets[0].link.setAttribute('rotation', RockPosDeg);
+      this.rockets.forEach((rocket)=>{
+        rocket.link.setAttribute('rotation', RockPosDeg);
+      })
     })
   }
 
