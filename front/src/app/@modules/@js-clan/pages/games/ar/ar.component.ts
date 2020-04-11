@@ -33,7 +33,7 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
-    setInterval(() => this.rocketMove(), 40);
+    // setInterval(() => this.rocketMove(), 40);
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
@@ -42,13 +42,16 @@ export class ArComponent implements OnInit {
   sceneEl = () => document.querySelector('a-scene');
 
 
+
   x() {
     document.addEventListener('keyup', (e) => {
       if (e.keyCode !== 32) return;
       // this.spawn('enemy');
       // this.spawnRocket()
+      this.launch()
     });
   }
+
 
   info(info) {
     alert(info)
@@ -185,7 +188,8 @@ export class ArComponent implements OnInit {
       link: en,
       vector: '',
       position: '0 -1 -0.5',
-      speed: ''
+      speed: '',
+      ownInterval: null
     })
   }
 
@@ -199,15 +203,38 @@ export class ArComponent implements OnInit {
     return RockPosDeg
   }
 
-  launch() {
 
+
+  launch() {
+    // take 1 roket 
+    // or delay sound
+    const freeRoket = this.rockets.filter((x)=> !x.isFlying) // boolean
+    if (freeRoket.length > 0) {
+      log('has free rocket', freeRoket)
+      const rocket = freeRoket[0]
+      rocket.isFlying = true;
+      rocket.ownInterval = setInterval(() => this.rocketMove(rocket), 40);
+      setTimeout(()=>{
+        // clearInterval(roket.ownInterval)
+      }, 500)
+    }
+    else {
+      log('all isFlying', freeRoket)
+    }
   }
 
-  rocketMove() {
+
+
+  rocketMove(rocket) {
+    log(rocket)
     const camPos = this.camPos();
 
-    const all = document.querySelectorAll('.rocket');
-    all.forEach((x) => {
+    // clearInterval(roket.ownInterval)
+
+
+    // const all = document.querySelectorAll('.rocket');
+    // all.forEach((x) => {
+      const x = rocket.link
       const ownPosition: any = x.getAttribute('position'); 
       // shift
       ownPosition.z += camPos.z;
@@ -223,10 +250,12 @@ export class ArComponent implements OnInit {
       //200
       // log(toFar)
       if (toFar > 100) {
+        clearInterval(rocket.ownInterval)
+        rocket.isFlying = false
         this.toZero(x)
         // x.parentNode.removeChild(x);
       }
-    })
+    // })
   }
 
   aimMove() {
