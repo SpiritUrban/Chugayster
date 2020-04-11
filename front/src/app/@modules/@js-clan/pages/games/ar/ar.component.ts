@@ -72,30 +72,33 @@ export class ArComponent implements OnInit {
 
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl);
-    // AFRAME.registerComponent('rotation-reader', {
-    //   tick:  ()=> {
-    //     // `this.el` is the element.
-    //     // `object3D` is the three.js object.
-    //     // `rotation` is a three.js Euler using radians. `quaternion` also available.
-    //     console.log('******************---------',cameraEl.object3D.rotation);
-    //     // `position` is a three.js Vector3.
-    //     console.log(cameraEl.object3D.position);
-    //   }
-    // });
+ 
     // inside an a-frame component
+
+    document.querySelector('[camera]').addEventListener('componentchanged',  (evt:any) => {
+      // if (evt.name !== 'rotation') { return; }
+      // if (evt.newData.y < 180) { // ... }
+      console.log('******************---------', evt);
+      if (evt.detail.name = 'rotation' ) {
+        this.rocketPositioning()
+      }
+    });
 
 
 
     window.addEventListener("keydown", (e) => {
-      const camPos = this.camPos()
-      const RockPosDeg = this.camPosToRockPosDeg(camPos)
+      log('keydown')
+      // this.rocketPositioning()
+    })
+  }
 
-      console.log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
-      log('_camPos -> ', this.camPos())
-
-      this.rockets.forEach((rocket)=>{
-        rocket.link.setAttribute('rotation', RockPosDeg);
-      })
+  rocketPositioning() {
+    const camPos = this.camPos()
+    const RockPosDeg = this.camPosToRockPosDeg(camPos)
+    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
+    log('_camPos -> ', this.camPos())
+    this.rockets.forEach((rocket) => {
+      rocket.link.setAttribute('rotation', RockPosDeg);
     })
   }
 
@@ -210,13 +213,13 @@ export class ArComponent implements OnInit {
   launch() {
     // take 1 roket 
     // or delay sound
-    const freeRoket = this.rockets.filter((x)=> !x.isFlying) // boolean
+    const freeRoket = this.rockets.filter((x) => !x.isFlying) // boolean
     if (freeRoket.length > 0) {
       log('has free rocket', freeRoket)
       const rocket = freeRoket[0]
       rocket.isFlying = true;
       rocket.ownInterval = setInterval(() => this.rocketMove(rocket), 40);
-      setTimeout(()=>{
+      setTimeout(() => {
         // clearInterval(roket.ownInterval)
       }, 500)
     }
@@ -236,27 +239,27 @@ export class ArComponent implements OnInit {
 
     // const all = document.querySelectorAll('.rocket');
     // all.forEach((x) => {
-      const x = rocket.link
-      const ownPosition: any = x.getAttribute('position'); 
-      // shift
-      ownPosition.z += camPos.z;
-      ownPosition.x += camPos.x;
-      ownPosition.y += camPos.y;
+    const x = rocket.link
+    const ownPosition: any = x.getAttribute('position');
+    // shift
+    ownPosition.z += camPos.z;
+    ownPosition.x += camPos.x;
+    ownPosition.y += camPos.y;
 
-      x.setAttribute('position', ownPosition);
-      const toFar = Math.max(
-        Math.abs(ownPosition.y),
-        Math.abs(ownPosition.x),
-        Math.abs(ownPosition.z)
-      )
-      //200
-      // log(toFar)
-      if (toFar > 100) {
-        clearInterval(rocket.ownInterval)
-        rocket.isFlying = false
-        this.toZero(x)
-        // x.parentNode.removeChild(x);
-      }
+    x.setAttribute('position', ownPosition);
+    const toFar = Math.max(
+      Math.abs(ownPosition.y),
+      Math.abs(ownPosition.x),
+      Math.abs(ownPosition.z)
+    )
+    //200
+    // log(toFar)
+    if (toFar > 100) {
+      clearInterval(rocket.ownInterval)
+      rocket.isFlying = false
+      this.toZero(x)
+      // x.parentNode.removeChild(x);
+    }
     // })
   }
 
@@ -344,7 +347,7 @@ export class ArComponent implements OnInit {
 
 
 
-///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
   xz() {
     window.addEventListener("keydown", (e) => {
       const camPos = this.camPos()
