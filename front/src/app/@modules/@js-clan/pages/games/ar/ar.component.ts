@@ -37,6 +37,9 @@ export class ArComponent implements OnInit {
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
+
+
+
   }
 
   sceneEl = () => document.querySelector('a-scene');
@@ -90,6 +93,11 @@ export class ArComponent implements OnInit {
       log('keydown')
       // this.rocketPositioning()
     })
+
+    // const soundBg: any = document.querySelector("#sound-bg")
+    // soundBg.loop = true;
+    // soundBg.play();
+    
   }
 
   rocketPositioning() {
@@ -188,6 +196,23 @@ export class ArComponent implements OnInit {
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
+
+    // add sound
+    // <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound>
+    var newEl = document.createElement('a-sound');
+    newEl.setAttribute('class', 'sound');
+    newEl.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
+    newEl.setAttribute('autoplay', 'true');
+    newEl.setAttribute('loop', 'true');
+
+
+    // newEl.setAttribute('position', position);
+    // newEl._remove = () => newEl.parentNode.removeChild(newEl);
+    // this.sceneEl()
+    en.appendChild(newEl);
+
+
+
     this.rockets.push({
       isFlying: false,
       link: en,
