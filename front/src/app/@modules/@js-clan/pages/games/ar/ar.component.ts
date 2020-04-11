@@ -75,14 +75,14 @@ export class ArComponent implements OnInit {
 
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl);
- 
+
     // inside an a-frame component
 
-    document.querySelector('[camera]').addEventListener('componentchanged',  (evt:any) => {
+    document.querySelector('[camera]').addEventListener('componentchanged', (evt: any) => {
       // if (evt.name !== 'rotation') { return; }
       // if (evt.newData.y < 180) { // ... }
       console.log('******************---------', evt);
-      if (evt.detail.name = 'rotation' ) {
+      if (evt.detail.name = 'rotation') {
         this.rocketPositioning()
       }
     });
@@ -97,7 +97,7 @@ export class ArComponent implements OnInit {
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
-    
+
   }
 
   rocketPositioning() {
@@ -187,47 +187,57 @@ export class ArComponent implements OnInit {
   spawnRocket() {
     // 0 0 -1 == -90 0 0
     log(this)
+    const idNum = this.rockets.length
 
     var cameraEl: any = document.querySelector('#camera');
     var worldPos = new THREE.Vector3();
     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-    console.log(worldPos);
+    // log(worldPos);
 
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
-    en.setAttribute('id', 'r-'+this.rockets.length);
+    en.setAttribute('id', 'r-' + idNum);
+    // sound="src: url(river.mp3); autoplay: true"
 
+    ////////// Sound component not playing audio asset across multiple entities in 0.8.*
+    en.setAttribute('sound', `src: url(assets/js-clan/sound/Rocket-Thrusters-${idNum}.mp3); autoplay: true; loop: true `);
 
-    const ro = {
+    log('>>>>>>>>>>>>', `Rocket-Thrusters-${idNum}.mp3`)
+
+    this.rockets.push({
       isFlying: false,
       link: en,
-      linkSound: null,
+      // linkSound: null,
       vector: '',
       position: '0 -1 -0.5',
       speed: '',
       ownInterval: null
-    }
+    })
 
     // add sound
     // <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound>
-    ro.linkSound = document.createElement('a-sound');
-    ro.linkSound.setAttribute('class', 'sound');
-    ro.linkSound.setAttribute('id', this.rockets.length);
-    ro.linkSound.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
-    ro.linkSound.setAttribute('autoplay', 'true');
-    ro.linkSound.setAttribute('loop', 'true');
+    // ro.linkSound = document.createElement('a-sound');
+    // ro.linkSound.setAttribute('class', 'sound');
+    // ro.linkSound.setAttribute('id', this.rockets.length);
+    // ro.linkSound.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
+    // ro.linkSound.setAttribute('autoplay', 'true');
+    // ro.linkSound.setAttribute('loop', 'true');
+    // ro.linkSound.setAttribute('position', '0 0 0');
+    // ro.linkSound.setAttribute('preload', 'auto');
+    // ro.linkSound.setAttribute('crossorigin', 'anonymous');
+
+
     // this.sceneEl().appendChild(ro.linkSound);
-    en.appendChild(ro.linkSound);
+    // en.appendChild(ro.linkSound);
 
 
-    // newEl.setAttribute('position', position);
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     // this.sceneEl()
 
 
 
-    this.rockets.push(ro)
+
   }
 
   camPosToRockPosDeg(camPos) {
@@ -254,6 +264,11 @@ export class ArComponent implements OnInit {
       setTimeout(() => {
         // clearInterval(roket.ownInterval)
       }, 500)
+      // sound
+      // launch-sound
+      const soundLaunch: any = document.querySelector("#sound-launch")
+      // soundLaunch.loop = true;
+      soundLaunch.play();
     }
     else {
       log('all isFlying', freeRoket)
@@ -283,7 +298,7 @@ export class ArComponent implements OnInit {
 
     log(ownPosition)
 
-    
+
     const toFar = Math.max(
       Math.abs(ownPosition.y),
       Math.abs(ownPosition.x),
