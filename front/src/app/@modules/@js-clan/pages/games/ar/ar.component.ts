@@ -196,31 +196,38 @@ export class ArComponent implements OnInit {
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
+    en.setAttribute('id', 'r-'+this.rockets.length);
+
+
+    const ro = {
+      isFlying: false,
+      link: en,
+      linkSound: null,
+      vector: '',
+      position: '0 -1 -0.5',
+      speed: '',
+      ownInterval: null
+    }
 
     // add sound
     // <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound>
-    var newEl = document.createElement('a-sound');
-    newEl.setAttribute('class', 'sound');
-    newEl.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
-    newEl.setAttribute('autoplay', 'true');
-    newEl.setAttribute('loop', 'true');
+    ro.linkSound = document.createElement('a-sound');
+    ro.linkSound.setAttribute('class', 'sound');
+    ro.linkSound.setAttribute('id', this.rockets.length);
+    ro.linkSound.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
+    ro.linkSound.setAttribute('autoplay', 'true');
+    ro.linkSound.setAttribute('loop', 'true');
+    // this.sceneEl().appendChild(ro.linkSound);
+    en.appendChild(ro.linkSound);
 
 
     // newEl.setAttribute('position', position);
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     // this.sceneEl()
-    en.appendChild(newEl);
 
 
 
-    this.rockets.push({
-      isFlying: false,
-      link: en,
-      vector: '',
-      position: '0 -1 -0.5',
-      speed: '',
-      ownInterval: null
-    })
+    this.rockets.push(ro)
   }
 
   camPosToRockPosDeg(camPos) {
@@ -272,6 +279,11 @@ export class ArComponent implements OnInit {
     ownPosition.y += camPos.y;
 
     x.setAttribute('position', ownPosition);
+    // rocket.linkSound.setAttribute('position', ownPosition);
+
+    log(ownPosition)
+
+    
     const toFar = Math.max(
       Math.abs(ownPosition.y),
       Math.abs(ownPosition.x),
