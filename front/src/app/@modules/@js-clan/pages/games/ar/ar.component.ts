@@ -344,10 +344,11 @@ export class ArComponent implements OnInit {
   }
 
   fireStart() {
+    this.launch()
     log('firestart')
-    this.fireFlow = setInterval(() => {
-      this.spawn('enemy');
-    }, 500)
+    // this.fireFlow = setInterval(() => {
+    //   this.spawn('enemy');
+    // }, 500)
   }
 
   fireEnd() {
