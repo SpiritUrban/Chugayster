@@ -268,6 +268,8 @@ export class ArComponent implements OnInit {
       // launch-sound
       const soundLaunch: any = document.querySelector("#sound-launch")
       // soundLaunch.loop = true;
+      // sound.pause();
+      soundLaunch.currentTime = 0;
       soundLaunch.play();
     }
     else {
