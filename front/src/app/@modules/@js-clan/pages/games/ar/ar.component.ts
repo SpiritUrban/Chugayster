@@ -19,6 +19,7 @@ export class ArComponent implements OnInit {
 
   // aims:any = []
   rockets: any = []
+  readyMsg: string = 'Loaded...'
 
   constraints = window.constraints = {
     audio: false,
@@ -33,18 +34,13 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
+
     // setInterval(() => this.rocketMove(), 40);
 
-    document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
-  //
-  // Run 2
-  //
-  aFrameOnInit() {
-    log('aFrameOnInit', this);
-    alert('LOADED');
+  run(){
     this.init_Listeners();
 
     this.spawn('enemy');
@@ -52,14 +48,28 @@ export class ArComponent implements OnInit {
     // setTimeout(() => this.spawn('enemy'), 60000);
 
     this.spawnRocket();
-    this.spawnRocket();
-    this.spawnRocket();
+    // this.spawnRocket();
+    // this.spawnRocket();
 
+    this.init_VR_Camera()
+
+    // const soundBg: any = document.querySelector("#sound-bg")
+    // soundBg.loop = true;
+    // soundBg.play();
+  }
+
+  //
+  // Run 2
+  //
+  aFrameOnInit() {
+    this.readyMsg = 'READY !!!'
+  }
+
+
+  init_VR_Camera(){
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl);
-
     // inside an a-frame component
-
     document.querySelector('[camera]').addEventListener('componentchanged', (evt: any) => {
       // if (evt.name !== 'rotation') { return; }
       // if (evt.newData.y < 180) { // ... }
@@ -68,12 +78,7 @@ export class ArComponent implements OnInit {
         this.rocketPositioning()
       }
     });
-
-    // const soundBg: any = document.querySelector("#sound-bg")
-    // soundBg.loop = true;
-    // soundBg.play();
   }
-
   //
   // activate event listeners
   //
@@ -93,15 +98,17 @@ export class ArComponent implements OnInit {
   //
   // sctivate of camera
   //
-  async init(e) {
+  async startCamera(e) {
     try {
       const stream = await navigator.mediaDevices.getUserMedia(this.constraints);
       this.handleSuccess(stream);
       e.target.disabled = true;
-    } catch (e) {
-      this.handleError(e);
+    } catch (error) {
+      console.error(error);
     }
   }
+
+
 
   //
   // get scene link
@@ -156,14 +163,7 @@ export class ArComponent implements OnInit {
     this.errorMsg(`getUserMedia error: ${error.name}`, error);
   }
 
-  // for camera
-  errorMsg(msg, error) {
-    const errorElement = document.querySelector('#errorMsg');
-    errorElement.innerHTML += `<p>${msg}</p>`;
-    if (typeof error !== 'undefined') {
-      console.error(error);
-    }
-  }
+
 
   //
   // spawn Entity

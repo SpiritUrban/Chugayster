@@ -1,8 +1,15 @@
-<div class="wrap" (touchstart)="fireStart()" (touchend)="fireEnd()">
+<app-nav></app-nav>
+
+<!-- (touchstart)="fireStart()" (touchend)="fireEnd()" -->
+<div class="wrap" >
 
 
   <div class="ui">
-    <button id="showVideo">Open camera</button>
+    <button (click)="startCamera()">Open camera</button>
+    <button (click)="run()">RUN</button>
+
+    {{readyMsg}}
+
   </div>
 
 
@@ -46,13 +53,17 @@
     <!-- <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound> -->
 
 
-    <a-box position="-10 0.5 -10" rotation="0 45 0" color="rgb(44, 57, 44)" shadow></a-box>
+    <!-- <a-box position="-10 0.5 -10" rotation="0 45 0" color="rgb(44, 57, 44)" shadow></a-box>
 
     <a-sphere position="1 1.25 -20" radius="1.25" color="rgb(44, 57, 44)" shadow></a-sphere>
 
     <a-cylinder position="10 0.75 -10" radius="0.5" height="1.5" color="rgb(44, 57, 44)" shadow></a-cylinder>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="rgba(2, 10, 2, 0.3);" transparent="true"
-      opacity="0.1" shadow></a-plane>
+  <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="red" shadow></a-plane>
+
+  -->
+
+
+
 
   </a-scene>
 
