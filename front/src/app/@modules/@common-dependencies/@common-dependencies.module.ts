@@ -24,6 +24,7 @@ import { ExtraAlertComponent } from './components/general/extra-alert/extra-aler
 import { ShowCodeComponent } from './components/special/show-code/show-code.component';
 import { FooterComponent } from './components/general/footer/footer.component';
 import { NanoSiteComponent } from './components/special/nano-site/nano-site.component';
+import { CameraComponent } from './components/general/camera/camera.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NanoSiteComponent } from './components/special/nano-site/nano-site.comp
     EngineerComponent,
     ShowCodeComponent,
     FooterComponent,
-    NanoSiteComponent
+    NanoSiteComponent,
+    CameraComponent
   ],
   imports: [
     NgbModule,
@@ -57,7 +59,8 @@ import { NanoSiteComponent } from './components/special/nano-site/nano-site.comp
   exports: [
     FormValidatorComponent, 
     ExtraAlertComponent,
-    FooterComponent
+    FooterComponent,
+    CameraComponent
     // ValidatorService -- !!! it's not need !!!
   ]
 })

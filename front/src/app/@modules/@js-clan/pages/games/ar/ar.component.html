@@ -1,14 +1,9 @@
-
 <!-- (touchstart)="fireStart()" (touchend)="fireEnd()" -->
-<div class="wrap" >
-
-
+<div class="wrap">
   <div class="ui">
-    <button (click)="startCamera()">Open camera</button>
+    <button (click)="onCamera = true">Open camera</button>
     <button (click)="run()">RUN</button>
-
     {{readyMsg}}
-
   </div>
 
 
@@ -44,7 +39,7 @@
     </a-entity>
 
 
-    <audio id="sound-launch" >
+    <audio id="sound-launch">
       <source src="assets/js-clan/sound/Missle_Launch.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
@@ -60,15 +55,11 @@
   <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="red" shadow></a-plane>
 
   -->
-
-
-
-
   </a-scene>
 
 
+  <h1>{{onCamera}}</h1>
 
-  <video id="gum-local" autoplay playsinline></video>
-
+  <app-camera *ngIf="onCamera"></app-camera>
 
 </div>
