@@ -19,6 +19,7 @@ export class ArComponent implements OnInit {
   rockets: any = []
   readyMsg: string = 'Loaded...'
   onCamera: boolean = false;
+  wiev_info: string = ':info:'
   // aims:any = []
 
   constructor() { }
@@ -33,12 +34,15 @@ export class ArComponent implements OnInit {
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
-  run(){
+  run() {
     this.init_Listeners();
 
-    this.spawn('enemy');
-    // setTimeout(() => this.spawn('enemy'), 30000);
-    // setTimeout(() => this.spawn('enemy'), 60000);
+    this.spawn('enemy', 'tree');
+    setTimeout(() => this.spawn('enemy', 'biotronican_crab'), 30000);
+    setTimeout(() => this.spawn('enemy', 'biotronican_crab-simple'), 60000);
+    setTimeout(() => this.spawn('enemy', 'buster_drone'), 90000);
+
+
 
     this.spawnRocket();
     // this.spawnRocket();
@@ -58,8 +62,15 @@ export class ArComponent implements OnInit {
     this.readyMsg = 'READY !!!'
   }
 
+  // info
+  info(info) {
+    log(info);
+    this.wiev_info = info;
+  }
 
-  init_VR_Camera(){
+
+
+  init_VR_Camera() {
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl);
     // inside an a-frame component
@@ -120,9 +131,9 @@ export class ArComponent implements OnInit {
   //
   // spawn Entity
   //
-  spawnEntity(type, position = '-10 0.5 -20', scale = '40 40 40'): any {
+  spawnEntity(who, position = '-10 0.5 -20', scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
-    newEl.setAttribute('class', type);
+    newEl.setAttribute('class', who);
     newEl.setAttribute('scale', scale);
     // newEl.setAttribute('scale', '0.01 0.01 0.01');
     newEl.setAttribute('position', position);
@@ -131,29 +142,35 @@ export class ArComponent implements OnInit {
     return newEl
   }
 
+
   //
   // spawn Enemy
   //
-  spawn(type) {
-    // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
-    // const en = this.spawnEntity(type)
-    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
-    // en.setAttribute('scale', '0.01 0.01 0.01');
+  spawn(who, type) {
+    const en = this.spawnEntity(who)
+    if (type == 'tree') {
+      this.info('Generate: tree')
+      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/oak_tree_lowpoly/scene.gltf)');
+      en.setAttribute('scale', '4 4 4');
+    } else if (type == 'biotronican_crab') {
+      this.info('Generate: biotronican_crab')
+      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+      en.setAttribute('scale', '40 40 40');
+    } else if (type == 'biotronican_crab-simple') {
+      this.info('Generate: biotronican_crab-simple')
+      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene-simple.gltf)');
+      en.setAttribute('scale', '40 40 40');
+    } else if (type == 'buster_drone') {
+      this.info('Generate: buster_drone')
+      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
+      en.setAttribute('scale', '0.01 0.01 0.01');
+    }
 
-    // straaljager_met_raketten
-    const en = this.spawnEntity(type)
-    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/straaljager_met_raketten/scene.gltf)');
-    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
-
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/oak_tree_lowpoly/scene.gltf)');
-    en.setAttribute('scale', '4 4 4');
-    
     // en.setAttribute('geometry', 'primitive: box; width: 100; height: 100; depth: 100)');
 
     // en.setAttribute('obj-model', 'url(assets/js-clan/3d/Rubber_duck/Rubber_duck.obj)');
     // en.setAttribute('color', 'rgb(44, 57, 44)');
     // en.setAttribute('material', 'color: red');
-    
     // en.setAttribute('scale', '0.01 0.01 0.01');
   }
 
