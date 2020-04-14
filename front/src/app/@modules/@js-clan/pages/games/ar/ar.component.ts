@@ -52,6 +52,7 @@ export class ArComponent implements OnInit {
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
+    
   }
 
   //
@@ -102,7 +103,7 @@ export class ArComponent implements OnInit {
   //
   // get scene link
   //
-  sceneEl = () => document.querySelector('a-scene');
+  sceneEl:any = () => document.querySelector('a-scene');
 
   //
   // set roket position

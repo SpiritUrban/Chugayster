@@ -3,7 +3,7 @@
   <div class="ui">
     <button (click)="onCamera = true">Open camera</button>
     <button (click)="run()">RUN</button>
-    &nbsp; &nbsp; &nbsp; {{readyMsg}}  &nbsp; &nbsp; &nbsp; {{wiev_info}}
+    &nbsp; &nbsp; &nbsp; {{readyMsg}} &nbsp; &nbsp; &nbsp; {{wiev_info}}
   </div>
 
 
@@ -39,6 +39,23 @@
     </a-entity>
 
 
+
+    <a-plane position="0 -2 0" rotation="-90 0 0" width="40" height="40" material="shader: flat; color: green" shadow>
+    </a-plane>
+    <!-- <a-entity geometry="primitive: box" material="color: red"></a-entity> -->
+    <!-- <a-entity id="ground" geometry="primitive: plane" width="400" height="400" position="0 -2 0"  rotation="-90 0 0" material="shader: flat; color: green"></a-entity> -->
+
+    <a-sphere position="0 1 -4" radius="0.05" color="rgb(44, 57, 44)" shadow></a-sphere>
+
+    <a-entity position="0 2 -4">
+      <a-entity light="type: point; color: #FFA200; intensity: 2.5; distance: 100.0;"></a-entity>
+    </a-entity>
+
+    <a-image id="exp" position="0 1 -4" src="assets/js-clan/img/game/explosion.png"></a-image>
+    <!-- <a-image id="exp-1" position="0 1 -4" src="assets/js-clan/img/game/explosion-2.png" rotation="-90 0 0"></a-image> -->
+    <!-- <a-image id="exp-2" position="0 1 -4" src="assets/js-clan/img/game/explosion-3.png" rotation="0 -90 0"></a-image> -->
+
+
     <audio id="sound-launch">
       <source src="assets/js-clan/sound/Missle_Launch.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
@@ -49,7 +66,6 @@
 
     <!-- <a-box position="-10 0.5 -10" rotation="0 45 0" color="rgb(44, 57, 44)" shadow></a-box>
 
-    <a-sphere position="1 1.25 -20" radius="1.25" color="rgb(44, 57, 44)" shadow></a-sphere>
 
     <a-cylinder position="10 0.75 -10" radius="0.5" height="1.5" color="rgb(44, 57, 44)" shadow></a-cylinder>
   <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="red" shadow></a-plane>
