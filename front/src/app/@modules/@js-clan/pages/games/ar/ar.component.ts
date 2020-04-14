@@ -16,13 +16,10 @@ declare var window: any;
 export class ArComponent implements OnInit {
 
   fireFlow: any; // setInterval // fire loop
-
-  // aims:any = []
   rockets: any = []
   readyMsg: string = 'Loaded...'
   onCamera: boolean = false;
-
-
+  // aims:any = []
 
   constructor() { }
 
@@ -32,9 +29,7 @@ export class ArComponent implements OnInit {
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
-
     // setInterval(() => this.rocketMove(), 40);
-
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
@@ -77,6 +72,7 @@ export class ArComponent implements OnInit {
       }
     });
   }
+
   //
   // activate event listeners
   //
@@ -93,15 +89,10 @@ export class ArComponent implements OnInit {
     });
   }
 
-
-
-
-
   //
   // get scene link
   //
   sceneEl = () => document.querySelector('a-scene');
-
 
   //
   // set roket position
@@ -125,11 +116,6 @@ export class ArComponent implements OnInit {
     const camPos = player.sceneEl.camera.getWorldDirection(direction);
     return camPos
   }
-
-
-
-
-
 
   //
   // spawn Entity
@@ -161,17 +147,12 @@ export class ArComponent implements OnInit {
 
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/oak_tree_lowpoly/scene.gltf)');
     en.setAttribute('scale', '4 4 4');
-
-
-
     
     // en.setAttribute('geometry', 'primitive: box; width: 100; height: 100; depth: 100)');
-
 
     // en.setAttribute('obj-model', 'url(assets/js-clan/3d/Rubber_duck/Rubber_duck.obj)');
     // en.setAttribute('color', 'rgb(44, 57, 44)');
     // en.setAttribute('material', 'color: red');
-
     
     // en.setAttribute('scale', '0.01 0.01 0.01');
   }
