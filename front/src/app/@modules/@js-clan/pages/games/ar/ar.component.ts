@@ -80,10 +80,12 @@ export class ArComponent implements OnInit {
       console.log('******************---------', evt);
       if (evt.detail.name = 'rotation') {
         this.rocketPositioning()
+        this.explosionPsositioning()
       }
     });
   }
 
+  
   //
   // activate event listeners
   //
@@ -104,6 +106,20 @@ export class ArComponent implements OnInit {
   // get scene link
   //
   sceneEl:any = () => document.querySelector('a-scene');
+
+  explosionPsositioning(){
+    const camPos = this.camPos()
+    const RockPosDeg = this.camPosToSpritePosDeg(camPos)
+    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
+    log('_camPos -> ', this.camPos())
+    const exp: any = document.querySelector(".sprite")
+    // log('exp: ', exp, RockPosDeg)
+    exp.setAttribute('rotation', RockPosDeg);
+
+    // this.rockets.forEach((rocket) => {
+    //   rocket.link.setAttribute('rotation', RockPosDeg);
+    // })
+  }
 
   //
   // set roket position
@@ -225,6 +241,17 @@ export class ArComponent implements OnInit {
 
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     // this.sceneEl()
+  }
+
+  camPosToSpritePosDeg(camPos) {
+    // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
+    log((camPos.z < 0))
+    let RockPosDeg = `
+      ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90 ) - 180} 
+      ${ (camPos.z < 0) ? 180 - (camPos.x * 90) :  (camPos.x * 90 - 180 )} 
+      0
+    `
+    return RockPosDeg
   }
 
   camPosToRockPosDeg(camPos) {
