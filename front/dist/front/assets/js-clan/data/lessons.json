@@ -1,0 +1,314 @@
+[
+    {
+        "number": "0",
+        "name": "Skeleton",
+        "video": "-8gk0tXZu2w",
+        "img": "assets/js-clan/img/lessons/0.jpg",        
+        "title": {
+            "en": "Skeleton of HTML + JavaScript",
+            "ua": "Скелет HTML + JavaScript"
+        },
+        "description": {
+            "ua": "Початок, інструменти, структура."
+        },
+        "text": {
+            "en": "Fundamentals: Browser, Web page, its structure, browser tools.",
+            "ua": "Основа основ: браузер, веб сторінка, її структура, інструменти розробника у браузері."
+        }
+    },
+    {
+        "number": "1.1",
+        "name": "Structure-of-a-web-project---Explanation",
+        "video": "hlbkwWj6fYo",
+        "img": "assets/js-clan/img/lessons/1.jpg",
+        "title": {
+            "en": "The structure of a web-project",
+            "ua": "Структура веб-проекту"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+    {
+        "number": "1.2",
+        "name": "Structure-of-a-web-project---Practice",
+        "video": "B-q7zap3IvM",
+        "img": "assets/js-clan/img/lessons/1-2.jpg",
+        "title": {
+            "en": "The structure of a web-project",
+            "ua": "Структура веб-проекту"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "ua": "",
+            "en": ""
+        }
+    },
+    {
+        "number": "1.3",
+        "name": "Structure-of-a-big-project",
+        "video": "zDypd0ob0_o",
+        "img": "assets/js-clan/img/lessons/1-3.jpg",
+        "title": {
+            "en": "",
+            "ua": "Структура великого проекту"
+        },
+        "description": {
+            "ua": "Відповіді"
+        },
+        "text": {
+            "en": "File structure of large projects.",
+            "ua": "Файлова структура великих проектів. "
+        }
+    },
+
+    {
+        "number": "2.1",
+        "name": "Variables-and-Types-of-Data---Explanation",
+        "video": "9imNqIsp2hI",
+        "img": "assets/js-clan/img/lessons/2-1.jpg",
+
+        "title": {
+            "en": "Variables and Types of Data",
+            "ua": "Змінні і типи данних"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+    {
+        "number": "2.2",
+        "name": "Variables-and-Types-of-Data---Practice",
+        "video": "BL-F_noWRvk",
+        "img": "assets/js-clan/img/lessons/2-2.jpg",
+        "title": {
+            "en": "Variables and Types of Data",
+            "ua": "Змінні і типи данних"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+    {
+        "number": "3.1",
+        "name": "if---Explanation",
+        "video": "RsBMXyz7_dw",
+        "img": "assets/js-clan/img/lessons/3-1.jpg",
+        "title": {
+            "en": "(if) - is the operator of the choice",
+            "ua": "(if) - оператор вибору"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": "(if) - оператор вибору, в якому напрямку піде програма."
+        }
+    },
+    {
+        "number": "3.2",
+        "name": "if---Practice",
+        "video": "QWzLHuEUQ_w",
+        "img": "assets/js-clan/img/lessons/3-2.jpg",
+        "title": {
+            "en": "(if) - is the operator of the choice",
+            "ua": "(if) - оператор вибору"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    },
+
+
+
+
+
+
+    {
+        "number": "4.1",
+        "name": "Complex-data-types---Explanation",
+        "video": "gMgUwAMK9nk",
+        "img": "assets/js-clan/img/lessons/4-1.jpg",
+        "title": {
+            "en": "Complex data types",
+            "ua": "Складні типи данних"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": "Складні типи данних: масиви, об'єкти, функції."
+        }
+    },
+    {
+        "number": "4.2",
+        "name": "Complex-data-types---Practice",
+        "video": "cIL_8YrW5bc",
+        "img": "assets/js-clan/img/lessons/4-2.jpg",
+        "title": {
+            "en": "Complex data types",
+            "ua": "Складні типи данних"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "en": "",
+            "ua": "Складні типи данних: масиви, об'єкти, функції."
+        }
+    },
+
+
+
+
+
+    {
+        "number": "5",
+        "name": "Understanding-the-Essence-Object",
+        "video": "wpnw0LCNZHs",
+        "img": "assets/js-clan/img/lessons/5.jpg",
+        "title": {
+            "en": "Understanding the Essence - Object",
+            "ua": "Розуміння сутності - Об'єкт"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": "Об'єкт у реальному світі, у психіці людини, у програмі"
+        }
+    },
+
+
+
+    {
+        "number": "6",
+        "name": "Understanding-the-essence-Array",
+        "video": "-OdwbBXtBdA",
+        "img": "assets/js-clan/img/lessons/6.jpg",
+        "title": {
+            "en": "Understanding the essence - Array",
+            "ua": "Розуміння сутності - Масив"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": "Масив у реальному світі і у програмі"
+        }
+    },
+
+
+    {
+        "number": "7.1",
+        "name": "Manage-site-elements---Explanation",
+        "video": "QM1nDMPtPog",
+        "img": "assets/js-clan/img/lessons/7-1.jpg",
+        "title": {
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
+        },
+        "description": {
+            "en": "Explanation",
+            "ua": "Розяснення"
+        },
+        "text": {
+            "en": "",
+            "ua": "Керування елементами сайту"
+        }
+    },
+
+
+    {
+        "number": "7.2",
+        "name": "Manage-site-elements---Practice",
+        "video": "s_4svUmN1Sw",
+        "img": "assets/js-clan/img/lessons/7-2.jpg",
+        "title": {
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
+        },
+        "description": {
+            "en": "Practice",
+            "ua": "Практика"
+        },
+        "text": {
+            "en": "",
+            "ua": "Керування елементами сайту."
+        }
+    },
+
+
+    {
+        "number": "7.3",
+        "name": "Manage-site-elements---Practice-on-Codepen",
+        "video": "qxv94PQ4nGE",
+        "img": "assets/js-clan/img/lessons/7-3.jpg",
+        "title": {
+            "en": "Manage site elements",
+            "ua": "Керування елементами сайту"
+        },
+        "description": {
+            "en": "Practice on Codepen",
+            "ua": "Практика на Codepen"
+        },
+        "text": {
+            "en": "",
+            "ua": "Керування елементами сайту. Огляд сайту 'codepen.io'. <a href=\"https://codepen.io/Spirit_Urban/pen/LXaYQP?editors=1010\">Code on Codepen</a>"
+        }
+    },
+
+
+
+    {
+        "number": "",
+        "name": "???",
+        "video": "",
+        "img": "assets/js-clan/img/lessons/.jpg",
+        "title": {
+            "en": "",
+            "ua": ""
+        },
+        "description": {
+            "en": "",
+            "ua": ""
+        },
+        "text": {
+            "en": "",
+            "ua": ""
+        }
+    }
+]
+

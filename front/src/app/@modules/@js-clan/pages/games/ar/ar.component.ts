@@ -98,11 +98,10 @@ export class ArComponent implements OnInit {
   //
   // sctivate of camera
   //
-  async startCamera(e) {
+  async startCamera() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia(this.constraints);
       this.handleSuccess(stream);
-      e.target.disabled = true;
     } catch (error) {
       console.error(error);
     }
@@ -154,13 +153,13 @@ export class ArComponent implements OnInit {
   handleError(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
       const v: any = this.constraints.video;
-      this.errorMsg(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`, 1);
+      log(`The resolution ${v.width.exact}x${v.height.exact} px is not supported by your device.`, 1);
     } else if (error.name === 'PermissionDeniedError') {
-      this.errorMsg('Permissions have not been granted to use your camera and ' +
+      log('Permissions have not been granted to use your camera and ' +
         'microphone, you need to allow the page access to your devices in ' +
         'order for the demo to work.', 1);
     }
-    this.errorMsg(`getUserMedia error: ${error.name}`, error);
+    log(`getUserMedia error: ${error.name}`, error);
   }
 
 
