@@ -52,7 +52,34 @@ export class ArComponent implements OnInit {
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
-    
+    this.animateExplosion();
+  }
+
+
+  animateExplosion() {
+    const exp: any = document.querySelector(".sprite")
+    // log('exp: ', exp, RockPosDeg)
+    exp.setAttribute('opacity', 1 );
+
+    setInterval( ()=>{
+      const scale = exp.getAttribute('scale')
+      let opacity = exp.getAttribute('opacity')
+      log(opacity)
+
+      scale.x += 0.4
+      scale.y += 0.4
+      opacity -= 0.04
+      
+      if (scale.x > 15) {
+        scale.x = .1
+        scale.y = .1
+        opacity = 1
+      }
+
+      exp.setAttribute('scale', scale);
+      exp.setAttribute('opacity', opacity );
+    }, 40 )
+    // exp.setAttribute('scale', RockPosDeg);
   }
 
   //
@@ -85,7 +112,9 @@ export class ArComponent implements OnInit {
     });
   }
 
-  
+
+
+
   //
   // activate event listeners
   //
@@ -105,9 +134,9 @@ export class ArComponent implements OnInit {
   //
   // get scene link
   //
-  sceneEl:any = () => document.querySelector('a-scene');
+  sceneEl: any = () => document.querySelector('a-scene');
 
-  explosionPsositioning(){
+  explosionPsositioning() {
     const camPos = this.camPos()
     const RockPosDeg = this.camPosToSpritePosDeg(camPos)
     log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
@@ -120,6 +149,7 @@ export class ArComponent implements OnInit {
     //   rocket.link.setAttribute('rotation', RockPosDeg);
     // })
   }
+
 
   //
   // set roket position
@@ -247,8 +277,8 @@ export class ArComponent implements OnInit {
     // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
     log((camPos.z < 0))
     let RockPosDeg = `
-      ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90 ) - 180} 
-      ${ (camPos.z < 0) ? 180 - (camPos.x * 90) :  (camPos.x * 90 - 180 )} 
+      ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90) - 180} 
+      ${ (camPos.z < 0) ? 180 - (camPos.x * 90) : (camPos.x * 90 - 180)} 
       0
     `
     return RockPosDeg
