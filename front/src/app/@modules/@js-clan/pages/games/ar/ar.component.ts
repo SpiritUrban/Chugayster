@@ -5,11 +5,8 @@ import appState from '../../../../../app-state';
 declare let AFRAME: any;
 declare let THREE: any;
 declare let $: any;
-
-
-
-
 declare var window: any;
+
 @Component({
   selector: 'app-ar',
   templateUrl: './ar.component.html',
@@ -30,6 +27,9 @@ export class ArComponent implements OnInit {
 
   constructor() { }
 
+  //
+  // Run 1
+  //
   ngOnInit(): void {
     // 40
     setInterval(() => this.aimMove(), 40);
@@ -37,38 +37,20 @@ export class ArComponent implements OnInit {
 
     document.querySelector('#showVideo').addEventListener('click', e => this.init(e));
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
-
-
-
   }
 
-  sceneEl = () => document.querySelector('a-scene');
-
-
-
-  x() {
-    document.addEventListener('keyup', (e) => {
-      if (e.keyCode !== 32) return;
-      // this.spawn('enemy');
-      // this.spawnRocket()
-      this.launch()
-    });
-  }
-
-
-  info(info) {
-    alert(info)
-  }
-
+  //
+  // Run 2
+  //
   aFrameOnInit() {
     log('aFrameOnInit', this);
     alert('LOADED');
-    this.x();
-    //setInterval(() => this.spawn('enemy'), 15000);
-    setTimeout(() => this.spawn('enemy'), 30000);
-    setTimeout(() => this.spawn('enemy'), 60000);
+    this.init_Listeners();
 
     this.spawn('enemy');
+    // setTimeout(() => this.spawn('enemy'), 30000);
+    // setTimeout(() => this.spawn('enemy'), 60000);
+
     this.spawnRocket();
     this.spawnRocket();
     this.spawnRocket();
@@ -87,37 +69,30 @@ export class ArComponent implements OnInit {
       }
     });
 
+    // const soundBg: any = document.querySelector("#sound-bg")
+    // soundBg.loop = true;
+    // soundBg.play();
+  }
 
-
+  //
+  // activate event listeners
+  //
+  init_Listeners() {
     window.addEventListener("keydown", (e) => {
       log('keydown')
       // this.rocketPositioning()
     })
-
-    // const soundBg: any = document.querySelector("#sound-bg")
-    // soundBg.loop = true;
-    // soundBg.play();
-
+    document.addEventListener('keyup', (e) => {
+      if (e.keyCode !== 32) return;
+      // this.spawn('enemy');
+      // this.spawnRocket()
+      this.launch()
+    });
   }
 
-  rocketPositioning() {
-    const camPos = this.camPos()
-    const RockPosDeg = this.camPosToRockPosDeg(camPos)
-    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
-    log('_camPos -> ', this.camPos())
-    this.rockets.forEach((rocket) => {
-      rocket.link.setAttribute('rotation', RockPosDeg);
-    })
-  }
-
-  camPos() {
-    var player: any = document.querySelector("a-camera")
-    var direction = new THREE.Vector3();
-    const camPos = player.sceneEl.camera.getWorldDirection(direction);
-    return camPos
-  }
-
-
+  //
+  // sctivate of camera
+  //
   async init(e) {
     try {
       const stream = await navigator.mediaDevices.getUserMedia(this.constraints);
@@ -128,6 +103,37 @@ export class ArComponent implements OnInit {
     }
   }
 
+  //
+  // get scene link
+  //
+  sceneEl = () => document.querySelector('a-scene');
+
+
+  //
+  // set roket position
+  //
+  rocketPositioning() {
+    const camPos = this.camPos()
+    const RockPosDeg = this.camPosToRockPosDeg(camPos)
+    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
+    log('_camPos -> ', this.camPos())
+    this.rockets.forEach((rocket) => {
+      rocket.link.setAttribute('rotation', RockPosDeg);
+    })
+  }
+
+  //
+  // get camera position
+  //
+  camPos() {
+    var player: any = document.querySelector("a-camera")
+    var direction = new THREE.Vector3();
+    const camPos = player.sceneEl.camera.getWorldDirection(direction);
+    return camPos
+  }
+
+
+  // for camera
   handleSuccess(stream) {
     const video = document.querySelector('video');
     const videoTracks = stream.getVideoTracks();
@@ -137,6 +143,7 @@ export class ArComponent implements OnInit {
     video.srcObject = stream;
   }
 
+  // for camera
   handleError(error) {
     if (error.name === 'ConstraintNotSatisfiedError') {
       const v: any = this.constraints.video;
@@ -149,6 +156,7 @@ export class ArComponent implements OnInit {
     this.errorMsg(`getUserMedia error: ${error.name}`, error);
   }
 
+  // for camera
   errorMsg(msg, error) {
     const errorElement = document.querySelector('#errorMsg');
     errorElement.innerHTML += `<p>${msg}</p>`;
@@ -157,18 +165,23 @@ export class ArComponent implements OnInit {
     }
   }
 
+  //
+  // spawn Entity
+  //
   spawnEntity(type, position = '-10 0.5 -20', scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', type);
     newEl.setAttribute('scale', scale);
     // newEl.setAttribute('scale', '0.01 0.01 0.01');
-
     newEl.setAttribute('position', position);
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     this.sceneEl().appendChild(newEl);
     return newEl
   }
 
+  //
+  // spawn Enemy
+  //
   spawn(type) {
     // if (type == 'enemy') this.spawnEntity(type).setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
     // const en = this.spawnEntity(type)
@@ -178,12 +191,28 @@ export class ArComponent implements OnInit {
     // straaljager_met_raketten
     const en = this.spawnEntity(type)
     // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/straaljager_met_raketten/scene.gltf)');
-    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
+    // en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
 
+    en.setAttribute('gltf-model', 'url(assets/js-clan/3d/oak_tree_lowpoly/scene.gltf)');
+    en.setAttribute('scale', '4 4 4');
+
+
+
+    
+    // en.setAttribute('geometry', 'primitive: box; width: 100; height: 100; depth: 100)');
+
+
+    // en.setAttribute('obj-model', 'url(assets/js-clan/3d/Rubber_duck/Rubber_duck.obj)');
+    // en.setAttribute('color', 'rgb(44, 57, 44)');
+    // en.setAttribute('material', 'color: red');
+
+    
     // en.setAttribute('scale', '0.01 0.01 0.01');
-
   }
 
+  //
+  // spawn Rocket
+  //
   spawnRocket() {
     // 0 0 -1 == -90 0 0
     log(this)
@@ -227,17 +256,11 @@ export class ArComponent implements OnInit {
     // ro.linkSound.setAttribute('preload', 'auto');
     // ro.linkSound.setAttribute('crossorigin', 'anonymous');
 
-
     // this.sceneEl().appendChild(ro.linkSound);
     // en.appendChild(ro.linkSound);
 
-
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
     // this.sceneEl()
-
-
-
-
   }
 
   camPosToRockPosDeg(camPos) {
@@ -249,7 +272,6 @@ export class ArComponent implements OnInit {
     `
     return RockPosDeg
   }
-
 
 
   launch() {
@@ -282,9 +304,7 @@ export class ArComponent implements OnInit {
   rocketMove(rocket) {
     log(rocket)
     const camPos = this.camPos();
-
     // clearInterval(roket.ownInterval)
-
 
     // const all = document.querySelectorAll('.rocket');
     // all.forEach((x) => {
@@ -299,7 +319,6 @@ export class ArComponent implements OnInit {
     // rocket.linkSound.setAttribute('position', ownPosition);
 
     log(ownPosition)
-
 
     const toFar = Math.max(
       Math.abs(ownPosition.y),
@@ -399,9 +418,6 @@ export class ArComponent implements OnInit {
   }
 
 
-
-
-
   ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
   xz() {
     window.addEventListener("keydown", (e) => {
@@ -424,7 +440,5 @@ export class ArComponent implements OnInit {
       }
     })
   }
-
-
 
 }
