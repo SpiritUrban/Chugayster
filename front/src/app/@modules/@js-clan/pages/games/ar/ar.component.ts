@@ -38,11 +38,10 @@ export class ArComponent implements OnInit {
     this.init_Listeners();
 
     this.spawn('enemy', 'tree');
-    setTimeout(() => this.spawn('enemy', 'biotronican_crab'), 30000);
+    setTimeout(() => this.spawn('enemy', 'biotronican_crab-simple'), 30000);
     setTimeout(() => this.spawn('enemy', 'biotronican_crab-simple'), 60000);
     setTimeout(() => this.spawn('enemy', 'buster_drone'), 90000);
-
-
+    setTimeout(() => this.spawn('enemy', 'biotronican_crab'), 120000);
 
     this.spawnRocket();
     // this.spawnRocket();
@@ -158,7 +157,7 @@ export class ArComponent implements OnInit {
       en.setAttribute('scale', '40 40 40');
     } else if (type == 'biotronican_crab-simple') {
       this.info('Generate: biotronican_crab-simple')
-      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene-simple.gltf)');
+      en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene_simple.gltf)');
       en.setAttribute('scale', '40 40 40');
     } else if (type == 'buster_drone') {
       this.info('Generate: buster_drone')
