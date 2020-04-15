@@ -1,3 +1,10 @@
+/*
+
+Ctrl + k -> 2 --- Fold all methods
+Ctrl + k -> j --- Unfold all
+
+*/
+
 import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
 import { ApiService } from '../../../../@common-dependencies/services/api.service';
 import { log } from 'src/app/my_modules/stuff';
@@ -140,10 +147,6 @@ export class ArComponent implements OnInit {
     });
   }
 
-  //
-  // get scene link
-  //
-  sceneEl: any = () => document.querySelector('a-scene');
 
   //
   // explosion psositioning
@@ -173,8 +176,6 @@ export class ArComponent implements OnInit {
       rocket.link.setAttribute('rotation', RockPosDeg);
     })
   }
-
-
 
 
   fireStart() {
@@ -207,6 +208,8 @@ export class ArComponent implements OnInit {
     x.setAttribute('position', '0 -1 -0.5');
   }
 
+
+
   //
   // SPAWNERS
   //
@@ -219,7 +222,7 @@ export class ArComponent implements OnInit {
     // newEl.setAttribute('scale', '0.01 0.01 0.01');
     newEl.setAttribute('position', position);
     // newEl._remove = () => newEl.parentNode.removeChild(newEl);
-    this.sceneEl().appendChild(newEl);
+    this.scene.appendChild(newEl);
     return newEl
   }
   // spawn Enemy
@@ -281,6 +284,7 @@ export class ArComponent implements OnInit {
   }
 
 
+
   //
   // ACTIVATORS
   //
@@ -316,6 +320,7 @@ export class ArComponent implements OnInit {
       log('all isFlying', freeRoket)
     }
   }
+
 
 
   //
@@ -384,6 +389,7 @@ export class ArComponent implements OnInit {
   }
 
 
+
   //
   // CALCULATORS
   //
@@ -416,6 +422,7 @@ export class ArComponent implements OnInit {
   }
 
 
+
   //
   // GETTERS
   //
@@ -424,6 +431,9 @@ export class ArComponent implements OnInit {
   }
   get marker(): any {
     return document.querySelector('#marker')
+  }
+  get scene(): any {
+    return document.querySelector('a-scene');
   }
   get markerPosition() {
     // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
@@ -436,10 +446,10 @@ export class ArComponent implements OnInit {
   // get camera position
   //
   get camPos() {
-    var player: any = document.querySelector("a-camera")
     var direction = new THREE.Vector3();
-    return player.sceneEl.camera.getWorldDirection(direction);
+    return this.camera.sceneEl.camera.getWorldDirection(direction);
   }
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
