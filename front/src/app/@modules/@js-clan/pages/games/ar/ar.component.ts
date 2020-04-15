@@ -52,25 +52,27 @@ export class ArComponent implements OnInit {
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
-    this.animateExplosion('0 0 0');
   }
 
 
+  lightLoop: any
   animateExplosion(position) {
     const exp: any = document.querySelector(".sprite");
-    const expLight = document.querySelector("#exp-light"); 
+    const expLight = document.querySelector("#exp-light");
     // log('exp: ', exp, RockPosDeg)
-    exp.setAttribute('opacity', 1 );
+    exp.setAttribute('opacity', 1);
     exp.setAttribute('position', position);
+    expLight.setAttribute('position', position);
 
-    setInterval( ()=>{
+    this.lightLoop = setInterval(() => {
       const scale = exp.getAttribute('scale')
       let opacity = exp.getAttribute('opacity')
       let position = exp.getAttribute('position')// obj
       // let expLightPosition = expLight.getAttribute('position')// obj
+      expLight.setAttribute('visible', 'true');
 
 
-      
+
       // log(opacity, position)
 
       scale.x += 0.4
@@ -81,19 +83,22 @@ export class ArComponent implements OnInit {
 
       const rocketPosition = this.rockets[0].link.getAttribute('position')
 
-      
+
       if (scale.x > 25) {
         scale.x = .1
         scale.y = .1
         opacity = 1
+        expLight.setAttribute('visible', 'false');
+        clearInterval(this.lightLoop)
       }
 
       exp.setAttribute('scale', scale);
-      exp.setAttribute('opacity', opacity );
-      exp.setAttribute('position', rocketPosition );
-      expLight.setAttribute('position', rocketPosition );
+      exp.setAttribute('opacity', opacity);
+      // exp.setAttribute('position', rocketPosition);
+      // expLight.setAttribute('position', rocketPosition);
 
-    }, 40 )
+
+    }, 40)
     // exp.setAttribute('scale', RockPosDeg);
   }
 
@@ -351,7 +356,6 @@ export class ArComponent implements OnInit {
     ownPosition.x += camPos.x;
     ownPosition.y += camPos.y;
 
-    x.setAttribute('position', ownPosition);
     // rocket.linkSound.setAttribute('position', ownPosition);
 
     log(ownPosition)
@@ -363,12 +367,17 @@ export class ArComponent implements OnInit {
     )
     //200
     // log(toFar)
-    if (toFar > 100) {
+    if (toFar > 20) {
+      this.animateExplosion(ownPosition);
+
       clearInterval(rocket.ownInterval)
       rocket.isFlying = false
       this.toZero(x)
       // x.parentNode.removeChild(x);
     }
+
+    x.setAttribute('position', ownPosition);
+
     // })
   }
 
