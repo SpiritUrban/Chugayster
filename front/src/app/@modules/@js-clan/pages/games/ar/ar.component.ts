@@ -106,7 +106,7 @@ export class ArComponent implements OnInit {
     this.readyMsg = 'READY !!!'
   }
 
-  
+
   // info
   info(info) {
     log(info);
@@ -119,7 +119,6 @@ export class ArComponent implements OnInit {
   //
   init_VR_Camera() {
     var cameraEl: any = document.querySelector('#camera');
-    log(cameraEl);
     // inside an a-frame component
     document.querySelector('[camera]').addEventListener('componentchanged', (evt: any) => {
       // if (evt.name !== 'rotation') { return; }
@@ -155,8 +154,8 @@ export class ArComponent implements OnInit {
   //
   explosionPsositioning() { 
     const RockPosDeg = this.camPosToSpritePosDeg(this.camPos)
-    log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
-    log('_camPos -> ', this.camPos )
+    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
+    // log('_camPos -> ', this.camPos )
     const exp: any = document.querySelector(".sprite")
     // log('exp: ', exp, RockPosDeg)
     exp.setAttribute('rotation', RockPosDeg);
@@ -172,8 +171,8 @@ export class ArComponent implements OnInit {
   //
   rocketPositioning() {
     const RockPosDeg = this.camPosToRockPosDeg(this.camPos)
-    log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
-    log('_camPos -> ', this.camPos)
+    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
+    // log('_camPos -> ', this.camPos)
     this.rockets.forEach((rocket) => {
       rocket.link.setAttribute('rotation', RockPosDeg);
     })
@@ -185,7 +184,6 @@ export class ArComponent implements OnInit {
   //
   fireStart() {
     this.launch()
-    log('firestart')
     // this.fireFlow = setInterval(() => {
     //   this.spawn('enemy');
     // }, 500)
@@ -258,7 +256,6 @@ export class ArComponent implements OnInit {
   //
   spawnRocket() {
     // 0 0 -1 == -90 0 0
-    log(this)
     const idNum = this.rockets.length
     var worldPos = new THREE.Vector3();
     worldPos.setFromMatrixPosition(this.camera.object3D.matrixWorld);
@@ -271,8 +268,6 @@ export class ArComponent implements OnInit {
     //
     ////////// Sound component not playing audio asset across multiple entities in 0.8.*
     en.setAttribute('sound', `src: url(assets/js-clan/sound/Rocket-Thrusters-${idNum}.mp3); autoplay: true; loop: true `);
-    //
-    log('>>>>>>>>>>>>', `Rocket-Thrusters-${idNum}.mp3`)
     //
     this.rockets.push({
       isFlying: false,
@@ -308,7 +303,7 @@ export class ArComponent implements OnInit {
     // or delay sound
     const freeRoket = this.rockets.filter((x) => !x.isFlying) // boolean
     if (freeRoket.length > 0) {
-      log('has free rocket', freeRoket)
+      // log('has free rocket', freeRoket)
       const rocket = freeRoket[0]
       rocket.isFlying = true;
       rocket.ownInterval = setInterval(() => this.rocketMove(rocket), 40);
