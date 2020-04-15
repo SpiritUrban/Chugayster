@@ -344,7 +344,7 @@ export class ArComponent implements OnInit {
 
     //200
     // log(toFar)
-    if (toFar > 40) this.rocketSctivate(rocket, ownPosition);
+    if (toFar > 60) this.rocketSctivate(rocket, ownPosition);
 
     // check every
     const allEnemies = document.querySelectorAll('.enemy');
@@ -352,7 +352,7 @@ export class ArComponent implements OnInit {
       // distance betwen
       const distance = this.distanceBetven3D(x, en);
       // log('distanceBetven3D: ', distance)
-      if ( distance < 2) {
+      if ( distance < 3) {
         this.rocketSctivate(rocket, ownPosition);
         this.toBegin(en)
       }
@@ -447,7 +447,7 @@ export class ArComponent implements OnInit {
   }
 
   getStartPosition() {
-    return '-10 0.5 -20'
+    return '-10 0.5 -50'
     // return { x: '0', y: '0', z: '-100' }
   }
 
