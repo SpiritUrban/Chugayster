@@ -189,7 +189,7 @@ export class ArComponent implements OnInit {
   //
   // spawn Entity
   //
-  spawnEntity(who, position = this.getStartPosition(), scale = '40 40 40'): any {
+  spawnEntity(who, position = this.startPosition, scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', who);
     newEl.setAttribute('scale', scale);
@@ -348,7 +348,7 @@ export class ArComponent implements OnInit {
       // distance betwen
       const distance = this.distanceBetven3D(x, en);
       // log('distanceBetven3D: ', distance)
-      if ( distance < 3) {
+      if (distance < 3) {
         this.rocketSctivate(rocket, ownPosition);
         this.toBegin(en)
       }
@@ -417,7 +417,7 @@ export class ArComponent implements OnInit {
   }
 
   toBegin(x) {
-    x.setAttribute('position', this.getStartPosition());
+    x.setAttribute('position', this.startPosition);
   }
 
   toZero(x) {
@@ -433,29 +433,26 @@ export class ArComponent implements OnInit {
   }
 
 
-  getMarker: any = () => document.querySelector('#marker');
-
-  getMarkerPosition() {
-    // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
-    return { x: '0', y: '0', z: '-100' }
-  }
-
-  getStartPosition() {
-    return '-10 0.5 -50'
-    // return { x: '0', y: '0', z: '-100' }
-  }
 
 
-  
 
-  
   //
   // GETTERS
   //
-  get camera(): any{
-    return  document.querySelector('#camera');
+  get camera(): any {
+    return document.querySelector('#camera');
   }
-
+  get marker(): any { 
+    return document.querySelector('#marker') 
+  }
+  get markerPosition() {
+    // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
+    return { x: '0', y: '0', z: '-100' }
+  }
+  get startPosition() {
+    return '-10 0.5 -50'
+    // return { x: '0', y: '0', z: '-100' }
+  }
 
 
 
