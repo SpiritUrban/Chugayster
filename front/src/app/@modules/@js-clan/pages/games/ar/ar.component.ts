@@ -148,11 +148,10 @@ export class ArComponent implements OnInit {
   //
   // explosion psositioning
   //
-  explosionPsositioning() {
-    const camPos = this.camPos()
-    const RockPosDeg = this.camPosToSpritePosDeg(camPos)
-    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
-    log('_camPos -> ', this.camPos())
+  explosionPsositioning() { 
+    const RockPosDeg = this.camPosToSpritePosDeg(this.camPos)
+    log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
+    log('_camPos -> ', this.camPos )
     const exp: any = document.querySelector(".sprite")
     // log('exp: ', exp, RockPosDeg)
     exp.setAttribute('rotation', RockPosDeg);
@@ -167,25 +166,49 @@ export class ArComponent implements OnInit {
   // set roket position
   //
   rocketPositioning() {
-    const camPos = this.camPos()
-    const RockPosDeg = this.camPosToRockPosDeg(camPos)
-    log('keydown', this.rockets, camPos, '::: ', RockPosDeg)
-    log('_camPos -> ', this.camPos())
+    const RockPosDeg = this.camPosToRockPosDeg(this.camPos)
+    log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
+    log('_camPos -> ', this.camPos)
     this.rockets.forEach((rocket) => {
       rocket.link.setAttribute('rotation', RockPosDeg);
     })
   }
 
-  //
-  // get camera position
-  //
-  camPos() {
-    var player: any = document.querySelector("a-camera")
-    var direction = new THREE.Vector3();
-    const camPos = player.sceneEl.camera.getWorldDirection(direction);
-    return camPos
+
+
+
+  fireStart() {
+    this.launch()
+    log('firestart')
+    // this.fireFlow = setInterval(() => {
+    //   this.spawn('enemy');
+    // }, 500)
   }
 
+  fireEnd() {
+    clearInterval(this.fireFlow)
+  }
+
+  remove(x: any) {
+    // AFRAME.registerComponent('light', {
+    //   // ...
+    //   remove:  () =>  {
+    //     x.removeObject3D('light');
+    //   }
+    //   // ...
+    // });
+    // x._remove()
+    x.parentNode.removeChild(x);
+    // delete this.rockets[0]
+    // x = null; //delete x;
+  }
+
+  toZero(x) {
+    x.setAttribute('position', '0 -1 -0.5');
+  }
+
+  //
+  // SPAWNERS
   //
   // spawn Entity
   //
@@ -199,9 +222,6 @@ export class ArComponent implements OnInit {
     this.sceneEl().appendChild(newEl);
     return newEl
   }
-
-
-  //
   // spawn Enemy
   //
   spawn(who, type) {
@@ -229,9 +249,6 @@ export class ArComponent implements OnInit {
     // en.setAttribute('material', 'color: red');
     // en.setAttribute('scale', '0.01 0.01 0.01');
   }
-
-
-  //
   // spawn Rocket
   //
   spawnRocket() {
@@ -263,28 +280,18 @@ export class ArComponent implements OnInit {
     })
   }
 
-  camPosToSpritePosDeg(camPos) {
-    // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
-    log((camPos.z < 0))
-    let RockPosDeg = `
-      ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90) - 180} 
-      ${ (camPos.z < 0) ? 180 - (camPos.x * 90) : (camPos.x * 90 - 180)} 
-      0
-    `
-    return RockPosDeg
+
+  //
+  // ACTIVATORS
+  //
+  // ---
+  rocketSctivate(rocket, ownPosition) {
+    this.animateExplosion(ownPosition);
+    clearInterval(rocket.ownInterval)
+    rocket.isFlying = false
+    this.toZero(rocket.link)
+    // x.parentNode.removeChild(x);
   }
-
-  camPosToRockPosDeg(camPos) {
-    // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
-    let RockPosDeg = `
-      ${ (camPos.z < 0) ? (camPos.y * 90 - 90) : 180 - (camPos.y * 90 - 90)} 
-      0 
-      ${ (camPos.z < 0) ? (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
-    `
-    return RockPosDeg
-  }
-
-
   launch() {
     // take 1 roket 
     // or delay sound
@@ -311,60 +318,9 @@ export class ArComponent implements OnInit {
   }
 
 
-  distanceBetven3D(a, b) {
-    const _a = a.getAttribute('position');
-    const _b = b.getAttribute('position');
-    const xDistance = Math.abs(Math.abs(_a.x) - Math.abs(_b.x));
-    const yDistance = Math.abs(Math.abs(_a.y) - Math.abs(_b.y));
-    const zDistance = Math.abs(Math.abs(_a.z) - Math.abs(_b.z));
-    return (xDistance + yDistance + zDistance) / 3
-  }
-
-  rocketMove(rocket) {
-    log(rocket)
-    const camPos = this.camPos();
-    // clearInterval(roket.ownInterval)
-    //
-    // const all = document.querySelectorAll('.rocket');
-    // all.forEach((x) => {
-    const x = rocket.link
-    const ownPosition: any = x.getAttribute('position');
-    // shift
-    ownPosition.z += camPos.z;
-    ownPosition.x += camPos.x;
-    ownPosition.y += camPos.y;
-    // rocket.linkSound.setAttribute('position', ownPosition);
-    // log(ownPosition)
-    const toFar = Math.max(
-      Math.abs(ownPosition.y),
-      Math.abs(ownPosition.x),
-      Math.abs(ownPosition.z)
-    )
-    // log(toFar)
-    if (toFar > 60) this.rocketSctivate(rocket, ownPosition);
-    // check every
-    const allEnemies = document.querySelectorAll('.enemy');
-    allEnemies.forEach((en) => {
-      // distance betwen
-      const distance = this.distanceBetven3D(x, en);
-      // log('distanceBetven3D: ', distance)
-      if (distance < 3) {
-        this.rocketSctivate(rocket, ownPosition);
-        this.toBegin(en)
-      }
-    })
-    x.setAttribute('position', ownPosition);
-  }
-
-  // ---
-  rocketSctivate(rocket, ownPosition) {
-    this.animateExplosion(ownPosition);
-    clearInterval(rocket.ownInterval)
-    rocket.isFlying = false
-    this.toZero(rocket.link)
-    // x.parentNode.removeChild(x);
-  }
-
+  //
+  // MOVERS
+  //
   aimMove() {
     const all = document.querySelectorAll('.enemy');
     all.forEach((x, i) => {
@@ -389,40 +345,74 @@ export class ArComponent implements OnInit {
       // if (toFar > 40) this.remove(x) //x.parentNode.removeChild(x);
     })
   }
-
-  fireStart() {
-    this.launch()
-    log('firestart')
-    // this.fireFlow = setInterval(() => {
-    //   this.spawn('enemy');
-    // }, 500)
-  }
-
-  fireEnd() {
-    clearInterval(this.fireFlow)
-  }
-
-  remove(x: any) {
-    // AFRAME.registerComponent('light', {
-    //   // ...
-    //   remove:  () =>  {
-    //     x.removeObject3D('light');
-    //   }
-    //   // ...
-    // });
-    // x._remove()
-    x.parentNode.removeChild(x);
-    // delete this.rockets[0]
-    // x = null; //delete x;
-  }
-
   toBegin(x) {
     x.setAttribute('position', this.startPosition);
   }
+  rocketMove(rocket) {
+    log(rocket)
+    // clearInterval(roket.ownInterval)
+    //
+    // const all = document.querySelectorAll('.rocket');
+    // all.forEach((x) => {
+    const x = rocket.link
+    const ownPosition: any = x.getAttribute('position');
+    // shift
+    ownPosition.z += this.camPos.z;
+    ownPosition.x += this.camPos.x;
+    ownPosition.y += this.camPos.y;
+    // rocket.linkSound.setAttribute('position', ownPosition);
+    // log(ownPosition)
+    const toFar = Math.max(
+      Math.abs(ownPosition.y),
+      Math.abs(ownPosition.x),
+      Math.abs(ownPosition.z)
+    )
+    // log(toFar)
+    if (toFar > 60) this.rocketSctivate(rocket, ownPosition);
+    // check every
+    const allEnemies = document.querySelectorAll('.enemy');
+    allEnemies.forEach((en) => {
+      // distance betwen
+      const distance = this.distanceBetven3D(x, en);
+      // log('distanceBetven3D: ', distance)
+      if (distance < 3) {
+        this.rocketSctivate(rocket, ownPosition);
+        this.toBegin(en)
+      }
+    })
+    x.setAttribute('position', ownPosition);
+  }
 
-  toZero(x) {
-    x.setAttribute('position', '0 -1 -0.5');
 
+  //
+  // CALCULATORS
+  //
+  distanceBetven3D(a, b) {
+    const _a = a.getAttribute('position');
+    const _b = b.getAttribute('position');
+    const xDistance = Math.abs(Math.abs(_a.x) - Math.abs(_b.x));
+    const yDistance = Math.abs(Math.abs(_a.y) - Math.abs(_b.y));
+    const zDistance = Math.abs(Math.abs(_a.z) - Math.abs(_b.z));
+    return (xDistance + yDistance + zDistance) / 3
+  }
+  camPosToSpritePosDeg(camPos) {
+    // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
+    log((camPos.z < 0))
+    let RockPosDeg = `
+      ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90) - 180} 
+      ${ (camPos.z < 0) ? 180 - (camPos.x * 90) : (camPos.x * 90 - 180)} 
+      0
+    `
+    return RockPosDeg
+  }
+  camPosToRockPosDeg(camPos) {
+    // let RockPosDeg = `${camPos.y * 90 - 90} 0 ${(camPos.x * 90 * -1) }`
+    let RockPosDeg = `
+      ${ (camPos.z < 0) ? (camPos.y * 90 - 90) : 180 - (camPos.y * 90 - 90)} 
+      0 
+      ${ (camPos.z < 0) ? (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
+    `
+    return RockPosDeg
   }
 
 
@@ -432,8 +422,8 @@ export class ArComponent implements OnInit {
   get camera(): any {
     return document.querySelector('#camera');
   }
-  get marker(): any { 
-    return document.querySelector('#marker') 
+  get marker(): any {
+    return document.querySelector('#marker')
   }
   get markerPosition() {
     // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
@@ -443,14 +433,19 @@ export class ArComponent implements OnInit {
     return '-10 0.5 -50'
     // return { x: '0', y: '0', z: '-100' }
   }
-
+  // get camera position
+  //
+  get camPos() {
+    var player: any = document.querySelector("a-camera")
+    var direction = new THREE.Vector3();
+    return player.sceneEl.camera.getWorldDirection(direction);
+  }
 
 
   ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
   xz() {
     window.addEventListener("keydown", (e) => {
-      const camPos = this.camPos()
-      const RockPosDeg = this.camPosToRockPosDeg(camPos)
+      const RockPosDeg = this.camPosToRockPosDeg(this.camPos) // ???
       var player: any = document.querySelector("a-camera")
       var direction = new THREE.Vector3();
       // go forvard
