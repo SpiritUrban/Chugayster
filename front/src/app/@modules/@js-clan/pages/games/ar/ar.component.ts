@@ -139,10 +139,9 @@ export class ArComponent implements OnInit {
       log('keydown');
     })
     document.addEventListener('keyup', (e) => {
-      if (e.keyCode !== 32) return;
+      if (e.keyCode == 32) this.launch();
       // this.spawn('enemy');
       // this.spawnRocket();
-      this.launch();
     });
   }
 
