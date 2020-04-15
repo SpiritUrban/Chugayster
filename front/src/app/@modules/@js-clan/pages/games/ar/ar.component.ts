@@ -230,6 +230,7 @@ export class ArComponent implements OnInit {
     // en.setAttribute('scale', '0.01 0.01 0.01');
   }
 
+
   //
   // spawn Rocket
   //
@@ -237,9 +238,8 @@ export class ArComponent implements OnInit {
     // 0 0 -1 == -90 0 0
     log(this)
     const idNum = this.rockets.length
-    var cameraEl: any = document.querySelector('#camera');
     var worldPos = new THREE.Vector3();
-    worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
+    worldPos.setFromMatrixPosition(this.camera.object3D.matrixWorld);
     //
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
@@ -444,6 +444,19 @@ export class ArComponent implements OnInit {
     return '-10 0.5 -50'
     // return { x: '0', y: '0', z: '-100' }
   }
+
+
+  
+
+  
+  //
+  // GETTERS
+  //
+  get camera(): any{
+    return  document.querySelector('#camera');
+  }
+
+
 
 
   ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
