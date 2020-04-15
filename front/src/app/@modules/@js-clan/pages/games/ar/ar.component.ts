@@ -184,7 +184,7 @@ export class ArComponent implements OnInit {
   //
   // spawn Entity
   //
-  spawnEntity(who, position = '-10 0.5 -20', scale = '40 40 40'): any {
+  spawnEntity(who, position = this.getStartPosition(), scale = '40 40 40'): any {
     var newEl = document.createElement('a-entity');
     newEl.setAttribute('class', who);
     newEl.setAttribute('scale', scale);
@@ -447,7 +447,7 @@ export class ArComponent implements OnInit {
   }
 
   getStartPosition() {
-    return '0 0 -100'
+    return '-10 0.5 -20'
     // return { x: '0', y: '0', z: '-100' }
   }
 
