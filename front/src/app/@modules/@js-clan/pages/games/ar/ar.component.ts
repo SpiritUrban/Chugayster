@@ -307,6 +307,17 @@ export class ArComponent implements OnInit {
   }
 
 
+  distanceBetven3D(a, b) {
+    const _a = a.getAttribute('position');
+    const _b = b.getAttribute('position');
+
+    const xDistance = Math.abs(Math.abs(_a.x) - Math.abs(_b.x));
+    const yDistance = Math.abs(Math.abs(_a.y) - Math.abs(_b.y));
+    const zDistance = Math.abs(Math.abs(_a.z) - Math.abs(_b.z));
+    log('>>>>>>> ', _a, _b)
+    return (xDistance + yDistance + zDistance) / 3
+  }
+
   rocketMove(rocket) {
     log(rocket)
     const camPos = this.camPos();
@@ -329,9 +340,15 @@ export class ArComponent implements OnInit {
       Math.abs(ownPosition.x),
       Math.abs(ownPosition.z)
     )
+
+    // distance betwen
+    const distance = this.distanceBetven3D(x, document.querySelector('.enemy'));
+    // show distance
+    log('distanceBetven3D: ', distance)
+
     //200
     // log(toFar)
-    if (toFar > 20) {
+    if (toFar > 40 || distance < 2) {
       this.animateExplosion(ownPosition);
 
       clearInterval(rocket.ownInterval)
@@ -340,6 +357,8 @@ export class ArComponent implements OnInit {
       // x.parentNode.removeChild(x);
     }
     x.setAttribute('position', ownPosition);
+
+
   }
 
   aimMove() {
