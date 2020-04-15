@@ -52,23 +52,30 @@ export class ArComponent implements OnInit {
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
-    this.animateExplosion();
+    this.animateExplosion('0 0 0');
   }
 
 
-  animateExplosion() {
+  animateExplosion(position) {
     const exp: any = document.querySelector(".sprite")
     // log('exp: ', exp, RockPosDeg)
     exp.setAttribute('opacity', 1 );
+    exp.setAttribute('position', position);
 
     setInterval( ()=>{
       const scale = exp.getAttribute('scale')
       let opacity = exp.getAttribute('opacity')
-      log(opacity)
+      let position = exp.getAttribute('position')// obj
+      // log(opacity, position)
 
       scale.x += 0.4
       scale.y += 0.4
       opacity -= 0.04
+      // position.x -= 0.002
+      //position.y += 0.02
+
+      const rocketPosition = this.rockets[0].link.getAttribute('position')
+
       
       if (scale.x > 15) {
         scale.x = .1
@@ -78,6 +85,8 @@ export class ArComponent implements OnInit {
 
       exp.setAttribute('scale', scale);
       exp.setAttribute('opacity', opacity );
+      exp.setAttribute('position', rocketPosition );
+
     }, 40 )
     // exp.setAttribute('scale', RockPosDeg);
   }
