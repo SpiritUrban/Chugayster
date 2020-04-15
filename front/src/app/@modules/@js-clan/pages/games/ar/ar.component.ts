@@ -98,6 +98,7 @@ export class ArComponent implements OnInit {
     }, 40)
   }
 
+
   //
   // Run 2
   //
@@ -105,6 +106,7 @@ export class ArComponent implements OnInit {
     this.readyMsg = 'READY !!!'
   }
 
+  
   // info
   info(info) {
     log(info);
@@ -178,6 +180,9 @@ export class ArComponent implements OnInit {
   }
 
 
+  //
+  // fire start
+  //
   fireStart() {
     this.launch()
     log('firestart')
@@ -186,32 +191,27 @@ export class ArComponent implements OnInit {
     // }, 500)
   }
 
+
+  //
+  // fire end
+  //
   fireEnd() {
     clearInterval(this.fireFlow)
   }
 
-  remove(x: any) {
-    // AFRAME.registerComponent('light', {
-    //   // ...
-    //   remove:  () =>  {
-    //     x.removeObject3D('light');
-    //   }
-    //   // ...
-    // });
-    // x._remove()
-    x.parentNode.removeChild(x);
-    // delete this.rockets[0]
-    // x = null; //delete x;
-  }
 
+  //
+  // move to zero
+  //
   toZero(x) {
     x.setAttribute('position', '0 -1 -0.5');
   }
 
 
 
-  //
-  // SPAWNERS
+  /////////////////////////////////////////////////////////////////////////
+  //                              SPAWNERS                               //
+  /////////////////////////////////////////////////////////////////////////  
   //
   // spawn Entity
   //
@@ -225,6 +225,7 @@ export class ArComponent implements OnInit {
     this.scene.appendChild(newEl);
     return newEl
   }
+  //
   // spawn Enemy
   //
   spawn(who, type) {
@@ -252,6 +253,7 @@ export class ArComponent implements OnInit {
     // en.setAttribute('material', 'color: red');
     // en.setAttribute('scale', '0.01 0.01 0.01');
   }
+  //
   // spawn Rocket
   //
   spawnRocket() {
@@ -285,17 +287,22 @@ export class ArComponent implements OnInit {
 
 
 
+  /////////////////////////////////////////////////////////////////////////
+  //                             ACTIVATORS                              //
+  /////////////////////////////////////////////////////////////////////////  
   //
-  // ACTIVATORS
+  // rockets activate
   //
-  // ---
-  rocketSctivate(rocket, ownPosition) {
+  rocketsActivate(rocket, ownPosition) {
     this.animateExplosion(ownPosition);
     clearInterval(rocket.ownInterval)
     rocket.isFlying = false
     this.toZero(rocket.link)
     // x.parentNode.removeChild(x);
   }
+  //
+  // launch
+  //
   launch() {
     // take 1 roket 
     // or delay sound
@@ -323,9 +330,9 @@ export class ArComponent implements OnInit {
 
 
 
-  //
-  // MOVERS
-  //
+  /////////////////////////////////////////////////////////////////////////
+  //                                MOVERS                               //
+  /////////////////////////////////////////////////////////////////////////
   aimMove() {
     const all = document.querySelectorAll('.enemy');
     all.forEach((x, i) => {
@@ -373,7 +380,7 @@ export class ArComponent implements OnInit {
       Math.abs(ownPosition.z)
     )
     // log(toFar)
-    if (toFar > 60) this.rocketSctivate(rocket, ownPosition);
+    if (toFar > 60) this.rocketsActivate(rocket, ownPosition);
     // check every
     const allEnemies = document.querySelectorAll('.enemy');
     allEnemies.forEach((en) => {
@@ -381,7 +388,7 @@ export class ArComponent implements OnInit {
       const distance = this.distanceBetven3D(x, en);
       // log('distanceBetven3D: ', distance)
       if (distance < 3) {
-        this.rocketSctivate(rocket, ownPosition);
+        this.rocketsActivate(rocket, ownPosition);
         this.toBegin(en)
       }
     })
@@ -390,9 +397,9 @@ export class ArComponent implements OnInit {
 
 
 
-  //
-  // CALCULATORS
-  //
+  /////////////////////////////////////////////////////////////////////////
+  //                             CALCULATORS                             //
+  /////////////////////////////////////////////////////////////////////////
   distanceBetven3D(a, b) {
     const _a = a.getAttribute('position');
     const _b = b.getAttribute('position');
@@ -423,9 +430,9 @@ export class ArComponent implements OnInit {
 
 
 
-  //
-  // GETTERS
-  //
+  /////////////////////////////////////////////////////////////////////////
+  //                               GETTERS                               //
+  /////////////////////////////////////////////////////////////////////////
   get camera(): any {
     return document.querySelector('#camera');
   }
@@ -480,4 +487,20 @@ export class ArComponent implements OnInit {
   setPosition(x) {
   }
 
+  //
+  // remove ???
+  //
+  remove(x: any) {
+    // AFRAME.registerComponent('light', {
+    //   // ...
+    //   remove:  () =>  {
+    //     x.removeObject3D('light');
+    //   }
+    //   // ...
+    // });
+    // x._remove()
+    x.parentNode.removeChild(x);
+    // delete this.rockets[0]
+    // x = null; //delete x;
+  }
 }
