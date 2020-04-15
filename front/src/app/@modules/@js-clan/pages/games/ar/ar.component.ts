@@ -314,7 +314,7 @@ export class ArComponent implements OnInit {
     const xDistance = Math.abs(Math.abs(_a.x) - Math.abs(_b.x));
     const yDistance = Math.abs(Math.abs(_a.y) - Math.abs(_b.y));
     const zDistance = Math.abs(Math.abs(_a.z) - Math.abs(_b.z));
-    log('>>>>>>> ', _a, _b)
+    // log('>>>>>>> ', _a, _b)
     return (xDistance + yDistance + zDistance) / 3
   }
 
@@ -333,7 +333,7 @@ export class ArComponent implements OnInit {
     ownPosition.y += camPos.y;
 
     // rocket.linkSound.setAttribute('position', ownPosition);
-    log(ownPosition)
+    // log(ownPosition)
 
     const toFar = Math.max(
       Math.abs(ownPosition.y),
@@ -351,8 +351,12 @@ export class ArComponent implements OnInit {
     allEnemies.forEach((en) => {
       // distance betwen
       const distance = this.distanceBetven3D(x, en);
-      log('distanceBetven3D: ', distance)
-      if ( distance < 2) this.rocketSctivate(rocket, ownPosition);
+      // log('distanceBetven3D: ', distance)
+      if ( distance < 2) {
+        this.rocketSctivate(rocket, ownPosition);
+        this.toBegin(en)
+      }
+        
     })
 
     x.setAttribute('position', ownPosition);
