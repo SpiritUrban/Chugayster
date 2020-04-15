@@ -109,7 +109,6 @@ export class ArComponent implements OnInit {
   }
 
 
-
   // info
   info(info) {
     log(info);
@@ -123,8 +122,8 @@ export class ArComponent implements OnInit {
   init_VR_Camera() {
     var cameraEl: any = document.querySelector('#camera');
     document.querySelector('[camera]').addEventListener('componentchanged', (evt: any) => {
-      console.log('******************---------', evt);
-      if (evt.detail.name = 'rotation') {
+      log('Camera event: ', evt);
+      if (evt.detail.name == 'rotation') {
         this.rocketPositioning();
         this.explosionPsositioning();
       }
