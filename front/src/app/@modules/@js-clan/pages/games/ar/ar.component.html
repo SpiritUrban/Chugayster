@@ -3,7 +3,13 @@
   <div class="ui">
     <button (click)="onCamera = true">Open camera</button>
     <button (click)="run()">RUN</button>
-    &nbsp; &nbsp; &nbsp; {{readyMsg}} &nbsp; &nbsp; &nbsp; {{wiev_info}}
+    <br>
+    <br>
+    <p class="info">{{readyMsg}}</p>
+    <p class="info">{{wiev_info}}</p>
+    <p>Fire - Tup or Space</p>
+    <p>Spawn Enemy - E</p>
+    <p>Spwn Rocket - R</p>
   </div>
 
 
@@ -81,8 +87,7 @@
   </a-scene>
 
 
-  <h1>{{onCamera}}</h1>
-
+  <h3 style="text-align: right;">Camera on: {{onCamera}} </h3>
   <app-camera *ngIf="onCamera"></app-camera>
 
 </div>

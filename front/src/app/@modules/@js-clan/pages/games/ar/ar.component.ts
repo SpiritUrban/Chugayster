@@ -139,9 +139,10 @@ export class ArComponent implements OnInit {
       log('keydown');
     })
     document.addEventListener('keyup', (e) => {
+      log(e)
       if (e.keyCode == 32) this.launch();
-      // this.spawn('enemy');
-      // this.spawnRocket();
+      if (e.code == 'KeyR') this.spawnRocket();
+      if (e.code == 'KeyE') this.spawn('enemy', 'buster_drone');
     });
   }
 
@@ -353,7 +354,7 @@ export class ArComponent implements OnInit {
     x.setAttribute('position', this.startPosition);
   }
   rocketMove(rocket) {
-    log(rocket);
+    // log(rocket);
     // clearInterval(roket.ownInterval);
     //
     // const all = document.querySelectorAll('.rocket');
