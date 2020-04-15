@@ -16,10 +16,11 @@ declare var window: any;
 export class ArComponent implements OnInit {
 
   fireFlow: any; // setInterval // fire loop
-  rockets: any = []
-  readyMsg: string = 'Loaded...'
+  rockets: any = [];
+  readyMsg: string = 'Loaded...';
   onCamera: boolean = false;
-  wiev_info: string = ':info:'
+  wiev_info: string = ':info:';
+  lightLoop: any; // loop link
   // aims:any = []
 
   constructor() { }
@@ -34,28 +35,33 @@ export class ArComponent implements OnInit {
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
+  //
+  // run
+  //
   run() {
     this.init_Listeners();
-
+    //
     this.spawn('enemy', 'tree');
     setTimeout(() => this.spawn('enemy', 'biotronican_crab-simple'), 30000);
     setTimeout(() => this.spawn('enemy', 'biotronican_crab-simple'), 60000);
     setTimeout(() => this.spawn('enemy', 'buster_drone'), 90000);
     setTimeout(() => this.spawn('enemy', 'biotronican_crab'), 120000);
-
+    //
     this.spawnRocket();
     // this.spawnRocket();
     // this.spawnRocket();
-
+    //
     this.init_VR_Camera()
-
+    //
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
     // soundBg.play();
   }
 
 
-  lightLoop: any
+  //
+  // animate explosion
+  //
   animateExplosion(position) {
     const exp: any = document.querySelector(".sprite");
     const expLight = document.querySelector("#exp-light");
@@ -63,21 +69,16 @@ export class ArComponent implements OnInit {
     exp.setAttribute('opacity', 1);
     exp.setAttribute('position', position);
     expLight.setAttribute('position', position);
-
+    //
     this.lightLoop = setInterval(() => {
       const scale = exp.getAttribute('scale')
       let opacity = exp.getAttribute('opacity')
-      // let expLightPosition = expLight.getAttribute('position')// obj
       expLight.setAttribute('visible', 'true');
-
+      //
       scale.x += 0.4
       scale.y += 0.4
       opacity -= 0.04
-      // position.x -= 0.002
-      //position.y += 0.02
-
-      const rocketPosition = this.rockets[0].link.getAttribute('position')
-
+      //
       if (scale.x > 25) {
         scale.x = .1
         scale.y = .1
@@ -85,7 +86,6 @@ export class ArComponent implements OnInit {
         expLight.setAttribute('visible', 'false');
         clearInterval(this.lightLoop)
       }
-
       exp.setAttribute('scale', scale);
       exp.setAttribute('opacity', opacity);
     }, 40)
@@ -105,7 +105,9 @@ export class ArComponent implements OnInit {
   }
 
 
-
+  //
+  // init VR Camera
+  //
   init_VR_Camera() {
     var cameraEl: any = document.querySelector('#camera');
     log(cameraEl);
@@ -143,6 +145,9 @@ export class ArComponent implements OnInit {
   //
   sceneEl: any = () => document.querySelector('a-scene');
 
+  //
+  // explosion psositioning
+  //
   explosionPsositioning() {
     const camPos = this.camPos()
     const RockPosDeg = this.camPosToSpritePosDeg(camPos)
@@ -151,7 +156,7 @@ export class ArComponent implements OnInit {
     const exp: any = document.querySelector(".sprite")
     // log('exp: ', exp, RockPosDeg)
     exp.setAttribute('rotation', RockPosDeg);
-
+    //
     // this.rockets.forEach((rocket) => {
     //   rocket.link.setAttribute('rotation', RockPosDeg);
     // })
@@ -218,7 +223,6 @@ export class ArComponent implements OnInit {
       en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
       en.setAttribute('scale', '0.01 0.01 0.01');
     }
-
     // en.setAttribute('geometry', 'primitive: box; width: 100; height: 100; depth: 100)');
     // en.setAttribute('obj-model', 'url(assets/js-clan/3d/Rubber_duck/Rubber_duck.obj)');
     // en.setAttribute('color', 'rgb(44, 57, 44)');
@@ -236,18 +240,18 @@ export class ArComponent implements OnInit {
     var cameraEl: any = document.querySelector('#camera');
     var worldPos = new THREE.Vector3();
     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-
+    //
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
     en.setAttribute('id', 'r-' + idNum);
     // sound="src: url(river.mp3); autoplay: true"
-
+    //
     ////////// Sound component not playing audio asset across multiple entities in 0.8.*
     en.setAttribute('sound', `src: url(assets/js-clan/sound/Rocket-Thrusters-${idNum}.mp3); autoplay: true; loop: true `);
-
+    //
     log('>>>>>>>>>>>>', `Rocket-Thrusters-${idNum}.mp3`)
-
+    //
     this.rockets.push({
       isFlying: false,
       link: en,
@@ -310,11 +314,9 @@ export class ArComponent implements OnInit {
   distanceBetven3D(a, b) {
     const _a = a.getAttribute('position');
     const _b = b.getAttribute('position');
-
     const xDistance = Math.abs(Math.abs(_a.x) - Math.abs(_b.x));
     const yDistance = Math.abs(Math.abs(_a.y) - Math.abs(_b.y));
     const zDistance = Math.abs(Math.abs(_a.z) - Math.abs(_b.z));
-    // log('>>>>>>> ', _a, _b)
     return (xDistance + yDistance + zDistance) / 3
   }
 
@@ -322,7 +324,7 @@ export class ArComponent implements OnInit {
     log(rocket)
     const camPos = this.camPos();
     // clearInterval(roket.ownInterval)
-
+    //
     // const all = document.querySelectorAll('.rocket');
     // all.forEach((x) => {
     const x = rocket.link
@@ -331,21 +333,15 @@ export class ArComponent implements OnInit {
     ownPosition.z += camPos.z;
     ownPosition.x += camPos.x;
     ownPosition.y += camPos.y;
-
     // rocket.linkSound.setAttribute('position', ownPosition);
     // log(ownPosition)
-
     const toFar = Math.max(
       Math.abs(ownPosition.y),
       Math.abs(ownPosition.x),
       Math.abs(ownPosition.z)
     )
-
-
-    //200
     // log(toFar)
     if (toFar > 60) this.rocketSctivate(rocket, ownPosition);
-
     // check every
     const allEnemies = document.querySelectorAll('.enemy');
     allEnemies.forEach((en) => {
@@ -356,9 +352,7 @@ export class ArComponent implements OnInit {
         this.rocketSctivate(rocket, ownPosition);
         this.toBegin(en)
       }
-        
     })
-
     x.setAttribute('position', ownPosition);
   }
 
@@ -376,14 +370,14 @@ export class ArComponent implements OnInit {
     all.forEach((x, i) => {
       const ownPosition: any = x.getAttribute('position');
       // log(i, ownPosition)
-
+      //
       // ownPosition.y += Math.random()*0.1 - 0.04
       // ownPosition.x += Math.random()*0.1 - 0.01
       // ownPosition.z += Math.random()*0.1 - 0.01
       ownPosition.y += 0.01
       ownPosition.x += 0.01
       ownPosition.z += 0.01
-
+      //
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
         Math.abs(ownPosition.y),
