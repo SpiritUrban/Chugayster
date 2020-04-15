@@ -58,7 +58,7 @@ export class ArComponent implements OnInit {
     // this.spawnRocket();
     // this.spawnRocket();
     //
-    this.init_VR_Camera()
+    this.init_VR_Camera();
     //
     // const soundBg: any = document.querySelector("#sound-bg")
     // soundBg.loop = true;
@@ -78,20 +78,20 @@ export class ArComponent implements OnInit {
     expLight.setAttribute('position', position);
     //
     this.lightLoop = setInterval(() => {
-      const scale = exp.getAttribute('scale')
-      let opacity = exp.getAttribute('opacity')
+      const scale = exp.getAttribute('scale');
+      let opacity = exp.getAttribute('opacity');
       expLight.setAttribute('visible', 'true');
       //
-      scale.x += 0.4
-      scale.y += 0.4
-      opacity -= 0.04
+      scale.x += 0.4;
+      scale.y += 0.4;
+      opacity -= 0.04;
       //
       if (scale.x > 25) {
-        scale.x = .1
-        scale.y = .1
-        opacity = 1
+        scale.x = .1;
+        scale.y = .1;
+        opacity = 1;
         expLight.setAttribute('visible', 'false');
-        clearInterval(this.lightLoop)
+        clearInterval(this.lightLoop);
       }
       exp.setAttribute('scale', scale);
       exp.setAttribute('opacity', opacity);
@@ -103,7 +103,7 @@ export class ArComponent implements OnInit {
   // Run 2
   //
   aFrameOnInit() {
-    this.readyMsg = 'READY !!!'
+    this.readyMsg = 'READY !!!';
   }
 
 
@@ -119,14 +119,11 @@ export class ArComponent implements OnInit {
   //
   init_VR_Camera() {
     var cameraEl: any = document.querySelector('#camera');
-    // inside an a-frame component
     document.querySelector('[camera]').addEventListener('componentchanged', (evt: any) => {
-      // if (evt.name !== 'rotation') { return; }
-      // if (evt.newData.y < 180) { // ... }
       console.log('******************---------', evt);
       if (evt.detail.name = 'rotation') {
-        this.rocketPositioning()
-        this.explosionPsositioning()
+        this.rocketPositioning();
+        this.explosionPsositioning();
       }
     });
   }
@@ -137,14 +134,13 @@ export class ArComponent implements OnInit {
   //
   init_Listeners() {
     window.addEventListener("keydown", (e) => {
-      log('keydown')
-      // this.rocketPositioning()
+      log('keydown');
     })
     document.addEventListener('keyup', (e) => {
       if (e.keyCode !== 32) return;
       // this.spawn('enemy');
-      // this.spawnRocket()
-      this.launch()
+      // this.spawnRocket();
+      this.launch();
     });
   }
 
@@ -153,11 +149,11 @@ export class ArComponent implements OnInit {
   // explosion psositioning
   //
   explosionPsositioning() { 
-    const RockPosDeg = this.camPosToSpritePosDeg(this.camPos)
-    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
-    // log('_camPos -> ', this.camPos )
-    const exp: any = document.querySelector(".sprite")
-    // log('exp: ', exp, RockPosDeg)
+    const RockPosDeg = this.camPosToSpritePosDeg(this.camPos);
+    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg);
+    // log('_camPos -> ', this.camPos );
+    const exp: any = document.querySelector(".sprite");
+    // log('exp: ', exp, RockPosDeg);
     exp.setAttribute('rotation', RockPosDeg);
     //
     // this.rockets.forEach((rocket) => {
@@ -170,9 +166,9 @@ export class ArComponent implements OnInit {
   // set roket position
   //
   rocketPositioning() {
-    const RockPosDeg = this.camPosToRockPosDeg(this.camPos)
-    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg)
-    // log('_camPos -> ', this.camPos)
+    const RockPosDeg = this.camPosToRockPosDeg(this.camPos);
+    // log('keydown', this.rockets, this.camPos, '::: ', RockPosDeg);
+    // log('_camPos -> ', this.camPos);
     this.rockets.forEach((rocket) => {
       rocket.link.setAttribute('rotation', RockPosDeg);
     })
@@ -183,7 +179,7 @@ export class ArComponent implements OnInit {
   // fire start
   //
   fireStart() {
-    this.launch()
+    this.launch();
     // this.fireFlow = setInterval(() => {
     //   this.spawn('enemy');
     // }, 500)
@@ -194,7 +190,7 @@ export class ArComponent implements OnInit {
   // fire end
   //
   fireEnd() {
-    clearInterval(this.fireFlow)
+    clearInterval(this.fireFlow);
   }
 
 
@@ -229,19 +225,19 @@ export class ArComponent implements OnInit {
   spawn(who, type) {
     const en = this.spawnEntity(who)
     if (type == 'tree') {
-      this.info('Generate: tree')
+      this.info('Generate: tree');
       en.setAttribute('gltf-model', 'url(assets/js-clan/3d/oak_tree_lowpoly/scene.gltf)');
       en.setAttribute('scale', '4 4 4');
     } else if (type == 'biotronican_crab') {
-      this.info('Generate: biotronican_crab')
+      this.info('Generate: biotronican_crab');
       en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf)');
       en.setAttribute('scale', '40 40 40');
     } else if (type == 'biotronican_crab-simple') {
-      this.info('Generate: biotronican_crab-simple')
+      this.info('Generate: biotronican_crab-simple');
       en.setAttribute('gltf-model', 'url(assets/js-clan/3d/biotronican_crab_head_c1/scene_simple.gltf)');
       en.setAttribute('scale', '40 40 40');
     } else if (type == 'buster_drone') {
-      this.info('Generate: buster_drone')
+      this.info('Generate: buster_drone');
       en.setAttribute('gltf-model', 'url(assets/js-clan/3d/buster_drone/scene.gltf)');
       en.setAttribute('scale', '0.01 0.01 0.01');
     }
@@ -256,7 +252,7 @@ export class ArComponent implements OnInit {
   //
   spawnRocket() {
     // 0 0 -1 == -90 0 0
-    const idNum = this.rockets.length
+    const idNum = this.rockets.length;
     var worldPos = new THREE.Vector3();
     worldPos.setFromMatrixPosition(this.camera.object3D.matrixWorld);
     //
@@ -264,7 +260,7 @@ export class ArComponent implements OnInit {
     en.setAttribute('rotation', '-90 0 0');
     en.setAttribute('gltf-model', 'url(assets/js-clan/3d/simple_rocket/scene.gltf)');
     en.setAttribute('id', 'r-' + idNum);
-    // sound="src: url(river.mp3); autoplay: true"
+    // sound="src: url(river.mp3); autoplay: true";
     //
     ////////// Sound component not playing audio asset across multiple entities in 0.8.*
     en.setAttribute('sound', `src: url(assets/js-clan/sound/Rocket-Thrusters-${idNum}.mp3); autoplay: true; loop: true `);
@@ -277,7 +273,7 @@ export class ArComponent implements OnInit {
       position: '0 -1 -0.5',
       speed: '',
       ownInterval: null
-    })
+    });
   }
 
 
@@ -290,9 +286,9 @@ export class ArComponent implements OnInit {
   //
   rocketsActivate(rocket, ownPosition) {
     this.animateExplosion(ownPosition);
-    clearInterval(rocket.ownInterval)
-    rocket.isFlying = false
-    this.toZero(rocket.link)
+    clearInterval(rocket.ownInterval);
+    rocket.isFlying = false;
+    this.toZero(rocket.link);
     // x.parentNode.removeChild(x);
   }
   //
@@ -301,25 +297,25 @@ export class ArComponent implements OnInit {
   launch() {
     // take 1 roket 
     // or delay sound
-    const freeRoket = this.rockets.filter((x) => !x.isFlying) // boolean
+    const freeRoket = this.rockets.filter((x) => !x.isFlying); // boolean
     if (freeRoket.length > 0) {
-      // log('has free rocket', freeRoket)
-      const rocket = freeRoket[0]
+      // log('has free rocket', freeRoket);
+      const rocket = freeRoket[0];
       rocket.isFlying = true;
       rocket.ownInterval = setInterval(() => this.rocketMove(rocket), 40);
       setTimeout(() => {
         // clearInterval(roket.ownInterval)
-      }, 500)
+      }, 500);
       // sound
       // launch-sound
-      const soundLaunch: any = document.querySelector("#sound-launch")
+      const soundLaunch: any = document.querySelector("#sound-launch");
       // soundLaunch.loop = true;
       // sound.pause();
       soundLaunch.currentTime = 0;
       soundLaunch.play();
     }
     else {
-      log('all isFlying', freeRoket)
+      log('all isFlying', freeRoket);
     }
   }
 
@@ -332,14 +328,14 @@ export class ArComponent implements OnInit {
     const all = document.querySelectorAll('.enemy');
     all.forEach((x, i) => {
       const ownPosition: any = x.getAttribute('position');
-      // log(i, ownPosition)
+      // log(i, ownPosition);
       //
-      // ownPosition.y += Math.random()*0.1 - 0.04
-      // ownPosition.x += Math.random()*0.1 - 0.01
-      // ownPosition.z += Math.random()*0.1 - 0.01
-      ownPosition.y += 0.01
-      ownPosition.x += 0.01
-      ownPosition.z += 0.01
+      // ownPosition.y += Math.random()*0.1 - 0.04;
+      // ownPosition.x += Math.random()*0.1 - 0.01;
+      // ownPosition.z += Math.random()*0.1 - 0.01;
+      ownPosition.y += 0.01;
+      ownPosition.x += 0.01;
+      ownPosition.z += 0.01;
       //
       x.setAttribute('position', ownPosition);
       const toFar = Math.max(
@@ -348,7 +344,7 @@ export class ArComponent implements OnInit {
         Math.abs(ownPosition.z)
       )
       //200
-      if (toFar > 100) this.toBegin(x) //this.remove(x) //x.parentNode.removeChild(x);
+      if (toFar > 100) this.toBegin(x); //this.remove(x) //x.parentNode.removeChild(x);
       // if (toFar > 40) this.remove(x) //x.parentNode.removeChild(x);
     })
   }
@@ -356,35 +352,35 @@ export class ArComponent implements OnInit {
     x.setAttribute('position', this.startPosition);
   }
   rocketMove(rocket) {
-    log(rocket)
-    // clearInterval(roket.ownInterval)
+    log(rocket);
+    // clearInterval(roket.ownInterval);
     //
     // const all = document.querySelectorAll('.rocket');
     // all.forEach((x) => {
-    const x = rocket.link
+    const x = rocket.link;
     const ownPosition: any = x.getAttribute('position');
     // shift
     ownPosition.z += this.camPos.z;
     ownPosition.x += this.camPos.x;
     ownPosition.y += this.camPos.y;
     // rocket.linkSound.setAttribute('position', ownPosition);
-    // log(ownPosition)
+    // log(ownPosition);
     const toFar = Math.max(
       Math.abs(ownPosition.y),
       Math.abs(ownPosition.x),
       Math.abs(ownPosition.z)
     )
-    // log(toFar)
+    // log(toFar);
     if (toFar > 60) this.rocketsActivate(rocket, ownPosition);
     // check every
     const allEnemies = document.querySelectorAll('.enemy');
     allEnemies.forEach((en) => {
       // distance betwen
       const distance = this.distanceBetven3D(x, en);
-      // log('distanceBetven3D: ', distance)
+      // log('distanceBetven3D: ', distance);
       if (distance < 3) {
         this.rocketsActivate(rocket, ownPosition);
-        this.toBegin(en)
+        this.toBegin(en);
       }
     })
     x.setAttribute('position', ownPosition);
@@ -410,7 +406,7 @@ export class ArComponent implements OnInit {
       ${ (camPos.z < 0) ? 180 - (camPos.y * 90) : (camPos.y * 90) - 180} 
       ${ (camPos.z < 0) ? 180 - (camPos.x * 90) : (camPos.x * 90 - 180)} 
       0
-    `
+    `;
     return RockPosDeg
   }
   camPosToRockPosDeg(camPos) {
@@ -419,7 +415,7 @@ export class ArComponent implements OnInit {
       ${ (camPos.z < 0) ? (camPos.y * 90 - 90) : 180 - (camPos.y * 90 - 90)} 
       0 
       ${ (camPos.z < 0) ? (camPos.x * 90 * -1) : 180 - (camPos.x * 90 * -1)}
-    `
+    `;
     return RockPosDeg
   }
 
@@ -432,17 +428,17 @@ export class ArComponent implements OnInit {
     return document.querySelector('#camera');
   }
   get marker(): any {
-    return document.querySelector('#marker')
+    return document.querySelector('#marker');
   }
   get scene(): any {
     return document.querySelector('a-scene');
   }
   get markerPosition() {
     // return (this.getMarker) ? this.getMarker.object3D.getWorldPosition() : {x:0, y:0, z:0}
-    return { x: '0', y: '0', z: '-100' }
+    return { x: '0', y: '0', z: '-100' };
   }
   get startPosition() {
-    return '-10 0.5 -50'
+    return '-10 0.5 -50';
     // return { x: '0', y: '0', z: '-100' }
   }
   // get camera position
@@ -457,20 +453,20 @@ export class ArComponent implements OnInit {
   ///////////////////////////////////////////////////////////////////////////////////// XZ /////////////////////////////////////////////////
   xz() {
     window.addEventListener("keydown", (e) => {
-      const RockPosDeg = this.camPosToRockPosDeg(this.camPos) // ???
-      var player: any = document.querySelector("a-camera")
+      const RockPosDeg = this.camPosToRockPosDeg(this.camPos); // ???
+      var player: any = document.querySelector("a-camera");
       var direction = new THREE.Vector3();
       // go forvard
       if (e.code === "KeyR") {
         // get the cameras world direction
         player.sceneEl.camera.getWorldDirection(direction);
-        direction.multiplyScalar(0.1)
+        direction.multiplyScalar(0.1);
         // faster than the below code - but getAttribute wont work
         // player.object3D.position.add(direction)
-        var pos = player.getAttribute("position")
-        pos.x += direction.x
-        pos.y += direction.y // comment this to get 2D movement
-        pos.z += direction.z
+        var pos = player.getAttribute("position");
+        pos.x += direction.x;
+        pos.y += direction.y; // comment this to get 2D movement
+        pos.z += direction.z;
         player.setAttribute("position", pos);
       }
     })
