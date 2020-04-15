@@ -67,13 +67,8 @@ export class ArComponent implements OnInit {
     this.lightLoop = setInterval(() => {
       const scale = exp.getAttribute('scale')
       let opacity = exp.getAttribute('opacity')
-      let position = exp.getAttribute('position')// obj
       // let expLightPosition = expLight.getAttribute('position')// obj
       expLight.setAttribute('visible', 'true');
-
-
-
-      // log(opacity, position)
 
       scale.x += 0.4
       scale.y += 0.4
@@ -82,7 +77,6 @@ export class ArComponent implements OnInit {
       //position.y += 0.02
 
       const rocketPosition = this.rockets[0].link.getAttribute('position')
-
 
       if (scale.x > 25) {
         scale.x = .1
@@ -94,12 +88,7 @@ export class ArComponent implements OnInit {
 
       exp.setAttribute('scale', scale);
       exp.setAttribute('opacity', opacity);
-      // exp.setAttribute('position', rocketPosition);
-      // expLight.setAttribute('position', rocketPosition);
-
-
     }, 40)
-    // exp.setAttribute('scale', RockPosDeg);
   }
 
   //
@@ -131,8 +120,6 @@ export class ArComponent implements OnInit {
       }
     });
   }
-
-
 
 
   //
@@ -233,7 +220,6 @@ export class ArComponent implements OnInit {
     }
 
     // en.setAttribute('geometry', 'primitive: box; width: 100; height: 100; depth: 100)');
-
     // en.setAttribute('obj-model', 'url(assets/js-clan/3d/Rubber_duck/Rubber_duck.obj)');
     // en.setAttribute('color', 'rgb(44, 57, 44)');
     // en.setAttribute('material', 'color: red');
@@ -247,11 +233,9 @@ export class ArComponent implements OnInit {
     // 0 0 -1 == -90 0 0
     log(this)
     const idNum = this.rockets.length
-
     var cameraEl: any = document.querySelector('#camera');
     var worldPos = new THREE.Vector3();
     worldPos.setFromMatrixPosition(cameraEl.object3D.matrixWorld);
-    // log(worldPos);
 
     const en = this.spawnEntity('rocket', '0 -1 -0.5', '0.1 0.1 0.1');
     en.setAttribute('rotation', '-90 0 0');
@@ -273,24 +257,6 @@ export class ArComponent implements OnInit {
       speed: '',
       ownInterval: null
     })
-
-    // add sound
-    // <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound>
-    // ro.linkSound = document.createElement('a-sound');
-    // ro.linkSound.setAttribute('class', 'sound');
-    // ro.linkSound.setAttribute('id', this.rockets.length);
-    // ro.linkSound.setAttribute('src', 'url(assets/js-clan/sound/Rocket-Thrusters.mp3)');
-    // ro.linkSound.setAttribute('autoplay', 'true');
-    // ro.linkSound.setAttribute('loop', 'true');
-    // ro.linkSound.setAttribute('position', '0 0 0');
-    // ro.linkSound.setAttribute('preload', 'auto');
-    // ro.linkSound.setAttribute('crossorigin', 'anonymous');
-
-    // this.sceneEl().appendChild(ro.linkSound);
-    // en.appendChild(ro.linkSound);
-
-    // newEl._remove = () => newEl.parentNode.removeChild(newEl);
-    // this.sceneEl()
   }
 
   camPosToSpritePosDeg(camPos) {
@@ -341,7 +307,6 @@ export class ArComponent implements OnInit {
   }
 
 
-
   rocketMove(rocket) {
     log(rocket)
     const camPos = this.camPos();
@@ -357,7 +322,6 @@ export class ArComponent implements OnInit {
     ownPosition.y += camPos.y;
 
     // rocket.linkSound.setAttribute('position', ownPosition);
-
     log(ownPosition)
 
     const toFar = Math.max(
@@ -375,10 +339,7 @@ export class ArComponent implements OnInit {
       this.toZero(x)
       // x.parentNode.removeChild(x);
     }
-
     x.setAttribute('position', ownPosition);
-
-    // })
   }
 
   aimMove() {
@@ -403,7 +364,6 @@ export class ArComponent implements OnInit {
       //200
       if (toFar > 100) this.toBegin(x) //this.remove(x) //x.parentNode.removeChild(x);
       // if (toFar > 40) this.remove(x) //x.parentNode.removeChild(x);
-
     })
   }
 
