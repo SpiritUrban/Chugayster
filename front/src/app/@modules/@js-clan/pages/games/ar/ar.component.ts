@@ -57,7 +57,8 @@ export class ArComponent implements OnInit {
 
 
   animateExplosion(position) {
-    const exp: any = document.querySelector(".sprite")
+    const exp: any = document.querySelector(".sprite");
+    const expLight = document.querySelector("#exp-light"); 
     // log('exp: ', exp, RockPosDeg)
     exp.setAttribute('opacity', 1 );
     exp.setAttribute('position', position);
@@ -66,6 +67,10 @@ export class ArComponent implements OnInit {
       const scale = exp.getAttribute('scale')
       let opacity = exp.getAttribute('opacity')
       let position = exp.getAttribute('position')// obj
+      // let expLightPosition = expLight.getAttribute('position')// obj
+
+
+      
       // log(opacity, position)
 
       scale.x += 0.4
@@ -77,7 +82,7 @@ export class ArComponent implements OnInit {
       const rocketPosition = this.rockets[0].link.getAttribute('position')
 
       
-      if (scale.x > 15) {
+      if (scale.x > 25) {
         scale.x = .1
         scale.y = .1
         opacity = 1
@@ -86,6 +91,7 @@ export class ArComponent implements OnInit {
       exp.setAttribute('scale', scale);
       exp.setAttribute('opacity', opacity );
       exp.setAttribute('position', rocketPosition );
+      expLight.setAttribute('position', rocketPosition );
 
     }, 40 )
     // exp.setAttribute('scale', RockPosDeg);
