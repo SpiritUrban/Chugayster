@@ -42,8 +42,18 @@ export class ArComponent implements OnInit {
     document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
+
   //
-  // run
+  // Run 2
+  //
+  aFrameOnInit() {
+    this.readyMsg = 'READY !!!';
+  }
+
+
+
+  //
+  // Run 3
   //
   run() {
     this.init_Listeners();
@@ -76,11 +86,11 @@ export class ArComponent implements OnInit {
     exp.setAttribute('opacity', 1);
     exp.setAttribute('position', position);
     expLight.setAttribute('position', position);
+    expLight.setAttribute('visible', 'true');
     //
     this.lightLoop = setInterval(() => {
       const scale = exp.getAttribute('scale');
       let opacity = exp.getAttribute('opacity');
-      expLight.setAttribute('visible', 'true');
       //
       scale.x += 0.4;
       scale.y += 0.4;
@@ -98,13 +108,6 @@ export class ArComponent implements OnInit {
     }, 40)
   }
 
-
-  //
-  // Run 2
-  //
-  aFrameOnInit() {
-    this.readyMsg = 'READY !!!';
-  }
 
 
   // info
