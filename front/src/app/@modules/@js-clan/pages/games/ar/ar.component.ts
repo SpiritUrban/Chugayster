@@ -425,16 +425,6 @@ export class ArComponent implements OnInit {
 
   }
 
-  getPosition(x) {
-
-  }
-  setPosition(x) {
-
-  }
-
-
-
-
 
   //
   // GETTERS
@@ -477,6 +467,12 @@ export class ArComponent implements OnInit {
         player.setAttribute("position", pos);
       }
     })
+  }
+
+  getPosition(x) {
+  }
+
+  setPosition(x) {
   }
 
 }
