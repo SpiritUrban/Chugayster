@@ -341,24 +341,30 @@ export class ArComponent implements OnInit {
       Math.abs(ownPosition.z)
     )
 
-    // distance betwen
-    const distance = this.distanceBetven3D(x, document.querySelector('.enemy'));
-    // show distance
-    log('distanceBetven3D: ', distance)
 
     //200
     // log(toFar)
-    if (toFar > 40 || distance < 2) {
-      this.animateExplosion(ownPosition);
+    if (toFar > 40) this.rocketSctivate(rocket, ownPosition);
 
-      clearInterval(rocket.ownInterval)
-      rocket.isFlying = false
-      this.toZero(x)
-      // x.parentNode.removeChild(x);
-    }
+    // check every
+    const allEnemies = document.querySelectorAll('.enemy');
+    allEnemies.forEach((en) => {
+      // distance betwen
+      const distance = this.distanceBetven3D(x, en);
+      log('distanceBetven3D: ', distance)
+      if ( distance < 2) this.rocketSctivate(rocket, ownPosition);
+    })
+
     x.setAttribute('position', ownPosition);
+  }
 
-
+  // ---
+  rocketSctivate(rocket, ownPosition) {
+    this.animateExplosion(ownPosition);
+    clearInterval(rocket.ownInterval)
+    rocket.isFlying = false
+    this.toZero(rocket.link)
+    // x.parentNode.removeChild(x);
   }
 
   aimMove() {
