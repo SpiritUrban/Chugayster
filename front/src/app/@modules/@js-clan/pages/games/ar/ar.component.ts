@@ -39,7 +39,7 @@ export class ArComponent implements OnInit {
     // 40
     setInterval(() => this.aimMove(), 40);
     // setInterval(() => this.rocketMove(), 40);
-    document.querySelector('a-scene').addEventListener('loaded', _ => this.aFrameOnInit());
+    this.scene.addEventListener('loaded', _ => this.aFrameOnInit());
   }
 
 
