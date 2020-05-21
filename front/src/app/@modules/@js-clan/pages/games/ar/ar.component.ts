@@ -400,9 +400,9 @@ aimMove() {
     // ownPosition.y += Math.random()*0.1 - 0.04;
     // ownPosition.x += Math.random()*0.1 - 0.01;
     // ownPosition.z += Math.random()*0.1 - 0.01;
-    ownPosition.y += 0.01;
-    ownPosition.x += 0.01;
-    ownPosition.z += 0.01;
+    ownPosition.y += 0.05;
+    ownPosition.x += 0.05;
+    ownPosition.z += 0.05;
     //
     x.setAttribute('position', ownPosition);
     const toFar = Math.max(
