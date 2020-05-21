@@ -116,7 +116,8 @@ export class ArComponent implements OnInit {
     log('gameLoop')
     // CONTROLS
     this.gp = window.gp = (navigator.webkitGetGamepads) ? navigator.webkitGetGamepads()[0] : navigator.getGamepads()[0]; // Get gamepad
-    if (this.isButton(window.gp, 0)) alert('Go Up')
+    // if (this.isButton(window.gp, 0)) alert('Go Up')
+    if (this.isButton(window.gp, 5)) this.fireStart()
     //alert(JSON.stringify(window.gp))
     // log((JSON.stringify(window.gp.buttons)))
     log('Gamepad')
