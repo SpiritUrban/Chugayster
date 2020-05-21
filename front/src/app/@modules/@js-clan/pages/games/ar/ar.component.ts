@@ -131,7 +131,7 @@ export class ArComponent implements OnInit {
   // GAMEPAD
 // Gamepad Button Checker
 isButton(gp, i) {
-  if (!gp) return false;
+  if (!gp || !gp.buttons[i]) return false;
   console.log('>>> ', gp.buttons[i], i)
   if (typeof gp.buttons[i] == 'number') return gp.buttons[0] == 1; // ??? // for webkitGetGamepads
   return (gp.buttons[i].value > 0 || gp.buttons[i].pressed == true)
