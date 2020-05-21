@@ -1775,7 +1775,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     */
 
 
-    function ArComponent_app_camera_55_Template(rf, ctx) {
+    function ArComponent_app_camera_54_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-camera");
       }
@@ -2392,9 +2392,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     ArComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
       type: ArComponent,
       selectors: [["app-ar"]],
-      decls: 56,
+      decls: 55,
       vars: 38,
-      consts: [[1, "wrap"], [1, "ui"], [3, "click"], [1, "info"], ["fog", "type: linear; color: #2B3E50; far: 60; near: 0", 3, "touchstart"], ["id", "camera", "rotation-reader", ""], ["id", "marker", "position", "0 0 -50"], ["id", "front", "text", "value: Front; align: center;", "position", "0 0 -10", "scale", "40 40 40"], ["id", "left", "text", "value: Left; align: center;", "position", "-10 0 0", "scale", "40 40 40", "rotation", "0 90 0"], ["id", "right", "text", "value: Right; align: center;", "position", "10 0 0", "scale", "40 40 40", "rotation", "0 -90 0"], ["id", "back", "text", "value: Back; align: center;", "position", "0 0 10", "scale", "40 40 40", "rotation", "0 180 0"], ["position", "0 -2 0", "rotation", "-90 0 0", "width", "80", "height", "80", "material", "shader: flat; color: green", "shadow", ""], ["id", "env-light", "position", "0 2 -40"], ["light", "type: ambient; color: #FFA200; intensity: 0.5; distance: 100.0;"], ["id", "exp-light", "position", "0 2 -4"], ["light", "type: point; color: #FFA200; intensity: 2.5; distance: 100.0;"], ["id", "exp", "position", "0 1 -4", "scale", "0.2 0.2 0.2", "src", "assets/js-clan/img/game/explosion-2.png", 1, "sprite"], ["id", "sound-launch"], ["src", "assets/js-clan/sound/Missle_Launch.mp3", "type", "audio/mpeg"], [2, "text-align", "right"], [4, "ngIf"]],
+      consts: [[1, "wrap"], [1, "ui"], [3, "click"], [1, "info"], ["fog", "type: linear; color: #2B3E50; far: 60; near: 0", 3, "touchstart"], ["id", "camera", "rotation-reader", ""], ["id", "marker", "position", "0 0 -50"], ["id", "front", "text", "value: Front; align: center;", "position", "0 0 -10", "scale", "40 40 40"], ["id", "left", "text", "value: Left; align: center;", "position", "-10 0 0", "scale", "40 40 40", "rotation", "0 90 0"], ["id", "right", "text", "value: Right; align: center;", "position", "10 0 0", "scale", "40 40 40", "rotation", "0 -90 0"], ["id", "back", "text", "value: Back; align: center;", "position", "0 0 10", "scale", "40 40 40", "rotation", "0 180 0"], ["id", "env-light", "position", "0 2 -40"], ["light", "type: ambient; color: #FFA200; intensity: 0.5; distance: 100.0;"], ["id", "exp-light", "position", "0 2 -4"], ["light", "type: point; color: #FFA200; intensity: 2.5; distance: 100.0;"], ["id", "exp", "position", "0 1 -4", "scale", "0.2 0.2 0.2", "src", "assets/js-clan/img/game/explosion-2.png", 1, "sprite"], ["id", "sound-launch"], ["src", "assets/js-clan/sound/Missle_Launch.mp3", "type", "audio/mpeg"], [2, "text-align", "right"], [4, "ngIf"]],
       template: function ArComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -2517,39 +2517,37 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](43, "a-entity", 10);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](44, "a-plane", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](44, "a-entity", 11);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](45, "a-entity", 12);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](46, "a-entity", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](45, "a-entity", 12);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](47, "a-entity", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "a-entity", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "a-entity", 15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](49, "a-image", 16);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "audio", 17);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](51, "source", 18);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](52, " Your browser does not support the audio element. ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](47, "a-entity", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](48, "a-image", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](49, "audio", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](50, "source", 17);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](51, " Your browser does not support the audio element. ");
+
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "h3", 19);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](54);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](52, "h3", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](53);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](55, ArComponent_app_camera_55_Template, 1, 0, "app-camera", 20);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](54, ArComponent_app_camera_54_Template, 1, 0, "app-camera", 19);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -2631,7 +2629,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](ctx.ngIsButton(16) ? "cool-btn cool-btn-active" : "cool-btn");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("Camera on: ", ctx.onCamera, " ");
 
