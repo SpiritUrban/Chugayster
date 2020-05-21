@@ -22,13 +22,18 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.fingerPrint.checkIfItExist();
-    this.getUserInfo();
+      this.fingerPrint.checkIfItExist();
+      this.getUserInfo();
   }
 
   async getUserInfo() {
-    this.st.user = await this.api.getUserInfoIfLogged();
-    console.log('result getUserInfo', this.st.user);
+    try {
+      this.st.user = await this.api.getUserInfoIfLogged();
+      console.log('result getUserInfo', this.st.user);
+    } catch (error) {
+      
+    }
+
     // this.st.user = fromServer
     // if (this.st.user.firstName) {
     //   this.st.header.isLogged = true;
