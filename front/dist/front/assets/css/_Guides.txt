@@ -1,8 +1,0 @@
-
-Material Design Icons - Web Font:
- - file: materialdesignicons.min.css
- - Basic Example: <span class="mdi mdi-home"></span>
- - Site: https://materialdesignicons.com/
- - Bootstrap Examples: https://codepen.io/templarian/pen/JGWxgY
- - (MEGA POWER !!!) Material Design Icons Intellisense (Extension): https://marketplace.visualstudio.com/items?itemName=lukas-tr.materialdesignicons-intellisense
-
