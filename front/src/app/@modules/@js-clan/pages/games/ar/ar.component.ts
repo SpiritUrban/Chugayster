@@ -30,6 +30,7 @@ export class ArComponent implements OnInit {
   onCamera: boolean = false;
   wiev_info: string = ':info:';
   lightLoop: any; // loop link
+  score: number = 0;
   // aims:any = []
 
   constructor() { }
@@ -439,6 +440,7 @@ export class ArComponent implements OnInit {
     )
     // log(toFar);
     if (toFar > 60) this.rocketsActivate(rocket, ownPosition);
+    // The collisions !!!
     // check every
     const allEnemies = document.querySelectorAll('.enemy');
     allEnemies.forEach((en) => {
@@ -446,6 +448,7 @@ export class ArComponent implements OnInit {
       const distance = this.distanceBetven3D(x, en);
       // log('distanceBetven3D: ', distance);
       if (distance < 3) {
+        this.score ++;
         this.rocketsActivate(rocket, ownPosition);
         this.toBegin(en);
       }

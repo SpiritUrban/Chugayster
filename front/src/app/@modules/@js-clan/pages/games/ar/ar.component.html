@@ -1,16 +1,21 @@
 <!-- (touchstart)="fireStart()" (touchend)="fireEnd()" -->
 <div class="wrap">
-  <div class="ui">
-    <button (click)="onCamera = true">Open camera</button>
-    <button (click)="run()">RUN</button>
-    <br>
-    <br>
-    <p class="info">{{readyMsg}}</p>
-    <p class="info">{{wiev_info}}</p>
-    <p>Fire - Tup or Space</p>
-    <p>Spawn Enemy - E</p>
-    <p>Spawn Rocket - R</p>
-    <!-- <p class="info">Buttons: 
+
+    <div class="ui game-ui">
+        <p class="score">SCORE: {{score}}</p>
+    </div>
+
+    <div class="ui">
+        <button (click)="onCamera = true">Open camera</button>
+        <button (click)="run()">RUN</button>
+        <br>
+        <br>
+        <p class="info">{{readyMsg}}</p>
+        <p class="info">{{wiev_info}}</p>
+        <p>Fire - Tup or Space</p>
+        <p>Spawn Enemy - E</p>
+        <p>Spawn Rocket - R</p>
+        <!-- <p class="info">Buttons: 
       <span [class]="(ngIsButton(0)) ? 'cool-btn cool-btn-active' : 'cool-btn' "></span>
       <span [class]="(ngIsButton(1)) ? 'cool-btn cool-btn-active' : 'cool-btn' "></span>
       <span [class]="(ngIsButton(2)) ? 'cool-btn cool-btn-active' : 'cool-btn' "></span>
@@ -30,17 +35,17 @@
       <span [class]="(ngIsButton(16)) ? 'cool-btn cool-btn-active' : 'cool-btn' "></span>
     </p> -->
 
-  </div>
+    </div>
 
 
-  <a-scene (touchstart)="fireStart()" fog="type: linear; color: #2B3E50; far: 100; near: 0">
+    <a-scene (touchstart)="fireStart()" fog="type: linear; color: #2B3E50; far: 100; near: 0">
 
-    <a-camera id="camera" rotation-reader>
-      <a-entity id="marker" position="0 0 -50"></a-entity>
-    </a-camera>
+        <a-camera id="camera" rotation-reader>
+            <a-entity id="marker" position="0 0 -50"></a-entity>
+        </a-camera>
 
 
-    <!-- 
+        <!-- 
     <a-assets>
       <a-asset-item id="tree" src="assets/js-clan/3d/biotronican_crab_head_c1/scene.gltf"></a-asset-item>
     </a-assets>
@@ -48,16 +53,16 @@
 
 
 
-    <!-- <a-entity position="-10 0.5 -30"  gltf-model="url(assets/js-clan/3d/buster_drone/scene.gltf)"></a-entity> -->
-    <!-- <a-entity position="-10 0.5 -30"  gltf-model="url(assets/js-clan/3d/eye_monster_animation/scene.gltf)"></a-entity> -->
-    <!-- <a-entity position="-10 0.5 -2000"  gltf-model="url(assets/js-clan/3d/procedural_eye/scene.gltf)"></a-entity> -->
-    <!-- <a-entity id="tgg" class="enemy" position="-10 0.5 -20"  scale="40 40 40" gltf-model="url(assets/js-clan/3d/buster_drone/scene.gltf)"></a-entity> -->
+        <!-- <a-entity position="-10 0.5 -30"  gltf-model="url(assets/js-clan/3d/buster_drone/scene.gltf)"></a-entity> -->
+        <!-- <a-entity position="-10 0.5 -30"  gltf-model="url(assets/js-clan/3d/eye_monster_animation/scene.gltf)"></a-entity> -->
+        <!-- <a-entity position="-10 0.5 -2000"  gltf-model="url(assets/js-clan/3d/procedural_eye/scene.gltf)"></a-entity> -->
+        <!-- <a-entity id="tgg" class="enemy" position="-10 0.5 -20"  scale="40 40 40" gltf-model="url(assets/js-clan/3d/buster_drone/scene.gltf)"></a-entity> -->
 
-    <!-- <a-entity id="tgg" class="x" position="-10 0.5 -20"  scale="10 10 10" gltf-model="url(assets/js-clan/3d/simple_rocket/scene.gltf)"></a-entity> -->
-    <!-- <a-sphere position="-10 0.5 -20" radius="1.25" color="rgb(44, 57, 44)" shadow></a-sphere> -->
+        <!-- <a-entity id="tgg" class="x" position="-10 0.5 -20"  scale="10 10 10" gltf-model="url(assets/js-clan/3d/simple_rocket/scene.gltf)"></a-entity> -->
+        <!-- <a-sphere position="-10 0.5 -20" radius="1.25" color="rgb(44, 57, 44)" shadow></a-sphere> -->
 
-    <!-- SIDES -->
-    <!-- <a-entity id="front" text="value: Front; align: center;" position="0 0 -10" scale="40 40 40"></a-entity>
+        <!-- SIDES -->
+        <!-- <a-entity id="front" text="value: Front; align: center;" position="0 0 -10" scale="40 40 40"></a-entity>
     <a-entity id="left" text="value: Left; align: center;" position="-10 0 0" scale="40 40 40" rotation="0 90 0">
     </a-entity>
     <a-entity id="right" text="value: Right; align: center;" position="10 0 0" scale="40 40 40" rotation="0 -90 0">
@@ -66,46 +71,46 @@
     </a-entity> -->
 
 
-    <!-- <a-plane position="0 -2 0" rotation="-90 0 0" width="80" height="80" material="shader: flat; color: green" shadow>
+        <!-- <a-plane position="0 -2 0" rotation="-90 0 0" width="80" height="80" material="shader: flat; color: green" shadow>
     </a-plane> -->
-    <!-- <a-entity geometry="primitive: box" material="color: red"></a-entity> -->
-    <!-- <a-entity id="ground" geometry="primitive: plane" width="400" height="400" position="0 -2 0"  rotation="-90 0 0" material="shader: flat; color: green"></a-entity> -->
-    <!-- <a-sphere position="0 1 -4" radius="0.05" color="rgb(44, 57, 44)" shadow></a-sphere> -->
+        <!-- <a-entity geometry="primitive: box" material="color: red"></a-entity> -->
+        <!-- <a-entity id="ground" geometry="primitive: plane" width="400" height="400" position="0 -2 0"  rotation="-90 0 0" material="shader: flat; color: green"></a-entity> -->
+        <!-- <a-sphere position="0 1 -4" radius="0.05" color="rgb(44, 57, 44)" shadow></a-sphere> -->
 
-    <a-entity id="env-light"  position="0 2 -40" >
-      <a-entity light="type: ambient; color: #FFA200; intensity: 0.5; distance: 100.0;"></a-entity>
-    </a-entity>
-
-
-    <!-- EXPLOSION -->
-    <a-entity id="exp-light" position="0 2 -4">
-      <a-entity light="type: point; color: #FFA200; intensity: 2.5; distance: 100.0;"></a-entity>
-    </a-entity>
-    <a-image id="exp" class="sprite" position="0 1 -4" scale="0.2 0.2 0.2" src="assets/js-clan/img/game/explosion-2.png"></a-image>
+        <a-entity id="env-light" position="0 2 -40">
+            <a-entity light="type: ambient; color: #FFA200; intensity: 0.5; distance: 100.0;"></a-entity>
+        </a-entity>
 
 
-    <!-- <a-image id="exp-1" position="0 1 -4" src="assets/js-clan/img/game/explosion-2.png" rotation="-90 0 0"></a-image> -->
-    <!-- <a-image id="exp-2" position="0 1 -4" src="assets/js-clan/img/game/explosion-3.png" rotation="0 -90 0"></a-image> -->
+        <!-- EXPLOSION -->
+        <a-entity id="exp-light" position="0 2 -4">
+            <a-entity light="type: point; color: #FFA200; intensity: 2.5; distance: 100.0;"></a-entity>
+        </a-entity>
+        <a-image id="exp" class="sprite" position="0 1 -4" scale="0.2 0.2 0.2" src="assets/js-clan/img/game/explosion-2.png"></a-image>
 
 
-    <audio id="sound-launch">
+        <!-- <a-image id="exp-1" position="0 1 -4" src="assets/js-clan/img/game/explosion-2.png" rotation="-90 0 0"></a-image> -->
+        <!-- <a-image id="exp-2" position="0 1 -4" src="assets/js-clan/img/game/explosion-3.png" rotation="0 -90 0"></a-image> -->
+
+
+        <audio id="sound-launch">
       <source src="assets/js-clan/sound/Missle_Launch.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
 
-    <!-- <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound> -->
+        <!-- <a-sound src="src: url(assets/js-clan/sound/Rocket-Thrusters.mp3)" autoplay="true" loop="true" position="0 0 0"></a-sound> -->
 
 
-    <!-- <a-box position="-10 0.5 -10" rotation="0 45 0" color="rgb(44, 57, 44)" shadow></a-box> -->
-    <!-- <a-cylinder position="10 0.75 -10" radius="0.5" height="1.5" color="rgb(44, 57, 44)" shadow></a-cylinder> -->
-    <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="red" shadow></a-plane> -->
+        <!-- <a-box position="-10 0.5 -10" rotation="0 45 0" color="rgb(44, 57, 44)" shadow></a-box> -->
+        <!-- <a-cylinder position="10 0.75 -10" radius="0.5" height="1.5" color="rgb(44, 57, 44)" shadow></a-cylinder> -->
+        <!-- <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="red" shadow></a-plane> -->
 
-  </a-scene>
+    </a-scene>
 
 
-  <h3 style="text-align: right;">Camera on: {{onCamera}} </h3>
-  <app-camera *ngIf="onCamera"></app-camera>
+    <h3 style="text-align: right;">Camera on: {{onCamera}} </h3>
+    <app-camera *ngIf="onCamera"></app-camera>
 
-  <div class="on-wrap"></div>
+    <div class="on-wrap"></div>
 
 </div>
