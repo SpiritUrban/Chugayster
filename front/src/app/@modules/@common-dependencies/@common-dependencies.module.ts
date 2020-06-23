@@ -25,6 +25,7 @@ import { ShowCodeComponent } from './components/special/show-code/show-code.comp
 import { FooterComponent } from './components/general/footer/footer.component';
 import { NanoSiteComponent } from './components/special/nano-site/nano-site.component';
 import { CameraComponent } from './components/general/camera/camera.component';
+import { NightSkyComponent } from './components/general/night-sky/night-sky.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { CameraComponent } from './components/general/camera/camera.component';
     ShowCodeComponent,
     FooterComponent,
     NanoSiteComponent,
-    CameraComponent
+    CameraComponent,
+    NightSkyComponent
   ],
   imports: [
     NgbModule,
@@ -60,7 +62,8 @@ import { CameraComponent } from './components/general/camera/camera.component';
     FormValidatorComponent, 
     ExtraAlertComponent,
     FooterComponent,
-    CameraComponent
+    CameraComponent,
+    NightSkyComponent
     // ValidatorService -- !!! it's not need !!!
   ]
 })
