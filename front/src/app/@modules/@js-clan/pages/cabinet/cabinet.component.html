@@ -6,7 +6,7 @@
 
 
 <div class="container">
-    
+
     <div id="logo">
         <h1 class="logo">hulu</h1>
         <div class="CTA">
@@ -17,18 +17,18 @@
     <div class="leftbox">
 
         <div class="sub-nav">
-            <a id="profile" class="active"><i class="mdi mdi-user"></i></a>
-            <a id="payment"><i class="mdi mdi-credit-card"></i></a>
-            <a id="subscription"><i class="mdi mdi-tv"></i></a>
-            <a id="privacy"><i class="mdi mdi-tasks"></i></a>
-            <a id="settings"><i class="mdi mdi-cog"></i></a>
+            <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
+            <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a>
+            <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a>
+            <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a>
+            <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a>
         </div>
 
     </div>
 
     <div class="rightbox">
 
-        <div class="profile">
+        <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
             <h1>Personal Info</h1>
             <h2>Full Name</h2>
             <p>Julie Park <button class="btn">update</button></p>
@@ -42,7 +42,7 @@
             <p>••••••• <button class="btn">Change</button></p>
         </div>
 
-        <div class="payment noshow">
+        <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
             <h1>Payment Info</h1>
             <h2>Payment Method</h2>
             <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
@@ -56,7 +56,7 @@
             <!-- <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p> -->
         </div>
 
-        <div class="subscription noshow">
+        <div [class]="(st.pages.cabinet.subPage == 'subscription') ? 'subscription' : 'subscription noshow' ">
             <h1>Your Subscription</h1>
             <h2>Payment Date</h2>
             <p>05-15-2018 <button class="btn">pay now</button></p>
@@ -70,7 +70,7 @@
             <p>$7.99/month</p>
         </div>
 
-        <div class="privacy noshow">
+        <div [class]="(st.pages.cabinet.subPage == 'privacy') ? 'privacy' : 'privacy noshow' ">
             <h1>Privacy Settings</h1>
             <h2>Manage Email Notifications<button class="btn">manage</button></h2>
             <p></p>
@@ -83,7 +83,8 @@
             <h2>Protect Your Account <button class="btn">protect</button></h2>
             <p></p>
         </div>
-        <div class="settings noshow">
+
+        <div [class]="(st.pages.cabinet.subPage == 'settings') ? 'settings' : 'settings noshow' ">
             <h1>Account Settings</h1>
             <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
             <p></p>

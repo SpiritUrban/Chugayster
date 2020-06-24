@@ -34,6 +34,12 @@ export class CabinetComponent implements OnInit {
     log(this.st)
 
   }
+
+  goToSubPage(name){
+    log(name, this.st)
+    this.st.pages.cabinet.subPage = name;
+  }
+
   fake() {
     this.st.user = JSON.parse(`{
       "wallets": {

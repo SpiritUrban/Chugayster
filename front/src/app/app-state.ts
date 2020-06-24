@@ -47,7 +47,12 @@ const appState = {
       title: 'About',
       userMsg: 'Some wrong or good',
       devMsg: 'Tech details'
-  }    
+  },
+  pages: {
+    cabinet: {
+      subPage: 'profile'
+    }
+  }
   };
 
  export default appState;
