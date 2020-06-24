@@ -18,7 +18,9 @@
                 <!-- <a [routerLink]="['/health']">Health</a> -->
                 <!-- <a [routerLink]="['/programmer-tips']">Programmer tips</a> -->
 
-                <a [routerLink]="['/auth/login']" class="logged-in">Logged in !!!</a>
+                <a *ngIf="!st.user.isLogged" [routerLink]="['/auth/login']" class="important">Logged in !!!</a>
+                <a *ngIf="st.user.isLogged" [routerLink]="['/cabinet']" class="important">My Cabinet</a>
+
 
                 
 
