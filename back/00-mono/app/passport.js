@@ -12,6 +12,7 @@ var InstagramStrategy = require('passport-instagram').Strategy;
 var User = require('../models/user.js');
 // var config = require('./oauth.js');
 let log = console.log
+var hash = require('../controllers/crypto/hash');
 
 // setInterval(()=>{
 //   log(`AUTH @#@#@# ${process.env.HOST}`.info)
@@ -39,29 +40,29 @@ passport.deserializeUser((id, done) => {
 async function createOrUpdateUser(strategy, profile, done) {
   var user = null;
   if (strategy == 'google') {
-      const email = profile.emails[0].value;
-      user = await User.findOneAndUpdate({ email }, {
-          google: {
-              id: profile.id,
-              userName: profile.displayName,
-              email: email,
-          }
-      })
+    const email = profile.emails[0].value;
+    user = await User.findOneAndUpdate({ email }, {
+      google: {
+        id: profile.id,
+        userName: profile.displayName,
+        email: email,
+      }
+    })
   }
   if (strategy == 'facebook') {
-      const email = (profile.email) ? profile.email : '';
-      user = await User.findOneAndUpdate({ email }, {
-          facebook: {
-              id: profile.id,
-              userName: profile.displayName,
-              email: email
-          }
-      })
+    const email = (profile.email) ? profile.email : '';
+    user = await User.findOneAndUpdate({ email }, {
+      facebook: {
+        id: profile.id,
+        userName: profile.displayName,
+        email: email
+      }
+    })
   }
-  if(!user) createUser(strategy, profile, done);
+  if (!user) createUser(strategy, profile, done);
   else {
-      done(null, user);
-      log("USER Updated !!!");
+    done(null, user);
+    log("USER Updated !!!");
   }
 }
 
@@ -112,20 +113,20 @@ async function createUser(strategy, profile, done) {
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
-}, function (email, password, done) {
-  console.log('******************', email, password)
-
-  User.findOne({ email }, function (err, user) {
-    return err
-      ? done(err)
-      : user
-        ? password === user.password
-          ? done(null, user)
-          : done(null, false, { message: 'Incorrect password.' })
-        : done(null, false, { message: 'Incorrect email.' });
-  });
+}, async (email, password, done) => {
+  try {
+    const passwordHash = hash(password + '');
+    const user = await User.findOne({ email })
+    return  (user) 
+      ? (passwordHash === user.password) 
+        ? done(null, user)
+        : done(null, false, { message: 'Incorrect password.' })
+      : done(null, false, { message: 'Incorrect email.' });
+  } catch (error) {
+    log('!!! Some error in LocalStrategy !!!')
+    done(err)
+  }
 }));
-
 
 //
 // GoogleStrategy

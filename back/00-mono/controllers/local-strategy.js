@@ -10,9 +10,7 @@ module.exports = {
   // При удачной авторизации данные пользователя будут храниться в req.user
 
   login: (req, res, next) => {
-
-    req.body.password = hash(req.body.password)
-
+    log('BODY ->>> ', req.body)
     passport.authenticate('local',
       (err, user, info) => {
         return err
