@@ -25,17 +25,14 @@ export class CabinetComponent implements OnInit {
   ngOnInit() {
     log('STATE:');
     log(this.st)
-    setTimeout(() => {
-      // debugger
-      this.fake()
 
-    }, 2000)
+    // debugger
+    // setTimeout(() => { this.fake() }, 20000)
 
     log(this.st)
-
   }
 
-  goToSubPage(name){
+  goToSubPage(name) {
     log(name, this.st)
     this.st.pages.cabinet.subPage = name;
   }

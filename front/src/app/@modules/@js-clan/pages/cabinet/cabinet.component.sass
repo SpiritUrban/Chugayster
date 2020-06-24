@@ -1,9 +1,20 @@
+.mega-container
+    display: flex
+    justify-content: space-around
+    margin-bottom: 5em
+
+@media screen and (max-width: 1100px)
+    .mega-container
+        flex-direction: column
+
+
 .container
     // padding-top: 9em
     min-height: 100vh
     z-index: 1
     position: relative
     opacity: .9
+    padding-top: 1em
     // background-color: #792109
     
 .PS
@@ -13,11 +24,36 @@
 .user-card
     text-align: center
 
+.not-logged
+    h1 
+        margin-top: 1em
+        font-size: 2em
+        font-weight: 900
+        color: #b9005e
+        animation: hard 5s infinite
+    .sub-content
+        p 
+            width: 100%
+
+@keyframes hard 
+  0%
+    transform: rotate(0deg)
+    color: black
+    filter: blur(7px)
+    opacity: .1
+  100%
+    transform: rotate(360deg)
+    color: #b9005e
+    opacity: 1
+
+
+
 
 dl 
     p 
         display: flex
-        justify-content: space-evenly
+        justify-content: space-between
+        margin: auto
         dt 
             opacity: .5
         dd 
@@ -47,7 +83,9 @@ dl
             
 
 .jumbotron 
-    padding: 2rem 2rem                
+    padding: 2rem 2rem
+    background-color: #00000000
+    padding: 0         
 
 
 

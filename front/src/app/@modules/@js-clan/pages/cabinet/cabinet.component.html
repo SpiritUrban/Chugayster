@@ -3,210 +3,208 @@
 <app-night-sky></app-night-sky>
 
 
+<div class="mega-container">
 
 
-<div class="container">
+    <div class="container">
 
-    <div id="logo">
-        <h1 class="logo">hulu</h1>
-        <div class="CTA">
-            <h1>Get $10</h1>
+        <div id="logo">
+            <h1 class="logo">this</h1>
+            <div class="CTA">
+                <h1>Get $10</h1>
+            </div>
+        </div>
+
+        <div class="leftbox">
+
+            <div class="sub-nav">
+                <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
+                <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a>
+                <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a>
+                <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a>
+                <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a>
+            </div>
+
+        </div>
+
+        <div class="rightbox">
+
+            <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
+                <h1>Personal Info</h1>
+                <h2>Full Name</h2>
+                <p>Julie Park <button class="btn">update</button></p>
+                <h2>Birthday</h2>
+                <p>July 21</p>
+                <h2>Gender</h2>
+                <p>Female</p>
+                <h2>Email</h2>
+                <p>example@example.com <button class="btn">update</button></p>
+                <h2>Password </h2>
+                <p>••••••• <button class="btn">Change</button></p>
+            </div>
+
+            <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
+                <h1>Payment Info</h1>
+                <h2>Payment Method</h2>
+                <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
+                <h2>Billing Address</h2>
+                <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
+                <h2>Zipcode</h2>
+                <p>999000</p>
+                <h2>Billing History</h2>
+                <p>2018<button class="btn">view</button></p>
+                <h2>Redeem Gift Subscription </h2>
+                <!-- <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p> -->
+            </div>
+
+            <div [class]="(st.pages.cabinet.subPage == 'subscription') ? 'subscription' : 'subscription noshow' ">
+                <h1>Your Subscription</h1>
+                <h2>Payment Date</h2>
+                <p>05-15-2018 <button class="btn">pay now</button></p>
+                <h2>Your Next Charge</h2>
+                <p>$8.48<span> includes tax</span></p>
+                <h2>Hulu Base Plan</h2>
+                <p>Limited Commercials <button class="btn">change plan</button></p>
+                <h2>Add-ons</h2>
+                <p>None <button class="btn">manage</button></p>
+                <h2>Monthly Recurring Total </h2>
+                <p>$7.99/month</p>
+            </div>
+
+            <div [class]="(st.pages.cabinet.subPage == 'privacy') ? 'privacy' : 'privacy noshow' ">
+                <h1>Privacy Settings</h1>
+                <h2>Manage Email Notifications<button class="btn">manage</button></h2>
+                <p></p>
+                <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
+                <p></p>
+                <h2>View Terms of Use <button class="btn">view</button></h2>
+                <p></p>
+                <h2>Personalize Ad Experience <button class="btn">update</button></h2>
+                <p></p>
+                <h2>Protect Your Account <button class="btn">protect</button></h2>
+                <p></p>
+            </div>
+
+            <div [class]="(st.pages.cabinet.subPage == 'settings') ? 'settings' : 'settings noshow' ">
+                <h1>Account Settings</h1>
+                <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
+                <p></p>
+                <h2>Hold Your Subscription<button class="btn">hold</button></h2>
+                <p></p>
+                <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
+                <p></p>
+                <h2>Your Devices <button class="btn">Manage Devices</button></h2>
+                <p></p>
+                <h2>Referrals <button class="btn">get $10</button></h2>
+                <p></p>
+            </div>
+
         </div>
     </div>
 
-    <div class="leftbox">
-
-        <div class="sub-nav">
-            <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
-            <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a>
-            <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a>
-            <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a>
-            <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a>
-        </div>
-
-    </div>
-
-    <div class="rightbox">
-
-        <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
-            <h1>Personal Info</h1>
-            <h2>Full Name</h2>
-            <p>Julie Park <button class="btn">update</button></p>
-            <h2>Birthday</h2>
-            <p>July 21</p>
-            <h2>Gender</h2>
-            <p>Female</p>
-            <h2>Email</h2>
-            <p>example@example.com <button class="btn">update</button></p>
-            <h2>Password </h2>
-            <p>••••••• <button class="btn">Change</button></p>
-        </div>
-
-        <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
-            <h1>Payment Info</h1>
-            <h2>Payment Method</h2>
-            <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
-            <h2>Billing Address</h2>
-            <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
-            <h2>Zipcode</h2>
-            <p>999000</p>
-            <h2>Billing History</h2>
-            <p>2018<button class="btn">view</button></p>
-            <h2>Redeem Gift Subscription </h2>
-            <!-- <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p> -->
-        </div>
-
-        <div [class]="(st.pages.cabinet.subPage == 'subscription') ? 'subscription' : 'subscription noshow' ">
-            <h1>Your Subscription</h1>
-            <h2>Payment Date</h2>
-            <p>05-15-2018 <button class="btn">pay now</button></p>
-            <h2>Your Next Charge</h2>
-            <p>$8.48<span> includes tax</span></p>
-            <h2>Hulu Base Plan</h2>
-            <p>Limited Commercials <button class="btn">change plan</button></p>
-            <h2>Add-ons</h2>
-            <p>None <button class="btn">manage</button></p>
-            <h2>Monthly Recurring Total </h2>
-            <p>$7.99/month</p>
-        </div>
-
-        <div [class]="(st.pages.cabinet.subPage == 'privacy') ? 'privacy' : 'privacy noshow' ">
-            <h1>Privacy Settings</h1>
-            <h2>Manage Email Notifications<button class="btn">manage</button></h2>
-            <p></p>
-            <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
-            <p></p>
-            <h2>View Terms of Use <button class="btn">view</button></h2>
-            <p></p>
-            <h2>Personalize Ad Experience <button class="btn">update</button></h2>
-            <p></p>
-            <h2>Protect Your Account <button class="btn">protect</button></h2>
-            <p></p>
-        </div>
-
-        <div [class]="(st.pages.cabinet.subPage == 'settings') ? 'settings' : 'settings noshow' ">
-            <h1>Account Settings</h1>
-            <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
-            <p></p>
-            <h2>Hold Your Subscription<button class="btn">hold</button></h2>
-            <p></p>
-            <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
-            <p></p>
-            <h2>Your Devices <button class="btn">Manage Devices</button></h2>
-            <p></p>
-            <h2>Referrals <button class="btn">get $10</button></h2>
-            <p></p>
-        </div>
-
-    </div>
-</div>
 
 
+    <!-- --------------------- -->
 
-<!-- --------------------- -->
+    <div class="container cabinet-content">
 
-<div class="container cabinet-content">
-
-    <!-- <br>
+        <!-- <br>
     <div class="row">
         <button type="button" class="btn btn-primary">English</button>
         <button type="button" class="btn btn-secondary">Українською</button>
         <button type="button" class="btn btn-secondary">Русский</button>
     </div> -->
 
-    <br>
 
+        <!-- UN LOGGED -->
+        <div *ngIf="!st.user.isLogged" class="jumbotron user-card not-logged">
+            <h1 class="">You are not logged!!</h1>
+            <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg"
+                alt="Anonymous">
 
-
-    <!-- UN LOGGED -->
-    <div *ngIf="!st.user.isLogged" class="jumbotron user-card">
-        <h1 class="">You are not logged!!</h1>
-        <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg" alt="Anonymous">
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
-            <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
-        </p>
-        <div class="modal-body">
-            <p>Modal body text goes here.</p>
-        </div>
-    </div>
-
-
-    <!-- LOGGED -->
-    <div *ngIf="st.user.isLogged" class="jumbotron user-card">
-        <h1 class="">Hello, <b class="text-primary">{{st.user.username}}!</b></h1>
-        <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg" alt="Anonymous">
-
-        <hr class="my-4">
-        <dl>
-            <!-- Email -->
-            <p>
-                <dt>Email:</dt>
-                <dd>
-                    <b>{{st.user.email}}</b>
-                    <sup class="badge">
-                        <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
-                        <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
-                    </sup>
-                </dd>
-                <dd>
-                    <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">Send
-                        mail</button>
-                </dd>
-            </p>
-            <p>
-                <dt>Email:</dt>
-                <dd>
-                    <b>{{st.user.email}}</b>
-                    <sup class="badge">
-                        <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
-                        <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
-                    </sup>
-                </dd>
-            </p>
-            <p>
-                <!-- Facebook -->
-                <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
-                        title="Connection with facebook"></i> </a>
-                <!-- Google -->
-                <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
-                        title="Connection with google"></i> </a>
-
-            </p>
-        </dl>
-
-        <hr class="my-4">
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-            featured content or information.</p>
-
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-
-        <hr class="my-4">
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-        </p>
-    </div>
-
-    <div class="row">
-        <div class="col-12">
-            <h3>Title</h3>
-        </div>
-        <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let item of [1,2,3]">
-            <div class="user-info">
-                Block: {{item}}
+            <div class="sub-content">
+                <hr class="my-4">
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+                    attention  to featured content or information.</p>
+                <hr class="my-4">
+                <p>
+                    It uses utility classes for typography and spacing to space content out within the larger container.
+                </p>
+                <hr class="my-4">
+                <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
+                <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
             </div>
-            <!-- <app-flip-card [card]="card"></app-flip-card> -->
+
         </div>
+
+
+        <!-- LOGGED -->
+        <div *ngIf="st.user.isLogged" class="jumbotron user-card">
+            <h1 class="">Hello, <b class="text-primary">{{st.user.username}}!</b></h1>
+            <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg"
+                alt="Anonymous">
+
+            <hr class="my-4">
+            <dl>
+                <!-- Email -->
+                <p>
+                    <dt>Email:</dt>
+                    <dd>
+                        <b>{{st.user.email}}</b>
+                        <sup class="badge">
+                            <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                            <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                        </sup>
+                    </dd>
+                    <dd>
+                        <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">Send
+                            mail</button>
+                    </dd>
+                </p>
+                <p>
+                    <dt>Email:</dt>
+                    <dd>
+                        <b>{{st.user.email}}</b>
+                        <sup class="badge">
+                            <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                            <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                        </sup>
+                    </dd>
+                </p>
+                <p>
+                    <!-- Facebook -->
+                    <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
+                            title="Connection with facebook"></i> </a>
+                    <!-- Google -->
+                    <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
+                            title="Connection with google"></i> </a>
+
+                </p>
+            </dl>
+
+            <hr class="my-4">
+
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+
+        </div>
+        <!-- 
+        <div class="row">
+            <div class="col-12">
+                <h3>Title</h3>
+            </div>
+            <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let item of [1,2,3]">
+                <div class="user-info">
+                    Block: {{item}}
+                </div>
+                <app-flip-card [card]="card"></app-flip-card>
+            </div>
+        </div> -->
+
+        <br>
+        <br>
+
+
     </div>
-
-    <br>
-    <br>
-
 
 </div>
 
