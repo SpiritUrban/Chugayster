@@ -31,14 +31,30 @@
 
             <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
                 <h1>Personal Info</h1>
+                <!-- full_name  Julie Park -->
+
                 <h2>Full Name</h2>
-                <p>Julie Park <button class="btn">update</button></p>
+                <p *ngIf="editable == 'full_name'">
+                    {{st.user.full_name || ' ... '}} <button class="btn" (click)="editable='full_name'">update</button>
+                </p>
+                <p *ngIf="editable != 'full_name'">
+                    <input type="text" name="" id=""> <button class="btn">save</button>
+                </p>
+
                 <h2>Birthday</h2>
                 <p>July 21</p>
                 <h2>Gender</h2>
-                <p>Female</p>
-                <h2>Email</h2>
-                <p>example@example.com <button class="btn">update</button></p>
+                <!-- Female -->
+                <p>{{st.user.gender}}</p>
+                <h2>
+                    Email
+                    <sup class="badge">
+                        <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                        <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                    </sup>
+                </h2>
+
+                <p>{{st.user.email}} <button class="btn">update</button></p>
                 <h2>Password </h2>
                 <p>••••••• <button class="btn">Change</button></p>
             </div>
@@ -169,9 +185,12 @@
                 alt="Anonymous">
 
             <hr class="my-4">
+            <h5>Achievements:</h5>
+
             <dl>
                 <!-- Email -->
                 <p>
+                <!-- <p>
                     <dt>Email:</dt>
                     <dd>
                         <b>{{st.user.email}}</b>
@@ -180,23 +199,7 @@
                             <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
                         </sup>
                     </dd>
-                    <dd>
-                        You mail not verified! 
-                        <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">
-                            Send verification mail
-                        </button>
-                    </dd>
-                </p>
-                <p>
-                    <dt>Email:</dt>
-                    <dd>
-                        <b>{{st.user.email}}</b>
-                        <sup class="badge">
-                            <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
-                            <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
-                        </sup>
-                    </dd>
-                </p>
+                </p> -->
                 <p>
                     <!-- Facebook -->
                     <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
@@ -204,7 +207,6 @@
                     <!-- Google -->
                     <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
                             title="Connection with google"></i> </a>
-
                 </p>
             </dl>
 

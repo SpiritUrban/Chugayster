@@ -17,6 +17,7 @@ let User = mongoose.model('User', {
     email_verif: Boolean,
     status: String,
     iss: String,
+    full_name: String,
     first_name: String,
     last_name: String,
     date_of_birth: Date,

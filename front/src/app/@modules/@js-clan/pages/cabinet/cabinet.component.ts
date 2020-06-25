@@ -14,6 +14,7 @@ import appState from '../../../../app-state';
 export class CabinetComponent implements OnInit {
 
   st: any = appState;
+  editable: string;
 
   constructor(
     private api: ApiService,
