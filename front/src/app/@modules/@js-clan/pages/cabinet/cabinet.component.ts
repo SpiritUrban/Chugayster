@@ -27,7 +27,7 @@ export class CabinetComponent implements OnInit {
     log(this.st)
 
     // debugger
-    // setTimeout(() => { this.fake() }, 20000)
+    setTimeout(() => { this.fake() }, 2000)
 
     log(this.st)
   }

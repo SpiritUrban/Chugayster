@@ -70,7 +70,9 @@ let User = mongoose.model('User', {
     phone_pin: Number,
     //numeric_id: { type: Number, index: { unique: true } },
     last_appeal: { type: Date, default: Date.now },
-    last_method: String
+    last_method: String,
+    gender: String
+
 
     // }, { minimize: false, timestamps: true });
 

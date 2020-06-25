@@ -2,20 +2,31 @@
     display: flex
     justify-content: space-around
     margin-bottom: 5em
+    min-height: 100vh
+    margin-bottom: 2em
+    margin-top: 7em
+
 
 @media screen and (max-width: 1100px)
     .mega-container
         flex-direction: column
 
 
-.container
+.sub-container
     // padding-top: 9em
-    min-height: 100vh
+    // min-height: 100vh
     z-index: 1
     position: relative
     opacity: .9
     padding-top: 1em
     // background-color: #792109
+    
+
+.sub-first
+    width: 500px
+    height: 500px
+.sub-second
+    height: 100%
     
 .PS
     margin: 1em auto 2em auto
@@ -100,23 +111,6 @@ dl
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $logo: #3DBB3D
 $gray: #777777
 $black: #070707
@@ -134,13 +128,12 @@ body
   background: linear-gradient(to right, $aqua, $green)
 
 
-.container 
+.sub-container 
   background: rgba(78,93,108,0.5)
   max-width: 540px
-  height: 420px
   margin: 0 auto
   position: relative
-  margin-top: 10em
+  margin-top: 3em
   box-shadow: 2px 5px 20px rgba(#293038, .5)
 
 
@@ -251,10 +244,6 @@ p
   font-size: .7em
   padding: 7px 0
   //color: $black
-
-span 
-  font-size: .5em
-  color: $gray
 
 
 .btn 

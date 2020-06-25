@@ -6,7 +6,7 @@
 <div class="mega-container">
 
 
-    <div class="container">
+    <div class="sub-container sub-first">
 
         <div id="logo">
             <h1 class="logo">this</h1>
@@ -106,7 +106,7 @@
 
     <!-- --------------------- -->
 
-    <div class="container cabinet-content">
+    <div class="sub-container cabinet-content sub-second">
 
         <!-- <br>
     <div class="row">
@@ -125,7 +125,7 @@
             <div class="sub-content">
                 <hr class="my-4">
                 <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                    attention  to featured content or information.</p>
+                    attention to featured content or information.</p>
                 <hr class="my-4">
                 <p>
                     It uses utility classes for typography and spacing to space content out within the larger container.
@@ -136,6 +136,30 @@
             </div>
 
         </div>
+
+
+
+        <!-- 
+    avatar
+    first_name
+    last_name
+    status
+    phone + phone_verif
+    date_of_birth
+    city
+    country
+    wallets.USD.balance
+    facebook: {
+        id: String,
+        token: String,
+        email: String,
+        username: String
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        username: String
+    linked_users: [] -->
 
 
         <!-- LOGGED -->
@@ -157,8 +181,10 @@
                         </sup>
                     </dd>
                     <dd>
-                        <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">Send
-                            mail</button>
+                        You mail not verified! 
+                        <button *ngIf="!st.user.email_verif" type="button" class="btn btn-outline-info btn-sm">
+                            Send verification mail
+                        </button>
                     </dd>
                 </p>
                 <p>
