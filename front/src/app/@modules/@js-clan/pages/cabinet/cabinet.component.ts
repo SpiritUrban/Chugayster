@@ -52,7 +52,7 @@ export class CabinetComponent implements OnInit {
     log(field)
     const container = $event.toElement.parentElement.parentElement;
     // focus
-    setTimeout(()=>{
+    setTimeout(() => {
       const target = container.querySelector('p input, p select');
       target.focus();
       log(container, target);
@@ -83,7 +83,11 @@ export class CabinetComponent implements OnInit {
   onChange(deviceValue) {
     this.editableValue = deviceValue
     console.log(deviceValue);
-}
+  }
+
+  sendVerificationMail() {
+
+  }
 
   fake() {
     this.st.user = JSON.parse(`{

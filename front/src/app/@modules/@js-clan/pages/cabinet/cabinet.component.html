@@ -74,15 +74,20 @@
                 </div>
 
 
-                <h2>
-                    Email
-                    <sup class="badge">
-                        <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
-                        <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
-                    </sup>
-                </h2>
+                <div>
+                    <h2>Email</h2>
+                    <p style="position: relative;">
+                        {{st.user.email || ' ... '}}
+                        <sup class="badge" style="position: absolute;">
+                            <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                            <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                        </sup>
+                        <button class="btn" (click)="sendVerificationMail()">Send mail</button>
+                    </p>
+                </div>
+                
+                
 
-                <p>{{st.user.email}} <button class="btn">update</button></p>
                 <h2>Password </h2>
                 <p>••••••• <button class="btn">Change</button></p>
             </div>
