@@ -33,13 +33,17 @@
                 <h1>Personal Info</h1>
                 <!-- full_name  Julie Park -->
 
-                <h2>Full Name</h2>
-                <p *ngIf="editable != 'full_name'">
-                    {{st.user.full_name || ' ... '}} <button class="btn" (click)="toEditableMod('full_name')">update</button>
-                </p>
-                <p *ngIf="editable == 'full_name'">
-                    <input [(ngModel)]="editableValue" type="text" name="" id=""> <button class="btn" (click)="editUser()">save</button>
-                </p>
+                <div>
+                    <h2>Full Name</h2>
+                    <p *ngIf="editable != 'full_name'">
+                        {{st.user.full_name || ' ... '}} <button class="btn"
+                            (click)="toEditableMod('full_name', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'full_name'">
+                        <input [(ngModel)]="editableValue" type="text"> <button class="btn"
+                            (click)="editUser()">save</button>
+                    </p>
+                </div>
 
                 <h2>Birthday</h2>
                 <p>July 21</p>
@@ -168,7 +172,7 @@
             <dl>
                 <!-- Email -->
                 <p>
-                <!-- <p>
+                    <!-- <p>
                     <dt>Email:</dt>
                     <dd>
                         <b>{{st.user.email}}</b>
@@ -178,14 +182,14 @@
                         </sup>
                     </dd>
                 </p> -->
-                <p>
-                    <!-- Facebook -->
-                    <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
-                            title="Connection with facebook"></i> </a>
-                    <!-- Google -->
-                    <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
-                            title="Connection with google"></i> </a>
-                </p>
+                    <p>
+                        <!-- Facebook -->
+                        <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
+                                title="Connection with facebook"></i> </a>
+                        <!-- Google -->
+                        <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
+                                title="Connection with google"></i> </a>
+                    </p>
             </dl>
 
             <hr class="my-4">
@@ -197,7 +201,7 @@
 
 
 
-            
+
 
         </div>
         <!-- 

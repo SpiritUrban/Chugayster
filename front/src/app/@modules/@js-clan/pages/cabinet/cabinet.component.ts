@@ -47,7 +47,14 @@ export class CabinetComponent implements OnInit {
     location.reload();
   }
 
-  toEditableMod(field) {
+  toEditableMod(field, $event) {
+    const container = $event.toElement.parentElement.parentElement;
+    // focus
+    setTimeout(()=>{
+      const target = container.querySelector('p input');
+      target.focus();
+      log(container, target);
+    }, 100)
     this.editableValue = this.st.user[field];
     this.editable = field;
   }
