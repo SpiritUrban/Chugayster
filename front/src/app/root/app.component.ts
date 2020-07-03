@@ -21,9 +21,9 @@ export class AppComponent {
   ) {
   }
 
-  ngOnInit(){
-      this.fingerPrint.checkIfItExist();
-      this.getUserInfo();
+  ngOnInit() {
+    this.fingerPrint.checkIfItExist();
+    this.getUserInfo();
   }
 
   async getUserInfo() {
@@ -31,7 +31,7 @@ export class AppComponent {
       this.st.user = await this.api.getUserInfoIfLogged();
       console.log('result getUserInfo', this.st.user);
     } catch (error) {
-      
+
     }
 
     // this.st.user = fromServer

@@ -54,10 +54,19 @@ export class CabinetComponent implements OnInit {
 
   async editUser() {
     log(this.editable, this.editableValue);
-    const answer: any = await this.api.editUser({key: this.editable, newValue: this.editableValue});
+    const answer: any = await this.api.editUser({ key: this.editable, newValue: this.editableValue });
     this.editable = '';
-    // refresh ui user;
+    this.getUserInfo(); // refresh ui user;
     log(answer)
+  }
+
+  async getUserInfo() {
+    try {
+      this.st.user = await this.api.getUserInfoIfLogged();
+      log('result getUserInfo', this.st.user);
+    } catch (error) {
+      log(error);
+    }
   }
 
   fake() {
