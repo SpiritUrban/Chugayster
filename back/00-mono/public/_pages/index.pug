@@ -45,7 +45,7 @@ html(lang='en')
     main.main
 
 
-      section#info_2.limit(style="height: 16em; overflow: hidden; position: relative; ")
+      section#info_2.limit(style="height: 18em; overflow: hidden; position: relative; ")
         br
         h2.c Ресурс для Java Script розробників
 
@@ -57,7 +57,10 @@ html(lang='en')
           br
           br
           a.c(href="./members" class="action-button shadow animate yellow") Члени
-
+          br
+          br
+          br
+          a.c(href="./auth/login" class="action-button shadow animate gray") Вхід
 
 
       //- Style ------------------------------------------------------------------------------------------
@@ -71,7 +74,12 @@ html(lang='en')
             background-color: #FF9800;
             border-bottom: 5px solid #b76d00;
             text-shadow: 0px -2px #b76d00;
-        }      
+        }
+        .gray {
+            background-color: gray;
+            border-bottom: 5px solid #3d4b53;
+            text-shadow: 0px -2px #3d4b53;
+        } 
         .info_2_shadow {
           filter: blur(15px);
           background: #222831;
