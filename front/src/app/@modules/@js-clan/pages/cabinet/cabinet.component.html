@@ -30,23 +30,36 @@
         <div class="rightbox">
 
             <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
+
                 <h1>Personal Info</h1>
-                <!-- full_name  Julie Park -->
 
                 <div>
                     <h2>Full Name</h2>
                     <p *ngIf="editable != 'full_name'">
-                        {{st.user.full_name || ' ... '}} <button class="btn"
-                            (click)="toEditableMod('full_name', $event)">update</button>
+                        {{st.user.full_name || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('full_name', $event)">update</button>
                     </p>
                     <p *ngIf="editable == 'full_name'">
-                        <input [(ngModel)]="editableValue" type="text"> <button class="btn"
-                            (click)="editUser()">save</button>
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
                     </p>
                 </div>
 
-                <h2>Birthday</h2>
-                <p>July 21</p>
+                <div>
+                    <h2>Birthday</h2>
+                    <p *ngIf="editable != 'date_of_birth'">
+                        {{st.user.date_of_birth | date: 'dd/MM/yyyy' || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('date_of_birth', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'date_of_birth'">
+                        {{editableValue | date: 'dd/MM/yyyy'}}
+                        <input type="date" [ngModel]="editableValue | date:'yyyy-MM-dd'"
+                            (ngModelChange)="editableValue = $event">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+
+
                 <h2>Gender</h2>
                 <!-- Female -->
                 <p>{{st.user.gender}}</p>

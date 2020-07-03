@@ -15,7 +15,8 @@ export class CabinetComponent implements OnInit {
 
   st: any = appState;
   editable: string;
-  editableValue: string;
+  editableValue: any;
+  test: any;
 
   constructor(
     private api: ApiService,
@@ -57,6 +58,8 @@ export class CabinetComponent implements OnInit {
     }, 100)
     this.editableValue = this.st.user[field];
     this.editable = field;
+
+    // this.test = new Date( this.st.user.date_of_birth)
   }
 
   async editUser() {
