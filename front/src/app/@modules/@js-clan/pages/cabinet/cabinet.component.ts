@@ -49,10 +49,11 @@ export class CabinetComponent implements OnInit {
   }
 
   toEditableMod(field, $event) {
+    log(field)
     const container = $event.toElement.parentElement.parentElement;
     // focus
     setTimeout(()=>{
-      const target = container.querySelector('p input');
+      const target = container.querySelector('p input, p select');
       target.focus();
       log(container, target);
     }, 100)
@@ -63,7 +64,7 @@ export class CabinetComponent implements OnInit {
   }
 
   async editUser() {
-    log(this.editable, this.editableValue);
+    log(this.editable, this.editableValue, this.st.user);
     const answer: any = await this.api.editUser({ key: this.editable, newValue: this.editableValue });
     this.editable = '';
     this.getUserInfo(); // refresh ui user;
@@ -78,6 +79,11 @@ export class CabinetComponent implements OnInit {
       log(error);
     }
   }
+
+  onChange(deviceValue) {
+    this.editableValue = deviceValue
+    console.log(deviceValue);
+}
 
   fake() {
     this.st.user = JSON.parse(`{

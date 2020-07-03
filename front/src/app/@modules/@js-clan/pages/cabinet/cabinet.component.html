@@ -52,7 +52,6 @@
                         <button class="btn" (click)="toEditableMod('date_of_birth', $event)">update</button>
                     </p>
                     <p *ngIf="editable == 'date_of_birth'">
-                        {{editableValue | date: 'dd/MM/yyyy'}}
                         <input type="date" [ngModel]="editableValue | date:'yyyy-MM-dd'"
                             (ngModelChange)="editableValue = $event">
                         <button class="btn" (click)="editUser()">save</button>
@@ -60,9 +59,21 @@
                 </div>
 
 
-                <h2>Gender</h2>
-                <!-- Female -->
-                <p>{{st.user.gender}}</p>
+                <div>
+                    <h2>Gender</h2>
+                    <p *ngIf="editable != 'gender'">
+                        {{st.user.gender || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('gender', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'gender'">
+                        <select [ngModel]="editableValue" (ngModelChange)="onChange($event)" name="sel2">
+                            <option [value]="i" *ngFor="let i of ['male', 'female']">{{i}}</option>
+                        </select>
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+
+
                 <h2>
                     Email
                     <sup class="badge">
