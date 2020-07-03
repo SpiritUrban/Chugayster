@@ -86,7 +86,7 @@ export class CabinetComponent implements OnInit {
   }
 
   sendVerificationMail() {
-
+    // !!!!!!!!!!!!!!!!!!!!!!
   }
 
   fake() {

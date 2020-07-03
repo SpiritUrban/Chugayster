@@ -10,9 +10,8 @@ module.exports = function (app) {
     ['/',              './api/v1/prepare'],
     ['/',              './api/v1/auth-strategies'],
     ['/',              './api/v1/dev'],
-    ['/',              './root'],
-
     ['/api/auth',      './api/v1/auth'],
+    ['/',              './root'],
 
     ['/chats',         './chats_'],
     ['/api',           './api/v1/_api'],
