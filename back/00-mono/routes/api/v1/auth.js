@@ -23,7 +23,8 @@ router.post('/restore-password', require(`${path_ctr_auth}/restore-password`))
 // Auth system
 const lS = require('../../../controllers/local-strategy');
 router.post('/login', lS.login);
-router.get('/logout', lS.logout);
+router.get('/logout', lS.logout); // /api/auth/logout
+router.post('/logout', lS.logout);
 
 
 /* .................................................. off .......................................................... */

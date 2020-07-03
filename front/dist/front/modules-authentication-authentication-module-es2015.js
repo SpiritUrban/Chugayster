@@ -283,9 +283,9 @@ function LoginComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r65 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    const ctx_r67 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r65.passwords.errors.itemsAreEqual.msg, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r67.passwords.errors.itemsAreEqual.msg, " ");
 } }
 const _c0 = function () { return ["/auth/register"]; };
 class LoginComponent {
@@ -348,6 +348,7 @@ class LoginComponent {
                     Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_3__["log"])('this.st: ', this.st);
                     // need add finger print !!!
                     Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_3__["my_alert"])(':)', 'User logged!', null);
+                    setTimeout(_ => this.st.alert.show = false, 1500);
                     setTimeout(_ => this.router.navigate(['/cabinet']), 2000);
                 }
             }
@@ -581,9 +582,9 @@ function RegisterComponent_div_31_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ctx_r66 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
+    const ctx_r68 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r66.passwords.errors.itemsAreEqual.msg, " ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"](" ", ctx_r68.passwords.errors.itemsAreEqual.msg, " ");
 } }
 // change component mode 
 const queries = Object(_my_modules_stuff__WEBPACK_IMPORTED_MODULE_3__["getUrlQueries"])();

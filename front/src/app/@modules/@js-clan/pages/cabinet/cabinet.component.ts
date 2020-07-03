@@ -41,6 +41,11 @@ export class CabinetComponent implements OnInit {
     this.st.pages.cabinet.subPage = name;
   }
 
+  async logout(){
+    const answer: any = await this.api.logout();
+    location.reload()
+  }
+
   fake() {
     this.st.user = JSON.parse(`{
       "wallets": {

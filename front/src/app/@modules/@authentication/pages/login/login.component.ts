@@ -82,6 +82,7 @@ export class LoginComponent implements OnInit {
         
 
         my_alert(':)', 'User logged!', null);
+        setTimeout(_ => this.st.alert.show = false, 1500)
         setTimeout(_ => this.router.navigate(['/cabinet']), 2000)
       }
     } catch (error) {

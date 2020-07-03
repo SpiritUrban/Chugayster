@@ -27,8 +27,11 @@ module.exports = {
   },
 
   logout: (req, res) => {
+    log(')))))))))))))))________________________________---------------------')
     req.logout();
-    res.redirect('/');
+    //res.redirect('/');
+    console.log(req.user)
+    res.json({ok: true})
   }
 
 }
