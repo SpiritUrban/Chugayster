@@ -132,28 +132,6 @@
     </div> -->
 
 
-        <!-- UN LOGGED -->
-        <div *ngIf="!st.user.isLogged" class="jumbotron user-card not-logged">
-            <h1 class="">You are not logged!!</h1>
-            <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg"
-                alt="Anonymous">
-
-            <div class="sub-content">
-                <hr class="my-4">
-                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
-                    attention to featured content or information.</p>
-                <hr class="my-4">
-                <p>
-                    It uses utility classes for typography and spacing to space content out within the larger container.
-                </p>
-                <hr class="my-4">
-                <a class="btn btn-primary btn-lg" [routerLink]="['/auth/login']" role="button">Login</a>
-                <!-- <a [routerLink]="['/members']">MEMBERS</a> -->
-            </div>
-
-        </div>
-
-
 
         <!-- 
     avatar
@@ -212,7 +190,12 @@
 
             <hr class="my-4">
 
-            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+
+            <a class="btn btn-primary btn-lg" href="/auth/logout" role="button">Logout</a>
+
+
+            
 
         </div>
         <!-- 

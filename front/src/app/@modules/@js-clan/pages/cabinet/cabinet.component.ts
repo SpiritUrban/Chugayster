@@ -28,7 +28,10 @@ export class CabinetComponent implements OnInit {
     log(this.st)
 
     // debugger
-    setTimeout(() => { this.fake() }, 2000)
+    // setTimeout(() => { this.fake() }, 2000)
+
+    // login control
+    if (!this.st.user.isLogged) this.router.navigate(['/auth/login']);
 
     log(this.st)
   }
