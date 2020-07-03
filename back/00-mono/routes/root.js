@@ -9,6 +9,24 @@ const router = express.Router()
 const bcrypt = require('bcrypt');
 
 
+// FAKE !!!!
+router.all('/*', async (req, res, next)=>{
+    log('********---------********---------****-*---*-*-*');
+        req.user= await User.findOne({email: 'shadespiritenator@gmail.com'})
+    next();
+})
+
+
+router.put('/user', async (req, res)=>{
+    log(req.body) // { key: 'full_name', newValue: 'sdsdg' }
+    await User.findOneAndUpdate({
+        email: req.user.email
+    }, {
+        [req.body.key]: req.body.newValue
+    })
+    res.json({ok: true})
+})
+
 
 
 ///////////////////////////////////////////////////////
@@ -44,13 +62,56 @@ router.get('/session-info', (req, res) => {
 
 router.get(['/user', '/get-user-info-if-logged'], async (req, res) => {
     try {
-        log('---5---')
         res.json(req.user);
+        // res.json(fakeUser);
+        // const testUser = await User.findOne({email: 'shadespiritenator@gmail.com'})
+        // res.json(testUser);
+
     } catch (error) {
         console.log(error);
         res.sendStatus(500);
     }
 })
+
+const fakeUser = JSON.parse(`{
+    "wallets": {
+      "USD": {
+        "balance": 0
+      }
+    },
+    "facebook": {
+      "id": "",
+      "token": "",
+      "email": "",
+      "username": ""
+    },
+    "google": {
+      "id": "",
+      "token": "",
+      "email": "",
+      "username": ""
+    },
+    "isLogged": true,
+    "purchases_made": [],
+    "saved_numbers": [],
+    "linked_users": [],
+    "_id": "5e72314405de434144dca5be",
+    "username": "testUser",
+    "email": "shadespiritenator@gmail.com",
+    "email_token": "077q6b76v9vwqtaryepfjbseao0fdprrj7chg22dlhj",
+    "password": "cd2a9a2e8d3572113b95e3b60bf626a77899ec6b",
+    "phone_pin": 730901,
+    "link_pin": 272749,
+    "active": false,
+    "email_verif": false,
+    "phone_verif": false,
+    "ever_cha": "7645e520-6925-11ea-977c-578729c8c9f9",
+    "ever_sec": "4c04539621e9baec7e8651059293a71573409788",
+    "last_login": "2020-03-18T14:33:40.735Z",
+    "last_appeal": "2020-03-18T14:33:40.736Z",
+    "__v": 0
+  }`)
+
 
 
 

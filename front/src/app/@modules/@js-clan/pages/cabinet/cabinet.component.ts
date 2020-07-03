@@ -15,6 +15,7 @@ export class CabinetComponent implements OnInit {
 
   st: any = appState;
   editable: string;
+  editableValue: string;
 
   constructor(
     private api: ApiService,
@@ -33,7 +34,7 @@ export class CabinetComponent implements OnInit {
     // login control
     if (!this.st.user.isLogged) this.router.navigate(['/auth/login']);
 
-    log(this.st)
+    log(this.st);
   }
 
   goToSubPage(name) {
@@ -41,9 +42,22 @@ export class CabinetComponent implements OnInit {
     this.st.pages.cabinet.subPage = name;
   }
 
-  async logout(){
+  async logout() {
     const answer: any = await this.api.logout();
-    location.reload()
+    location.reload();
+  }
+
+  toEditableMod(field) {
+    this.editableValue = this.st.user[field];
+    this.editable = field;
+  }
+
+  async editUser() {
+    log(this.editable, this.editableValue);
+    const answer: any = await this.api.editUser({key: this.editable, newValue: this.editableValue});
+    this.editable = '';
+    // refresh ui user;
+    log(answer)
   }
 
   fake() {

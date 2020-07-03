@@ -28,6 +28,9 @@ export class ApiService {
   login = (userData) => this.http.post(url + '/api/auth/login', userData, httpOptions).toPromise();
   logout = () => this.http.post(url + '/api/auth/logout', httpOptions).toPromise();
 
+  editUser = (updatedField) => this.http.put(url + '/user', updatedField, httpOptions).toPromise();
+
+
 
 
   // auth info ???

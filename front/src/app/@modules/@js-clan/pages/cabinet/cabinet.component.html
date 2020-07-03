@@ -34,11 +34,11 @@
                 <!-- full_name  Julie Park -->
 
                 <h2>Full Name</h2>
-                <p *ngIf="editable == 'full_name'">
-                    {{st.user.full_name || ' ... '}} <button class="btn" (click)="editable='full_name'">update</button>
-                </p>
                 <p *ngIf="editable != 'full_name'">
-                    <input type="text" name="" id=""> <button class="btn">save</button>
+                    {{st.user.full_name || ' ... '}} <button class="btn" (click)="toEditableMod('full_name')">update</button>
+                </p>
+                <p *ngIf="editable == 'full_name'">
+                    <input [(ngModel)]="editableValue" type="text" name="" id=""> <button class="btn" (click)="editUser()">save</button>
                 </p>
 
                 <h2>Birthday</h2>
