@@ -16,9 +16,7 @@ router.post('/restore-access-by-email-or-username', require(`${path_ctr_auth}/re
 // restore access by 'email' & by 'user name'
 router.post('/restore-password', require(`${path_ctr_auth}/restore-password`));
 
-// router.post('/send-verification-mail', apiEnsureAuthenticated, (req, res) => {
-router.post('/send-verification-mail', (req, res) => {
-    console.log('******************>>>', req.user, req.body)
+router.post('/send-verification-mail', apiEnsureAuthenticated, (req, res) => {
     mails.send_mail_verification(req.user._id);
     res.json({ ok: true, msg: 'hz' });
 })

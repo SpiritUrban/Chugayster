@@ -90,6 +90,14 @@ export class CabinetComponent implements OnInit {
     log(answer);
   }
 
+  async changePassword(){
+    const info = {
+      old_password: '',
+      new_password: ''
+    };
+    const answer: any = await this.api.changePassword(info);
+    log(answer);
+  }
   fake() {
     this.st.user = JSON.parse(`{
       "wallets": {

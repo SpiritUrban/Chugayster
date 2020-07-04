@@ -32,6 +32,8 @@ export class ApiService {
 
   sendVerificationMail = () => this.http.post(url + '/api/auth/send-verification-mail', httpOptions).toPromise();
 
+  
+  changePassword = (info) => this.http.put(url + '/change-password', info, httpOptions).toPromise();
 
 
 

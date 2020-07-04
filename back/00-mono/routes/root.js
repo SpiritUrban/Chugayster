@@ -11,7 +11,7 @@ const bcrypt = require('bcrypt');
 
 
 
-
+// Update User info
 router.put('/user', async (req, res)=>{
     log(req.body) // { key: 'full_name', newValue: 'sdsdg' }
     await User.findOneAndUpdate({
