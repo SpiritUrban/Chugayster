@@ -9,7 +9,8 @@
         <div id="logo">
             <h1 class="logo">*</h1>
             <div class="CTA">
-                <h1>Get $10</h1>
+                <h1 (click)="showCat = true">Get $10</h1>
+                <img *ngIf="showCat" src="assets/img/cat-white-fuck-you.png" style="width: 10em; margin-top: -22em;" alt="">
             </div>
         </div>
 
@@ -91,8 +92,8 @@
             </div>
 
 
-            
-            
+
+
             <!-- <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
                 <h1>Payment Info</h1>
                 <h2>Payment Method</h2>
@@ -200,11 +201,11 @@
             <dl>
                 <p>
                     <!-- Facebook -->
-                    <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
-                            title="Connection with facebook"></i> </a>
+                    <!-- <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
+                            title="Connection with facebook"></i> </a> -->
                     <!-- Google -->
-                    <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
-                            title="Connection with google"></i> </a>
+                    <!-- <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
+                            title="Connection with google"></i> </a> -->
                 </p>
             </dl>
 

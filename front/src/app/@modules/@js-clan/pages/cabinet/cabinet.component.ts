@@ -18,6 +18,7 @@ export class CabinetComponent implements OnInit {
   editableValue: any;
   editableValue2: any;
   test: any;
+  showCat: boolean;
 
   constructor(
     private api: ApiService,
