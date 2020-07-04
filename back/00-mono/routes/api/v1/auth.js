@@ -8,7 +8,7 @@ const mails = require('../../../controllers/mail/mails.js');
 router.post('/register', require(`${path_ctr_auth}/register`));
 
 // change-password
-router.post('/change-password', apiEnsureAuthenticated, require(`${path_ctr_auth}/change-password`));
+router.put('/change-password', apiEnsureAuthenticated, require(`${path_ctr_auth}/change-password`));
 
 // restore access by email
 router.post('/restore-access-by-email-or-username', require(`${path_ctr_auth}/restore-access`));

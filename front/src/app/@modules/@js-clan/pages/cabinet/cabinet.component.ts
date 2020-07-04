@@ -16,6 +16,7 @@ export class CabinetComponent implements OnInit {
   st: any = appState;
   editable: string;
   editableValue: any;
+  editableValue2: any;
   test: any;
 
   constructor(
@@ -91,6 +92,8 @@ export class CabinetComponent implements OnInit {
   }
 
   async changePassword(){
+    log(this.editableValue2);
+    
     const info = {
       old_password: '',
       new_password: ''
