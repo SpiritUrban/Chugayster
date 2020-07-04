@@ -89,11 +89,11 @@
 
                 <div>
                     <h2 >Password</h2>
-                    <p *ngIf="editable != 'full_name'">
+                    <p *ngIf="editable != 'passwordX'">
                         ••••••• 
-                        <button class="btn" (click)="toEditableMod('full_name', $event)">Change</button>
+                        <button class="btn" (click)="toEditableMod('passwordX', $event)">Change</button>
                     </p>
-                    <p *ngIf="editable == 'full_name'">
+                    <p *ngIf="editable == 'passwordX'">
                         <span class="old-pass" ><input [(ngModel)]="editableValue" type="text"></span>
                         &nbsp;
                         <span class="new-pass" ><input class="new-pass" [(ngModel)]="editableValue2" type="text"></span>

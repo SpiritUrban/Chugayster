@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { ApiJsClanService } from '../../services/api-js-clan.service';
 import { Router } from '@angular/router';
-import { log } from 'src/app/my_modules/stuff';
+import { log, my_alert } from 'src/app/my_modules/stuff';
 import appState from '../../../../app-state';
 
 @Component({
@@ -93,13 +93,15 @@ export class CabinetComponent implements OnInit {
 
   async changePassword(){
     log(this.editableValue2);
-    
+
     const info = {
-      old_password: '',
-      new_password: ''
+      old_password: this.editableValue,
+      new_password: this.editableValue2
     };
     const answer: any = await this.api.changePassword(info);
     log(answer);
+    this.editable = '';
+    my_alert('', answer.msg2, null);
   }
   fake() {
     this.st.user = JSON.parse(`{
