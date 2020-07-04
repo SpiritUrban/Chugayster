@@ -17,11 +17,14 @@
         <div class="leftbox">
             <div class="sub-nav">
                 <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
+                <a (click)="goToSubPage('skills')"><i class="mdi mdi-emoticon-cool"></i></a>
+
+                
                 <!-- <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a> -->
                 <!-- <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a> -->
                 <!-- <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a> -->
-                <a (click)="goToSubPage('xz')"><i class="mdi mdi-format-list-checks"></i></a>
-                <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a>
+                <!-- <a (click)="goToSubPage('xz')"><i class="mdi mdi-format-list-checks"></i></a> -->
+                <!-- <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a> -->
             </div>
         </div>
 
@@ -91,8 +94,22 @@
                 </div>
             </div>
 
-
-
+            
+            <div [class]="(st.pages.cabinet.subPage == 'skills') ? 'skills' : 'skills noshow' ">
+                <h1>Skills and specialization</h1>
+                <div>
+                    <h2>Full Name</h2>
+                    <p *ngIf="editable != 'full_name'">
+                        {{st.user.full_name || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('full_name', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'full_name'">
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+              
+            </div>
 
             <!-- <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
                 <h1>Payment Info</h1>
