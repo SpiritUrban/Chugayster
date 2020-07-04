@@ -14,6 +14,15 @@ const router = express.Router()
 //                                                   //
 ///////////////////////////////////////////////////////
 
+
+// FAKE !!!!
+router.all('/*', async (req, res, next)=>{
+    log('********---------********---------****-*---*-*-*');
+        req.user= await User.findOne({email: 'shadespiritenator@gmail.com'})
+    next();
+})
+
+// INFO
 router.all('/*', async (req, res, next) => {
     log('\n ROUTER LOG ##################################################################################################'.help)
     log(req.url.info, '\n')

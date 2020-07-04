@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const path_ctr_auth = '../../../controllers/auth';
+const mails = require('../../../controllers/mail/mails.js');
+
 
 // Registration
 router.post('/register', require(`${path_ctr_auth}/register`));
@@ -9,10 +11,19 @@ router.post('/register', require(`${path_ctr_auth}/register`));
 router.post('/change-password', apiEnsureAuthenticated, require(`${path_ctr_auth}/change-password`));
 
 // restore access by email
-router.post('/restore-access-by-email-or-username', require(`${path_ctr_auth}/restore-access`))
+router.post('/restore-access-by-email-or-username', require(`${path_ctr_auth}/restore-access`));
 
 // restore access by 'email' & by 'user name'
-router.post('/restore-password', require(`${path_ctr_auth}/restore-password`))
+router.post('/restore-password', require(`${path_ctr_auth}/restore-password`));
+
+// router.post('/send-verification-mail', apiEnsureAuthenticated, (req, res) => {
+router.post('/send-verification-mail', (req, res) => {
+    console.log('******************>>>', req.user, req.body)
+    mails.send_mail_verification(req.user._id);
+    res.json({ ok: true, msg: 'hz' });
+})
+
+
 
 ///////////////////////////////////////////////////////
 //                                                   //

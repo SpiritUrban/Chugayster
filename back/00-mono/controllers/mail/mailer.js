@@ -3,6 +3,7 @@
 // Додатково - http://qaru.site/questions/495891/sending-email-via-nodejs-using-nodemailer-is-not-working
 
 // Потрібно відкривати доступ тут, щоб працювало - https://myaccount.google.com/u/4/lesssecureapps?pageId=none
+// ............................................... https://myaccount.google.com/lesssecureapps
 
 const nodemailer = require('nodemailer');
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";

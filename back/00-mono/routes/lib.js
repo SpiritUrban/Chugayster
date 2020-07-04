@@ -29,7 +29,7 @@ ensureAuthenticated = (req, res, next) => {
 // test authentication
 apiEnsureAuthenticated = async (req, res, next) => {
     if (req.isAuthenticated()) return next();
-    res.json('not logged')
+    res.json({ok: false, msg:'User not logged'})
 }
 
 error = (err, req, res, status, msg2) => {

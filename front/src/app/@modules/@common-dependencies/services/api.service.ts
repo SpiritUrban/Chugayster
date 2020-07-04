@@ -30,6 +30,8 @@ export class ApiService {
 
   editUser = (updatedField) => this.http.put(url + '/user', updatedField, httpOptions).toPromise();
 
+  sendVerificationMail = () => this.http.post(url + '/api/auth/send-verification-mail', httpOptions).toPromise();
+
 
 
 

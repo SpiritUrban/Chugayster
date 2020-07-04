@@ -68,7 +68,7 @@ export class CabinetComponent implements OnInit {
     const answer: any = await this.api.editUser({ key: this.editable, newValue: this.editableValue });
     this.editable = '';
     this.getUserInfo(); // refresh ui user;
-    log(answer)
+    log(answer);
   }
 
   async getUserInfo() {
@@ -85,8 +85,9 @@ export class CabinetComponent implements OnInit {
     console.log(deviceValue);
   }
 
-  sendVerificationMail() {
-    // !!!!!!!!!!!!!!!!!!!!!!
+  async sendVerificationMail() {
+    const answer: any = await this.api.sendVerificationMail();
+    log(answer);
   }
 
   fake() {

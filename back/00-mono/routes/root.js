@@ -9,12 +9,7 @@ const router = express.Router()
 const bcrypt = require('bcrypt');
 
 
-// FAKE !!!!
-router.all('/*', async (req, res, next)=>{
-    log('********---------********---------****-*---*-*-*');
-        req.user= await User.findOne({email: 'shadespiritenator@gmail.com'})
-    next();
-})
+
 
 
 router.put('/user', async (req, res)=>{
