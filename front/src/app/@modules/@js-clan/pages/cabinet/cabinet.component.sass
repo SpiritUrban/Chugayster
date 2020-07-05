@@ -194,6 +194,7 @@ body
   transform: rotate(-90deg)
   transition: all .5s ease-in-out
   cursor: pointer
+  z-index: 9999
   h1 
     color: $white
     margin-top: 10px
@@ -238,7 +239,7 @@ body
 
 .rightbox 
   float: right
-  width: 60%
+  width: 68%
   height: 100%
 
 
@@ -247,6 +248,7 @@ body
   transition: opacity .5s ease-in
   position: absolute
   width: 70%
+  z-index: 999
 
 
 h1 
@@ -272,15 +274,16 @@ p
   border-style: solid
   border-image: linear-gradient(to right, $aqua, rgba($green,.5)) 1 0%
   border-top: 0
-  width: 80%
+  width: 86%
   font-family: $heading
   font-size: .7em
   padding: 7px 0
   //color: $black
+  display: flex
+  justify-content: space-between
 
 
 .btn 
-  float: right
   font-family: $body
   text-transform: uppercase
   font-size: 10px

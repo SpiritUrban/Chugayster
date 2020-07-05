@@ -1,4 +1,5 @@
-let mongoose = require('mongoose')
+let mongoose = require('mongoose');
+const { stringify } = require('querystring');
 
 // create a user model
 let User = mongoose.model('User', {
@@ -12,7 +13,7 @@ let User = mongoose.model('User', {
 
     username: { type: String, index: true, required: true, unique: true },
     password: { type: String },
-    email: { type: String, unique: true},
+    email: { type: String, unique: true },
     email_token: String,
     email_verif: Boolean,
     status: String,
@@ -72,7 +73,9 @@ let User = mongoose.model('User', {
     //numeric_id: { type: Number, index: { unique: true } },
     last_appeal: { type: Date, default: Date.now },
     last_method: String,
-    gender: String
+    gender: String,
+    skills: String,
+    specialization: String
 
 
     // }, { minimize: false, timestamps: true });
