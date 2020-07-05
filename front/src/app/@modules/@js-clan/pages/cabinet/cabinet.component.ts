@@ -19,6 +19,42 @@ export class CabinetComponent implements OnInit {
   editableValue2: any;
   test: any;
   showCat: boolean;
+  lessonsFlow: any = [
+    {
+      number: "0",
+      name: "Вправа для поясниці",
+      video: "-RjXS5aH3Hk",
+      // img: "assets/js-clan/img/lessons/0.jpg",
+      // title: {
+      //   en: "",
+      //   ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
+      // },
+      description: {
+        ua: "Вправа для поясниці"
+      },
+      text: {
+        en: "text",
+        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
+      }
+    },
+    {
+      number: "1",
+      name: "Вправа для поясниці",
+      video: "PMqLSUT8LhE",
+      // img: "assets/js-clan/img/lessons/0.jpg",
+      // title: {
+      //   en: "",
+      //   ua: "Это Упражнение Убивает Твою Поясницу(Замени Его)"
+      // },
+      description: {
+        ua: "Вправа для поясниці"
+      },
+      text: {
+        en: "text",
+        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
+      }
+    },
+  ];
 
   constructor(
     private api: ApiService,
@@ -92,7 +128,7 @@ export class CabinetComponent implements OnInit {
     log(answer);
   }
 
-  async changePassword(){
+  async changePassword() {
     log(this.editableValue2);
 
     const info = {
