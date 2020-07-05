@@ -279,20 +279,8 @@
 
 
 
-
-
-
     <div class="sub-container  sub-third">
-        <div *ngIf="st.user.isLogged" class="jumbotron user-card">
-            <h1 class="">Clan <b class="text-primary"> communication: </b></h1>
-            <hr class="my-3">
-            <h5>Mentor messages:</h5>
-            <dl>
-                <p *ngFor="let i of [1,2,3]">
-                    <i class="mdi mdi-facebook" aria-hidden="true" title="Connection with facebook"></i>
-                </p>
-            </dl>
-        </div>
+        <app-clan-communications [mode]="'user'"></app-clan-communications>
         <br>
         <br>
     </div>

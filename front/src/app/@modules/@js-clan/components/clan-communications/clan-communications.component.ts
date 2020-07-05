@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { ApiService } from '../../../@common-dependencies/services/api.service';
 import { ApiJsClanService } from '../../services/api-js-clan.service';
@@ -12,6 +12,8 @@ import appState from '../../../../app-state';
   styleUrls: ['./clan-communications.component.sass']
 })
 export class ClanCommunicationsComponent implements OnInit {
+
+  @Input() mode: any; // user or admin
 
   st: any = appState;
   newAdminMsg: String;
