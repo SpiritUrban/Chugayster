@@ -31,13 +31,14 @@ import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips
 import { ArComponent } from './pages/games/ar/ar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { ClanCommunicationsComponent } from './components/clan-communications/clan-communications.component';
+import { CardsFlowComponent } from './components/cards-flow/cards-flow.component';
 
 @NgModule({
   declarations: [
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent, ArComponent, AdminComponent, ClanCommunicationsComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent, ArComponent, AdminComponent, ClanCommunicationsComponent, CardsFlowComponent
   ],
   imports: [
     CommonModule,

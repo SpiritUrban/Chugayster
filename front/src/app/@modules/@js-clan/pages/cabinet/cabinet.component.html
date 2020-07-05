@@ -5,7 +5,9 @@
 <div class="mega-container">
 
 
-
+    <div class="sub-container cabinet-content sub-second">
+        <app-cards-flow></app-cards-flow>
+    </div>
 
     <div class="sub-container cabinet-content sub-second">
 
@@ -92,7 +94,8 @@
             <h1 class="logo">*</h1>
             <div class="CTA">
                 <h1 (click)="showCat = true">Get $10</h1>
-                <img *ngIf="showCat" src="assets/img/cat-white-fuck-you.png" style="width: 10em; margin-top: -22em;" alt="">
+                <img *ngIf="showCat" src="assets/img/cat-white-fuck-you.png" style="width: 10em; margin-top: -22em;"
+                    alt="">
             </div>
         </div>
 
@@ -101,7 +104,7 @@
                 <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
                 <a (click)="goToSubPage('skills')"><i class="mdi mdi-emoticon-cool"></i></a>
 
-                
+
                 <!-- <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a> -->
                 <!-- <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a> -->
                 <!-- <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a> -->
@@ -114,12 +117,12 @@
 
             <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
                 <h1>Personal Info</h1>
-                
+
                 <div>
                     <h2>Username</h2>
                     <p *ngIf="editable != 'username'">
                         <span>{{st.user.username || ' ... '}}</span>
-                        
+
                         <button class="btn" (click)="toEditableMod('username', $event)">update</button>
                     </p>
                     <p *ngIf="editable == 'username'">
@@ -131,7 +134,7 @@
                     <h2>Full Name</h2>
                     <p *ngIf="editable != 'full_name'">
                         <span>{{st.user.full_name || ' ... '}}</span>
-                        
+
                         <button class="btn" (click)="toEditableMod('full_name', $event)">update</button>
                     </p>
                     <p *ngIf="editable == 'full_name'">
@@ -178,7 +181,7 @@
 
             </div>
 
-            
+
             <div [class]="(st.pages.cabinet.subPage == 'skills') ? 'skills' : 'skills noshow' ">
                 <h1>Skills and specialization</h1>
                 <div>
@@ -191,7 +194,7 @@
                         <input [(ngModel)]="editableValue" type="text">
                         <button class="btn" (click)="editUser()">save</button>
                     </p>
-                </div>                  
+                </div>
                 <div>
                     <h2>Skills</h2>
                     <p *ngIf="editable != 'skills'">

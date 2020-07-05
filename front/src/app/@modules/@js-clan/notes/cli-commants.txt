@@ -3,6 +3,7 @@
 ng g component @modules/@js-clan/components/general/nav
 
 ng g component @modules/@js-clan/components/clan-communication
+ng g component @modules/@js-clan/components/cards-flow
 
 
 *** Generate PAGE:
