@@ -1,0 +1,337 @@
+.mega-container
+    display: flex
+    justify-content: space-around
+    margin-bottom: 5em
+    min-height: 100vh
+    margin-bottom: 2em
+    margin-top: 7em
+
+
+@media screen and (max-width: 1600px)
+    .mega-container
+        flex-direction: column
+
+
+.sub-container
+    // padding-top: 9em
+    // min-height: 100vh
+    z-index: 1
+    position: relative
+    opacity: .9
+    padding-top: 1em
+    // background-color: #792109
+    
+
+.sub-first
+    width: 500px
+    height: 500px
+.sub-second
+    height: 100%
+    min-width: 500px
+    p 
+      width: auto
+.sub-third
+    height: 100%
+    min-width: 500px
+    p 
+      width: auto
+    h1 
+      margin: 1em 1em 1em 2em
+    
+.PS
+    margin: 1em auto 2em auto
+    text-align: center
+
+.user-card
+    text-align: center
+
+.not-logged
+    h1 
+        margin-top: 1em
+        font-size: 2em
+        font-weight: 900
+        color: #b9005e
+        animation: hard 5s infinite
+    .sub-content
+        p 
+            width: 100%
+
+@keyframes hard 
+  0%
+    transform: rotate(0deg)
+    color: black
+    filter: blur(7px)
+    opacity: .1
+  100%
+    transform: rotate(360deg)
+    color: #b9005e
+    opacity: 1
+
+
+
+
+dl 
+    p 
+        display: flex
+        //justify-content: space-between
+        //margin: auto
+        margin: 1em
+        a
+            margin-right: 1em
+        dt 
+            opacity: .5
+        dd 
+            .badge
+                margin: 0 0 0 .5em
+            button
+                margin: 0 0 0 .5em
+
+
+.social
+    background: gray
+    width: 2em
+    height: 2em
+    line-height: 2em
+    border-radius: 1em
+    font-size: 1em
+    cursor: pointer
+    display: inline-block
+    color: white
+    text-align: center
+    margin: 0 1em 0 0
+.mdi-facebook
+    &:hover
+        background: blue
+        background: #3b5998
+
+.mdi-google
+    &:hover
+        background: #ea4335
+                
+            
+
+.jumbotron 
+    padding: 2rem 2rem
+    background-color: #00000000
+    padding: 0         
+
+
+.old-pass
+  position: relative
+  &:before
+    content: "Old Password"
+    position: absolute
+    top: 3em
+    color: wheat
+      
+
+.new-pass
+  position: relative
+  &:before
+    content: "New Password"
+    position: absolute
+    top: 3em
+    color: wheat
+
+
+
+
+
+
+
+
+
+
+
+
+$logo: #3DBB3D
+$gray: #777777
+$black: #070707
+$green: #7ED386
+$aqua: #3FB6A8
+$white: #FFFFFF
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,900|Montserrat|Roboto')
+
+$hulu: 'Nunito Sans', sans-serif
+$heading: 'Montserrat', sans-serif
+$body: 'Roboto', sans-serif
+
+body 
+  background: linear-gradient(to right, $aqua, $green)
+
+
+.sub-container 
+  background: rgba(78,93,108,0.5)
+  max-width: 540px
+  margin: 0 auto
+  position: relative
+  margin-top: 3em
+  box-shadow: 2px 5px 20px rgba(#293038, .5)
+
+
+.logo 
+  float: right
+  margin-right: 12px
+  margin-top: 12px
+  font-family: $hulu
+  color: $logo
+  font-weight: 900
+  font-size: 1.5em
+  letter-spacing: 1px
+
+
+.CTA 
+  width: 80px
+  height: 40px
+  right: -20px
+  bottom: 0
+  margin-bottom: 90px
+  position: absolute
+  z-index: 1
+  background: $green
+  font-size: 1em
+  transform: rotate(-90deg)
+  transition: all .5s ease-in-out
+  cursor: pointer
+  z-index: 9999
+  h1 
+    color: $white
+    margin-top: 10px
+    margin-left: 9px
+  
+  &:hover 
+    background: $aqua
+    transform: scale(1.1)
+  
+
+
+.leftbox 
+  float: left
+  top: -1%
+  left: 5%
+  position: absolute
+  width: 5em
+  height: 102%
+  background: #5b419a
+  box-shadow: 3px 3px 10px rgba(#293038, .5)
+
+
+.sub-nav a 
+  list-style: none
+  padding: .7em
+  color: $white
+  font-size: 2em
+  display: block
+  transition: all .3s ease-in-out
+  &:hover 
+    color: $aqua
+    transform: scale(1.2)
+    cursor: pointer
+  &:first-child 
+    margin-top: 7px
+  
+
+
+.active 
+  color: $aqua
+
+
+.rightbox 
+  float: right
+  width: 68%
+  height: 100%
+
+
+
+.profile, .payment, .subscription, .privacy, .settings 
+  transition: opacity .5s ease-in
+  position: absolute
+  width: 70%
+  z-index: 999
+
+
+h1 
+  font-family: $heading
+  color: $green
+  font-size: 1em
+  margin-top: 40px
+  margin-bottom: 35px
+
+
+h2 
+  color: #f0ad4e
+  font-family: $body
+  width: 80%
+  text-transform: uppercase
+  font-size: 8px
+  letter-spacing: 1px
+  margin-left: 2px
+
+
+p 
+  border-width: 1px
+  border-style: solid
+  border-image: linear-gradient(to right, $aqua, rgba($green,.5)) 1 0%
+  border-top: 0
+  width: 86%
+  font-family: $heading
+  font-size: .7em
+  padding: 7px 0
+  //color: $black
+  display: flex
+  justify-content: space-between
+
+
+.btn 
+  font-family: $body
+  text-transform: uppercase
+  font-size: 10px
+  border: none
+  color: $aqua
+
+
+.btn:hover 
+  text-decoration: underline
+  font-weight: 900
+
+
+input 
+  border: 1px solid lighten($gray,40%)
+  font-family: $body
+  padding: 2px
+  margin: 0
+
+
+.privacy h2
+  margin-top: 25px
+
+
+.settings h2
+  margin-top: 25px
+
+
+.noshow 
+  opacity: 0
+  z-index: -1
+
+
+footer 
+  position: absolute
+  width: 20%
+  bottom: 0
+  right: -20px
+  text-align: right
+  font-size: 0.8em
+  text-transform: uppercase
+  letter-spacing: 2px
+  font-family: $body
+  p 
+    border: none
+    padding: 0
+  
+  a 
+    color: #ffffff
+    text-decoration: none
+    &:hover 
+      color: #7d7d7d

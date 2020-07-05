@@ -1,0 +1,304 @@
+<app-nav></app-nav>
+
+<app-night-sky></app-night-sky>
+
+<div class="mega-container">
+
+
+
+
+    <div class="sub-container cabinet-content sub-second">
+
+        <!-- <br>
+    <div class="row">
+        <button type="button" class="btn btn-primary">English</button>
+        <button type="button" class="btn btn-secondary">Українською</button>
+        <button type="button" class="btn btn-secondary">Русский</button>
+    </div> -->
+
+
+
+        <!-- 
+    avatar
+    first_name
+    last_name
+    status
+    phone + phone_verif
+    date_of_birth
+    city
+    country
+    wallets.USD.balance
+    facebook: {
+        id: String,
+        token: String,
+        email: String,
+        username: String
+    google: {
+        id: String,
+        token: String,
+        email: String,
+        username: String
+    linked_users: [] -->
+
+
+        <!-- LOGGED -->
+        <div *ngIf="st.user.isLogged" class="jumbotron user-card">
+            <h1 class="">Hello, <b class="text-primary">{{st.user.username}}!</b></h1>
+            <img style="height: 200px; width: 100%; display: block;" src="assets/js-clan/img/anonymous.svg"
+                alt="Anonymous">
+
+            <hr class="my-4">
+            <h5>Achievements:</h5>
+
+            <dl>
+                <p>
+                    <!-- Facebook -->
+                    <!-- <a href="/api/auth/facebook"> <i class="social mdi mdi-facebook" aria-hidden="true"
+                            title="Connection with facebook"></i> </a> -->
+                    <!-- Google -->
+                    <!-- <a href="/api/auth/google"> <i class="social mdi mdi-google" aria-hidden="true"
+                            title="Connection with google"></i> </a> -->
+                </p>
+            </dl>
+
+            <hr class="my-4">
+            <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
+            <!-- <a class="btn btn-primary btn-lg" href="/api/auth/logout" role="button">Logout</a> -->
+            <a class="btn btn-primary btn-lg" (click)="logout()" role="button">Logout</a>
+
+        </div>
+        <!-- 
+        <div class="row">
+            <div class="col-12">
+                <h3>Title</h3>
+            </div>
+            <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let item of [1,2,3]">
+                <div class="user-info">
+                    Block: {{item}}
+                </div>
+                <app-flip-card [card]="card"></app-flip-card>
+            </div>
+        </div> -->
+        <br>
+        <br>
+    </div>
+
+
+
+
+    <div class="sub-container sub-first">
+
+        <div id="logo">
+            <h1 class="logo">*</h1>
+            <div class="CTA">
+                <h1 (click)="showCat = true">Get $10</h1>
+                <img *ngIf="showCat" src="assets/img/cat-white-fuck-you.png" style="width: 10em; margin-top: -22em;" alt="">
+            </div>
+        </div>
+
+        <div class="leftbox">
+            <div class="sub-nav">
+                <a (click)="goToSubPage('profile')" class="active"><i class="mdi mdi-account"></i></a>
+                <a (click)="goToSubPage('skills')"><i class="mdi mdi-emoticon-cool"></i></a>
+
+                
+                <!-- <a (click)="goToSubPage('payment')"><i class="mdi mdi-credit-card"></i></a> -->
+                <!-- <a (click)="goToSubPage('subscription')"><i class="mdi mdi-desktop-classic"></i></a> -->
+                <!-- <a (click)="goToSubPage('privacy')"><i class="mdi mdi-format-list-checks"></i></a> -->
+                <!-- <a (click)="goToSubPage('xz')"><i class="mdi mdi-format-list-checks"></i></a> -->
+                <!-- <a (click)="goToSubPage('settings')"><i class="mdi mdi-settings"></i></a> -->
+            </div>
+        </div>
+
+        <div class="rightbox">
+
+            <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
+                <h1>Personal Info</h1>
+                
+                <div>
+                    <h2>Username</h2>
+                    <p *ngIf="editable != 'username'">
+                        <span>{{st.user.username || ' ... '}}</span>
+                        
+                        <button class="btn" (click)="toEditableMod('username', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'username'">
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+                <div>
+                    <h2>Full Name</h2>
+                    <p *ngIf="editable != 'full_name'">
+                        <span>{{st.user.full_name || ' ... '}}</span>
+                        
+                        <button class="btn" (click)="toEditableMod('full_name', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'full_name'">
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+                <div>
+                    <h2>Birthday</h2>
+                    <p *ngIf="editable != 'date_of_birth'">
+                        {{st.user.date_of_birth | date: 'dd/MM/yyyy' || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('date_of_birth', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'date_of_birth'">
+                        <input type="date" [ngModel]="editableValue | date:'yyyy-MM-dd'"
+                            (ngModelChange)="editableValue = $event">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+                <div>
+                    <h2>Gender</h2>
+                    <p *ngIf="editable != 'gender'">
+                        {{st.user.gender || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('gender', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'gender'">
+                        <select [ngModel]="editableValue" (ngModelChange)="onChange($event)" name="sel2">
+                            <option [value]="i" *ngFor="let i of ['male', 'female']">{{i}}</option>
+                        </select>
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+                <div>
+                    <h2>Email</h2>
+                    <p style="position: relative;">
+                        {{st.user.email || ' ... '}}
+                        <sup class="badge">
+                            <span *ngIf="st.user.email_verif" class="badge badge-pill badge-success">Verified</span>
+                            <span *ngIf="!st.user.email_verif" class="badge badge-pill badge-danger">Not verified</span>
+                        </sup>
+                        <button class="btn" (click)="sendVerificationMail()">Send mail</button>
+                    </p>
+                </div>
+
+            </div>
+
+            
+            <div [class]="(st.pages.cabinet.subPage == 'skills') ? 'skills' : 'skills noshow' ">
+                <h1>Skills and specialization</h1>
+                <div>
+                    <h2>Specialization</h2>
+                    <p *ngIf="editable != 'specialization'">
+                        {{st.user.specialization || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('specialization', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'specialization'">
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>                  
+                <div>
+                    <h2>Skills</h2>
+                    <p *ngIf="editable != 'skills'">
+                        {{st.user.skills || ' ... '}}
+                        <button class="btn" (click)="toEditableMod('skills', $event)">update</button>
+                    </p>
+                    <p *ngIf="editable == 'skills'">
+                        <input [(ngModel)]="editableValue" type="text">
+                        <button class="btn" (click)="editUser()">save</button>
+                    </p>
+                </div>
+                <div>
+                    <h2>Password</h2>
+                    <p *ngIf="editable != 'passwordX'">
+                        •••••••
+                        <button class="btn" (click)="toEditableMod('passwordX', $event)">Change</button>
+                    </p>
+                    <p *ngIf="editable == 'passwordX'">
+                        <span class="old-pass"><input [(ngModel)]="editableValue" type="text"></span>
+                        &nbsp;
+                        <span class="new-pass"><input class="new-pass" [(ngModel)]="editableValue2" type="text"></span>
+                        <button class="btn" (click)="changePassword()">save</button>
+                    </p>
+                </div>
+            </div>
+
+            <!-- <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
+                <h1>Payment Info</h1>
+                <h2>Payment Method</h2>
+                <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
+                <h2>Billing Address</h2>
+                <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
+                <h2>Zipcode</h2>
+                <p>999000</p>
+                <h2>Billing History</h2>
+                <p>2018<button class="btn">view</button></p>
+                <h2>Redeem Gift Subscription </h2>
+                <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p>
+            </div> -->
+
+            <!-- <div [class]="(st.pages.cabinet.subPage == 'subscription') ? 'subscription' : 'subscription noshow' ">
+                <h1>Your Subscription</h1>
+                <h2>Payment Date</h2>
+                <p>05-15-2018 <button class="btn">pay now</button></p>
+                <h2>Your Next Charge</h2>
+                <p>$8.48<span> includes tax</span></p>
+                <h2>Hulu Base Plan</h2>
+                <p>Limited Commercials <button class="btn">change plan</button></p>
+                <h2>Add-ons</h2>
+                <p>None <button class="btn">manage</button></p>
+                <h2>Monthly Recurring Total </h2>
+                <p>$7.99/month</p>
+            </div> -->
+
+            <!-- <div [class]="(st.pages.cabinet.subPage == 'privacy') ? 'privacy' : 'privacy noshow' ">
+                <h1>Privacy Settings</h1>
+                <h2>Manage Email Notifications<button class="btn">manage</button></h2>
+                <p></p>
+                <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
+                <p></p>
+                <h2>View Terms of Use <button class="btn">view</button></h2>
+                <p></p>
+                <h2>Personalize Ad Experience <button class="btn">update</button></h2>
+                <p></p>
+                <h2>Protect Your Account <button class="btn">protect</button></h2>
+                <p></p>
+            </div> -->
+
+            <!-- <div [class]="(st.pages.cabinet.subPage == 'settings') ? 'settings' : 'settings noshow' ">
+                <h1>Account Settings</h1>
+                <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
+                <p></p>
+                <h2>Hold Your Subscription<button class="btn">hold</button></h2>
+                <p></p>
+                <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
+                <p></p>
+                <h2>Your Devices <button class="btn">Manage Devices</button></h2>
+                <p></p>
+                <h2>Referrals <button class="btn">get $10</button></h2>
+                <p></p>
+            </div> -->
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="sub-container  sub-third">
+        <div *ngIf="st.user.isLogged" class="jumbotron user-card">
+            <h1 class="">Clan <b class="text-primary"> communication: </b></h1>
+            <hr class="my-3">
+            <h5>Type X:</h5>
+            <dl>
+                <p *ngFor="let i of [1,2,3]">
+                    <i class="mdi mdi-facebook" aria-hidden="true" title="Connection with facebook"></i>
+                </p>
+            </dl>
+        </div>
+        <br>
+        <br>
+    </div>
+
+</div>
+
+<app-extra-alert [st]="st.alert"></app-extra-alert>
+
+<app-clan-footer></app-clan-footer>

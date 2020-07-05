@@ -29,13 +29,14 @@ import { FreeSoundsComponent } from './pages/sources/free-sounds/free-sounds.com
 import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips.component';
 import { ArComponent } from './pages/games/ar/ar.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
     LessonsComponent, 
     MainComponent, 
     P404Component, 
-    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent, ArComponent
+    NavComponent, ClanFooterComponent, LessonComponent, WantMoreLessonsComponent, MembersComponent, StudentsComponent, TrainingApparatusComponent, HealthComponent, FlipCardComponent, FlipCardVideoComponent, VideoSamplesComponent, FreeSoundsComponent, CabinetComponent, ProgrammerTipsComponent, ArComponent, AdminComponent
   ],
   imports: [
     CommonModule,
