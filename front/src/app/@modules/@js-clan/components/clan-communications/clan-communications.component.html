@@ -1,0 +1,19 @@
+<div *ngIf="st.user.isLogged" class="jumbotron user-card">
+    <h1 class="">Clan <b class="text-primary"> communication: </b></h1>
+    <hr class="my-3">
+    <h5>Type: Mentor Messages</h5>
+
+    <textarea class="t-area" [(ngModel)]="newAdminMsg" ame="" id="" cols="30" rows="10"></textarea>
+    <a class="btn btn-primary btn-lg" (click)="postAdminMsg()" role="button">Post</a>
+
+    <dl *ngFor="let msg of adminMsgs" style="position: relative;">
+        <i style="position: absolute; top: 1em; left: 1em;" class="mdi mdi-facebook" aria-hidden="true"
+            title="Connection with facebook"></i>
+        <p style="padding: 2em 3em; background: #00000033;">
+            {{msg.text}}
+        </p>
+        <i (click)="delAdminMsg(msg._id)"
+            style="position: absolute; top: 1em; right: 1em; color: red; cursor: pointer;"
+            class="mdi mdi-window-close" aria-hidden="true" title="Connection with facebook"></i>
+    </dl>
+</div>

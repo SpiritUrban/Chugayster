@@ -2,6 +2,8 @@
 
 ng g component @modules/@js-clan/components/general/nav
 
+ng g component @modules/@js-clan/components/clan-communication
+
 
 *** Generate PAGE:
 

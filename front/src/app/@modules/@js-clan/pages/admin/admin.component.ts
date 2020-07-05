@@ -13,7 +13,6 @@ import appState from '../../../../app-state';
 })
 export class AdminComponent implements OnInit {
 
-
   st: any = appState;
   editable: string;
   editableValue: any;
@@ -21,8 +20,6 @@ export class AdminComponent implements OnInit {
   test: any;
   showCat: boolean;
   // admin
-  newAdminMsg: String;
-  adminMsgs: any = [];
 
   constructor(
     private api: ApiService,
@@ -43,7 +40,6 @@ export class AdminComponent implements OnInit {
     // admin control
     if (this.st.user.role != 'Admin') this.router.navigate(['/auth/login']);
 
-    this.getAdminMsgs();
 
     log(this.st);
   }
@@ -114,27 +110,4 @@ export class AdminComponent implements OnInit {
   }
 
 
-  async postAdminMsg(){
-    log(this.newAdminMsg);
-    const answer: any = await this.api.postAdminMsg(this.newAdminMsg);
-    log(answer);
-    this.getAdminMsgs();
-  }
-
-  async getAdminMsgs() {
-    try {
-      log('!!!')
-      const answer: any = await this.api.getAdminMsgs();
-      this.adminMsgs = answer.result;
-      log('result adminMsgs', this.adminMsgs);
-    } catch (error) {
-      log(error);
-    }
-  }
-
-  async delAdminMsg(_id){
-    const answer: any = await this.api.delAdminMsg(_id);
-    log(answer);
-    this.getAdminMsgs();
-  }
 }
