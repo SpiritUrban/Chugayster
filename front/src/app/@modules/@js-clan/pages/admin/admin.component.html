@@ -235,9 +235,11 @@
             <textarea class="t-area" [(ngModel)]="newAdminMsg" ame="" id="" cols="30" rows="10"></textarea>
             <a class="btn btn-primary btn-lg" (click)="postAdminMsg()" role="button">Post</a>
 
-            <dl>
-                <p *ngFor="let i of [1,2,3]">
-                    <i class="mdi mdi-facebook" aria-hidden="true" title="Connection with facebook"></i>
+            <dl *ngFor="let i of adminMsgs">
+                <i style="position: absolute; left: 0em;" class="mdi mdi-facebook" aria-hidden="true" title="Connection with facebook"></i>
+                <p style="padding: 1em;">
+                    
+                    {{i.text}}
                 </p>
             </dl>
         </div>

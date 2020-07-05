@@ -22,6 +22,7 @@ export class AdminComponent implements OnInit {
   showCat: boolean;
   // admin
   newAdminMsg: String;
+  adminMsgs: any = [];
 
   constructor(
     private api: ApiService,
@@ -41,6 +42,8 @@ export class AdminComponent implements OnInit {
     if (!this.st.user.isLogged) this.router.navigate(['/auth/login']);
     // admin control
     if (this.st.user.role != 'Admin') this.router.navigate(['/auth/login']);
+
+    this.getAdminMsgs();
 
     log(this.st);
   }
@@ -115,6 +118,18 @@ export class AdminComponent implements OnInit {
     log(this.newAdminMsg);
     const answer: any = await this.api.postAdminMsg(this.newAdminMsg);
     log(answer);
+    this.getAdminMsgs();
+  }
+
+  async getAdminMsgs() {
+    try {
+      log('!!!')
+      const answer: any = await this.api.getAdminMsgs();
+      this.adminMsgs = answer.result;
+      log('result adminMsgs', this.adminMsgs);
+    } catch (error) {
+      log(error);
+    }
   }
 
 }

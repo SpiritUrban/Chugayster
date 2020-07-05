@@ -8,8 +8,12 @@ const as = (req, res, next) => {
     else res.json({ok: false, msg: 'Not logged or not Admin'});
 };
 
+// get admin msgs
+
+router.get('/admin-msgs', as, require(`${path_ctr_admin}/get-admin-msgs`));
+
 // admin-msg
-router.post('/admin-msg', as, require(`${path_ctr_admin}/admin-msg`));
+router.post('/admin-msg', as, require(`${path_ctr_admin}/post-admin-msg`));
 
 // app_status
 router.get('/app-status', as, require(`${path_ctr_admin}/app-status`));
