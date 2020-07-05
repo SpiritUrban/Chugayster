@@ -132,4 +132,9 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  async delAdminMsg(_id){
+    const answer: any = await this.api.delAdminMsg(_id);
+    log(answer);
+    this.getAdminMsgs();
+  }
 }

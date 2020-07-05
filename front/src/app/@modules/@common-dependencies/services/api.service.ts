@@ -39,6 +39,8 @@ export class ApiService {
 
   getAdminMsgs = () => this.http.get(url + '/api/admin/admin-msgs').toPromise();
 
+  delAdminMsg = (_id) => this.http.delete(url + '/api/admin/admin-msg/'+_id).toPromise();
+
   // auth info ???
   // register = (userData) => this.http.get('http://localhost:49001/api/auth/info', userData).toPromise();
 
