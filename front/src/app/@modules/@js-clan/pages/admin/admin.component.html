@@ -113,7 +113,7 @@
         <div class="rightbox">
 
             <div [class]="(st.pages.cabinet.subPage == 'profile') ? 'profile' : 'profile noshow' ">
-                <h1>Personal Info</h1>
+                <h1>App Settings</h1>
                 
                 <div>
                     <h2>Username</h2>
@@ -218,62 +218,6 @@
                 </div>
             </div>
 
-            <!-- <div [class]="(st.pages.cabinet.subPage == 'payment') ? 'payment' : 'payment noshow' ">
-                <h1>Payment Info</h1>
-                <h2>Payment Method</h2>
-                <p>Mastercard •••• •••• •••• 0000 <button class="btn">update</button></p>
-                <h2>Billing Address</h2>
-                <p>1234 Example Ave | Seattle, WA <button class="btn">change</button></p>
-                <h2>Zipcode</h2>
-                <p>999000</p>
-                <h2>Billing History</h2>
-                <p>2018<button class="btn">view</button></p>
-                <h2>Redeem Gift Subscription </h2>
-                <p><input type="text" placeholder="Enter Gift Code"></input> <button class="btn">Redeem</button></p>
-            </div> -->
-
-            <!-- <div [class]="(st.pages.cabinet.subPage == 'subscription') ? 'subscription' : 'subscription noshow' ">
-                <h1>Your Subscription</h1>
-                <h2>Payment Date</h2>
-                <p>05-15-2018 <button class="btn">pay now</button></p>
-                <h2>Your Next Charge</h2>
-                <p>$8.48<span> includes tax</span></p>
-                <h2>Hulu Base Plan</h2>
-                <p>Limited Commercials <button class="btn">change plan</button></p>
-                <h2>Add-ons</h2>
-                <p>None <button class="btn">manage</button></p>
-                <h2>Monthly Recurring Total </h2>
-                <p>$7.99/month</p>
-            </div> -->
-
-            <!-- <div [class]="(st.pages.cabinet.subPage == 'privacy') ? 'privacy' : 'privacy noshow' ">
-                <h1>Privacy Settings</h1>
-                <h2>Manage Email Notifications<button class="btn">manage</button></h2>
-                <p></p>
-                <h2>Manage Privacy Settings<button class="btn">manage</button></h2>
-                <p></p>
-                <h2>View Terms of Use <button class="btn">view</button></h2>
-                <p></p>
-                <h2>Personalize Ad Experience <button class="btn">update</button></h2>
-                <p></p>
-                <h2>Protect Your Account <button class="btn">protect</button></h2>
-                <p></p>
-            </div> -->
-
-            <!-- <div [class]="(st.pages.cabinet.subPage == 'settings') ? 'settings' : 'settings noshow' ">
-                <h1>Account Settings</h1>
-                <h2>Sync Watchlist to My Stuff<button class="btn">sync</button></h2>
-                <p></p>
-                <h2>Hold Your Subscription<button class="btn">hold</button></h2>
-                <p></p>
-                <h2>Cancel Your Subscription <button class="btn">cancel</button></h2>
-                <p></p>
-                <h2>Your Devices <button class="btn">Manage Devices</button></h2>
-                <p></p>
-                <h2>Referrals <button class="btn">get $10</button></h2>
-                <p></p>
-            </div> -->
-
         </div>
     </div>
 
@@ -286,7 +230,11 @@
         <div *ngIf="st.user.isLogged" class="jumbotron user-card">
             <h1 class="">Clan <b class="text-primary"> communication: </b></h1>
             <hr class="my-3">
-            <h5>Type X:</h5>
+            <h5>Type: Admin Messages</h5>
+
+            <textarea class="t-area" [(ngModel)]="newAdminMsg" ame="" id="" cols="30" rows="10"></textarea>
+            <a class="btn btn-primary btn-lg" (click)="postAdminMsg()" role="button">Post</a>
+
             <dl>
                 <p *ngFor="let i of [1,2,3]">
                     <i class="mdi mdi-facebook" aria-hidden="true" title="Connection with facebook"></i>

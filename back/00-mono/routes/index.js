@@ -11,6 +11,7 @@ module.exports = function (app) {
     ['/',              './api/v1/auth-strategies'],
     ['/',              './api/v1/dev'],
     ['/api/auth',      './api/v1/auth'],
+    ['/api/admin',     './api/v1/admin'],
     ['/',              './root'],
 
     ['/chats',         './chats_'],
@@ -18,9 +19,6 @@ module.exports = function (app) {
     ['/api',           './api/v1/files'],
     ['/api',           './api/v1/examples'],
     ['/api',           './api/v1/pay-sys'],
-
-    ['/api/admin',     './api/v1/admin'],
-
     ['/api/danger',    './api/v1/danger'],
     ['/api/trainings', './api/v1/trainings'],
     ['/api/personal',  './api/v1/personal'],

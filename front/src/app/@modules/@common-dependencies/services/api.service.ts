@@ -35,6 +35,7 @@ export class ApiService {
   
   changePassword = (info) => this.http.put(url + '/api/auth/change-password', info, httpOptions).toPromise();
 
+  postAdminMsg = (msg) => this.http.post(url + '/api/admin/admin-msg', {msg}, httpOptions).toPromise();
 
 
   // auth info ???

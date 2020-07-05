@@ -20,6 +20,8 @@ export class AdminComponent implements OnInit {
   editableValue2: any;
   test: any;
   showCat: boolean;
+  // admin
+  newAdminMsg: String;
 
   constructor(
     private api: ApiService,
@@ -108,5 +110,11 @@ export class AdminComponent implements OnInit {
     my_alert('', answer.msg2, null);
   }
 
+
+  async postAdminMsg(){
+    log(this.newAdminMsg);
+    const answer: any = await this.api.postAdminMsg(this.newAdminMsg);
+    log(answer);
+  }
 
 }
