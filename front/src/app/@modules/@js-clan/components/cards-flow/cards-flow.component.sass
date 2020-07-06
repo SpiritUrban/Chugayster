@@ -9,6 +9,32 @@
     height: 15em
     height: fit-content
     position: relative
+
+.side-btn
+    position: absolute
+    z-index: 999
+    top: 5rem
+    height: 5rem
+    width: 5rem
+    background: #0000007a
+    font: normal normal normal 24px/1 "Material Design Icons"
+    font-size: 2em
+    text-rendering: auto
+    padding: 1rem
+    line-height: inherit
+    text-align: center
+    border: solid 1px #818a8f
+    border-radius: 1rem
+    &:hover
+        box-shadow: 0 0 10px rgba(0,0,0,0.5)
+        cursor: pointer
+        background: red
+.side-btn.left
+        left: 0
+.side-btn.right
+        right: 0
+    
+.qqqq    
     &::before, &::after
         position: absolute
         z-index: 999
@@ -24,10 +50,17 @@
         text-align: center
         border: solid 1px #818a8f
         border-radius: 1rem
-        // -webkit-font-smoothing: antialiased
+        &:hover
+            box-shadow: 0 0 10px rgba(0,0,0,0.5)
+            cursor: pointer
+            background: red
     &::before
         left: 0
         content: "\F730"
+
     &::after
         right: 0
         content: "\F733"
+    &:hover::before, &:hover::after
+        box-shadow: 0 9px 9px rgba(0, 0, 0, 0.9)
+        cursor: pointer
