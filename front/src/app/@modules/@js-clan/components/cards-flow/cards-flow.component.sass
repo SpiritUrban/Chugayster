@@ -4,16 +4,17 @@
     padding: 0 1em
     display: flex
     flex-direction: row
-    background: black
-    //padding: 0 1em
+    background: #00000042
+    padding: 1em 
     height: 15em
     height: fit-content
     position: relative
 
 .side-btn
+    transition: 1s
     position: absolute
     z-index: 999
-    top: 5rem
+    top: 4rem
     height: 5rem
     width: 5rem
     background: #0000007a
@@ -26,13 +27,15 @@
     border: solid 1px #818a8f
     border-radius: 1rem
     &:hover
-        box-shadow: 0 0 10px rgba(0,0,0,0.5)
+        box-shadow: 0 9px 9px rgba(0, 0, 0, 0.9)
+        background: hsla(0, 0%, 0%, 0.65)
+        border: solid 1px wheat
         cursor: pointer
-        background: red
+        color: wheat
 .side-btn.left
-        left: 0
+        left: 0.5em
 .side-btn.right
-        right: 0
+        right: 0.5em
     
 .qqqq    
     &::before, &::after

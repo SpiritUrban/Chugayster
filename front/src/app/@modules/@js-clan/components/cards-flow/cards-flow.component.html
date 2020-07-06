@@ -1,7 +1,7 @@
 <div class="row flow-wrap">
-    <i class="mdi mdi-arrow-left-bold side-btn left" ></i>
+    <i class="mdi mdi-arrow-left-bold side-btn left" (click)="moveCards('left')" ></i>
     <div class="col-12  col-sm-12  col-md-6  col-lg-4  col-xl-3" *ngFor="let card of videos">
         <app-flip-card-video [card]="card"></app-flip-card-video>
     </div>
-    <i class="mdi mdi-arrow-right-bold side-btn right" ></i>
+    <i class="mdi mdi-arrow-right-bold side-btn right" (click)="moveCards('right')"></i>
 </div>
