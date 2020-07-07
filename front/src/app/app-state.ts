@@ -59,10 +59,10 @@ const appState = {
   lessonsFlow: [
     {
       number: "0",
-      name: "Вправа для поясниці",
+      name: "Вправа для поясниці 1",
       video: "-RjXS5aH3Hk",
       description: {
-        ua: "Вправа для поясниці"
+        ua: "Вправа для поясниці 1"
       },
       text: {
         en: "text",
@@ -71,10 +71,10 @@ const appState = {
     },
     {
       number: "1",
-      name: "Вправа для поясниці",
+      name: "Вправа для поясниці 22",
       video: "PMqLSUT8LhE",
       description: {
-        ua: "Вправа для поясниці"
+        ua: "Вправа для поясниці 22"
       },
       text: {
         en: "text",
