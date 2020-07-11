@@ -22,10 +22,15 @@ app.set('port', port);
 /**
  * SSL for HTTPS, HTTP2
  */
-const options = {
-  key: fs.readFileSync(__dirname + '/keys/server.key'),
-  cert: fs.readFileSync(__dirname + '/keys/server.crt')
-}
+// const options = {
+//   key: fs.readFileSync(__dirname + '/keys/server.key'),
+//   cert: fs.readFileSync(__dirname + '/keys/server.crt')
+// }
+var options = {
+  ca: fs.readFileSync ('/keys/ca_bundle.crt'),
+  cert: fs.readFileSync('/keys/certificate.crt'),
+  key: fs.readFileSync('/keys/private.key'),
+ };
 
 
 /**
