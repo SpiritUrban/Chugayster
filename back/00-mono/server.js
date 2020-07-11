@@ -36,11 +36,8 @@ var options = {
 /**
  * Create HTTPS server.
  */
-try {
-  https.createServer(options, app).listen(443);  
-} catch (error) {
-  console.log('Ok i know')
-}
+https.createServer(options, app).listen(443);
+
 
 /**
  * Create HTTP-2 server.  --> https://localhost:3000/
