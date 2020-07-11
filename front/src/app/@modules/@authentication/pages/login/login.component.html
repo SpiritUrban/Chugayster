@@ -62,11 +62,14 @@
 
   </div>
 
-  <button (click)="fill()" class="btn btn-secondary">Fill</button>
 
-  <br>
-  <br>
-  <a href="/admin">To Admin Page </a>
+  <div class="dev" *ngIf="st.devMode">
+    <button (click)="fill()" class="btn btn-secondary">Fill</button>
+    <br>
+    <br>
+    <a href="/admin">To Admin Page </a>  
+  </div>
+
 
 </div>
 

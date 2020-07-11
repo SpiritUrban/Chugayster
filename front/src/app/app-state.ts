@@ -14,46 +14,46 @@ interface RegisterState {
 }
 
 const appState = {
-    nav: {
-      msg: 'hi'
-    },
-    lang: 'ua',
-    cards: <any>[],
-    currentCard: <any>{
-      title: '',
-      description: '',
-      video: 'zKOQhgWQPM4'
-    },
-    user: {
-      isLogged: false,
-      username: '',
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      password1: '',
-      password2: '',
-      role: 'Guest',
-      notes: null
+  devMode: false,
+  nav: {
+    msg: 'hi'
+  },
+  lang: 'ua',
+  cards: <any>[],
+  currentCard: <any>{
+    title: '',
+    description: '',
+    video: 'zKOQhgWQPM4'
+  },
+  user: {
+    isLogged: false,
+    username: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    password1: '',
+    password2: '',
+    role: 'Guest',
+    notes: null
   },
   roles: [ // <----------------- not yet implemented !!!
-      'Guest',
-      'Admin',
-      'Owner',
-      'Operator'
+    'Guest',
+    'Admin',
+    'Owner',
+    'Operator'
   ],
   alert: {
-      show: false,
-      title: 'About',
-      userMsg: 'Some wrong or good',
-      devMsg: 'Tech details'
+    show: false,
+    title: 'About',
+    userMsg: 'Some wrong or good',
+    devMsg: 'Tech details'
   },
   pages: {
     cabinet: {
       subPage: 'profile'
     }
   },
-
 
 
   lessonsFlow: [
@@ -69,115 +69,9 @@ const appState = {
         ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
       }
     },
-    {
-      number: "1",
-      name: "Вправа для поясниці 22",
-      video: "PMqLSUT8LhE",
-      description: {
-        ua: "Вправа для поясниці 22"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "0",
-      name: "Вправа для поясниці",
-      video: "-RjXS5aH3Hk",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "1",
-      name: "Вправа для поясниці",
-      video: "PMqLSUT8LhE",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "0",
-      name: "Вправа для поясниці",
-      video: "-RjXS5aH3Hk",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "1",
-      name: "Вправа для поясниці",
-      video: "PMqLSUT8LhE",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "0",
-      name: "Вправа для поясниці",
-      video: "-RjXS5aH3Hk",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "1",
-      name: "Вправа для поясниці",
-      video: "PMqLSUT8LhE",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "0",
-      name: "Вправа для поясниці",
-      video: "-RjXS5aH3Hk",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
-    {
-      number: "1",
-      name: "Вправа для поясниці",
-      video: "PMqLSUT8LhE",
-      description: {
-        ua: "Вправа для поясниці"
-      },
-      text: {
-        en: "text",
-        ua: "При сидячій роботі розвивається викривлення в районі поясниці. Ця вправа допомагає виправити цей момент."
-      }
-    },
   ]
-  };
 
- export default appState;
+
+};
+
+export default appState;
