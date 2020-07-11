@@ -27,9 +27,9 @@ app.set('port', port);
 //   cert: fs.readFileSync(__dirname + '/keys/server.crt')
 // }
 var options = {
-  ca: fs.readFileSync ('/keys/ca_bundle.crt'),
-  cert: fs.readFileSync('/keys/certificate.crt'),
-  key: fs.readFileSync('/keys/private.key'),
+  ca: fs.readFileSync (__dirname +  '/keys/ca_bundle.crt'),
+  cert: fs.readFileSync(__dirname + '/keys/certificate.crt'),
+  key: fs.readFileSync(__dirname + '/keys/private.key'),
  };
 
 
