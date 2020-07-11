@@ -16,6 +16,8 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     var w: any = window;
 
+    console.log(this.st)
+
     //
     // dev signal
     //

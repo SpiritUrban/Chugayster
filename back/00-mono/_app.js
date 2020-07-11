@@ -21,7 +21,8 @@ require('./app/log/init.js')(app); //.... logs
 require('./app/log/start.js')(app); //... logs
 require('./app/passport.js'); //... passport
 
-require('mongoose').connect('mongodb://localhost/', {
+require('mongoose').connect(`mongodb+srv://user:${process.env.DB_PASS}@cluster0-bpnma.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
+// require('mongoose').connect('mongodb://localhost/', {
   useCreateIndex: true,
   useUnifiedTopology: true,
   useNewUrlParser: true,
