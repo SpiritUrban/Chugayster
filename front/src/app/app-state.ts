@@ -60,7 +60,7 @@ const appState = {
     {
       number: "0",
       name: "Вправа для поясниці 1",
-      video: "-RjXS5aH3Hk",
+      video: "-8gk0tXZu2w",
       description: {
         ua: "Вправа для поясниці 1"
       },
