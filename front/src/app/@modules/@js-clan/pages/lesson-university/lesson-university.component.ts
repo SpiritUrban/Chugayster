@@ -1,0 +1,53 @@
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import appState from '../../../../app-state';
+import { log } from '../../../../my_modules/stuff';
+import { ApiService } from '../../../@common-dependencies/services/api.service';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+
+@Component({
+  selector: 'app-lesson-university',
+  templateUrl: './lesson-university.component.html',
+  styleUrls: ['./lesson-university.component.sass']
+})
+export class LessonUniversityComponent implements OnInit {
+
+  st: any = appState;
+  url: string = "https://www.youtube.com/embed/";
+  urlSafe: SafeResourceUrl;
+
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiService,
+    public sanitizer: DomSanitizer
+  ) {
+  }
+
+  async ngOnInit() {
+    try {
+
+      // 1
+      let lessonName = this.route.snapshot.paramMap.get('name');
+      log(lessonName)
+      // log(state)
+
+      // 2
+      this.st.cards = this.st.lessonsFlow; // await this.api.getJson('/js-clan/data/lessons-university.json');
+      log(this.st.cards);
+
+      //3
+      this.st.currentCard = this.st.cards.filter(card => card.name == lessonName)[0]
+      log(this.st.currentCard)
+
+      //4
+      this.urlSafe = this.sanitizer.bypassSecurityTrustResourceUrl(this.url + this.st.currentCard.video);
+
+    } catch (error) {
+      log(error);
+    }
+  }
+
+}
+

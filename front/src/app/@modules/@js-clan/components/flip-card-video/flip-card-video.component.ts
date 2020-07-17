@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class FlipCardVideoComponent implements OnInit {
 
   @Input() card: any;
+  @Input() goingTo: any;
 
   st: any;
   url: string = "https://www.youtube.com/embed/";

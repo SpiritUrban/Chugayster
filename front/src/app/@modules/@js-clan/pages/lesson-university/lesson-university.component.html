@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+
+<div class="container lessons-content">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="card-header">{{st.currentCard.title[st.lang]}}</h3>
+    <br>
+
+    <div class="row">
+        <iframe  
+        [src]="urlSafe"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen=""></iframe>
+    </div>
+
+    <br>
+    <p class="card-text">{{st.currentCard.description[st.lang]}}</p>
+    <a href="https://github.com/SpiritUrban/JavaScript-2020">Code on GitHub</a>
+
+</div>
+
+

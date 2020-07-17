@@ -17,6 +17,8 @@ import { CabinetComponent } from './pages/cabinet/cabinet.component';
 import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips.component';
 import { ArComponent } from './pages/games/ar/ar.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { LessonUniversityComponent } from './pages/lesson-university/lesson-university.component';
+
 
 
 const routes: Routes = [
@@ -24,6 +26,7 @@ const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'lessons', component: LessonsComponent },
   { path: 'lesson/:name', component: LessonComponent },
+  { path: 'lessons-university/:name', component: LessonUniversityComponent },
   { path: 'want-more-lessons', component: WantMoreLessonsComponent },
   { path: 'members', component: MembersComponent },
   { path: 'students', component: StudentsComponent },
