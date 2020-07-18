@@ -1,0 +1,6 @@
+*** Generate COMPONENT:
+ng g component @modules/@training-apparatus/components/general/nav
+
+*** Generate PAGE:
+ng g component @modules/@training-apparatus/pages/**
+ng g component @modules/@training-apparatus/pages/step-a

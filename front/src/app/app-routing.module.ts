@@ -19,6 +19,10 @@ import { Routes, RouterModule } from '@angular/router';
       path: 'dev',
       loadChildren: () => import('./@modules/@developer-guide/@developer-guide.module').then(mod => mod.DeveloperGuideModule)
     },
+    {
+      path: 'training',
+      loadChildren: () => import('./@modules/@training-apparatus/@training-apparatus.module').then(mod => mod.TrainingApparatusModule)
+    },
     { path: '**', redirectTo: '/p404' }
   ]
 

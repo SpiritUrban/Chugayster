@@ -73,6 +73,38 @@ const appState = {
         ua: "Вступне відео процесу навчання 'Веб Університет'"
       }
     },
+    {
+      number: "0",
+      name: "001 START",
+      video: "ic-m1zBbisk",
+      title: {
+        en: "Intro",
+        ua: "Вступне відео процесу навчання 'Веб Університет'"
+      },
+      description: {
+        ua: "001 START"
+      },
+      text: {
+        en: "Intro",
+        ua: "Вступне відео процесу навчання 'Веб Університет'"
+      }
+    },
+    {
+      number: "0",
+      name: "001 START",
+      video: "ic-m1zBbisk",
+      title: {
+        en: "Intro",
+        ua: "Вступне відео процесу навчання 'Веб Університет'"
+      },
+      description: {
+        ua: "001 START"
+      },
+      text: {
+        en: "Intro",
+        ua: "Вступне відео процесу навчання 'Веб Університет'"
+      }
+    },
   ]
 
 

@@ -4,8 +4,6 @@ import { NgModule} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 // import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
 // import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 // router
@@ -16,7 +14,6 @@ import { AppComponent } from './root/app.component';
 
 // @modules
 import { CommonDependenciesModule } from './@modules/@common-dependencies/@common-dependencies.module'
-
 
 // services
 import { ApiService } from './@modules/@common-dependencies/services/api.service'
