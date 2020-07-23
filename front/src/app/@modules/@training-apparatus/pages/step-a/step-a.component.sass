@@ -1,0 +1,53 @@
+.container
+    margin: 4em 0
+    padding: 0
+
+// .limit
+//     max-width: 30em
+//     margin: 3em auto
+
+.title
+    text-align: center
+    padding: 3em
+
+.jumbotron
+    padding: 2em !important
+
+.btn-panel
+    text-align: right
+
+.register
+    color: #ff003b
+    font-weight: 900    
+
+
+
+
+.scene
+    position: relative
+    background: #2d2d2d url(/assets/training-apparatus/step-a/img/MGS_Millionaire.jpg) no-repeat center center fixed
+    background-size: cover
+    width: 100vw
+    height: 70vh
+
+.millionaire
+    position: absolute
+    bottom: 0
+    left: 30%
+    animation: wow 5s infinite
+
+
+@keyframes wow 
+    0%
+        // transform: rotate(0deg)
+        transform: translateX(0)
+        color: black
+        // filter: blur(7px)
+    50%
+        // transform: rotate(2deg)
+        transform: translateX(.5em)
+
+    100%
+        // transform: rotate(0deg)
+        transform: translateX(0)
+        color: #b9005e
