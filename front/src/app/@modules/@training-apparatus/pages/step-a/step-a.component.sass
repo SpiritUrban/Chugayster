@@ -51,3 +51,38 @@
         // transform: rotate(0deg)
         transform: translateX(0)
         color: #b9005e
+
+.q-1
+    left: 5em
+    bottom: 6em
+.q-2
+    left: 5em
+    bottom: 1em
+.q-3
+    right: 5em
+    bottom: 6em
+.q-4
+    right: 5em
+    bottom: 1em
+.question
+    padding: 1em
+    background: blue
+    display: inline-block
+    position: absolute
+    height: 4em
+    &:before, &:after
+        content: ""
+        position: absolute
+        top: 0
+        width: 0
+        height: 0
+        border-top: 2em solid transparent
+        border-bottom: 2em solid transparent
+    &:before
+        border-right: 2em solid blue
+        right: 100%
+    &:after
+        right: -2em
+        border-top: 2em solid transparent
+        border-left: 2em solid blue
+        border-bottom: 2em solid transparent
