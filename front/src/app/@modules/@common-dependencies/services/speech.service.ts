@@ -58,10 +58,11 @@ export class SpeechService {
     this.talker.start();
   }
 
-  test() {
-    log('Speech Works');
+  speak(text) {
+    speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+    // var words = new SpeechSynthesisUtterance('Super star');
+    // speechSynthesis.speak(words);
   }
-
 }
 
   // this.recognition.continuous = true;

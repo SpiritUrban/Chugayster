@@ -20,7 +20,12 @@ export class StepAComponent implements OnInit {
 
   }
 
+  speak() {
+    this.speech.speak('Super star'+'Super star'+'Super star')
+  }
+
   ngOnInit(): void {
+
   }
 
   startButton(event) {
