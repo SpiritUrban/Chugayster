@@ -4,25 +4,23 @@
 
   <div class="">
     <div class="scene">
-      <h3 class="title">Training: A</h3>
-      <div class="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime facilis nesciunt quaerat
-        maiores vel soluta, magnam id quisquam deserunt architecto incidunt exercitationem laboriosam nostrum quasi quia
-        obcaecati corporis facere. Eligendi!</div>
-      <button (click)="startButton($event)">Listening is: {{speech.talking}}</button>
 
-
-        <button (click)="speak()">Speak</button>
-        <p class="message">Uses the <a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#tts-methods"
-            target="_blank">Web Speech API</a> (works in Chrome)</p>
+      <div class="top">
+        <h3 class="title">Training: A</h3>
+        <div class="question">{{questions[currentQuestion].question}}</div>
+        <!-- <button (click)="startButton($event)">Listening is: {{speech.talking}}</button> -->
+        <button (click)="speak()"><i class="mdi mdi-volume-high"></i></button>
+        <!-- <p class="message">Uses the <a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#tts-methods"
+            target="_blank">Web Speech API</a> (works in Chrome)</p> -->
+      </div>
 
       <img class="millionaire" src="assets/training-apparatus/step-a/img/millionaire.png" alt="">
-      <div class="answer an-1">asd sefkjdh jksddfh sdkjfjk </div>
-      <div class="answer an-2">asd sefkjdh jksddfh sdkjfjk </div>
-      <div class="answer an-3">asd sefkjdh jksddfh sdkjfjk </div>
-      <div class="answer an-4">asd sefkjdh jksddfh sdkjfjk </div>
+      <div class="answer an-1">{{questions[currentQuestion].answers[0]}} </div>
+      <div class="answer an-2">{{questions[currentQuestion].answers[1]}} </div>
+      <div class="answer an-3">{{questions[currentQuestion].answers[2]}} </div>
+      <div class="answer an-4">{{questions[currentQuestion].answers[3]}} </div>
     </div>
   </div>
-
 
 </div>
 

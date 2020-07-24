@@ -14,14 +14,29 @@ import { log, my_alert } from 'src/app/my_modules/stuff';
 
 export class StepAComponent implements OnInit {
 
+  questions = [
+    {
+      question: 'Как мы думаем? Почему в словах нет понимания? Можно ли научиться понимать, что происходит на самом деле? Почему так важен новый опыт для нашего мозга и как заставить его думать по-новому?',
+      answers: [
+        'Как мы думаем?',
+        'Почему в словах нет понимания?',
+        'Что происходит на самом деле?',
+        'Как заставить его думать по-новому?',
+      ],
+      correctAnswer: 1
+    }
+  ];
+  currentQuestion: number;
+
   constructor(
     public speech: SpeechService
   ) {
-
+    this.currentQuestion = 0; //questions[0].question;
   }
 
   speak() {
-    this.speech.speak('Super star'+'Super star'+'Super star')
+    log(this.questions[this.currentQuestion].question);
+    this.speech.speak(this.questions[this.currentQuestion].question);
   }
 
   ngOnInit(): void {
