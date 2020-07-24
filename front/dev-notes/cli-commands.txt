@@ -9,8 +9,10 @@ ng generate component @modules/@authentication/pages/conditions
 ng generate component @modules/@js-clan/pages/cabinet
 
 
+
 *** Generate Service:
 ng generate service @modules/@common-dependencies/services/validator
+ng generate service @modules/@common-dependencies/services/speech
 
 
 ::: IN DEVELOPER GUIDE
