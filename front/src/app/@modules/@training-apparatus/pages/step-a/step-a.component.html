@@ -6,10 +6,10 @@
     <div class="scene">
 
       <div class="top">
-        <h3 class="title">Training: A</h3>
+        <h3 class="title">Training: A <button class="btn btn-primary speak-btn" (click)="speak()"><i class="mdi mdi-volume-high"></i></button></h3>
         <div class="question">{{questions[currentQuestion].question}}</div>
         <!-- <button (click)="startButton($event)">Listening is: {{speech.talking}}</button> -->
-        <button (click)="speak()"><i class="mdi mdi-volume-high"></i></button>
+        
         <!-- <p class="message">Uses the <a href="https://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html#tts-methods"
             target="_blank">Web Speech API</a> (works in Chrome)</p> -->
       </div>
