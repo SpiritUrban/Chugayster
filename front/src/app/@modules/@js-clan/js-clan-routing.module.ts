@@ -18,7 +18,7 @@ import { ProgrammerTipsComponent } from './pages/programmer-tips/programmer-tips
 import { ArComponent } from './pages/games/ar/ar.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { LessonUniversityComponent } from './pages/lesson-university/lesson-university.component';
-
+import { DesignsComponent } from './pages/designs/designs.component';
 
 
 const routes: Routes = [
@@ -37,6 +37,7 @@ const routes: Routes = [
   { path: 'cabinet', component: CabinetComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'programmer-tips', component: ProgrammerTipsComponent },
+  { path: 'designs', component: DesignsComponent },
 
   { path: 'games/ar', component: ArComponent },
 
