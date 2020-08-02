@@ -49,11 +49,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class JsClanRoutingModule { }
-
-
-// const routes: Routes = [
-  // { path: 'about-us', component: AboutUsComponent },
-  // { path: 'engineer/:name', component: EngineerComponent },
-  // { path: 'auth', component: AuthComponent },
-  // { path: 'admin', component:  AdminComponent},
-// ];
