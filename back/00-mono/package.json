@@ -36,7 +36,7 @@
     "dotenv": "^4.0.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
-    "express-jwt": "^5.3.3",
+    "express-jwt": "^6.0.0",
     "express-session": "^1.17.1",
     "fetch": "^1.1.0",
     "high-level": "git+https://github.com/SpiritUrban/high-level.js.git",
