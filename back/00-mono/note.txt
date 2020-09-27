@@ -12,3 +12,5 @@ Other:
   https://ourcodeworld.com/articles/read/140/top-5-best-code-syntax-highlighter-javascript-plugins
 
   
+
+  npm install --save https://github.com/SpiritUrban/high-level.js.git

@@ -39,6 +39,7 @@
     "express-jwt": "^5.3.3",
     "express-session": "^1.17.1",
     "fetch": "^1.1.0",
+    "high-level": "git+https://github.com/SpiritUrban/high-level.js.git",
     "install": "^0.10.4",
     "jade": "^0.34.1",
     "jwt-simple": "^0.5.6",
